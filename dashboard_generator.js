@@ -22,6 +22,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="theme-color" content="#070b14">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1247,30 +1250,34 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     <div class="token-modal-card" onclick="event.stopPropagation()">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
         <h3 style="font-size:1.05rem; font-weight:800; color:var(--text); display:flex; align-items:center; gap:6px;">
-          <span>⚡</span> 1-Click Mobile Run Setup
+          <span>⚡</span> Run Scans from Mobile
         </h3>
         <button style="background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer;" onclick="closeGhTokenModal()">✕</button>
       </div>
-      <p style="font-size:0.82rem; color:var(--text); line-height:1.5; margin-bottom:10px;">
-        மொபைலில் இருந்து நேரடியாக Scan Run செய்ய GitHub Token தேவை:
-      </p>
-      <div style="font-size:0.75rem; color:#f59e0b; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:8px 10px; margin-bottom:12px; line-height:1.4;">
-        ⚠️ <b>முக்கிய குறிப்பு:</b> Token உருவாக்கும் போது முதலாவதாக உள்ள <b>☑ repo</b> மற்றும் <b>☑ workflow</b> ஆகியவற்றை கட்டாயம் <b>Tick (✓)</b> செய்ய வேண்டும்!
+
+      <!-- Quick Option 1: Direct 1-Click (No Token Needed!) -->
+      <a href="https://github.com/karthi8749/ConfluX/actions/workflows/run-scans.yml" target="_blank" class="btn btn-run" style="width:100%; justify-content:center; padding:11px; font-size:0.85rem; text-decoration:none; margin-bottom:12px; box-shadow:0 3px 12px rgba(16,185,129,0.4);">
+        ⚡ Run on GitHub (No Token Needed) ↗
+      </a>
+
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+        <div style="flex:1; height:1px; background:var(--border);"></div>
+        <span style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase;">அல்லது (Dashboard-லேயே Run செய்ய)</span>
+        <div style="flex:1; height:1px; background:var(--border);"></div>
       </div>
-      <div id="tokenErrorMsg" style="display:none; color:#f87171; font-size:0.75rem; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:8px 10px; margin-bottom:12px; line-height:1.4;"></div>
-      <input type="password" id="ghTokenInput" class="search-input" style="width:100% !important; padding:10px 14px; margin-bottom:14px; font-size:0.85rem;" placeholder="ghp_xxxxxxxxxxxx...">
-      <div style="display:flex; flex-direction:column; gap:8px;">
-        <button class="btn btn-run" style="width:100%; justify-content:center; padding:10px;" onclick="saveTokenAndRun()">
-          ⚡ Save & Run Scans Now
-        </button>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:6px;">
-          <a href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=ConfluX+Mobile+Runner" target="_blank" style="font-size:0.75rem; color:var(--accent); text-decoration:none; font-weight:700;">
-            🔑 Create Token (with repo tick) ↗
-          </a>
-          <a href="https://github.com/karthi8749/ConfluX/actions/workflows/run-scans.yml" target="_blank" style="font-size:0.75rem; color:var(--text-muted); text-decoration:underline;">
-            Run on GitHub directly ↗
-          </a>
-        </div>
+
+      <p style="font-size:0.76rem; color:var(--text-muted); line-height:1.4; margin-bottom:8px;">
+        Classic Token (ghp_... with <b>☑ repo</b> tick) உள்ளிட்டு Save செய்தால், இங்கிருந்தே நேரடியாக ரன் செய்யலாம்:
+      </p>
+      <div id="tokenErrorMsg" style="display:none; color:#f87171; font-size:0.75rem; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:8px 10px; margin-bottom:10px; line-height:1.4;"></div>
+      <input type="password" id="ghTokenInput" class="search-input" style="width:100% !important; padding:8px 12px; margin-bottom:10px; font-size:0.82rem;" placeholder="ghp_xxxxxxxxxxxx...">
+      <button class="btn btn-accent" style="width:100%; justify-content:center; padding:9px; font-size:0.8rem;" onclick="saveTokenAndRun()">
+        💾 Save Token & Run Here
+      </button>
+      <div style="text-align:center; margin-top:8px;">
+        <a href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=ConfluX+Mobile+Runner" target="_blank" style="font-size:0.75rem; color:var(--accent); text-decoration:none; font-weight:700;">
+          🔑 Generate Token (Tick ☑ repo) ↗
+        </a>
       </div>
     </div>
   </div>

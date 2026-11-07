@@ -1,27 +1,10 @@
 // ============================================================
-//  sw.js — ConfluX Service Worker for PWA & Offline Support
+//  sw.js — ConfluX Service Worker (v2.1 - Network First)
 // ============================================================
 
-const CACHE_NAME = 'conflux-v1.1';
-const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
-  './dashboard.html',
-  './manifest.json',
-  './favicon.svg',
-  './icon-192.png',
-  './icon-512.png',
-  './icon-maskable-192.png',
-  './icon-maskable-512.png',
-  './apple-touch-icon.png'
-];
+const CACHE_NAME = 'conflux-v2.1';
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE).catch(() => {});
-    })
-  );
   self.skipWaiting();
 });
 
@@ -29,15 +12,14 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys.map((key) => caches.delete(key))
       );
-    })
+    }).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
-  // Network first, falling back to cache
+  // Always fetch fresh HTML from network so user never gets stuck with old cache
   event.respondWith(
     fetch(event.request)
       .then((response) => {
