@@ -1122,6 +1122,18 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       </div>
 
       <div class="topbar-actions">
+        <!-- PWA Install Button (shown only when installable) -->
+        <div id="installBanner" style="display:none; width:100%; background:linear-gradient(90deg,#1e40af,#0ea5e9); border-radius:10px; padding:8px 14px; margin-bottom:6px; align-items:center; justify-content:space-between; gap:10px; cursor:pointer;" onclick="triggerInstall()">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.2rem;">📲</span>
+            <div>
+              <div style="font-size:0.82rem; font-weight:800; color:#fff;">Install ConfluX App</div>
+              <div style="font-size:0.68rem; color:rgba(255,255,255,0.8);">Home screen-ல் add பண்ண tap பண்ணு</div>
+            </div>
+          </div>
+          <button style="background:#facc15; color:#1e3a8a; border:none; border-radius:7px; padding:6px 14px; font-size:0.78rem; font-weight:800; cursor:pointer; flex-shrink:0;">Install ↓</button>
+        </div>
+
         <!-- Action Row 1: Tools (Theme Switch + Copy + Top 30) -->
         <div class="action-row action-row-tools">
           <!-- Animated iOS Dark / Light Toggle Switch -->
@@ -2754,6 +2766,39 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     initTheme();
     renderSidebar();
     renderContent();
+
+    // ── PWA Install Prompt ──────────────────────────────────────────────────
+    let _deferredInstallPrompt = null;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      _deferredInstallPrompt = e;
+      const banner = document.getElementById('installBanner');
+      if (banner) banner.style.display = 'flex';
+    });
+
+    window.addEventListener('appinstalled', () => {
+      _deferredInstallPrompt = null;
+      const banner = document.getElementById('installBanner');
+      if (banner) banner.style.display = 'none';
+      showToast('✅ ConfluX App Installed! Home screen-ல் பாரு 🎉');
+    });
+
+    window.triggerInstall = async function() {
+      if (!_deferredInstallPrompt) {
+        showToast('📲 Already installed or not supported on this browser');
+        return;
+      }
+      _deferredInstallPrompt.prompt();
+      const { outcome } = await _deferredInstallPrompt.userChoice;
+      if (outcome === 'accepted') {
+        showToast('🎉 ConfluX installing...');
+      }
+      _deferredInstallPrompt = null;
+      const banner = document.getElementById('installBanner');
+      if (banner) banner.style.display = 'none';
+    };
+    // ───────────────────────────────────────────────────────────────────────
   </script>
 </body>
 </html>`;
