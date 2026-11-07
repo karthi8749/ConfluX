@@ -1,22 +1,21 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 4:13:58 am
+CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 4:21:57 am
 ═════════════════════════════════════════════════════════════════
 
-📋 FILTER: Antigravity -Filter 2 - ENHANCED (4 stocks)
+📋 FILTER: Inst. Entry (Enhanced) (3 stocks)
+--------------------------------------------------
+   1. NSE:TVSELECT        | Tvs Electronics Limited   | LTP: ₹395.05   | 7.15%
+   2. NSE:AERONEU         | Aeroflex Neu Ltd          | LTP: ₹83.74    | 6.49%
+   3. NSE:XCHANGING       | Xchanging Solutions Limited | LTP: ₹60.7     | 5.42%
+
+📋 FILTER: Inst. Entry AG 2 (4 stocks)
 --------------------------------------------------
    1. NSE:TVSELECT        | Tvs Electronics Limited   | LTP: ₹395.05   | 7.15%
    2. NSE:AERONEU         | Aeroflex Neu Ltd          | LTP: ₹83.74    | 6.49%
    3. NSE:XCHANGING       | Xchanging Solutions Limited | LTP: ₹60.7     | 5.42%
    4. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%
 
-📋 FILTER: Antigravity - Filter 2 (4 stocks)
---------------------------------------------------
-   1. NSE:TVSELECT        | Tvs Electronics Limited   | LTP: ₹395.05   | 7.15%
-   2. NSE:AERONEU         | Aeroflex Neu Ltd          | LTP: ₹83.74    | 6.49%
-   3. NSE:XCHANGING       | Xchanging Solutions Limited | LTP: ₹60.7     | 5.42%
-   4. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%
-
-📋 FILTER: Antigrvity - Filter 4 (19 stocks)
+📋 FILTER: Inst. Entry AG 4 (19 stocks)
 --------------------------------------------------
    1. NSE:LINDEINDIA      | Linde India Limited       | LTP: ₹6,859    | 8.73%
    2. NSE:KIRLPNU         | Kirloskar Pneumatic Company Ltd | LTP: ₹615.35   | 7.64%
@@ -38,11 +37,11 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 4:13:58 am
   18. NSE:BAJAJ-AUTO      | Bajaj Auto Limited        | LTP: ₹10,900   | 1.32%
   19. NSE:AXISNIFTY       | Axis Nifty ETF            | LTP: ₹266.64   | 0.66%
 
-📋 FILTER: Antigravity -Filter 5 (0 stocks)
+📋 FILTER: Inst. Entry AG 5 (0 stocks)
 --------------------------------------------------
   (No stocks matched this filter)
 
-📋 FILTER: Bullish OB chatgpt 2 (20 stocks)
+📋 FILTER: Inst. Entry GPT 1 (20 stocks)
 --------------------------------------------------
    1. NSE:MMFL            | Mm Forgings Limited       | LTP: ₹629.4    | 19.95%
    2. NSE:IKIO            | IKIO Lighting Ltd         | LTP: ₹196.69   | 13.11%
@@ -65,7 +64,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 4:13:58 am
   19. NSE:GLENMARK        | Glenmark Pharmaceuticals Limited | LTP: ₹2,590    | 4.36%
   20. NSE:TEXINFRA        | Texmaco Infrastructure & Holdings Limited | LTP: ₹125.9    | 4.28%
 
-📋 FILTER: chatgpt orderblock (0 stocks)
+📋 FILTER: Inst. Entry GPT 2 (0 stocks)
 --------------------------------------------------
   (No stocks matched this filter)
 
@@ -92,7 +91,28 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 4:13:58 am
   19. NSE:LICHSGFIN       | Lic Housing Finance Limited | LTP: ₹536      | 1.32%
   20. NSE:RPEL            | Raghav Productivity Enhancers Ltd | LTP: ₹1,780.8  | 0.95%
 
-📋 FILTER: EMA9/21 - pullback (10 stocks)
+📋 FILTER: EMA9/21 - InvertedHammer (7 stocks)
+--------------------------------------------------
+   1. NSE:PREMCO          | Premco Global Ltd         | LTP: ₹443.9    | 6.31%
+   2. NSE:ALANKIT         | Alankit Limited           | LTP: ₹7.89     | 3.14%
+   3. NSE:SHIVAUM         | Shiv Aum Steels Ltd       | LTP: ₹554.35   | 2.65%
+   4. NSE:CORONA          | Corona Remedies Ltd       | LTP: ₹2,441.1  | 2.58%
+   5. NSE:ASTRAZEN        | Astrazeneca Pharma India Limited | LTP: ₹6,373.5  | 1.26%
+   6. NSE:MOPSE           | Motilal Oswal Nifty PSE ETF | LTP: ₹95.57    | -1.29%
+   7. NSE:AEROFLEX        | Aeroflex Industries Ltd   | LTP: ₹482.7    | -10.66%
+
+📋 FILTER: EMA9/21 - Hammer (8 stocks)
+--------------------------------------------------
+   1. NSE:DIGJAMLMTD      | Digjam Ltd                | LTP: ₹56.23    | 4.99%
+   2. NSE:RNBDENIMS       | R&B Denims Ltd            | LTP: ₹8.87     | 4.85%
+   3. NSE:GALAPREC        | Gala Precision Engineering Ltd | LTP: ₹1,165.4  | 1.5%
+   4. NSE:ICICIB22        | Bharat 22 ETF             | LTP: ₹115.27   | 1.04%
+   5. NSE:ELMDIV          | Edelweiss BSE LargeMid (60:40) Stable Divi. 50 ETF | LTP: ₹36.76    | 0.82%
+   6. NSE:PSUBNKIETF      | ICICI Prudential Nifty PSU Bank ETF | LTP: ₹86.96    | 0.43%
+   7. NSE:MANAPPURAM      | Manappuram Finance Limited | LTP: ₹325.4    | -0.18%
+   8. NSE:GODREJPROP      | Godrej Properties Limited | LTP: ₹1,809.3  | -0.31%
+
+📋 FILTER: EMA9/21 - MARUBOZU (10 stocks)
 --------------------------------------------------
    1. NSE:SYMBIOTEC       | Symbiotec Pharmalab Ltd   | LTP: ₹1,513.6  | 19.04%
    2. NSE:BANKA           | Banka Bioloo Ltd          | LTP: ₹81.4     | 10%
@@ -106,7 +126,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 4:13:58 am
   10. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹375      | 0.55%
 
 ═════════════════════════════════════════════════════════════════
-TOTAL UNIQUE SYMBOLS (59 stocks):
+TOTAL UNIQUE SYMBOLS (73 stocks):
 ═════════════════════════════════════════════════════════════════
 NSE:TVSELECT
 NSE:AERONEU
@@ -159,6 +179,20 @@ NSE:ARIES
 NSE:GALAPREC
 NSE:LICHSGFIN
 NSE:RPEL
+NSE:PREMCO
+NSE:ALANKIT
+NSE:SHIVAUM
+NSE:CORONA
+NSE:ASTRAZEN
+NSE:MOPSE
+NSE:AEROFLEX
+NSE:DIGJAMLMTD
+NSE:RNBDENIMS
+NSE:ICICIB22
+NSE:ELMDIV
+NSE:PSUBNKIETF
+NSE:MANAPPURAM
+NSE:GODREJPROP
 NSE:SYMBIOTEC
 NSE:ABSLMSCIN
 NSE:PVTBANIETF
