@@ -1251,9 +1251,12 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         </h3>
         <button style="background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer;" onclick="closeGhTokenModal()">✕</button>
       </div>
-      <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
-        மொபைலில் இருந்து நேரடியாக Scan Run செய்ய உங்கள் GitHub Classic Token-ஐ ஒருமுறை மட்டும் உள்ளிடவும் (Saved safely in localStorage):
+      <p style="font-size:0.82rem; color:var(--text); line-height:1.5; margin-bottom:10px;">
+        மொபைலில் இருந்து நேரடியாக Scan Run செய்ய GitHub Token தேவை:
       </p>
+      <div style="font-size:0.75rem; color:#f59e0b; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:8px 10px; margin-bottom:12px; line-height:1.4;">
+        ⚠️ <b>முக்கிய குறிப்பு:</b> Token உருவாக்கும் போது முதலாவதாக உள்ள <b>☑ repo</b> மற்றும் <b>☑ workflow</b> ஆகியவற்றை கட்டாயம் <b>Tick (✓)</b> செய்ய வேண்டும்!
+      </div>
       <div id="tokenErrorMsg" style="display:none; color:#f87171; font-size:0.75rem; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:8px 10px; margin-bottom:12px; line-height:1.4;"></div>
       <input type="password" id="ghTokenInput" class="search-input" style="width:100% !important; padding:10px 14px; margin-bottom:14px; font-size:0.85rem;" placeholder="ghp_xxxxxxxxxxxx...">
       <div style="display:flex; flex-direction:column; gap:8px;">
@@ -1261,11 +1264,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           ⚡ Save & Run Scans Now
         </button>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:6px;">
-          <a href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=ConfluX+Mobile+Runner" target="_blank" style="font-size:0.75rem; color:var(--accent); text-decoration:none; font-weight:600;">
-            🔑 Create Token (1-Click) ↗
+          <a href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=ConfluX+Mobile+Runner" target="_blank" style="font-size:0.75rem; color:var(--accent); text-decoration:none; font-weight:700;">
+            🔑 Create Token (with repo tick) ↗
           </a>
-          <a href="https://github.com/karthi8749/ConfluX/actions/workflows/run-scans.yml" target="_blank" style="font-size:0.75rem; color:var(--text-muted); text-decoration:none;">
-            Run on GitHub ↗
+          <a href="https://github.com/karthi8749/ConfluX/actions/workflows/run-scans.yml" target="_blank" style="font-size:0.75rem; color:var(--text-muted); text-decoration:underline;">
+            Run on GitHub directly ↗
           </a>
         </div>
       </div>
