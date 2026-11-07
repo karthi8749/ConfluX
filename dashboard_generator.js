@@ -37,6 +37,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <!-- Official TradingView Lightweight Charts Library -->
   <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+  <!-- Register Service Worker for PWA Offline & Native App Install -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
   <style>
     :root {
       --green: #089981;
@@ -552,23 +560,56 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     .open-chart-btn {
-      padding: 5px 12px;
+      padding: 5px 11px;
       font-size: 0.78rem;
-      background: var(--accent-pill);
-      color: var(--accent-pill-text);
-      border: 1px solid transparent;
+      background: rgba(41, 98, 255, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(41, 98, 255, 0.3);
       border-radius: 6px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-weight: 600;
+      gap: 6px;
+      font-weight: 700;
       transition: var(--transition);
+      user-select: none;
     }
     .open-chart-btn:hover {
-      background: var(--accent-btn-bg);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+      box-shadow: 0 2px 10px rgba(37, 99, 235, 0.45);
+    }
+    .tv-logo-svg {
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* ─── TOKEN MODAL FOR MOBILE 1-CLICK RUN ─── */
+    .token-modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(4, 7, 14, 0.78);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 2200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .token-modal-backdrop.visible {
+      display: flex;
+    }
+    .token-modal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: var(--shadow);
     }
 
     /* ─── ENLARGED FLOATING HOVER CHART CARD (780px x 580px) ─── */
@@ -1149,8 +1190,13 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         <span class="card-ohlc" id="cardOhlcDisplay">O: - H: - L: - C: -</span>
       </div>
       <div class="card-actions">
-        <a href="#" target="_blank" class="card-btn" id="cardTvAccountBtn" title="Open chart directly in your TradingView account">
-          🚀 Open in TradingView
+        <a href="#" target="_blank" class="card-btn" id="cardTvAccountBtn" title="Open chart directly in TradingView">
+          <svg class="tv-logo-svg" width="16" height="12" viewBox="0 0 36 26" fill="currentColor">
+            <path d="M14 0H0V26H14V0Z"/>
+            <path d="M22 0H36V13H22V0Z"/>
+            <path d="M22 13L36 26H22V13Z"/>
+          </svg>
+          <span>TradingView</span>
         </a>
         <button class="card-btn pin-btn" id="pinBtn" onclick="togglePinCard()" title="Pin this chart open while moving mouse">
           📌 Pin
@@ -1195,6 +1241,35 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
   </div>
 
   <div class="toast" id="toast">Copied to Clipboard!</div>
+
+  <!-- Modal to setup 1-Click Mobile Cloud Run -->
+  <div class="token-modal-backdrop" id="tokenModalBackdrop" onclick="closeGhTokenModal()">
+    <div class="token-modal-card" onclick="event.stopPropagation()">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="font-size:1.05rem; font-weight:800; color:var(--text); display:flex; align-items:center; gap:6px;">
+          <span>⚡</span> 1-Click Mobile Run Setup
+        </h3>
+        <button style="background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer;" onclick="closeGhTokenModal()">✕</button>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
+        மொபைலில் இருந்து நேரடியாக Scan Run செய்ய உங்கள் GitHub Token-ஐ ஒருமுறை மட்டும் உள்ளிடவும் (Saved safely in localStorage):
+      </p>
+      <input type="password" id="ghTokenInput" class="search-input" style="width:100% !important; padding:10px 14px; margin-bottom:14px; font-size:0.85rem;" placeholder="ghp_xxxxxxxxxxxx...">
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <button class="btn btn-run" style="width:100%; justify-content:center; padding:10px;" onclick="saveTokenAndRun()">
+          ⚡ Save & Run Scans Now
+        </button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:6px;">
+          <a href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=ConfluX+Mobile" target="_blank" style="font-size:0.75rem; color:var(--accent); text-decoration:none; font-weight:600;">
+            🔑 Create Token (1-Click) ↗
+          </a>
+          <a href="https://github.com/karthi8749/ConfluX/actions/workflows/run-scans.yml" target="_blank" style="font-size:0.75rem; color:var(--text-muted); text-decoration:none;">
+            Run on GitHub ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     const data = ${jsonResults};
@@ -1322,13 +1397,149 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       } catch (_) {}
     }
 
+    // ── 1-Click Mobile Cloud Runner via GitHub Actions API ──
+    function openGhTokenModal() {
+      const modal = document.getElementById("tokenModalBackdrop");
+      if (modal) modal.classList.add("visible");
+    }
+
+    function closeGhTokenModal() {
+      const modal = document.getElementById("tokenModalBackdrop");
+      if (modal) modal.classList.remove("visible");
+    }
+
+    function saveTokenAndRun() {
+      const input = document.getElementById("ghTokenInput");
+      const val = input ? input.value.trim() : "";
+      if (!val) {
+        showToast("⚠️ Please paste your GitHub Token");
+        return;
+      }
+      localStorage.setItem("conflux_gh_token", val);
+      closeGhTokenModal();
+      triggerGhWorkflow(val);
+    }
+
+    async function triggerGhWorkflow(token) {
+      const btn = document.getElementById("runScanBtn");
+      const icon = document.getElementById("runScanIcon");
+      const text = document.getElementById("runScanText");
+      const bar = document.getElementById("runScanProgressBar");
+
+      btn.disabled = true;
+      btn.classList.add("running");
+      if (icon) icon.innerHTML = '<span class="spinner-icon"></span>';
+      text.innerText = "Triggering Cloud Scan...";
+      if (bar) bar.style.width = "15%";
+      showToast("🚀 Dispatching Chartink Scans on GitHub Actions...");
+
+      const repoOwner = "karthi8749";
+      const repoName = "ConfluX";
+      const workflowFile = "run-scans.yml";
+
+      try {
+        const dispatchUrl = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/actions/workflows/" + workflowFile + "/dispatches";
+        const dispatchRes = await fetch(dispatchUrl, {
+          method: "POST",
+          headers: {
+            "Accept": "application/vnd.github+json",
+            "Authorization": "Bearer " + token.trim(),
+            "X-GitHub-Api-Version": "2022-11-28"
+          },
+          body: JSON.stringify({ ref: "main" })
+        });
+
+        if (dispatchRes.status === 401 || dispatchRes.status === 403) {
+          localStorage.removeItem("conflux_gh_token");
+          btn.disabled = false;
+          btn.classList.remove("running");
+          if (icon) icon.innerText = "⚡";
+          text.innerText = "Run Scans";
+          if (bar) bar.style.width = "0%";
+          showToast("❌ Token expired or invalid. Please re-enter.");
+          openGhTokenModal();
+          return;
+        }
+
+        if (!dispatchRes.ok && dispatchRes.status !== 204) {
+          throw new Error("Dispatch status: " + dispatchRes.status);
+        }
+
+        text.innerText = "Scans Running (30%)...";
+        if (bar) bar.style.width = "30%";
+        showToast("⚡ Cloud runner started! Fetching Chartink scans...");
+
+        let attempts = 0;
+        const maxAttempts = 60; // Up to 3 mins
+        const runsUrl = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/actions/runs?per_page=1";
+        const checkInterval = setInterval(async () => {
+          attempts++;
+          try {
+            const runsRes = await fetch(runsUrl, {
+              headers: { "Accept": "application/vnd.github+json" }
+            });
+            const runsData = await runsRes.json();
+            const latestRun = runsData.workflow_runs && runsData.workflow_runs[0];
+
+            if (latestRun) {
+              if (latestRun.status === "in_progress") {
+                const currentPct = Math.min(85, 30 + attempts * 3);
+                text.innerText = "Running (" + currentPct + "%)...";
+                if (bar) bar.style.width = currentPct + "%";
+              } else if (latestRun.status === "completed") {
+                clearInterval(checkInterval);
+                btn.disabled = false;
+                btn.classList.remove("running");
+                if (bar) bar.style.width = "100%";
+                if (icon) icon.innerText = "✅";
+                text.innerText = "100% Done!";
+                showToast("🎉 Scans completed & Watchlists updated! Reloading...");
+                setTimeout(() => {
+                  window.location.reload();
+                }, 2200);
+              }
+            }
+          } catch (_) {}
+
+          if (attempts >= maxAttempts) {
+            clearInterval(checkInterval);
+            btn.disabled = false;
+            btn.classList.remove("running");
+            if (icon) icon.innerText = "⚡";
+            text.innerText = "Run Scans";
+            if (bar) bar.style.width = "0%";
+            showToast("⌛ Scan still running. Refreshing in a moment...");
+            setTimeout(() => window.location.reload(), 3000);
+          }
+        }, 3000);
+
+      } catch (err) {
+        btn.disabled = false;
+        btn.classList.remove("running");
+        if (icon) icon.innerText = "⚡";
+        text.innerText = "Run Scans";
+        if (bar) bar.style.width = "0%";
+        showToast("⚠️ Could not trigger automatically. Opening Actions tab...");
+        setTimeout(() => {
+          window.open("https://github.com/" + repoOwner + "/" + repoName + "/actions/workflows/" + workflowFile, "_blank");
+        }, 1200);
+      }
+    }
+
     async function runScanNow() {
       const isOnline = window.location.protocol === "https:" || window.location.hostname.includes("github.io");
+
       if (isOnline) {
-        showToast("📱 To run scans from mobile, go to your GitHub repo -> Actions -> Run workflow!");
+        const token = localStorage.getItem("conflux_gh_token");
+        if (!token) {
+          openGhTokenModal();
+          return;
+        }
+        await triggerGhWorkflow(token);
         return;
       }
 
+      // Local desktop mode
       const btn = document.getElementById("runScanBtn");
       const icon = document.getElementById("runScanIcon");
       const text = document.getElementById("runScanText");
@@ -2474,8 +2685,13 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           <td class="\${changeClass}">\${s.change || "-"}</td>
           <td><span class="volume-pill">\${s.volume || "-"}</span></td>
           <td>
-            <a href="\${tvUrl}" target="_blank" class="open-chart-btn" onclick="event.stopPropagation()" title="Open in your TradingView Layout 4j6LVaef">
-              🚀 Open TV
+            <a href="\${tvUrl}" target="_blank" class="open-chart-btn" onclick="event.stopPropagation()" title="Open chart in TradingView">
+              <svg class="tv-logo-svg" width="15" height="11" viewBox="0 0 36 26" fill="currentColor">
+                <path d="M14 0H0V26H14V0Z"/>
+                <path d="M22 0H36V13H22V0Z"/>
+                <path d="M22 13L36 26H22V13Z"/>
+              </svg>
+              <span>TradingView</span>
             </a>
           </td>
         \`;
