@@ -1,5 +1,5 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 11:38:46 am
+CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 7:37:17 pm
 ═════════════════════════════════════════════════════════════════
 
 📋 FILTER: Antigravity -Filter 2 - ENHANCED (4 stocks)
@@ -27,16 +27,16 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 11:38:46 am
    7. NSE:GLENMARK        | Glenmark Pharmaceuticals Limited | LTP: ₹2,590    | 4.36%
    8. NSE:COFFEEDAY       | Coffee Day Enterprises Limited | LTP: ₹31.48    | 3.96%
    9. NSE:SIEMENS         | Siemens Limited           | LTP: ₹3,560    | 3.73%
-  10. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%
-  11. NSE:PML             | Paul Merchants Ltd        | LTP: ₹475      | 3.26%
-  12. NSE:ICICILIFE       | ICICI Life Insurance Ltd  | LTP: ₹438.9    | 2.63%
+  10. NSE:GKB             | GKB Ophthalmics Ltd       | LTP: ₹67.44    | 3.55%
+  11. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%
+  12. NSE:PML             | Paul Merchants Ltd        | LTP: ₹475      | 3.26%
   13. NSE:TATASTEEL       | Tata Steel Limited        | LTP: ₹186.3    | 2.36%
   14. NSE:ABB             | Abb India Limited         | LTP: ₹6,774    | 2.2%
   15. NSE:HINDALCO        | Hindalco Industries Limited | LTP: ₹958.4    | 2.19%
   16. NSE:MGL             | Mahanagar Gas Limited     | LTP: ₹1,129.6  | 2.13%
   17. NSE:BANKETF         | Mirae Asset Nifty Bank ETF | LTP: ₹600.76   | 2.08%
   18. NSE:BAJAJ-AUTO      | Bajaj Auto Limited        | LTP: ₹10,900   | 1.32%
-  19. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹375      | 0.55%
+  19. NSE:AXISNIFTY       | Axis Nifty ETF            | LTP: ₹266.64   | 0.66%
 
 📋 FILTER: Antigravity -Filter 5 (0 stocks)
 --------------------------------------------------
@@ -48,22 +48,22 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 11:38:46 am
    2. NSE:IKIO            | IKIO Lighting Ltd         | LTP: ₹196.69   | 13.11%
    3. NSE:TTKPRESTIG      | Ttk Prestige Limited      | LTP: ₹608.75   | 10.47%
    4. NSE:ELECTHERM       | Electrotherm (india) Limited | LTP: ₹669.2    | 9.99%
-   5. NSE:LINDEINDIA      | Linde India Limited       | LTP: ₹6,859    | 8.73%
-   6. NSE:VIJSOLX         | Vijay Solvex Ltd          | LTP: ₹788.85   | 8.55%
+   5. NSE:ALUFLUOR        | Alufluoride Ltd           | LTP: ₹537.15   | 9.13%
+   6. NSE:LINDEINDIA      | Linde India Limited       | LTP: ₹6,859    | 8.73%
    7. NSE:APLLTD          | Alembic Pharmaceuticals Limited | LTP: ₹965.15   | 8.02%
    8. NSE:KIRLPNU         | Kirloskar Pneumatic Company Ltd | LTP: ₹615.35   | 7.64%
    9. NSE:TVSELECT        | Tvs Electronics Limited   | LTP: ₹395.05   | 7.15%
   10. NSE:WABAG           | Va Tech Wabag Limited     | LTP: ₹1,988.2  | 6.57%
   11. NSE:AERONEU         | Aeroflex Neu Ltd          | LTP: ₹83.74    | 6.49%
-  12. NSE:VARMORA         | Varmora Granito Ltd       | LTP: ₹137.65   | 6.46%
-  13. NSE:HAVELLS         | Havells India Limited     | LTP: ₹1,128    | 5.61%
-  14. NSE:XCHANGING       | Xchanging Solutions Limited | LTP: ₹60.7     | 5.42%
-  15. NSE:BSL             | Bsl Limited               | LTP: ₹129.38   | 5.11%
-  16. NSE:FINKURVE        | Finkurve Financial Services Ltd | LTP: ₹68.02    | 5.07%
-  17. NSE:ARVEE           | Arvee Laboratories (India) Ltd | LTP: ₹227.46   | 5%
-  18. NSE:STYLEBAAZA      | Baazar Style Retail Ltd   | LTP: ₹390.75   | 4.84%
-  19. NSE:CROMPTON        | Crompton Greaves Consumer Electricals Limited | LTP: ₹215.66   | 4.42%
-  20. NSE:GLENMARK        | Glenmark Pharmaceuticals Limited | LTP: ₹2,590    | 4.36%
+  12. NSE:HAVELLS         | Havells India Limited     | LTP: ₹1,128    | 5.61%
+  13. NSE:XCHANGING       | Xchanging Solutions Limited | LTP: ₹60.7     | 5.42%
+  14. NSE:BSL             | Bsl Limited               | LTP: ₹129.38   | 5.11%
+  15. NSE:FINKURVE        | Finkurve Financial Services Ltd | LTP: ₹68.02    | 5.07%
+  16. NSE:ARVEE           | Arvee Laboratories (India) Ltd | LTP: ₹227.46   | 5%
+  17. NSE:STYLEBAAZA      | Baazar Style Retail Ltd   | LTP: ₹390.75   | 4.84%
+  18. NSE:CROMPTON        | Crompton Greaves Consumer Electricals Limited | LTP: ₹215.66   | 4.42%
+  19. NSE:GLENMARK        | Glenmark Pharmaceuticals Limited | LTP: ₹2,590    | 4.36%
+  20. NSE:TEXINFRA        | Texmaco Infrastructure & Holdings Limited | LTP: ₹125.9    | 4.28%
 
 📋 FILTER: chatgpt orderblock (0 stocks)
 --------------------------------------------------
@@ -92,7 +92,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 11:38:46 am
   19. NSE:LICHSGFIN       | Lic Housing Finance Limited | LTP: ₹536      | 1.32%
   20. NSE:RPEL            | Raghav Productivity Enhancers Ltd | LTP: ₹1,780.8  | 0.95%
 
-📋 FILTER: EMA9/21 - pullback (10 stocks)
+📋 FILTER: EMA9/21 - pullback (9 stocks)
 --------------------------------------------------
    1. NSE:SYMBIOTEC       | Symbiotec Pharmalab Ltd   | LTP: ₹1,513.6  | 19.04%
    2. NSE:BANKA           | Banka Bioloo Ltd          | LTP: ₹81.4     | 10%
@@ -103,7 +103,6 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 11:38:46 am
    7. NSE:LICNETFN50      | LIC Nomura MF ETF - NIFTY 50 - Growth Plan | LTP: ₹279.79   | 2.66%
    8. NSE:NIFTYCASE       | Zerodha Nifty 50 ETF      | LTP: ₹10.03    | 2.24%
    9. NSE:RELCNX100       | RELCNX100                 | LTP: ₹123.66   | 1.38%
-  10. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹375      | 0.55%
 
 ═════════════════════════════════════════════════════════════════
 TOTAL UNIQUE SYMBOLS (58 stocks):
@@ -121,25 +120,25 @@ NSE:CROMPTON
 NSE:GLENMARK
 NSE:COFFEEDAY
 NSE:SIEMENS
+NSE:GKB
 NSE:PML
-NSE:ICICILIFE
 NSE:TATASTEEL
 NSE:ABB
 NSE:HINDALCO
 NSE:MGL
 NSE:BANKETF
 NSE:BAJAJ-AUTO
-NSE:COMPEAU
+NSE:AXISNIFTY
 NSE:MMFL
 NSE:IKIO
 NSE:TTKPRESTIG
 NSE:ELECTHERM
-NSE:VIJSOLX
+NSE:ALUFLUOR
 NSE:APLLTD
 NSE:WABAG
-NSE:VARMORA
 NSE:HAVELLS
 NSE:FINKURVE
+NSE:TEXINFRA
 NSE:BANKA
 NSE:KALYANKJIL
 NSE:SMARTWORKS

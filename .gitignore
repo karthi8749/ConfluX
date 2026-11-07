@@ -5,7 +5,10 @@ package-lock.json
 # Temporary logs & tests
 *.log
 test_*.js
+generate_icons.js
 *.png
+!icon-*.png
+!apple-touch-icon.png
 !favicon.svg
 
 # OS files
