@@ -1,5 +1,5 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 7:37:17 pm
+CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 4:13:58 am
 ═════════════════════════════════════════════════════════════════
 
 📋 FILTER: Antigravity -Filter 2 - ENHANCED (4 stocks)
@@ -92,7 +92,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 7:37:17 pm
   19. NSE:LICHSGFIN       | Lic Housing Finance Limited | LTP: ₹536      | 1.32%
   20. NSE:RPEL            | Raghav Productivity Enhancers Ltd | LTP: ₹1,780.8  | 0.95%
 
-📋 FILTER: EMA9/21 - pullback (9 stocks)
+📋 FILTER: EMA9/21 - pullback (10 stocks)
 --------------------------------------------------
    1. NSE:SYMBIOTEC       | Symbiotec Pharmalab Ltd   | LTP: ₹1,513.6  | 19.04%
    2. NSE:BANKA           | Banka Bioloo Ltd          | LTP: ₹81.4     | 10%
@@ -103,9 +103,10 @@ CHARTINK SCAN RESULTS (BY FILTER) — 7/11/2026, 7:37:17 pm
    7. NSE:LICNETFN50      | LIC Nomura MF ETF - NIFTY 50 - Growth Plan | LTP: ₹279.79   | 2.66%
    8. NSE:NIFTYCASE       | Zerodha Nifty 50 ETF      | LTP: ₹10.03    | 2.24%
    9. NSE:RELCNX100       | RELCNX100                 | LTP: ₹123.66   | 1.38%
+  10. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹375      | 0.55%
 
 ═════════════════════════════════════════════════════════════════
-TOTAL UNIQUE SYMBOLS (58 stocks):
+TOTAL UNIQUE SYMBOLS (59 stocks):
 ═════════════════════════════════════════════════════════════════
 NSE:TVSELECT
 NSE:AERONEU
@@ -165,3 +166,4 @@ NSE:KOTAKBANK
 NSE:LICNETFN50
 NSE:NIFTYCASE
 NSE:RELCNX100
+NSE:COMPEAU
