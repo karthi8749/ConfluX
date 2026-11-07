@@ -1194,10 +1194,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       </div>
       <div class="card-actions">
         <a href="#" target="_blank" class="card-btn" id="cardTvAccountBtn" title="Open chart directly in TradingView">
-          <svg class="tv-logo-svg" width="16" height="12" viewBox="0 0 36 26" fill="currentColor">
-            <path d="M14 0H0V26H14V0Z"/>
-            <path d="M22 0H36V13H22V0Z"/>
-            <path d="M22 13L36 26H22V13Z"/>
+          <svg class="tv-logo-svg" width="18" height="13" viewBox="0 0 50 36" fill="currentColor">
+            <rect x="0" y="0" width="19" height="36" rx="1"/>
+            <rect x="24" y="0" width="26" height="17" rx="1"/>
+            <circle cx="30" cy="27" r="5"/>
+            <polygon points="38,18 50,36 50,18"/>
           </svg>
           <span>TradingView</span>
         </a>
@@ -1255,19 +1256,8 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         <button style="background:none; border:none; color:var(--text-muted); font-size:1.2rem; cursor:pointer;" onclick="closeGhTokenModal()">✕</button>
       </div>
 
-      <!-- Quick Option 1: Direct 1-Click (No Token Needed!) -->
-      <a href="https://github.com/karthi8749/ConfluX/actions/workflows/run-scans.yml" target="_blank" class="btn btn-run" style="width:100%; justify-content:center; padding:11px; font-size:0.85rem; text-decoration:none; margin-bottom:12px; box-shadow:0 3px 12px rgba(16,185,129,0.4);">
-        ⚡ Run on GitHub (No Token Needed) ↗
-      </a>
-
-      <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
-        <div style="flex:1; height:1px; background:var(--border);"></div>
-        <span style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase;">அல்லது (Dashboard-லேயே Run செய்ய)</span>
-        <div style="flex:1; height:1px; background:var(--border);"></div>
-      </div>
-
       <p style="font-size:0.76rem; color:var(--text-muted); line-height:1.4; margin-bottom:8px;">
-        Classic Token (ghp_... with <b>☑ repo</b> tick) உள்ளிட்டு Save செய்தால், இங்கிருந்தே நேரடியாக ரன் செய்யலாம்:
+        GitHub Classic Token (ghp_... with <b>☑ repo + ☑ workflow</b>) உள்ளிட்டு Save செய்:
       </p>
       <div id="tokenErrorMsg" style="display:none; color:#f87171; font-size:0.75rem; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:8px 10px; margin-bottom:10px; line-height:1.4;"></div>
       <input type="password" id="ghTokenInput" class="search-input" style="width:100% !important; padding:8px 12px; margin-bottom:10px; font-size:0.82rem;" placeholder="ghp_xxxxxxxxxxxx...">
@@ -2703,10 +2693,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           <td><span class="volume-pill">\${s.volume || "-"}</span></td>
           <td>
             <a href="\${tvUrl}" target="_blank" class="open-chart-btn" onclick="event.stopPropagation()" title="Open chart in TradingView">
-              <svg class="tv-logo-svg" width="15" height="11" viewBox="0 0 36 26" fill="currentColor">
-                <path d="M14 0H0V26H14V0Z"/>
-                <path d="M22 0H36V13H22V0Z"/>
-                <path d="M22 13L36 26H22V13Z"/>
+              <svg class="tv-logo-svg" width="17" height="12" viewBox="0 0 50 36" fill="currentColor">
+                <rect x="0" y="0" width="19" height="36" rx="1"/>
+                <rect x="24" y="0" width="26" height="17" rx="1"/>
+                <circle cx="30" cy="27" r="5"/>
+                <polygon points="38,18 50,36 50,18"/>
               </svg>
               <span>TradingView</span>
             </a>
