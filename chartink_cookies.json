@@ -1,0 +1,108 @@
+{
+  "cookies": [
+    {
+      "name": "_GRECAPTCHA",
+      "value": "09AKhCRwiWZ_Fawvovy-lValEId0BMrrzaHeER3AhPp-GL6itsfXrgLRT_l_4fvsOl4UhqyZhMsxqXCNc9RwcUubU",
+      "domain": "www.google.com",
+      "path": "/recaptcha",
+      "expires": 1809573193.182257,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_ga_7P3KPC3ZPP",
+      "value": "GS2.1.s1794021189$o1$g0$t1794021189$j60$l0$h0",
+      "domain": ".chartink.com",
+      "path": "/",
+      "expires": 1828581189.76238,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.2044081234.1794021190",
+      "domain": ".chartink.com",
+      "path": "/",
+      "expires": 1828581189.762971,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d",
+      "value": "eyJpdiI6InFRcmtRUnowSHVKWGNjV0VTeE5HcWc9PSIsInZhbHVlIjoiaDc3SzQ0T0h1d3U4N1I1cWQvaGVyaFJYMlVyYTFaLzQ4Y0ZaRExPQzZVQnUzSFNYWGVmcjFXaUR3YkluK21QbVpDOGMyWlJhQ3JBclZuMGhhR0VSRUI3eXIrOUsxeFplVUJUcjhqQldIY2lSNFFHY2V1K2dZdnU2ckpROVJGK3I5NmRTNHJnRlVhN3Q4Wmt4OC80Nm40VXBTSHFqZmJoNll1VVJLRzJmYTRTQmMzOGlyRjVrK0FYSnlCeUtHOXB1NFdzRE05REtlaFBJaVlPUlVBaTBtYjREeitQNnJxS2gxMTZXbUxoNWxZTT0iLCJtYWMiOiJhODMzZDNjYzQwMjQ4YmM2YjhmOTRmMjg3NTFiYjAxYTJiYjdmZjZlNjA4ZTEwNjEyMTE0OWQwZmQwZmQyZmQxIiwidGFnIjoiIn0%3D",
+      "domain": "chartink.com",
+      "path": "/",
+      "expires": 1828581193.613693,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "XSRF-TOKEN",
+      "value": "eyJpdiI6ImNaV1dwcTN1Y2pCSmV4NDdoc04wN1E9PSIsInZhbHVlIjoiSzFCZ2E2RVZjWEVPdDR4clBUTjNqbEgzQ2JETGYwVFBFMk9kSmNCemJ1Q3hZSGR5cWs1Vk9VU0cxSFdWVFFMcCtqUURoQVJ4WWVLM3Q2OEdUUytNdkVxN3NlS2NpQUxvdjhrRlhZdm9jcHNWM2NxRkgyb1NMd24wT0RDcG53U0MiLCJtYWMiOiIyYzYxMzY5Y2EzYWY4Zjg4Nzg0YmEzMzE4N2IzMGMzOTIwYTVjNzAzMTMwZTM2ZTUxNjA0NWE5OTI2Yzc3ZjFmIiwidGFnIjoiIn0%3D",
+      "domain": "chartink.com",
+      "path": "/",
+      "expires": 1794028395.384963,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ci_session",
+      "value": "eyJpdiI6IkJvUlBZMENETE51c2F4aTZYYUJVYUE9PSIsInZhbHVlIjoid1hjNE9Zby9kaEc3OU8yOHp6SFFBc3J2L01iNmxjVnQ5ZGJocnAwQ2V2K3RRVlVVeENwS2xGeGJNUU45OHBLM0pyaEdnQXptWGl5ZlBmYk1RUnFRWjMrRzdOWXlGLzlTQ3FFUlZFZXlJT2RaZkI4RGhEbFlLWmRDYkpKeFJXaFYiLCJtYWMiOiI3N2M5OWIzZGZmYmQ5ODM3NzQyZGU1NTk3OWE2NGI0YTU0YTA3MTUzOGIxYzdmZTNmZDQ5YmY5NWM5NDRhOWY2IiwidGFnIjoiIn0%3D",
+      "domain": "chartink.com",
+      "path": "/",
+      "expires": 1794028395.385123,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://chartink.com",
+      "localStorage": [
+        {
+          "name": "theme",
+          "value": "3"
+        },
+        {
+          "name": "scannerAlertFlyoutExpandedStyle",
+          "value": "3"
+        },
+        {
+          "name": "NRBA_SESSION::1a66542e",
+          "value": "{\"value\":\"efe8154e6b2e61a2\",\"inactiveAt\":1794022992987,\"expiresAt\":1794035591528,\"updatedAt\":1794021192987,\"sessionReplayMode\":null,\"sessionReplaySentFirstChunk\":false,\"sessionTraceMode\":null,\"traceHarvestStarted\":false,\"loggingMode\":null,\"logApiMode\":null,\"serverTimeDiff\":42837828,\"custom\":{},\"numOfResets\":0,\"consent\":false,\"cachedRumResponse\":{\"app\":{\"agents\":[{\"entityGuid\":\"MTU0MDgxOHxCUk9XU0VSfEFQUExJQ0FUSU9OfDM3NTU5MTM2OA\"}],\"igp\":\"\",\"nrServerTime\":1793978353969},\"err\":1,\"ins\":1,\"spa\":1,\"sr\":0,\"srs\":0,\"st\":1,\"sts\":0,\"log\":0,\"logapi\":0}}"
+        },
+        {
+          "name": "_grecaptcha",
+          "value": "09AKhCRwgkj14tO7T8zOhRlKP4bTOdM8n4zmo-G4_ZFZ869iEZyC2QDJonrSlH1KSxFcR5WtL1uccb418tkE_6DLyMGQ3Zhzj0-HFd3pbOJqnt6zx6piDLO_NDTvYnyHZL"
+        },
+        {
+          "name": "theme_explicit",
+          "value": "0"
+        },
+        {
+          "name": "chartink:support:last-seen-agent-message:1437402",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "origin": "https://www.google.com",
+      "localStorage": [
+        {
+          "name": "rc::a",
+          "value": "MWoxd3Z5bTFpMHE5dnc="
+        },
+        {
+          "name": "rc::f",
+          "value": "0aADzggV3DkP-NpWxKri59-CkDYZyO3igvtVeypwte8kebE9KNNHOZ8DqGBXiWpADVhfL4b8M"
+        }
+      ]
+    }
+  ]
+}
