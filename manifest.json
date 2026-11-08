@@ -2,7 +2,7 @@
   "name": "ConfluX",
   "short_name": "ConfluX",
   "description": "Chartink Scans with LuxAlgo Smart Money Concepts & PineScript Charts",
-  "id": "conflux-app-v4",
+  "id": "conflux-app-v5",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",

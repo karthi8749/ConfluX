@@ -1,48 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <title>ConfluX Stock Scanner App Icon</title>
+  <title>ConfluX Stock Scanner App Icon - Bold & High Visibility</title>
   <defs>
+    <!-- Rich vibrant background gradient -->
     <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#13B9F4"/>
-      <stop offset="0.48" stop-color="#0877F5"/>
-      <stop offset="1" stop-color="#092BEE"/>
+      <stop offset="0%" stop-color="#18bcf5"/>
+      <stop offset="45%" stop-color="#0875f5"/>
+      <stop offset="100%" stop-color="#072bee"/>
     </linearGradient>
-    <linearGradient id="candle" x1="0" y1="0" x2="0.85" y2="1">
-      <stop offset="0" stop-color="#63F6B0"/>
-      <stop offset="1" stop-color="#00D982"/>
+    <!-- Ultra-radiant Neon Bullish Candlesticks -->
+    <linearGradient id="candle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7affc3"/>
+      <stop offset="100%" stop-color="#00e676"/>
     </linearGradient>
+    <!-- Pure High-Contrast White Glass Frame -->
     <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#EAF5FF"/>
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0f7ff"/>
     </linearGradient>
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#02144d" flood-opacity="0.45"/>
+    </filter>
   </defs>
 
-  <!-- Rounded app tile -->
+  <!-- App Tile Background (Standard iOS/Android Squircle) -->
   <rect x="0" y="0" width="1024" height="1024" rx="228" fill="url(#tile)"/>
 
-  <!-- Stock-scanning frame -->
-  <g fill="none" stroke="url(#glass)" stroke-width="31" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M315 390 V354 Q315 328 342 328 H412"/>
-    <path d="M709 328 H682 Q656 328 656 354 V390"/>
-    <path d="M315 636 V672 Q315 698 342 698 H412"/>
-  </g>
+  <!-- Scaled up & Bold Core Graphics (Filtered with subtle shadow for depth) -->
+  <g filter="url(#subtle-shadow)">
 
-  <!-- Rising candlesticks -->
-  <g fill="url(#candle)" stroke="url(#candle)" stroke-linecap="round">
-    <!-- First candle -->
-    <path d="M404 498 V468 M404 608 V638" fill="none" stroke-width="12"/>
-    <rect x="370" y="510" width="68" height="100" rx="7"/>
-    <!-- Second candle -->
-    <path d="M512 424 V393 M512 582 V612" fill="none" stroke-width="12"/>
-    <rect x="478" y="451" width="68" height="131" rx="7"/>
-    <!-- Third candle -->
-    <path d="M620 351 V321 M620 512 V542" fill="none" stroke-width="12"/>
-    <rect x="586" y="385" width="68" height="127" rx="7"/>
-  </g>
+    <!-- 1. Stock Scanning Viewfinder Brackets (Extra Bold: stroke 54px) -->
+    <g fill="none" stroke="url(#glass)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Top Left Bracket -->
+      <path d="M 210 330 V 260 Q 210 210 260 210 H 370"/>
+      <!-- Top Right Bracket -->
+      <path d="M 814 330 V 260 Q 814 210 764 210 H 654"/>
+      <!-- Bottom Left Bracket -->
+      <path d="M 210 694 V 764 Q 210 814 260 814 H 370"/>
+    </g>
 
-  <!-- Magnifying glass -->
-  <g fill="none" stroke="url(#glass)" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="590" cy="581" r="67" stroke-width="25"/>
-    <path d="M638 630 L687 679" stroke-width="27"/>
+    <!-- 2. Extra Thick Candlesticks (3 Bold Ascending Bars) -->
+    <!-- Candle 1: Left Small -->
+    <line x1="340" y1="470" x2="340" y2="420" stroke="url(#candle)" stroke-width="22" stroke-linecap="round"/>
+    <line x1="340" y1="650" x2="340" y2="700" stroke="url(#candle)" stroke-width="22" stroke-linecap="round"/>
+    <rect x="290" y="490" width="100" height="160" rx="14" fill="url(#candle)"/>
+
+    <!-- Candle 2: Middle Medium -->
+    <line x1="512" y1="360" x2="512" y2="300" stroke="url(#candle)" stroke-width="24" stroke-linecap="round"/>
+    <line x1="512" y1="620" x2="512" y2="670" stroke="url(#candle)" stroke-width="24" stroke-linecap="round"/>
+    <rect x="457" y="390" width="110" height="230" rx="14" fill="url(#candle)"/>
+
+    <!-- Candle 3: Right Tall Breakout -->
+    <line x1="684" y1="260" x2="684" y2="200" stroke="url(#candle)" stroke-width="24" stroke-linecap="round"/>
+    <line x1="684" y1="510" x2="684" y2="560" stroke="url(#candle)" stroke-width="24" stroke-linecap="round"/>
+    <rect x="629" y="290" width="110" height="220" rx="14" fill="url(#candle)"/>
+
+    <!-- 3. Extra Bold Magnifying Glass / Scanner Lens -->
+    <!-- Lens Ring (Bold 46px stroke, bright white) -->
+    <circle cx="635" cy="625" r="105" fill="none" stroke="url(#glass)" stroke-width="46"/>
+    <!-- Glass Inner Subtle Highlight -->
+    <circle cx="635" cy="625" r="82" fill="#ffffff" fill-opacity="0.12"/>
+    <!-- Handle (Extra Thick 50px stroke) -->
+    <path d="M 712 702 L 795 785" fill="none" stroke="url(#glass)" stroke-width="50" stroke-linecap="round"/>
+
   </g>
 </svg>
