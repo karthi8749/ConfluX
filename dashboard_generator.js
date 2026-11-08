@@ -33,6 +33,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
   <!-- PWA Manifest & App Icons -->
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.svg">
@@ -1313,6 +1314,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     let rsiSeries = null;
     let rsiMaSeries = null;
     let mfiSeries = null;
+    let subTimeAnchorSeries = null;
 
     // ── Build Confluence Map ──────────────────────────────────
     const confluenceMap = {};
@@ -2374,6 +2376,16 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         }
       });
 
+      
+      // Anchor series to guarantee subChart has the EXACT same 100% time scale and bar count as mainChart
+      subTimeAnchorSeries = subChart.addLineSeries({
+        color: 'transparent',
+        lineWidth: 0,
+        lastValueVisible: false,
+        priceLineVisible: false,
+        crosshairMarkerVisible: false,
+        autoscaleInfoProvider: () => null
+      });
       rsiSeries   = subChart.addLineSeries({ color: '#b39ddb', lineWidth: 1.2, title: 'RSI 14', lastValueVisible: true, priceLineVisible: false });
       rsiMaSeries = subChart.addLineSeries({ color: '#ffd600', lineWidth: 1,   title: 'RSI MA', lastValueVisible: true, priceLineVisible: false });
       mfiSeries   = subChart.addLineSeries({ color: '#00e676', lineWidth: 1.2, title: 'MFI 14', lastValueVisible: true, priceLineVisible: false });
@@ -2450,6 +2462,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         document.getElementById("cardOhlcDisplay").innerText = \`O: \${latest.open} H: \${latest.high} L: \${latest.low} C: \${latest.close}\`;
       }
 
+      
+      // 0. Synchronize subChart time scale with exact candle timestamps
+      if (subTimeAnchorSeries) {
+        subTimeAnchorSeries.setData(candles.map(c => ({ time: c.time, value: 50 })));
+      }
       // 1. Candlestick Data
       candleSeries.setData(candles.map(c => ({
         time: c.time,
