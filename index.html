@@ -564,6 +564,33 @@
       transition: var(--transition);
       user-select: none;
     }
+    
+    .stock-analyze-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #c084fc;
+      cursor: pointer;
+      margin-left: 6px;
+      transition: var(--transition);
+      padding: 0;
+      vertical-align: middle;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .stock-analyze-btn:hover {
+      background: rgba(168, 85, 247, 0.35);
+      border-color: #a855f7;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+      transform: scale(1.14);
+    }
+
     .open-chart-btn:hover {
       background: #2563eb;
       color: #ffffff;
@@ -1198,6 +1225,9 @@
           </svg>
           <span>TradingView</span>
         </a>
+        <button type="button" class="card-btn" id="cardAnalyzeBtn" onclick="analyzeStockAuto(currentHoverSymbol)" style="color:#c084fc; border-color:rgba(168,85,247,0.35); cursor:pointer;" title="Auto-analyze chart in Patternlytics">
+          <span>✨ AI Analyze</span>
+        </button>
         <button class="card-btn pin-btn" id="pinBtn" onclick="togglePinCard()" title="Pin this chart open while moving mouse">
           📌 Pin
         </button>
@@ -1337,7 +1367,7 @@
       const list = [];
       const today = new Date();
       const spread = price * 0.015; // Realistic 1.5% daily variation
-      for (let i = 45; i >= 0; i--) {
+      for (let i = 65; i >= 0; i--) {
         const d = new Date(today);
         d.setDate(d.getDate() - i);
         if (d.getDay() === 0 || d.getDay() === 6) continue;
@@ -2431,6 +2461,105 @@
       });
     }
 
+    
+    // ── Auto Chart Capture & Next-Tab Patternlytics Integration ───────────
+    function analyzeStockAuto(symbol) {
+      if (!symbol) return;
+      showToast("📸 Auto-capturing " + symbol + " chart for Patternlytics...");
+
+      // Render chart to ensure fresh data
+      currentHoverSymbol = symbol;
+      renderPineScriptChart(symbol);
+
+      setTimeout(() => {
+        try {
+          if (!mainChart || !subChart) {
+            openPatternlyticsFallback(symbol);
+            return;
+          }
+
+          const mainCanvas = mainChart.takeScreenshot();
+          const subCanvas = subChart.takeScreenshot();
+          const smcCanvas = document.getElementById("smcCanvas");
+
+          const width = Math.max(mainCanvas.width, subCanvas.width);
+          const height = mainCanvas.height + subCanvas.height;
+
+          const combined = document.createElement("canvas");
+          combined.width = width;
+          combined.height = height;
+          const ctx = combined.getContext("2d");
+
+          // Background
+          ctx.fillStyle = "#070b14";
+          ctx.fillRect(0, 0, width, height);
+
+          // Draw Main Candlestick Chart
+          ctx.drawImage(mainCanvas, 0, 0);
+
+          // Draw SMC Overlays (Order Blocks & BOS) if visible
+          if (smcCanvas && smcCanvas.width > 0 && smcCanvas.height > 0) {
+            ctx.drawImage(smcCanvas, 0, 0, mainCanvas.width, mainCanvas.height);
+          }
+
+          // Draw RSI / MFI Subchart below
+          ctx.drawImage(subCanvas, 0, mainCanvas.height);
+
+          const imageBase64 = combined.toDataURL("image/png");
+
+          // Open Patternlytics in next tab
+          const host = window.location.hostname || "localhost";
+          const activeScanEl = document.getElementById("activeScanName");
+          const filterName = activeScanEl ? activeScanEl.innerText : "Confluence";
+          const targetUrl = "http://" + host + ":3000/?symbol=" + encodeURIComponent(symbol) + "&filter=" + encodeURIComponent(filterName);
+
+          const pWin = window.open(targetUrl, "_blank");
+
+          if (!pWin) {
+            showToast("⚠️ Popup blocked! Please allow popups for localhost.");
+            return;
+          }
+
+          const payload = {
+            type: "INJECT_CONFLUX_CHART",
+            symbol: symbol,
+            filter: filterName,
+            imageBase64: imageBase64
+          };
+
+          // Transmit payload repeatedly during initial handshake
+          let count = 0;
+          const interval = setInterval(() => {
+            count++;
+            try {
+              pWin.postMessage(payload, "*");
+            } catch (_) {}
+            if (count > 25 || pWin.closed) clearInterval(interval);
+          }, 150);
+
+          const onReady = (e) => {
+            if (e.data && e.data.type === "PATTERNLYTICS_READY") {
+              try { pWin.postMessage(payload, "*"); } catch(_) {}
+              clearInterval(interval);
+              window.removeEventListener("message", onReady);
+            }
+          };
+          window.addEventListener("message", onReady);
+
+          showToast("🚀 " + symbol + " chart sent to Patternlytics!");
+        } catch (err) {
+          console.error("Auto capture error:", err);
+          openPatternlyticsFallback(symbol);
+        }
+      }, 120);
+    }
+
+    function openPatternlyticsFallback(symbol) {
+      const host = window.location.hostname || "localhost";
+      const targetUrl = "http://" + host + ":3000/?symbol=" + encodeURIComponent(symbol);
+      window.open(targetUrl, "_blank");
+    }
+
     function renderPineScriptChart(symbol) {
       initChartsOnce();
 
@@ -2505,7 +2634,7 @@
       // 6. AUTO-FRAME STRICTLY THE LAST 30 DAYS WITH 5.5 BARS RIGHT PADDING (Zero interfere with right price axis!)
       const totalCandles = candles.length;
       if (totalCandles > 0) {
-        const startBar = Math.max(0, totalCandles - 30);
+        const startBar = Math.max(0, totalCandles - 48);
         const range = { from: startBar - 0.5, to: totalCandles + 5.5 };
         
         try {
@@ -2696,6 +2825,7 @@
                     onclick="onSymbolClick(event, '${s.symbol}')"
                     title="Hover to view PineScript Chart | Click to Pin">${s.symbol}</span>
               ${confluenceHtml}
+              <button type="button" class="stock-analyze-btn" onclick="event.stopPropagation(); analyzeStockAuto('${s.symbol}')" title="Auto-capture & analyze ${s.symbol} in Patternlytics">✨</button>
             </div>
             ${extraTags}
           </td>

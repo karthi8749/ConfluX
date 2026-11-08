@@ -11,6 +11,27 @@ generate_icons.js
 !apple-touch-icon.png
 !favicon.svg
 
+# Scratch & one-off generator helpers
+add_buttons.js
+apply_*.js
+bold_icon_preview.html
+build_all_icons.js
+capture_*.js
+check_live_site.js
+client_chartly.js
+crop_and_export_icons.html
+debug_modal.js
+fix_escape*.js
+generate_pwa_icons.js
+inject_*.js
+integrate_*.js
+logo_preview*.html
+setup_tab_auto_capture.js
+source_logo.jpg
+update_brand*.js
+update_head_icons.js
+verify_*.js
+
 # OS files
 .DS_Store
 Thumbs.db
