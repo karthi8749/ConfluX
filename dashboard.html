@@ -2463,8 +2463,25 @@
 
     
     // ── Auto Chart Capture & Next-Tab Patternlytics Integration ───────────
+        // ── Auto Chart Capture & Next-Tab Patternlytics Integration ───────────
+        // ── Auto Chart Capture & Next-Tab Patternlytics Integration ───────────
     function analyzeStockAuto(symbol) {
       if (!symbol) return;
+
+      const activeScanEl = document.getElementById("activeScanName");
+      const filterName = activeScanEl ? activeScanEl.innerText : "Confluence";
+
+      // Base URL is ALWAYS localhost:3000 unless custom URL is configured. Never use github.io:3000!
+      const savedUrl = localStorage.getItem("conflux_patternlytics_url");
+      let baseUrl = "http://localhost:3000";
+      if (savedUrl && savedUrl.trim()) {
+        baseUrl = savedUrl.trim().endsWith("/") ? savedUrl.trim().slice(0, -1) : savedUrl.trim();
+      }
+      const targetUrl = baseUrl + "/?symbol=" + encodeURIComponent(symbol) + "&filter=" + encodeURIComponent(filterName);
+
+      // Open new tab IMMEDIATELY on user click (prevents Chrome popup blocker & about:blank hang)
+      const pWin = window.open(targetUrl, "_blank");
+
       showToast("📸 Auto-capturing " + symbol + " chart for Patternlytics...");
 
       // Render chart to ensure fresh data
@@ -2473,10 +2490,7 @@
 
       setTimeout(() => {
         try {
-          if (!mainChart || !subChart) {
-            openPatternlyticsFallback(symbol);
-            return;
-          }
+          if (!mainChart || !subChart || !pWin) return;
 
           const mainCanvas = mainChart.takeScreenshot();
           const subCanvas = subChart.takeScreenshot();
@@ -2507,19 +2521,6 @@
 
           const imageBase64 = combined.toDataURL("image/png");
 
-          // Open Patternlytics in next tab
-          const host = window.location.hostname || "localhost";
-          const activeScanEl = document.getElementById("activeScanName");
-          const filterName = activeScanEl ? activeScanEl.innerText : "Confluence";
-          const targetUrl = "http://" + host + ":3000/?symbol=" + encodeURIComponent(symbol) + "&filter=" + encodeURIComponent(filterName);
-
-          const pWin = window.open(targetUrl, "_blank");
-
-          if (!pWin) {
-            showToast("⚠️ Popup blocked! Please allow popups for localhost.");
-            return;
-          }
-
           const payload = {
             type: "INJECT_CONFLUX_CHART",
             symbol: symbol,
@@ -2549,14 +2550,17 @@
           showToast("🚀 " + symbol + " chart sent to Patternlytics!");
         } catch (err) {
           console.error("Auto capture error:", err);
-          openPatternlyticsFallback(symbol);
         }
       }, 120);
     }
 
     function openPatternlyticsFallback(symbol) {
-      const host = window.location.hostname || "localhost";
-      const targetUrl = "http://" + host + ":3000/?symbol=" + encodeURIComponent(symbol);
+      const savedUrl = localStorage.getItem("conflux_patternlytics_url");
+      let baseUrl = "http://localhost:3000";
+      if (savedUrl && savedUrl.trim()) {
+        baseUrl = savedUrl.trim().endsWith("/") ? savedUrl.trim().slice(0, -1) : savedUrl.trim();
+      }
+      const targetUrl = baseUrl + "/?symbol=" + encodeURIComponent(symbol);
       window.open(targetUrl, "_blank");
     }
 
