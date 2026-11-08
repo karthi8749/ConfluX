@@ -149,14 +149,19 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     .brand-icon {
       width: 32px;
       height: 32px;
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
-      color: #fff;
-      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(8, 119, 245, 0.4);
+    }
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .brand-text {
       font-size: 1.15rem;
@@ -1098,7 +1103,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="brand">
-        <div class="brand-icon">⚡</div>
+        <div class="brand-icon"><img src="favicon.svg" alt="ConfluX Logo"></div>
         <span class="brand-text">ConfluX</span>
       </div>
       <button class="collapse-btn" onclick="toggleSidebar()" title="Collapse Sidebar for extra space">
@@ -1125,7 +1130,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         <!-- PWA Install Button (shown only when installable) -->
         <div id="installBanner" style="display:none; width:100%; background:linear-gradient(90deg,#1e40af,#0ea5e9); border-radius:10px; padding:8px 14px; margin-bottom:6px; align-items:center; justify-content:space-between; gap:10px; cursor:pointer;" onclick="triggerInstall()">
           <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.2rem;">📲</span>
+            <img src="favicon.svg" style="width:28px; height:28px; border-radius:6px; flex-shrink:0;">
             <div>
               <div style="font-size:0.82rem; font-weight:800; color:#fff;">Install ConfluX App</div>
               <div style="font-size:0.68rem; color:rgba(255,255,255,0.8);">Home screen-ல் add பண்ண tap பண்ணு</div>
