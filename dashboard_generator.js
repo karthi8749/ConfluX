@@ -1104,7 +1104,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="brand">
-        <div class="brand-icon"><img src="favicon.svg" alt="ConfluX Logo"></div>
+        <div class="brand-icon"><img src="icon-192.png" alt="ConfluX Logo"></div>
         <span class="brand-text">ConfluX</span>
       </div>
       <button class="collapse-btn" onclick="toggleSidebar()" title="Collapse Sidebar for extra space">
@@ -1131,7 +1131,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         <!-- PWA Install Button (shown only when installable) -->
         <div id="installBanner" style="display:none; width:100%; background:linear-gradient(90deg,#1e40af,#0ea5e9); border-radius:10px; padding:8px 14px; margin-bottom:6px; align-items:center; justify-content:space-between; gap:10px; cursor:pointer;" onclick="triggerInstall()">
           <div style="display:flex; align-items:center; gap:8px;">
-            <img src="favicon.svg" style="width:28px; height:28px; border-radius:6px; flex-shrink:0;">
+            <img src="icon-192.png" style="width:28px; height:28px; border-radius:6px; flex-shrink:0;">
             <div>
               <div style="font-size:0.82rem; font-weight:800; color:#fff;">Install ConfluX App</div>
               <div style="font-size:0.68rem; color:rgba(255,255,255,0.8);">Home screen-ல் add பண்ண tap பண்ணு</div>

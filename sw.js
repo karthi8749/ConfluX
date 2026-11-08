@@ -2,7 +2,7 @@
 //  sw.js — ConfluX Service Worker (v2.1 - Network First)
 // ============================================================
 
-const CACHE_NAME = 'conflux-v2.1';
+const CACHE_NAME = 'conflux-v3.0';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
