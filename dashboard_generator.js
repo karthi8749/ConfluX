@@ -2490,9 +2490,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       const activeScanEl = document.getElementById("activeScanName");
       const filterName = activeScanEl ? activeScanEl.innerText : "Confluence";
 
-      // Base URL is ALWAYS localhost:3000 unless custom URL is configured. Never use github.io:3000!
+      const isOnline = window.location.protocol === "https:" || window.location.hostname.includes("github.io");
       const savedUrl = localStorage.getItem("conflux_patternlytics_url");
-      let baseUrl = "http://localhost:3000";
+      let baseUrl = isOnline ? "https://karthi8749.github.io/patternlytics" : "http://localhost:3000";
       if (savedUrl && savedUrl.trim()) {
         baseUrl = savedUrl.trim().endsWith("/") ? savedUrl.trim().slice(0, -1) : savedUrl.trim();
       }
@@ -2544,8 +2544,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             type: "INJECT_CONFLUX_CHART",
             symbol: symbol,
             filter: filterName,
-            imageBase64: imageBase64
+            imageBase64: imageBase64,
+            timestamp: Date.now()
           };
+
+          // Save to shared localStorage (instant across GitHub Pages on mobile & desktop!)
+          try {
+            localStorage.setItem("conflux_active_chart", JSON.stringify(payload));
+          } catch (_) {}
 
           // Transmit payload repeatedly during initial handshake
           let count = 0;
@@ -2574,8 +2580,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     function openPatternlyticsFallback(symbol) {
+      const isOnline = window.location.protocol === "https:" || window.location.hostname.includes("github.io");
       const savedUrl = localStorage.getItem("conflux_patternlytics_url");
-      let baseUrl = "http://localhost:3000";
+      let baseUrl = isOnline ? "https://karthi8749.github.io/patternlytics" : "http://localhost:3000";
       if (savedUrl && savedUrl.trim()) {
         baseUrl = savedUrl.trim().endsWith("/") ? savedUrl.trim().slice(0, -1) : savedUrl.trim();
       }
