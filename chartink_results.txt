@@ -1,5 +1,5 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 9/11/2026, 2:15:40 pm
+CHARTINK SCAN RESULTS (BY FILTER) — 9/11/2026, 2:19:35 pm
 ═════════════════════════════════════════════════════════════════
 
 📋 FILTER: Inst. Entry (Enhanced) (2 stocks)
@@ -26,27 +26,20 @@ CHARTINK SCAN RESULTS (BY FILTER) — 9/11/2026, 2:15:40 pm
 --------------------------------------------------
   (No stocks matched this filter)
 
-📋 FILTER: Inst. Entry GPT 1 (19 stocks)
+📋 FILTER: Inst. Entry GPT 1 (12 stocks)
 --------------------------------------------------
-   1. NSE:CHEMPLASTS      | Chemplast Sanmar Ltd      | LTP: ₹237.83   | 11.44%
-   2. NSE:AARTIDRUGS      | Aarti Drugs Limited       | LTP: ₹499.75   | 11.08%
-   3. NSE:QUESS           | Quess Corp Limited        | LTP: ₹345.7    | 8.52%
-   4. NSE:SUNSHINE        | SUNSHINE                  | LTP: ₹434      | 7.79%
-   5. NSE:IREDA           | Indian Renewable Energy Development Agency Ltd | LTP: ₹119.65   | 7.47%
-   6. NSE:SANSERA         | Sansera Engineering Ltd   | LTP: ₹4,653.4  | 5.42%
-   7. NSE:GLAND           | Gland Pharma Ltd          | LTP: ₹3,302.4  | 5.41%
-   8. NSE:SAILIFE         | Sai Life Sciences Ltd     | LTP: ₹1,836.8  | 5.32%
-   9. NSE:KPL             | Kwality Pharmaceuticals Ltd | LTP: ₹3,881    | 5.29%
-  10. NSE:PNB             | Punjab National Bank Ltd  | LTP: ₹132.17   | 5.27%
-  11. NSE:DELTACORP       | Delta Corp Limited        | LTP: ₹81.13    | 4.58%
-  12. NSE:BANKINDIA       | Bank Of India Ltd         | LTP: ₹145      | 4.53%
-  13. NSE:BANKBARODA      | Bank Of Baroda Ltd        | LTP: ₹260.01   | 4.46%
-  14. NSE:INDIANB         | Indian Bank Ltd           | LTP: ₹933.7    | 4.35%
-  15. NSE:IRFC            | Indian Railway Finance Corporation Ltd | LTP: ₹83.5     | 4%
-  16. NSE:RVNL            | Rail Vikas Nigam Ltd      | LTP: ₹201.7    | 3.84%
-  17. NSE:HAVELLS         | Havells India Limited     | LTP: ₹1,159.5  | 3.25%
-  18. NSE:KALYANKJIL      | Kalyan Jewellers India Ltd | LTP: ₹611      | 3.21%
-  19. NSE:VOLTAS          | Voltas Limited            | LTP: ₹1,090.1  | 3.18%
+   1. NSE:SALZERELEC      | Salzer Electronics Limited | LTP: ₹552.35   | 15.47%
+   2. NSE:IOLCP           | Iol Chemicals And Pharmaceuticals Limited | LTP: ₹202.95   | 10.13%
+   3. NSE:DATAPATTNS      | Data Patterns (India) Ltd | LTP: ₹4,025    | 8.67%
+   4. NSE:QUESS           | Quess Corp Limited        | LTP: ₹345.7    | 8.52%
+   5. NSE:TIMETECHNO      | Time Technoplast Limited  | LTP: ₹187.91   | 5.68%
+   6. NSE:GLAND           | Gland Pharma Ltd          | LTP: ₹3,302.4  | 5.41%
+   7. NSE:KPL             | Kwality Pharmaceuticals Ltd | LTP: ₹3,881    | 5.29%
+   8. NSE:PNB             | Punjab National Bank Ltd  | LTP: ₹132.17   | 5.27%
+   9. NSE:BLISSGVS        | Bliss Gvs Pharma Limited  | LTP: ₹655.4    | 5%
+  10. NSE:KOTIC           | Kothari Industrial Corporation Ltd | LTP: ₹140.46   | 4.99%
+  11. NSE:NITCO           | Nitco Limited             | LTP: ₹88.03    | 4.01%
+  12. NSE:DBOL            | Dhampur Bio Organics Ltd  | LTP: ₹138.12   | 3.12%
 
 📋 FILTER: Inst. Entry GPT 2 (0 stocks)
 --------------------------------------------------
@@ -75,15 +68,13 @@ CHARTINK SCAN RESULTS (BY FILTER) — 9/11/2026, 2:15:40 pm
   19. NSE:SML100CASE      | Zerodha Nifty Smallcap 100 ETF | LTP: ₹11.06    | 1.94%
   20. NSE:AMBIKCO         | Ambika Cotton Mills Limited | LTP: ₹1,564.9  | 1.89%
 
-📋 FILTER: EMA9/21 - InvertedHammer (7 stocks)
+📋 FILTER: EMA9/21 - InvertedHammer (5 stocks)
 --------------------------------------------------
-   1. NSE:MODIS           | Modis Navnirman Ltd       | LTP: ₹437.8    | 2.33%
-   2. NSE:ANTHEM          | Anthem Biosciences Ltd    | LTP: ₹958.15   | 1.68%
-   3. NSE:PGIL            | Pearl Global Industries Limited | LTP: ₹1,343.6  | 1.67%
-   4. NSE:HEALTHAXIS      | HEALTHAXIS                | LTP: ₹175.99   | 0.78%
-   5. NSE:ERIS            | Eris Lifesciences Ltd     | LTP: ₹1,255.5  | 0.22%
-   6. NSE:ABBOTINDIA      | Abbott India Limited      | LTP: ₹26,665   | -0.07%
-   7. NSE:LICNETFN50      | LIC Nomura MF ETF - NIFTY 50 - Growth Plan | LTP: ₹280.47   | -0.39%
+   1. NSE:ANTHEM          | Anthem Biosciences Ltd    | LTP: ₹958.15   | 1.68%
+   2. NSE:PGIL            | Pearl Global Industries Limited | LTP: ₹1,343.6  | 1.67%
+   3. NSE:HEALTHAXIS      | HEALTHAXIS                | LTP: ₹175.99   | 0.78%
+   4. NSE:ERIS            | Eris Lifesciences Ltd     | LTP: ₹1,255.5  | 0.22%
+   5. NSE:ABBOTINDIA      | Abbott India Limited      | LTP: ₹26,665   | -0.07%
 
 📋 FILTER: EMA9/21 - Hammer (8 stocks)
 --------------------------------------------------
@@ -108,7 +99,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 9/11/2026, 2:15:40 pm
    8. NSE:MOM30IETF       | ICICI Prudential Nifty 200 Momentum 30 ETF | LTP: ₹30.86    | 0.42%
 
 ═════════════════════════════════════════════════════════════════
-TOTAL UNIQUE SYMBOLS (63 stocks):
+TOTAL UNIQUE SYMBOLS (54 stocks):
 ═════════════════════════════════════════════════════════════════
 NSE:GLAND
 NSE:VOLTAS
@@ -120,29 +111,19 @@ NSE:BLISSGVS
 NSE:NITCO
 NSE:DBOL
 NSE:BBNPNBETF
-NSE:CHEMPLASTS
-NSE:AARTIDRUGS
+NSE:IOLCP
 NSE:QUESS
-NSE:SUNSHINE
-NSE:IREDA
-NSE:SANSERA
-NSE:SAILIFE
 NSE:KPL
 NSE:PNB
-NSE:DELTACORP
-NSE:BANKINDIA
-NSE:BANKBARODA
-NSE:INDIANB
-NSE:IRFC
-NSE:RVNL
-NSE:HAVELLS
-NSE:KALYANKJIL
+NSE:KOTIC
 NSE:DAMODARIND
-NSE:IOLCP
 NSE:BHAGERIA
+NSE:SANSERA
+NSE:DELTACORP
 NSE:JAIPURKURT
 NSE:JMA
 NSE:ASTRAMICRO
+NSE:KALYANKJIL
 NSE:AKUMS
 NSE:KDDL
 NSE:SURAKSHA
@@ -154,13 +135,11 @@ NSE:FINEORG
 NSE:STEELCAS
 NSE:SML100CASE
 NSE:AMBIKCO
-NSE:MODIS
 NSE:ANTHEM
 NSE:PGIL
 NSE:HEALTHAXIS
 NSE:ERIS
 NSE:ABBOTINDIA
-NSE:LICNETFN50
 NSE:HMVL
 NSE:TVVISION
 NSE:MATRIMONY
@@ -171,5 +150,8 @@ NSE:NEXT50ADD
 NSE:MOIPO
 NSE:UNIONBANK
 NSE:KAYA
+NSE:BANKINDIA
+NSE:BANKBARODA
+NSE:INDIANB
 NSE:AUROPHARMA
 NSE:MOM30IETF
