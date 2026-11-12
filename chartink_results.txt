@@ -1,45 +1,72 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 9/11/2026, 2:19:35 pm
+CHARTINK SCAN RESULTS (BY FILTER) — 12/11/2026, 12:51:17 pm
 ═════════════════════════════════════════════════════════════════
 
-📋 FILTER: Inst. Entry (Enhanced) (2 stocks)
+📋 FILTER: Inst. Entry (Enhanced) (11 stocks)
 --------------------------------------------------
-   1. NSE:GLAND           | Gland Pharma Ltd          | LTP: ₹3,302.4  | 5.41%
-   2. NSE:VOLTAS          | Voltas Limited            | LTP: ₹1,090.1  | 3.18%
+   1. NSE:AMANTA          | Amanta Healthcare Ltd     | LTP: ₹228.37   | 16.49%
+   2. NSE:HALEOSLABS      | Haleos Labs Limited       | LTP: ₹1,596.3  | 14.12%
+   3. NSE:IFBAGRO         | Ifb Agro Industries Limited | LTP: ₹960      | 12.84%
+   4. NSE:KMEW            | Knowledge Marine & Engineering Works Ltd | LTP: ₹713      | 9.88%
+   5. NSE:SUKHJITS        | Sukhjit Starch & Chemicals Ltd | LTP: ₹151.22   | 9.54%
+   6. NSE:CGVAK           | CG-VAK Software & Exports Ltd | LTP: ₹147.87   | 9.51%
+   7. NSE:TASTYBITE       | Tasty Bite Eatables Ltd   | LTP: ₹10,951   | 9.42%
+   8. NSE:ABCAPITAL       | Aditya Birla Capital Ltd  | LTP: ₹419.5    | 5.93%
+   9. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹390      | 5.55%
+  10. NSE:LEMONTREE       | Lemon Tree Hotels Ltd     | LTP: ₹120.41   | 4.61%
+  11. NSE:ARIS            | Arisinfra Solutions Ltd   | LTP: ₹149.07   | 3.31%
 
-📋 FILTER: Inst. Entry AG 2 (2 stocks)
+📋 FILTER: Inst. Entry AG 2 (11 stocks)
 --------------------------------------------------
-   1. NSE:GLAND           | Gland Pharma Ltd          | LTP: ₹3,302.4  | 5.41%
-   2. NSE:HDFCPSUBK       | HDFC Nifty PSU Bank ETF   | LTP: ₹88.96    | 2.57%
+   1. NSE:AMANTA          | Amanta Healthcare Ltd     | LTP: ₹228.37   | 16.49%
+   2. NSE:HALEOSLABS      | Haleos Labs Limited       | LTP: ₹1,596.3  | 14.12%
+   3. NSE:IFBAGRO         | Ifb Agro Industries Limited | LTP: ₹960      | 12.84%
+   4. NSE:KMEW            | Knowledge Marine & Engineering Works Ltd | LTP: ₹713      | 9.88%
+   5. NSE:SUKHJITS        | Sukhjit Starch & Chemicals Ltd | LTP: ₹151.22   | 9.54%
+   6. NSE:CGVAK           | CG-VAK Software & Exports Ltd | LTP: ₹147.87   | 9.51%
+   7. NSE:TASTYBITE       | Tasty Bite Eatables Ltd   | LTP: ₹10,951   | 9.42%
+   8. NSE:ABCAPITAL       | Aditya Birla Capital Ltd  | LTP: ₹419.5    | 5.93%
+   9. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹390      | 5.55%
+  10. NSE:LEMONTREE       | Lemon Tree Hotels Ltd     | LTP: ₹120.41   | 4.61%
+  11. NSE:ARIS            | Arisinfra Solutions Ltd   | LTP: ₹149.07   | 3.31%
 
-📋 FILTER: Inst. Entry AG 4 (7 stocks)
+📋 FILTER: Inst. Entry AG 4 (8 stocks)
 --------------------------------------------------
-   1. NSE:SALZERELEC      | Salzer Electronics Limited | LTP: ₹552.35   | 15.47%
-   2. NSE:DATAPATTNS      | Data Patterns (India) Ltd | LTP: ₹4,025    | 8.67%
-   3. NSE:TIMETECHNO      | Time Technoplast Limited  | LTP: ₹187.91   | 5.68%
-   4. NSE:BLISSGVS        | Bliss Gvs Pharma Limited  | LTP: ₹655.4    | 5%
-   5. NSE:NITCO           | Nitco Limited             | LTP: ₹88.03    | 4.01%
-   6. NSE:DBOL            | Dhampur Bio Organics Ltd  | LTP: ₹138.12   | 3.12%
-   7. NSE:BBNPNBETF       | Baroda BNP Paribas Nifty Bank ETF | LTP: ₹59.99    | 1.44%
+   1. NSE:RAYMONDREL      | Raymond Realty Ltd        | LTP: ₹597.85   | 7.33%
+   2. NSE:SANSTAR         | Sanstar Ltd               | LTP: ₹99.23    | 6.98%
+   3. NSE:EIMCOELECO      | Eimco Elecon (india) Limited | LTP: ₹2,626.8  | 6.31%
+   4. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹390      | 5.55%
+   5. NSE:SIMPLEXINF      | Simplex Infrastructures Limited | LTP: ₹304      | 4.59%
+   6. NSE:GODREJPROP      | Godrej Properties Limited | LTP: ₹1,879.5  | 4.5%
+   7. NSE:DLF             | Dlf Limited               | LTP: ₹769.3    | 3.59%
+   8. NSE:RBA             | Restaurant Brands Asia Ltd | LTP: ₹89.94    | 2.1%
 
 📋 FILTER: Inst. Entry AG 5 (0 stocks)
 --------------------------------------------------
   (No stocks matched this filter)
 
-📋 FILTER: Inst. Entry GPT 1 (12 stocks)
+📋 FILTER: Inst. Entry GPT 1 (20 stocks)
 --------------------------------------------------
-   1. NSE:SALZERELEC      | Salzer Electronics Limited | LTP: ₹552.35   | 15.47%
-   2. NSE:IOLCP           | Iol Chemicals And Pharmaceuticals Limited | LTP: ₹202.95   | 10.13%
-   3. NSE:DATAPATTNS      | Data Patterns (India) Ltd | LTP: ₹4,025    | 8.67%
-   4. NSE:QUESS           | Quess Corp Limited        | LTP: ₹345.7    | 8.52%
-   5. NSE:TIMETECHNO      | Time Technoplast Limited  | LTP: ₹187.91   | 5.68%
-   6. NSE:GLAND           | Gland Pharma Ltd          | LTP: ₹3,302.4  | 5.41%
-   7. NSE:KPL             | Kwality Pharmaceuticals Ltd | LTP: ₹3,881    | 5.29%
-   8. NSE:PNB             | Punjab National Bank Ltd  | LTP: ₹132.17   | 5.27%
-   9. NSE:BLISSGVS        | Bliss Gvs Pharma Limited  | LTP: ₹655.4    | 5%
-  10. NSE:KOTIC           | Kothari Industrial Corporation Ltd | LTP: ₹140.46   | 4.99%
-  11. NSE:NITCO           | Nitco Limited             | LTP: ₹88.03    | 4.01%
-  12. NSE:DBOL            | Dhampur Bio Organics Ltd  | LTP: ₹138.12   | 3.12%
+   1. NSE:GABRIEL         | Gabriel India Limited     | LTP: ₹1,641.2  | 16.53%
+   2. NSE:AMANTA          | Amanta Healthcare Ltd     | LTP: ₹228.37   | 16.49%
+   3. NSE:MOMSBELIEF      | MOMSBELIEF                | LTP: ₹295.82   | 15.3%
+   4. NSE:HALEOSLABS      | Haleos Labs Limited       | LTP: ₹1,596.3  | 14.12%
+   5. NSE:IFBAGRO         | Ifb Agro Industries Limited | LTP: ₹960      | 12.84%
+   6. NSE:GODREJIND       | Godrej Industries Limited | LTP: ₹1,084.1  | 11.88%
+   7. NSE:KMEW            | Knowledge Marine & Engineering Works Ltd | LTP: ₹713      | 9.88%
+   8. NSE:SUKHJITS        | Sukhjit Starch & Chemicals Ltd | LTP: ₹151.22   | 9.54%
+   9. NSE:CGVAK           | CG-VAK Software & Exports Ltd | LTP: ₹147.87   | 9.51%
+  10. NSE:TASTYBITE       | Tasty Bite Eatables Ltd   | LTP: ₹10,951   | 9.42%
+  11. NSE:AARTIPHARM      | Aarti Pharmalabs Ltd      | LTP: ₹1,010.5  | 9.42%
+  12. NSE:INDGN           | Indegene Ltd              | LTP: ₹666.05   | 8.13%
+  13. NSE:RAYMONDREL      | Raymond Realty Ltd        | LTP: ₹597.85   | 7.33%
+  14. NSE:SANSTAR         | Sanstar Ltd               | LTP: ₹99.23    | 6.98%
+  15. NSE:EIMCOELECO      | Eimco Elecon (india) Limited | LTP: ₹2,626.8  | 6.31%
+  16. NSE:GLOSTERLTD      | Gloster Ltd               | LTP: ₹569      | 5.93%
+  17. NSE:ABCAPITAL       | Aditya Birla Capital Ltd  | LTP: ₹419.5    | 5.93%
+  18. NSE:ELECON          | Elecon Engineering Company Limited | LTP: ₹455.35   | 5.82%
+  19. NSE:MOLBIO          | Molbio Diagnostics Ltd    | LTP: ₹1,394.1  | 5.73%
+  20. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹390      | 5.55%
 
 📋 FILTER: Inst. Entry GPT 2 (0 stocks)
 --------------------------------------------------
@@ -47,111 +74,158 @@ CHARTINK SCAN RESULTS (BY FILTER) — 9/11/2026, 2:19:35 pm
 
 📋 FILTER: Cup and Handle (20 stocks)
 --------------------------------------------------
-   1. NSE:DAMODARIND      | Damodar Industries Limited | LTP: ₹29       | 12.97%
-   2. NSE:IOLCP           | Iol Chemicals And Pharmaceuticals Limited | LTP: ₹202.95   | 10.13%
-   3. NSE:BHAGERIA        | Bhageria Industries Limited | LTP: ₹396.1    | 6.9%
-   4. NSE:SANSERA         | Sansera Engineering Ltd   | LTP: ₹4,653.4  | 5.42%
-   5. NSE:DELTACORP       | Delta Corp Limited        | LTP: ₹81.13    | 4.58%
-   6. NSE:JAIPURKURT      | Nandani Creation Ltd      | LTP: ₹30.85    | 4.29%
-   7. NSE:JMA             | Jullundur Motor Agency (delhi) Limited | LTP: ₹93.51    | 3.69%
-   8. NSE:ASTRAMICRO      | Astra Microwave Products Limited | LTP: ₹1,659.7  | 3.31%
-   9. NSE:KALYANKJIL      | Kalyan Jewellers India Ltd | LTP: ₹611      | 3.21%
-  10. NSE:AKUMS           | Akums Drugs & Pharmaceuticals Ltd | LTP: ₹765.85   | 2.96%
-  11. NSE:KDDL            | Kddl Limited              | LTP: ₹4,197.2  | 2.84%
-  12. NSE:SURAKSHA        | Suraksha Diagnostic Ltd   | LTP: ₹353.2    | 2.78%
-  13. NSE:LICHSGFIN       | Lic Housing Finance Limited | LTP: ₹551.9    | 2.58%
-  14. NSE:RUBICON         | Rubicon Research Ltd      | LTP: ₹1,771.7  | 2.36%
-  15. NSE:GILT5BETA       | UTI Nifty 5 yr Benchmark G-Sec ETF | LTP: ₹66.79    | 2.33%
-  16. NSE:OBEROIRLTY      | Oberoi Realty Limited     | LTP: ₹1,775    | 2.18%
-  17. NSE:FINEORG         | Fine Organic Industries Ltd | LTP: ₹5,314    | 2.08%
-  18. NSE:STEELCAS        | Steelcast Ltd             | LTP: ₹374.9    | 1.97%
-  19. NSE:SML100CASE      | Zerodha Nifty Smallcap 100 ETF | LTP: ₹11.06    | 1.94%
-  20. NSE:AMBIKCO         | Ambika Cotton Mills Limited | LTP: ₹1,564.9  | 1.89%
+   1. NSE:GLFL            | Gujarat Lease Financing Limited | LTP: ₹5.9      | 9.67%
+   2. NSE:JAMNAAUTO       | Jamna Auto Industries Limited | LTP: ₹146.24   | 6.42%
+   3. NSE:NGLFINE         | NGL Fine Chem Ltd         | LTP: ₹3,120    | 6.33%
+   4. NSE:KOPRAN          | Kopran Limited            | LTP: ₹279.86   | 6.05%
+   5. NSE:SHILPAMED       | Shilpa Medicare Limited   | LTP: ₹989.65   | 5.94%
+   6. NSE:CHEVIOT         | Cheviot Company Ltd       | LTP: ₹1,167.1  | 5.24%
+   7. NSE:GRANULES        | Granules India Limited    | LTP: ₹840.5    | 5.16%
+   8. NSE:IZMO            | Izmo Limited              | LTP: ₹901.7    | 4.75%
+   9. NSE:CONTROLPR       | Control Print Limited     | LTP: ₹623.4    | 4.5%
+  10. NSE:MARKSANS        | Marksans Pharma Limited   | LTP: ₹320      | 4.39%
+  11. NSE:DBOL            | Dhampur Bio Organics Ltd  | LTP: ₹145      | 4.36%
+  12. NSE:NAHARCAP        | Nahar Capital And Financial Services Limited | LTP: ₹244      | 4.34%
+  13. NSE:OBEROIRLTY      | Oberoi Realty Limited     | LTP: ₹1,817    | 4.17%
+  14. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹288      | 4.1%
+  15. NSE:ESAFSFB         | ESAF Small Finance Bank Ltd | LTP: ₹45.08    | 3.8%
+  16. NSE:INDUSINDBK      | Indusind Bank Limited     | LTP: ₹931.35   | 3.48%
+  17. NSE:GRAPHITE        | Graphite India Limited    | LTP: ₹798.7    | 3.26%
+  18. NSE:GROWWNET        | Groww Nifty India Internet ETF | LTP: ₹10.8     | 3.25%
+  19. NSE:MUNJALSHOW      | Munjal Showa Limited      | LTP: ₹129      | 3.18%
+  20. NSE:BEARDSELL       | Beardsell Limited         | LTP: ₹26.6     | 2.98%
 
-📋 FILTER: EMA9/21 - InvertedHammer (5 stocks)
+📋 FILTER: EMA9/21 - InvertedHammer (19 stocks)
 --------------------------------------------------
-   1. NSE:ANTHEM          | Anthem Biosciences Ltd    | LTP: ₹958.15   | 1.68%
-   2. NSE:PGIL            | Pearl Global Industries Limited | LTP: ₹1,343.6  | 1.67%
-   3. NSE:HEALTHAXIS      | HEALTHAXIS                | LTP: ₹175.99   | 0.78%
-   4. NSE:ERIS            | Eris Lifesciences Ltd     | LTP: ₹1,255.5  | 0.22%
-   5. NSE:ABBOTINDIA      | Abbott India Limited      | LTP: ₹26,665   | -0.07%
+   1. NSE:TGVSL           | TGV Sraac Ltd             | LTP: ₹127.7    | 5.84%
+   2. NSE:DHUNINV         | Dhunseri Investments Limited | LTP: ₹996.15   | 4.21%
+   3. NSE:WHEELS          | Wheels India Limited      | LTP: ₹2,447.8  | 3.17%
+   4. NSE:DHOOTTRANS      | Dhoot Transmission Ltd    | LTP: ₹1,626.8  | 3.02%
+   5. NSE:RAYMOND         | Raymond Limited           | LTP: ₹1,126.4  | 2.92%
+   6. NSE:V2RETAIL        | V2 Retail Limited         | LTP: ₹186.11   | 2.35%
+   7. NSE:VHL             | Vardhman Holdings Limited | LTP: ₹3,625    | 2.02%
+   8. NSE:TMCV            | Tata Motors Commercial Vehicles Ltd | LTP: ₹453.4    | 1.65%
+   9. NSE:SBICARD         | SBI Cards & Payment Services Ltd | LTP: ₹590      | 0.9%
+  10. NSE:LICNMID100      | LIC MF Nifty Midcap 100 ETF | LTP: ₹61.48    | 0.69%
+  11. NSE:HDFCBSE500      | HDFC S & P BSE 500 ETF    | LTP: ₹38.19    | 0.58%
+  12. NSE:HDFCAMC         | HDFC Asset Management Company Ltd | LTP: ₹2,730    | 0.55%
+  13. NSE:PTL             | Ptl Enterprises Limited   | LTP: ₹39.65    | 0.51%
+  14. NSE:MOMETAL         | Motilal Oswal Nifty Metal ETF | LTP: ₹12.79    | 0.31%
+  15. NSE:ALLDIGI         | Alldigi Tech Ltd          | LTP: ₹835      | 0.25%
+  16. NSE:EQUAL50         | Mirae Asset Nifty50 Equal Weight ETF | LTP: ₹339.87   | 0.13%
+  17. NSE:DEVIT           | Dev Information Technology Ltd | LTP: ₹20.85    | -0.33%
+  18. NSE:BATLIBOI        | Batliboi Ltd              | LTP: ₹93.17    | -0.48%
+  19. NSE:ELDEHSG         | Eldeco Housing & Industries Ltd | LTP: ₹782      | -1.64%
 
 📋 FILTER: EMA9/21 - Hammer (8 stocks)
 --------------------------------------------------
-   1. NSE:HMVL            | Hindustan Media Ventures Limited | LTP: ₹95.2     | 6.04%
-   2. NSE:TVVISION        | Tv Vision Limited         | LTP: ₹2.84     | 4.8%
-   3. NSE:MATRIMONY       | Matrimony.com Ltd         | LTP: ₹589.9    | 1.87%
-   4. NSE:GROWWEV         | Groww Nifty EV & New Age Automotive ETF | LTP: ₹31.92    | 1.69%
-   5. NSE:JAGRAN          | Jagran Prakashan Limited  | LTP: ₹66.98    | 1.04%
-   6. NSE:HDFCNIF100      | HDFC Nifty 100 ETF        | LTP: ₹26.84    | 0.49%
-   7. NSE:NEXT50ADD       | DSP Nifty Next 50 ETF     | LTP: ₹74.1     | 0.07%
-   8. NSE:MOIPO           | Motilal Oswal BSE Select IPO ETF | LTP: ₹47.7     | -0.48%
+   1. NSE:PSUBANK         | Kotak Nifty PSU Bank ETF  | LTP: ₹93.53    | 2.46%
+   2. NSE:PALREDTEC       | Palred Technologies Limited | LTP: ₹48       | 2.35%
+   3. NSE:FINIETF         | ICICI Prudential Nifty Financial Serv. Ex-Bank ETF | LTP: ₹33.2     | 2.34%
+   4. NSE:KNAGRI          | KN Agri Resources Ltd     | LTP: ₹221.5    | 1.31%
+   5. NSE:DVL             | Dhunseri Ventures Ltd     | LTP: ₹301      | 1.18%
+   6. NSE:MIDCAP          | Kotak Nifty Midcap 50 ETF | LTP: ₹18.29    | 0.94%
+   7. NSE:HBPOR           | HB Portfolio Ltd          | LTP: ₹59.98    | 0.81%
+   8. NSE:MOHEALTH        | Motilal Oswal S&P BSE Healthcare ETF | LTP: ₹53.99    | 0.67%
 
-📋 FILTER: EMA9/21 - MARUBOZU (8 stocks)
+📋 FILTER: EMA9/21 - MARUBOZU (13 stocks)
 --------------------------------------------------
-   1. NSE:UNIONBANK       | Union Bank Of India Ltd   | LTP: ₹197      | 5.6%
-   2. NSE:PNB             | Punjab National Bank Ltd  | LTP: ₹132.17   | 5.27%
-   3. NSE:KAYA            | Kaya Limited              | LTP: ₹365.2    | 4.99%
-   4. NSE:BANKINDIA       | Bank Of India Ltd         | LTP: ₹145      | 4.53%
-   5. NSE:BANKBARODA      | Bank Of Baroda Ltd        | LTP: ₹260.01   | 4.46%
-   6. NSE:INDIANB         | Indian Bank Ltd           | LTP: ₹933.7    | 4.35%
-   7. NSE:AUROPHARMA      | Aurobindo Pharma Limited  | LTP: ₹1,855.3  | 2.84%
-   8. NSE:MOM30IETF       | ICICI Prudential Nifty 200 Momentum 30 ETF | LTP: ₹30.86    | 0.42%
+   1. NSE:ASIANTNE        | Asian Tea & Exports Ltd   | LTP: ₹9.78     | 10.26%
+   2. NSE:PAYTM           | One 97 Communications Ltd | LTP: ₹1,925    | 7.31%
+   3. NSE:MAXESTATES      | Max Estates Ltd           | LTP: ₹570      | 6.59%
+   4. NSE:GROWWRLTY       | Groww Nifty Realty ETF    | LTP: ₹10.55    | 6.35%
+   5. NSE:PHOENIXLTD      | The Phoenix Mills Limited | LTP: ₹2,292    | 5.57%
+   6. NSE:COMPEAU         | Competent Automobiles Company Ltd | LTP: ₹390      | 5.55%
+   7. NSE:SIMPLEXINF      | Simplex Infrastructures Limited | LTP: ₹304      | 4.59%
+   8. NSE:GODREJPROP      | Godrej Properties Limited | LTP: ₹1,879.5  | 4.5%
+   9. NSE:LODHA           | Lodha Developers Ltd      | LTP: ₹1,226    | 4.38%
+  10. NSE:PVRINOX         | PVR Inox Ltd              | LTP: ₹1,652.6  | 4.37%
+  11. NSE:PRESTIGE        | Prestige Estates Projects Limited | LTP: ₹1,693.9  | 4.24%
+  12. NSE:HDFCLIFE        | HDFC Life Insurance Company Ltd | LTP: ₹597.8    | 4.23%
+  13. NSE:DLF             | Dlf Limited               | LTP: ₹769.3    | 3.59%
 
 ═════════════════════════════════════════════════════════════════
-TOTAL UNIQUE SYMBOLS (54 stocks):
+TOTAL UNIQUE SYMBOLS (82 stocks):
 ═════════════════════════════════════════════════════════════════
-NSE:GLAND
-NSE:VOLTAS
-NSE:HDFCPSUBK
-NSE:SALZERELEC
-NSE:DATAPATTNS
-NSE:TIMETECHNO
-NSE:BLISSGVS
-NSE:NITCO
+NSE:AMANTA
+NSE:HALEOSLABS
+NSE:IFBAGRO
+NSE:KMEW
+NSE:SUKHJITS
+NSE:CGVAK
+NSE:TASTYBITE
+NSE:ABCAPITAL
+NSE:COMPEAU
+NSE:LEMONTREE
+NSE:ARIS
+NSE:RAYMONDREL
+NSE:SANSTAR
+NSE:EIMCOELECO
+NSE:SIMPLEXINF
+NSE:GODREJPROP
+NSE:DLF
+NSE:RBA
+NSE:GABRIEL
+NSE:MOMSBELIEF
+NSE:GODREJIND
+NSE:AARTIPHARM
+NSE:INDGN
+NSE:GLOSTERLTD
+NSE:ELECON
+NSE:MOLBIO
+NSE:GLFL
+NSE:JAMNAAUTO
+NSE:NGLFINE
+NSE:KOPRAN
+NSE:SHILPAMED
+NSE:CHEVIOT
+NSE:GRANULES
+NSE:IZMO
+NSE:CONTROLPR
+NSE:MARKSANS
 NSE:DBOL
-NSE:BBNPNBETF
-NSE:IOLCP
-NSE:QUESS
-NSE:KPL
-NSE:PNB
-NSE:KOTIC
-NSE:DAMODARIND
-NSE:BHAGERIA
-NSE:SANSERA
-NSE:DELTACORP
-NSE:JAIPURKURT
-NSE:JMA
-NSE:ASTRAMICRO
-NSE:KALYANKJIL
-NSE:AKUMS
-NSE:KDDL
-NSE:SURAKSHA
-NSE:LICHSGFIN
-NSE:RUBICON
-NSE:GILT5BETA
+NSE:NAHARCAP
 NSE:OBEROIRLTY
-NSE:FINEORG
-NSE:STEELCAS
-NSE:SML100CASE
-NSE:AMBIKCO
-NSE:ANTHEM
-NSE:PGIL
-NSE:HEALTHAXIS
-NSE:ERIS
-NSE:ABBOTINDIA
-NSE:HMVL
-NSE:TVVISION
-NSE:MATRIMONY
-NSE:GROWWEV
-NSE:JAGRAN
-NSE:HDFCNIF100
-NSE:NEXT50ADD
-NSE:MOIPO
-NSE:UNIONBANK
-NSE:KAYA
-NSE:BANKINDIA
-NSE:BANKBARODA
-NSE:INDIANB
-NSE:AUROPHARMA
-NSE:MOM30IETF
+NSE:CAPITALSFB
+NSE:ESAFSFB
+NSE:INDUSINDBK
+NSE:GRAPHITE
+NSE:GROWWNET
+NSE:MUNJALSHOW
+NSE:BEARDSELL
+NSE:TGVSL
+NSE:DHUNINV
+NSE:WHEELS
+NSE:DHOOTTRANS
+NSE:RAYMOND
+NSE:V2RETAIL
+NSE:VHL
+NSE:TMCV
+NSE:SBICARD
+NSE:LICNMID100
+NSE:HDFCBSE500
+NSE:HDFCAMC
+NSE:PTL
+NSE:MOMETAL
+NSE:ALLDIGI
+NSE:EQUAL50
+NSE:DEVIT
+NSE:BATLIBOI
+NSE:ELDEHSG
+NSE:PSUBANK
+NSE:PALREDTEC
+NSE:FINIETF
+NSE:KNAGRI
+NSE:DVL
+NSE:MIDCAP
+NSE:HBPOR
+NSE:MOHEALTH
+NSE:ASIANTNE
+NSE:PAYTM
+NSE:MAXESTATES
+NSE:GROWWRLTY
+NSE:PHOENIXLTD
+NSE:LODHA
+NSE:PVRINOX
+NSE:PRESTIGE
+NSE:HDFCLIFE
