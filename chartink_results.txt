@@ -1,5 +1,5 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 13/11/2026, 9:02:56 pm
+CHARTINK SCAN RESULTS (BY FILTER) — 15/11/2026, 1:19:00 pm
 ═════════════════════════════════════════════════════════════════
 
 📋 FILTER: Sniper OB Retest Bounce Scanner (0 stocks)
@@ -69,7 +69,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 13/11/2026, 9:02:56 pm
   13. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%
   14. NSE:COSMOFIRST      | Cosmo First Ltd           | LTP: ₹831.8    | 1.94%
 
-📋 FILTER: Inst. Entry AG 2 (14 stocks)
+📋 FILTER: Inst. Entry AG 2 (13 stocks)
 --------------------------------------------------
    1. NSE:ALICON          | Alicon Castalloy Limited  | LTP: ₹976.15   | 17.32%
    2. NSE:PRECOT          | Precot Meridian Limited   | LTP: ₹706.8    | 12.39%
@@ -83,10 +83,9 @@ CHARTINK SCAN RESULTS (BY FILTER) — 13/11/2026, 9:02:56 pm
   10. NSE:ARCL            | ARCL Organics Ltd         | LTP: ₹232.9    | 3.97%
   11. NSE:GPPL            | Gujarat Pipavav Port Limited | LTP: ₹173.59   | 3.6%
   12. NSE:SDBL            | Som Distilleries & Breweries Limited | LTP: ₹76.92    | 3.46%
-  13. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%
-  14. NSE:COSMOFIRST      | Cosmo First Ltd           | LTP: ₹831.8    | 1.94%
+  13. NSE:COSMOFIRST      | Cosmo First Ltd           | LTP: ₹831.8    | 1.94%
 
-📋 FILTER: Inst. Entry AG 4 (18 stocks)
+📋 FILTER: Inst. Entry AG 4 (17 stocks)
 --------------------------------------------------
    1. NSE:SHALPAINTS      | Shalimar Paints Limited   | LTP: ₹95.93    | 12.59%
    2. NSE:PRECOT          | Precot Meridian Limited   | LTP: ₹706.8    | 12.39%
@@ -105,7 +104,6 @@ CHARTINK SCAN RESULTS (BY FILTER) — 13/11/2026, 9:02:56 pm
   15. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹130.02   | 3.73%
   16. NSE:GPPL            | Gujarat Pipavav Port Limited | LTP: ₹173.59   | 3.6%
   17. NSE:HBESD           | HB Estate Developers Ltd  | LTP: ₹82.25    | 3.5%
-  18. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%
 
 📋 FILTER: Inst. Entry AG 5 (0 stocks)
 --------------------------------------------------
@@ -121,18 +119,18 @@ CHARTINK SCAN RESULTS (BY FILTER) — 13/11/2026, 9:02:56 pm
    6. NSE:POWERINDIA      | Hitachi Energy India Ltd  | LTP: ₹31,595   | 10.68%
    7. NSE:SHIVAMILLS      | Shiva Mills Ltd           | LTP: ₹64.51    | 9.99%
    8. NSE:AMBER           | Amber Enterprises India Ltd | LTP: ₹6,772    | 9.07%
-   9. NSE:ORIENTCABL      | Orient Cables (India) Ltd | LTP: ₹408.95   | 8.49%
-  10. NSE:KANCOTEA        | Kanco Tea & Industries Ltd | LTP: ₹64.99    | 8.14%
-  11. NSE:APOLLO          | Apollo Micro Systems Ltd  | LTP: ₹475.6    | 8.07%
-  12. NSE:SHARDAMOTR      | Sharda Motor Industries Limited | LTP: ₹964.75   | 8.06%
-  13. NSE:STEL            | Stel Holdings Limited     | LTP: ₹664.05   | 7.62%
-  14. NSE:AEGISVOPAK      | Aegis Vopak Terminals Ltd | LTP: ₹285.93   | 7.05%
-  15. NSE:ITI             | Iti Limited               | LTP: ₹268.07   | 6.8%
-  16. NSE:ACI             | Archean Chemical Industries Ltd | LTP: ₹455.05   | 6.64%
-  17. NSE:STCINDIA        | The State Trading Corporation Of India Limited | LTP: ₹115.34   | 6.37%
-  18. NSE:GVT&D           | GE Vernova T&D India Ltd  | LTP: ₹4,420    | 5.24%
-  19. NSE:GCSL            | Gretex Corporate Services Ltd | LTP: ₹822.95   | 5.09%
-  20. NSE:ROHLTD          | Royal Orchid Hotels Limited | LTP: ₹307.05   | 5.01%
+   9. NSE:KANCOTEA        | Kanco Tea & Industries Ltd | LTP: ₹64.99    | 8.14%
+  10. NSE:APOLLO          | Apollo Micro Systems Ltd  | LTP: ₹475.6    | 8.07%
+  11. NSE:SHARDAMOTR      | Sharda Motor Industries Limited | LTP: ₹964.75   | 8.06%
+  12. NSE:STEL            | Stel Holdings Limited     | LTP: ₹664.05   | 7.62%
+  13. NSE:AEGISVOPAK      | Aegis Vopak Terminals Ltd | LTP: ₹285.93   | 7.05%
+  14. NSE:ITI             | Iti Limited               | LTP: ₹268.07   | 6.8%
+  15. NSE:ACI             | Archean Chemical Industries Ltd | LTP: ₹455.05   | 6.64%
+  16. NSE:STCINDIA        | The State Trading Corporation Of India Limited | LTP: ₹115.34   | 6.37%
+  17. NSE:GVT&D           | GE Vernova T&D India Ltd  | LTP: ₹4,420    | 5.24%
+  18. NSE:GCSL            | Gretex Corporate Services Ltd | LTP: ₹822.95   | 5.09%
+  19. NSE:ROHLTD          | Royal Orchid Hotels Limited | LTP: ₹307.05   | 5.01%
+  20. NSE:BHAGYANGR       | Bhagyanagar India         | LTP: ₹81.66    | 4.99%
 
 📋 FILTER: Inst. Entry GPT 2 (0 stocks)
 --------------------------------------------------
@@ -162,7 +160,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 13/11/2026, 9:02:56 pm
   20. NSE:LYKALABS        | Lyka Labs Limited         | LTP: ₹84.62    | 1.99%
 
 ═════════════════════════════════════════════════════════════════
-TOTAL UNIQUE SYMBOLS (67 stocks):
+TOTAL UNIQUE SYMBOLS (66 stocks):
 ═════════════════════════════════════════════════════════════════
 NSE:APOLLO
 NSE:MOLBIO
@@ -216,7 +214,6 @@ NSE:RICOAUTO
 NSE:DECNGOLD
 NSE:LEAPIND
 NSE:HBESD
-NSE:ORIENTCABL
 NSE:SHARDAMOTR
 NSE:ITI
 NSE:ACI
