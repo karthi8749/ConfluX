@@ -71,7 +71,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       --accent-pill: rgba(56, 189, 248, 0.12);
       --accent-pill-text: #38bdf8;
       --active-scan: #15223f;
-      --row-border: #111b33;
+      --row-border: rgba(255, 255, 255, 0.06);
       --hover-bg: rgba(56, 189, 248, 0.05);
       --vol-bg: rgba(255, 255, 255, 0.05);
       --vol-color: #cbd5e1;
@@ -106,7 +106,44 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       --shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      -webkit-tap-highlight-color: transparent; 
+      scrollbar-width: thin;
+      scrollbar-color: rgba(56, 189, 248, 0.28) transparent;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       MODERN ULTRA-SLEEK SCROLLBARS (Universal Dark UI)
+       Completely eliminates the old 90s OS grey/white scrollbars with
+       sleek, thin, rounded, transparent-track pills with glow hover
+       ═══════════════════════════════════════════════════════════ */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 999px;
+      transition: background 0.2s ease;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-button {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       background: var(--bg);
@@ -200,6 +237,21 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       flex-direction: column;
       gap: 6px;
       min-width: 290px;
+    }
+    .scan-list::-webkit-scrollbar {
+      width: 5px;
+    }
+    .scan-list::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+    }
+    .scan-list::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 999px;
+    }
+    .scan-list::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.65);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
     }
     .scan-item {
       padding: 10px 14px;
@@ -458,8 +510,25 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     .table-container {
       flex: 1;
       overflow-y: auto;
+      overflow-x: auto;
       padding: 16px 24px;
       width: 100%;
+    }
+    .table-container::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .table-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 999px;
+    }
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.65);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
     }
     table {
       width: 100%;
@@ -632,6 +701,98 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       border-color: #a855f7;
       box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
       transform: scale(1.14);
+    }
+    .stock-copy-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      cursor: pointer;
+      margin-left: 5px;
+      transition: var(--transition);
+      padding: 0;
+      vertical-align: middle;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .stock-copy-btn:hover {
+      background: rgba(56, 189, 248, 0.3);
+      border-color: #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+      transform: scale(1.14);
+    }
+    .stock-copy-btn.copied {
+      background: rgba(16, 185, 129, 0.25);
+      border-color: #10b981;
+      color: #34d399;
+    }
+
+    .btn-live {
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      color: #ffffff;
+      border: 1px solid rgba(14, 165, 233, 0.4);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: var(--transition);
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(14, 165, 233, 0.25);
+    }
+    .btn-live:hover {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+      transform: translateY(-1px);
+    }
+    .btn-live.loading {
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    .btn-live.loading #liveBtnIcon {
+      display: inline-block;
+      animation: spinLive 0.9s linear infinite;
+    }
+    @keyframes spinLive {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .live-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .live-positive {
+      background: rgba(16, 185, 129, 0.16);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.15);
+    }
+    .live-negative {
+      background: rgba(239, 68, 68, 0.16);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.15);
+    }
+    .live-neutral {
+      background: var(--vol-bg);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .open-chart-btn:hover {
@@ -1221,6 +1382,12 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             <input type="text" class="search-input" id="searchInput" placeholder="Search symbol or name..." oninput="onSearchChange(this.value)">
           </div>
 
+          <!-- UPDATE LIVE % BUTTON -->
+          <button class="btn btn-live" id="updateLiveBtn" onclick="updateLivePercentage()" title="Fetch today's real-time live % change for all stocks">
+            <span id="liveBtnIcon">🔄</span>
+            <span id="liveBtnText">Live %</span>
+          </button>
+
           <!-- RUN SCANS (RUN.bat) BUTTON WITH LIVE PROGRESS -->
           <button class="btn btn-run" id="runScanBtn" onclick="runScanNow()" title="Trigger Chartink Scans & Update Watchlists (RUN.bat)">
             <div class="btn-run-progress" id="runScanProgressBar"></div>
@@ -1244,6 +1411,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             <th onclick="sortTable('volume')">Volume <span class="sort-arrow" id="sort-volume">↕</span></th>
             <th onclick="sortTable('delivery')">Delivery % <span class="sort-arrow" id="sort-delivery">↕</span></th>
             <th>Your TradingView</th>
+            <th onclick="sortTable('liveChange')">Live % Change <span class="sort-arrow" id="sort-liveChange">↕</span></th>
           </tr>
         </thead>
         <tbody id="stocksTable"></tbody>
@@ -1347,7 +1515,8 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     const candleStore = ${jsonCandles};
     const scanNames = Object.keys(data);
     let activeMode = "scan";
-    let activeIndex = 0;
+    let firstNonEmptyScan = scanNames.findIndex(k => (data[k] || []).length > 0);
+    let activeIndex = firstNonEmptyScan >= 0 ? firstNonEmptyScan : 0;
     let searchQuery = "";
     let sortColumn = null;
     let sortDirection = "desc";
@@ -1358,6 +1527,13 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     let isSyncingRange = false;
     let currentSmcData = null;
     let smcAnimFrame = null;
+
+    // Real-Time Live Market Quotes Store (TradingView Scanner Engine)
+    let liveQuotesMap = {};
+    try {
+      const savedLive = sessionStorage.getItem("conflux_live_quotes");
+      if (savedLive) liveQuotesMap = JSON.parse(savedLive);
+    } catch (_) {}
 
     // TradingView Lightweight Charts Instances
     let mainChart = null;
@@ -2765,14 +2941,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         sortDirection = sortDirection === "asc" ? "desc" : "asc";
       } else {
         sortColumn = column;
-        sortDirection = (column === "change" || column === "volume" || column === "price" || column === "delivery") ? "desc" : "asc";
+        sortDirection = (column === "change" || column === "volume" || column === "price" || column === "delivery" || column === "liveChange") ? "desc" : "asc";
       }
       updateSortHeaders();
       renderContent();
     }
 
     function updateSortHeaders() {
-      ["symbol", "name", "price", "change", "volume", "delivery"].forEach(col => {
+      ["symbol", "name", "price", "change", "volume", "delivery", "liveChange"].forEach(col => {
         const th = document.getElementById("sort-" + col);
         if (!th) return;
         const parentTh = th.parentElement;
@@ -2825,6 +3001,12 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             aVal = (a[sortColumn] || "").toLowerCase();
             bVal = (b[sortColumn] || "").toLowerCase();
             return sortDirection === "asc" ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+          } else if (sortColumn === "liveChange") {
+            const aLive = liveQuotesMap[(a.symbol || "").toUpperCase()];
+            const bLive = liveQuotesMap[(b.symbol || "").toUpperCase()];
+            aVal = (aLive && typeof aLive.change === "number") ? aLive.change : -99999;
+            bVal = (bLive && typeof bLive.change === "number") ? bLive.change : -99999;
+            return sortDirection === "asc" ? aVal - bVal : bVal - aVal;
           } else {
             aVal = parseNumeric(a[sortColumn]);
             bVal = parseNumeric(b[sortColumn]);
@@ -2878,6 +3060,19 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           delivClass = "delivery-mid";
         }
 
+        const liveInfo = liveQuotesMap[(s.symbol || "").toUpperCase()];
+        let liveHtml = "";
+        if (liveInfo && typeof liveInfo.change === "number") {
+          const isPos = liveInfo.change > 0;
+          const isZero = Math.abs(liveInfo.change) < 0.001;
+          const lClass = isZero ? "live-neutral" : (isPos ? "live-positive" : "live-negative");
+          const sign = isPos ? "▲ +" : (isZero ? "" : "▼ ");
+          const tip = "Live: ₹" + (liveInfo.price != null ? liveInfo.price : "-") + " | " + (liveInfo.change >= 0 ? "+" : "") + liveInfo.change.toFixed(2) + "% | Vol: " + (liveInfo.volume ? Number(liveInfo.volume).toLocaleString("en-IN") : "-") + (liveInfo.updatedAt ? " (" + liveInfo.updatedAt + ")" : "");
+          liveHtml = '<span class="live-pill ' + lClass + '" title="' + tip + '">' + sign + Math.abs(liveInfo.change).toFixed(2) + '%</span>';
+        } else {
+          liveHtml = '<span class="live-pill live-neutral" style="opacity:0.6; cursor:pointer;" onclick="event.stopPropagation(); updateLivePercentage()" title="Click Live % button above to fetch live prices">—</span>';
+        }
+
         tr.innerHTML = \`
           <td style="color:var(--text-muted); font-size:0.75rem;">\${i + 1}</td>
           <td>
@@ -2889,6 +3084,12 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
                     title="Hover to view PineScript Chart | Click to Pin">\${s.symbol}</span>
               \${confluenceHtml}
               <button type="button" class="stock-analyze-btn" onclick="event.stopPropagation(); analyzeStockAuto('\${s.symbol}')" title="Auto-capture & analyze \${s.symbol} in Patternlytics">✨</button>
+              <button type="button" class="stock-copy-btn" onclick="event.stopPropagation(); copySymbolSingle('\${s.symbol}', this)" title="Copy NSE:\${s.symbol} to clipboard for TradingView">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
             </div>
             \${extraTags}
           </td>
@@ -2905,6 +3106,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
               <span>TradingView</span>
             </a>
           </td>
+          <td>\${liveHtml}</td>
         \`;
         tbody.appendChild(tr);
       });
@@ -2915,6 +3117,134 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       t.innerText = msg;
       t.classList.add("show");
       setTimeout(() => t.classList.remove("show"), 2000);
+    }
+
+    // ── Copy Single Stock for TradingView ────────────────────
+    function copySymbolSingle(symbol, btn) {
+      const textToCopy = "NSE:" + symbol;
+      const onSuccess = () => {
+        showToast("📋 Copied " + textToCopy + " to clipboard!");
+        if (btn) {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '<span style="font-weight:800; font-size:0.75rem; color:#34d399;">✓</span>';
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.innerHTML = orig;
+            btn.classList.remove("copied");
+          }, 1200);
+        }
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(onSuccess).catch(() => fallbackCopy(textToCopy, onSuccess));
+      } else {
+        fallbackCopy(textToCopy, onSuccess);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        if (cb) cb();
+      } catch (_) {}
+    }
+
+    // ── Live Market Percentage Update (TradingView Scanner API) ─────────────
+    async function updateLivePercentage() {
+      const btn = document.getElementById("updateLiveBtn");
+      const text = document.getElementById("liveBtnText");
+      if (btn) btn.classList.add("loading");
+      if (text) text.innerText = "Updating...";
+
+      try {
+        const allSyms = new Set();
+        for (const scanStocks of Object.values(data)) {
+          if (Array.isArray(scanStocks)) {
+            scanStocks.forEach(s => { if (s.symbol) allSyms.add(s.symbol.toUpperCase()); });
+          }
+        }
+        const symbolList = Array.from(allSyms);
+        if (symbolList.length === 0) {
+          showToast("No stocks found to update.");
+          return;
+        }
+
+        const nseTickers = symbolList.map(s => "NSE:" + s);
+        const res = await fetch("https://scanner.tradingview.com/india/scan", {
+          method: "POST",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify({
+            symbols: { tickers: nseTickers },
+            columns: ["close", "change", "change_abs", "volume"]
+          })
+        });
+
+        const json = await res.json();
+        let updatedCount = 0;
+        if (json && json.data) {
+          json.data.forEach(item => {
+            const clean = item.s.replace(/^NSE:/, "").replace(/^BSE:/, "");
+            liveQuotesMap[clean] = {
+              price: item.d[0],
+              change: item.d[1],
+              changeAbs: item.d[2],
+              volume: item.d[3],
+              updatedAt: new Date().toLocaleTimeString("en-IN")
+            };
+            updatedCount++;
+          });
+        }
+
+        // Fallback for BSE-only symbols if any
+        const missing = symbolList.filter(s => !liveQuotesMap[s]);
+        if (missing.length > 0 && missing.length <= 50) {
+          try {
+            const bseTickers = missing.map(s => "BSE:" + s);
+            const bseRes = await fetch("https://scanner.tradingview.com/india/scan", {
+              method: "POST",
+              headers: { "Content-Type": "text/plain" },
+              body: JSON.stringify({
+                symbols: { tickers: bseTickers },
+                columns: ["close", "change", "change_abs", "volume"]
+              })
+            });
+            const bseJson = await bseRes.json();
+            if (bseJson && bseJson.data) {
+              bseJson.data.forEach(item => {
+                const clean = item.s.replace(/^NSE:/, "").replace(/^BSE:/, "");
+                liveQuotesMap[clean] = {
+                  price: item.d[0],
+                  change: item.d[1],
+                  changeAbs: item.d[2],
+                  volume: item.d[3],
+                  updatedAt: new Date().toLocaleTimeString("en-IN")
+                };
+                updatedCount++;
+              });
+            }
+          } catch (_) {}
+        }
+
+        try {
+          sessionStorage.setItem("conflux_live_quotes", JSON.stringify(liveQuotesMap));
+        } catch (_) {}
+
+        renderContent();
+        showToast("⚡ Live % updated for " + updatedCount + " stocks!");
+      } catch (err) {
+        console.error("Live update error:", err);
+        showToast("⚠️ Could not fetch live quotes. Check connection.");
+      } finally {
+        if (btn) btn.classList.remove("loading");
+        if (text) text.innerText = "Live %";
+      }
     }
 
     function copyActiveScan() {
