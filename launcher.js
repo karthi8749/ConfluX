@@ -54,12 +54,21 @@ async function launchChartinkApp(config) {
   const hasSavedSession = fs.existsSync(COOKIES_FILE);
   const isCI = !!process.env.CI;
 
-  const browser = await chromium.launch({
-    headless: isCI ? true : (config.HEADLESS || false),
-    args: isCI
-      ? ["--no-sandbox", "--disable-setuid-sandbox", "--disable-blink-features=AutomationControlled"]
-      : ["--start-maximized", "--disable-blink-features=AutomationControlled"],
-  });
+  let browser;
+  try {
+    browser = await chromium.launch({
+      headless: isCI ? true : (config.HEADLESS || false),
+      args: isCI
+        ? ["--no-sandbox", "--disable-setuid-sandbox", "--disable-blink-features=AutomationControlled"]
+        : ["--start-maximized", "--disable-blink-features=AutomationControlled"],
+    });
+  } catch (launchErr) {
+    console.log("[Launcher] Note: Standard browser launch blocked or unavailable, falling back to headless mode...");
+    browser = await chromium.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-blink-features=AutomationControlled"],
+    });
+  }
 
   let context;
   if (hasSavedSession) {
