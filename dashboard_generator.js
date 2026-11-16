@@ -536,6 +536,30 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       border-radius: 4px;
       display: inline-block;
     }
+    .delivery-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .delivery-high {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .delivery-mid {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .delivery-low {
+      background: var(--vol-bg);
+      color: var(--vol-color);
+      border: 1px solid transparent;
+    }
     .positive { color: var(--green); font-weight: 600; }
     .negative { color: var(--red); font-weight: 600; }
 
@@ -1218,6 +1242,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             <th onclick="sortTable('price')">LTP (₹) <span class="sort-arrow" id="sort-price">↕</span></th>
             <th onclick="sortTable('change')">Change % <span class="sort-arrow" id="sort-change">↕</span></th>
             <th onclick="sortTable('volume')">Volume <span class="sort-arrow" id="sort-volume">↕</span></th>
+            <th onclick="sortTable('delivery')">Delivery % <span class="sort-arrow" id="sort-delivery">↕</span></th>
             <th>Your TradingView</th>
           </tr>
         </thead>
@@ -2740,14 +2765,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         sortDirection = sortDirection === "asc" ? "desc" : "asc";
       } else {
         sortColumn = column;
-        sortDirection = (column === "change" || column === "volume" || column === "price") ? "desc" : "asc";
+        sortDirection = (column === "change" || column === "volume" || column === "price" || column === "delivery") ? "desc" : "asc";
       }
       updateSortHeaders();
       renderContent();
     }
 
     function updateSortHeaders() {
-      ["symbol", "name", "price", "change", "volume"].forEach(col => {
+      ["symbol", "name", "price", "change", "volume", "delivery"].forEach(col => {
         const th = document.getElementById("sort-" + col);
         if (!th) return;
         const parentTh = th.parentElement;
@@ -2845,6 +2870,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           extraTags = \`<div class="filter-tags">\${confInfo.scans.map(f => \`<span class="filter-tag">\${f}</span>\`).join('')}</div>\`;
         }
 
+        const delivVal = parseNumeric(s.delivery);
+        let delivClass = "delivery-low";
+        if (delivVal >= 50) {
+          delivClass = "delivery-high";
+        } else if (delivVal >= 30) {
+          delivClass = "delivery-mid";
+        }
+
         tr.innerHTML = \`
           <td style="color:var(--text-muted); font-size:0.75rem;">\${i + 1}</td>
           <td>
@@ -2863,6 +2896,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           <td class="price">₹\${s.price || "-"}</td>
           <td class="\${changeClass}">\${s.change || "-"}</td>
           <td><span class="volume-pill">\${s.volume || "-"}</span></td>
+          <td><span class="delivery-pill \${delivClass}" title="Delivery %: \${s.delivery || 'N/A'}">\${s.delivery || "-"}</span></td>
           <td>
             <a href="\${tvUrl}" target="_blank" class="open-chart-btn" onclick="event.stopPropagation()" title="Open chart in TradingView">
               <svg class="tv-logo-svg" role="img" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

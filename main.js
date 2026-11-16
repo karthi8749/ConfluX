@@ -23,7 +23,7 @@ function saveResultsToFile(results) {
     if (stocks.length > 0) {
       stocks.forEach((s, idx) => {
         lines.push(
-          `  ${(idx + 1).toString().padStart(2)}. NSE:${s.symbol.padEnd(15)} | ${s.name.padEnd(25)} | LTP: ₹${(s.price || "-").padEnd(8)} | ${s.change || "-"}`
+          `  ${(idx + 1).toString().padStart(2)}. NSE:${s.symbol.padEnd(15)} | ${s.name.padEnd(25)} | LTP: ₹${(s.price || "-").padEnd(8)} | ${(s.change || "-").padEnd(7)} | Vol: ${(s.volume || "-").padEnd(11)} | Deliv: ${s.delivery || "-"}`
         );
         allSymbols.add(s.symbol);
       });
@@ -81,6 +81,15 @@ async function main() {
     if (!results || Object.keys(results).length === 0) {
       console.log("\n⚠️  No scans found to run.");
       return;
+    }
+
+    // Attach official NSE delivery percentage
+    try {
+      const { fetchLatestDeliveryMap, attachDeliveryToResults } = require("./delivery_fetcher");
+      const deliveryMap = await fetchLatestDeliveryMap();
+      attachDeliveryToResults(results, deliveryMap);
+    } catch (e) {
+      console.log("  [Delivery] Notice:", e.message);
     }
 
     const allSymbols = saveResultsToFile(results);

@@ -8,6 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const { generateDashboardHtml } = require("./dashboard_generator");
 const { fetchAllCandles } = require("./candle_fetcher");
+const { fetchLatestDeliveryMap, attachDeliveryToResults } = require("./delivery_fetcher");
 
 class TradingViewManager {
   constructor(config) {
@@ -21,6 +22,14 @@ class TradingViewManager {
     const watchlistsDir = path.resolve("watchlists");
     if (!fs.existsSync(watchlistsDir)) {
       fs.mkdirSync(watchlistsDir, { recursive: true });
+    }
+
+    // Attach latest delivery percentages to stocks
+    try {
+      const deliveryMap = await fetchLatestDeliveryMap();
+      attachDeliveryToResults(results, deliveryMap);
+    } catch (e) {
+      console.log("  [Delivery] Notice:", e.message);
     }
 
     const allUnique = [];
