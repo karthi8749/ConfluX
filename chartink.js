@@ -111,7 +111,7 @@ class ChartinkScanner {
       console.log(`[Chartink] Page ${p}: Added ${added} scans`);
     }
 
-    console.log(`\n[Chartink] ✅ Successfully loaded ALL ${allScans.length} saved scans across ${totalPages} page(s):`);
+    console.log(`\n[Chartink] Found ${allScans.length} saved scans across ${totalPages} page(s):`);
     allScans.forEach((s, i) => console.log(`  ${i + 1}. ${s.name}`));
     return allScans;
   }
