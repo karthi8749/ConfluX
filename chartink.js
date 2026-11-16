@@ -9,38 +9,111 @@ class ChartinkScanner {
   }
 
   /**
-   * Fetches all saved scans from the Scan Dashboard
+   * Fetches all saved scans from the Scan Dashboard (handles multi-page pagination)
    */
   async getAllSavedScans() {
-    console.log("\n[Chartink] Loading scans from Scan Dashboard...");
-    await this.page.goto("https://chartink.com/scan_dashboard", {
+    console.log("\n[Chartink] Loading scans from Scan Dashboard (all pages)...");
+    const allScans = [];
+    const seenUrls = new Set();
+
+    // Helper to extract scans from the current page state
+    const extractFromPage = async () => {
+      return await this.page.evaluate(() => {
+        const found = [];
+        let total = 0;
+        let lastPage = 1;
+        let currentPage = 1;
+
+        // Method 1: Check Inertia / Vue data-page props (most reliable on modern Chartink)
+        try {
+          const appEl = document.querySelector("[data-page]");
+          if (appEl) {
+            const parsed = JSON.parse(appEl.getAttribute("data-page"));
+            const paginated = parsed?.props?.paginated_scans;
+            if (paginated?.data && Array.isArray(paginated.data)) {
+              total = paginated.total || 0;
+              lastPage = paginated.last_page || 1;
+              currentPage = paginated.current_page || 1;
+              for (const s of paginated.data) {
+                if (s.name && s.slug) {
+                  found.push({
+                    name: s.name.trim(),
+                    url: `https://chartink.com/screener/${s.slug}`,
+                  });
+                }
+              }
+              return { found, total, lastPage, currentPage };
+            }
+          }
+        } catch (_) {}
+
+        // Method 2: DOM fallback: Extract from table rows
+        const rows = Array.from(document.querySelectorAll("table tbody tr"));
+        for (const r of rows) {
+          const link = r.querySelector("td a, th a");
+          if (!link) continue;
+          const name = link.innerText.trim();
+          const url = link.href;
+          if (name && url && url.includes("/screener/")) {
+            found.push({ name, url });
+          }
+        }
+
+        // Detect last page from DOM pagination buttons if available
+        const pageLinks = Array.from(document.querySelectorAll("a[href*='page='], button, [class*='page']"));
+        for (const el of pageLinks) {
+          const num = parseInt((el.innerText || "").trim(), 10);
+          if (!isNaN(num) && num > lastPage && num < 100) {
+            lastPage = num;
+          }
+        }
+
+        return { found, total: found.length, lastPage, currentPage: 1 };
+      });
+    };
+
+    // Load first page
+    await this.page.goto("https://chartink.com/scan_dashboard?page=1", {
       waitUntil: "domcontentloaded",
       timeout: 30000,
     });
     await this.page.waitForTimeout(2000);
 
-    const scans = await this.page.evaluate(() => {
-      const rows = Array.from(document.querySelectorAll("table tbody tr"));
-      const list = [];
-      const seen = new Set();
+    const firstPage = await extractFromPage();
+    for (const s of firstPage.found) {
+      if (!seenUrls.has(s.url)) {
+        seenUrls.add(s.url);
+        allScans.push(s);
+      }
+    }
 
-      for (const r of rows) {
-        const link = r.querySelector("td a, th a");
-        if (!link) continue;
-        const name = link.innerText.trim();
-        const url = link.href;
+    const totalPages = firstPage.lastPage || 1;
+    console.log(`[Chartink] Page 1: Found ${firstPage.found.length} scans (Total: ${firstPage.total || allScans.length}, Pages: ${totalPages})`);
 
-        if (name && url && url.includes("/screener/") && !seen.has(url)) {
-          seen.add(url);
-          list.push({ name, url });
+    // Loop through remaining pages if more than 1 page
+    for (let p = 2; p <= totalPages; p++) {
+      console.log(`[Chartink] Loading page ${p} of ${totalPages}...`);
+      await this.page.goto(`https://chartink.com/scan_dashboard?page=${p}`, {
+        waitUntil: "domcontentloaded",
+        timeout: 30000,
+      });
+      await this.page.waitForTimeout(2000);
+
+      const nextPage = await extractFromPage();
+      let added = 0;
+      for (const s of nextPage.found) {
+        if (!seenUrls.has(s.url)) {
+          seenUrls.add(s.url);
+          allScans.push(s);
+          added++;
         }
       }
-      return list;
-    });
+      console.log(`[Chartink] Page ${p}: Added ${added} scans`);
+    }
 
-    console.log(`[Chartink] Found ${scans.length} saved scans:`);
-    scans.forEach((s, i) => console.log(`  ${i + 1}. ${s.name}`));
-    return scans;
+    console.log(`\n[Chartink] ✅ Successfully loaded ALL ${allScans.length} saved scans across ${totalPages} page(s):`);
+    allScans.forEach((s, i) => console.log(`  ${i + 1}. ${s.name}`));
+    return allScans;
   }
 
   /**

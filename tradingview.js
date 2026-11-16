@@ -83,6 +83,8 @@ class TradingViewManager {
     const htmlContent = generateDashboardHtml(results, { totalUnique: allUnique.length }, candleMap);
     fs.writeFileSync(dashboardPath, htmlContent, "utf-8");
     fs.writeFileSync(indexPath, htmlContent, "utf-8");
+    fs.writeFileSync(path.resolve("cached_data.json"), JSON.stringify(results, null, 2), "utf-8");
+    fs.writeFileSync(path.resolve("cached_candles.json"), JSON.stringify(candleMap), "utf-8");
     console.log(`\n[Dashboard] 🌐 ConfluX Dashboard created with your 2 PineScripts: ${dashboardPath}`);
 
     // 6. Automatically open Dashboard in default browser
