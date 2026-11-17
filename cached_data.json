@@ -1,1899 +1,2092 @@
 {
-  "Sniper OB Retest Bounce Scanner": [],
+  "Sniper OB Retest Bounce Scanner": [
+    {
+      "symbol": "LEAPIND",
+      "name": "Leap India Ltd",
+      "price": "134.26",
+      "change": "9.94%",
+      "volume": "83,82,410",
+      "delivery": "17.1%"
+    },
+    {
+      "symbol": "ASKAUTOLTD",
+      "name": "ASK Automotive Ltd",
+      "price": "639.85",
+      "change": "2.18%",
+      "volume": "1,59,185",
+      "delivery": "43.0%"
+    },
+    {
+      "symbol": "NAM-INDIA",
+      "name": "Nippon Life India Asset Management Ltd",
+      "price": "1,085.5",
+      "change": "0.71%",
+      "volume": "10,40,930",
+      "delivery": "33.8%"
+    },
+    {
+      "symbol": "NFL",
+      "name": "National Fertilizers Limited",
+      "price": "64.7",
+      "change": "0.37%",
+      "volume": "3,51,744",
+      "delivery": "33.5%"
+    }
+  ],
   "Inst.Dynamic OB Retest Scan": [
     {
-      "symbol": "APOLLO",
-      "name": "Apollo Micro Systems Ltd",
-      "price": "475.6",
-      "change": "8.07%",
-      "volume": "2,86,68,453",
-      "delivery": "27.0%"
+      "symbol": "LEAPIND",
+      "name": "Leap India Ltd",
+      "price": "134.26",
+      "change": "9.94%",
+      "volume": "83,82,410",
+      "delivery": "17.1%"
     },
     {
-      "symbol": "MOLBIO",
-      "name": "Molbio Diagnostics Ltd",
-      "price": "1,493.2",
-      "change": "7.11%",
-      "volume": "23,03,664",
-      "delivery": "16.8%"
+      "symbol": "SIGNATURE",
+      "name": "SignatureGlobal India Ltd",
+      "price": "835.6",
+      "change": "9.14%",
+      "volume": "17,97,681",
+      "delivery": "11.4%"
     },
     {
-      "symbol": "GVT&D",
-      "name": "GE Vernova T&D India Ltd",
-      "price": "4,420",
+      "symbol": "SGFIN",
+      "name": "SG Finserve Ltd",
+      "price": "793.8",
+      "change": "7.23%",
+      "volume": "14,35,667",
+      "delivery": "21.0%"
+    },
+    {
+      "symbol": "DAMCAPITAL",
+      "name": "Dam Capital Advisors Ltd",
+      "price": "148.6",
+      "change": "5.4%",
+      "volume": "8,02,133",
+      "delivery": "50.3%"
+    },
+    {
+      "symbol": "GHCLTEXTIL",
+      "name": "GHCL Textiles Ltd",
+      "price": "136.22",
       "change": "5.24%",
-      "volume": "16,89,991",
-      "delivery": "37.0%"
+      "volume": "10,46,800",
+      "delivery": "33.4%"
     },
     {
-      "symbol": "GCSL",
-      "name": "Gretex Corporate Services Ltd",
-      "price": "822.95",
-      "change": "5.09%",
-      "volume": "7,17,216",
-      "delivery": "19.8%"
+      "symbol": "PACEDIGITK",
+      "name": "Pace Digitek Ltd",
+      "price": "177.87",
+      "change": "4.34%",
+      "volume": "1,11,87,876",
+      "delivery": "14.6%"
     },
     {
-      "symbol": "XPROINDIA",
-      "name": "Xpro India Limited",
-      "price": "1,190.1",
-      "change": "4.19%",
-      "volume": "54,757",
-      "delivery": "39.2%"
+      "symbol": "TMCV",
+      "name": "Tata Motors Commercial Vehicles Ltd",
+      "price": "445.65",
+      "change": "4.06%",
+      "volume": "1,15,30,196",
+      "delivery": "42.2%"
     },
     {
-      "symbol": "WONDERLA",
-      "name": "Wonderla Holidays Limited",
-      "price": "518.75",
-      "change": "3.87%",
-      "volume": "1,17,741",
-      "delivery": "54.6%"
+      "symbol": "LAOPALA",
+      "name": "La Opala Rg Limited",
+      "price": "157.69",
+      "change": "3.99%",
+      "volume": "3,86,061",
+      "delivery": "41.2%"
     },
     {
-      "symbol": "GPPL",
-      "name": "Gujarat Pipavav Port Limited",
-      "price": "173.59",
-      "change": "3.6%",
-      "volume": "36,15,948",
-      "delivery": "61.2%"
+      "symbol": "SBIFUNDS",
+      "name": "SBI Funds Management Ltd",
+      "price": "530.05",
+      "change": "3.93%",
+      "volume": "19,40,751",
+      "delivery": "50.4%"
     },
     {
-      "symbol": "SDBL",
-      "name": "Som Distilleries & Breweries Limited",
-      "price": "76.92",
-      "change": "3.46%",
-      "volume": "21,94,653",
-      "delivery": "36.9%"
+      "symbol": "IGIL",
+      "name": "International Gemmological Institute (India) Ltd",
+      "price": "450.6",
+      "change": "3.9%",
+      "volume": "12,09,763",
+      "delivery": "55.2%"
     },
     {
-      "symbol": "ITDC",
-      "name": "India Tourism Development Corporation Ltd",
-      "price": "667.9",
-      "change": "2.99%",
-      "volume": "27,55,176",
-      "delivery": "35.5%"
+      "symbol": "PRESTIGE",
+      "name": "Prestige Estates Projects Limited",
+      "price": "1,691.5",
+      "change": "3.22%",
+      "volume": "5,82,154",
+      "delivery": "40.5%"
     },
     {
-      "symbol": "KRBL",
-      "name": "Krbl Limited",
-      "price": "432.05",
-      "change": "2.72%",
-      "volume": "19,55,069",
-      "delivery": "42.6%"
+      "symbol": "TIPSMUSIC",
+      "name": "Tips Music Ltd",
+      "price": "833.15",
+      "change": "3.22%",
+      "volume": "5,08,900",
+      "delivery": "49.2%"
     },
     {
-      "symbol": "LLOYDSENGG",
-      "name": "Lloyds Engineering Works Ltd",
-      "price": "89.25",
-      "change": "2.26%",
-      "volume": "1,28,71,499",
-      "delivery": "38.0%"
+      "symbol": "ARSSBL",
+      "name": "Anand Rathi Share & Stock Brokers Ltd",
+      "price": "513.9",
+      "change": "3.06%",
+      "volume": "2,64,258",
+      "delivery": "32.3%"
     },
     {
-      "symbol": "EDELWEISS",
-      "name": "Edelweiss Financial Services Limited",
-      "price": "136.19",
-      "change": "2.24%",
-      "volume": "1,43,54,610",
-      "delivery": "40.3%"
+      "symbol": "VAML",
+      "name": "Vedanta Aluminium Metal Ltd",
+      "price": "397",
+      "change": "3.05%",
+      "volume": "84,21,490",
+      "delivery": "52.4%"
     },
     {
-      "symbol": "MINDACORP",
-      "name": "Minda Corporation Limited",
-      "price": "736.15",
-      "change": "1.77%",
-      "volume": "3,42,004",
-      "delivery": "53.4%"
+      "symbol": "CAMS",
+      "name": "Computer Age Management Services Ltd",
+      "price": "744",
+      "change": "2.86%",
+      "volume": "42,77,128",
+      "delivery": "36.5%"
     },
     {
-      "symbol": "GENUSPOWER",
-      "name": "Genus Power Infrastructures Limited",
-      "price": "297.25",
-      "change": "1.24%",
-      "volume": "8,69,681",
-      "delivery": "52.6%"
+      "symbol": "ADANIENSOL",
+      "name": "Adani Energy Solutions Ltd",
+      "price": "1,493.7",
+      "change": "2.83%",
+      "volume": "16,57,569",
+      "delivery": "43.2%"
     },
     {
-      "symbol": "BHEL",
-      "name": "Bharat Heavy Electricals Limited",
-      "price": "436.3",
-      "change": "1.18%",
-      "volume": "76,27,501",
-      "delivery": "45.6%"
+      "symbol": "ALGOQUANT",
+      "name": "Algoquant Fintech Ltd",
+      "price": "87.03",
+      "change": "2.71%",
+      "volume": "13,15,951",
+      "delivery": "20.3%"
     },
     {
-      "symbol": "ELGIEQUIP",
-      "name": "Elgi Equipments Limited",
-      "price": "585.1",
-      "change": "1.15%",
-      "volume": "2,42,797",
-      "delivery": "59.5%"
+      "symbol": "CANFINHOME",
+      "name": "Can Fin Homes Limited",
+      "price": "786.65",
+      "change": "2.7%",
+      "volume": "1,47,031",
+      "delivery": "50.5%"
     },
     {
-      "symbol": "AAREYDRUGS",
-      "name": "Aarey Drugs & Pharmaceuticals Ltd",
-      "price": "115.15",
-      "change": "0.91%",
-      "volume": "2,17,268",
-      "delivery": "60.4%"
+      "symbol": "GHCL",
+      "name": "Ghcl Limited",
+      "price": "456.8",
+      "change": "2.61%",
+      "volume": "5,43,727",
+      "delivery": "64.2%"
     },
     {
-      "symbol": "AUROPHARMA",
-      "name": "Aurobindo Pharma Limited",
-      "price": "1,823.2",
-      "change": "0.89%",
-      "volume": "11,70,723",
-      "delivery": "57.9%"
-    },
-    {
-      "symbol": "IIFLCAPS",
-      "name": "IIFL Capital Services Ltd",
-      "price": "354.15",
-      "change": "0.54%",
-      "volume": "1,38,06,682",
-      "delivery": "48.9%"
-    },
-    {
-      "symbol": "MAXHEALTH",
-      "name": "Max Healthcare Institute Ltd",
-      "price": "947.1",
-      "change": "0.08%",
-      "volume": "14,77,108",
-      "delivery": "52.8%"
+      "symbol": "OBEROIRLTY",
+      "name": "Oberoi Realty Limited",
+      "price": "1,819.7",
+      "change": "2.6%",
+      "volume": "4,09,456",
+      "delivery": "32.9%"
     }
   ],
   "OB AG 1 -NOV": [
     {
-      "symbol": "ANUP",
-      "name": "The Anup Engineering Ltd",
-      "price": "1,725",
+      "symbol": "MODTHREAD",
+      "name": "Modern Threads (I) Ltd",
+      "price": "55.92",
       "change": "20%",
-      "volume": "12,56,904",
-      "delivery": "19.6%"
+      "volume": "26,927",
+      "delivery": "53.8%"
     },
     {
-      "symbol": "MSTCLTD",
-      "name": "MSTC Ltd",
-      "price": "783.35",
-      "change": "20%",
-      "volume": "63,28,161",
-      "delivery": "35.7%"
+      "symbol": "KDDL",
+      "name": "Kddl Limited",
+      "price": "4,560.4",
+      "change": "16.52%",
+      "volume": "9,05,824",
+      "delivery": "10.3%"
     },
     {
-      "symbol": "ALICON",
-      "name": "Alicon Castalloy Limited",
-      "price": "976.15",
-      "change": "17.32%",
-      "volume": "33,78,534",
-      "delivery": "28.4%"
+      "symbol": "KMCSHIL",
+      "name": "KMC Speciality Hospitals (India) Ltd",
+      "price": "194.52",
+      "change": "15.63%",
+      "volume": "1,60,30,841",
+      "delivery": "5.4%"
     },
     {
-      "symbol": "SHALPAINTS",
-      "name": "Shalimar Paints Limited",
-      "price": "95.93",
-      "change": "12.59%",
-      "volume": "20,97,519",
-      "delivery": "46.8%"
-    },
-    {
-      "symbol": "PRECOT",
-      "name": "Precot Meridian Limited",
-      "price": "706.8",
-      "change": "12.39%",
-      "volume": "1,02,830",
-      "delivery": "72.7%"
-    },
-    {
-      "symbol": "BFUTILITIE",
-      "name": "Bf Utilities Limited",
-      "price": "498.55",
-      "change": "10.72%",
-      "volume": "1,00,16,750",
-      "delivery": "24.8%"
-    },
-    {
-      "symbol": "POWERINDIA",
-      "name": "Hitachi Energy India Ltd",
-      "price": "31,595",
-      "change": "10.68%",
-      "volume": "8,92,554",
-      "delivery": "40.0%"
-    },
-    {
-      "symbol": "SHIVAMILLS",
-      "name": "Shiva Mills Ltd",
-      "price": "64.51",
-      "change": "9.99%",
-      "volume": "18,418",
-      "delivery": "69.9%"
-    },
-    {
-      "symbol": "FIEMIND",
-      "name": "Fiem Industries Limited",
-      "price": "2,133.3",
-      "change": "9.77%",
-      "volume": "10,27,476",
-      "delivery": "33.6%"
-    },
-    {
-      "symbol": "SILVERTUC",
-      "name": "Silver Touch Technologies Ltd",
-      "price": "138.67",
-      "change": "9.77%",
-      "volume": "10,01,984",
-      "delivery": "46.2%"
-    },
-    {
-      "symbol": "AMBER",
-      "name": "Amber Enterprises India Ltd",
-      "price": "6,772",
-      "change": "9.07%",
-      "volume": "27,20,361",
-      "delivery": "34.0%"
-    },
-    {
-      "symbol": "ANURAS",
-      "name": "Anupam Rasayan India Ltd",
-      "price": "1,300.6",
-      "change": "8.22%",
-      "volume": "17,38,981",
-      "delivery": "43.1%"
-    },
-    {
-      "symbol": "KANCOTEA",
-      "name": "Kanco Tea & Industries Ltd",
-      "price": "64.99",
-      "change": "8.14%",
-      "volume": "32,039",
-      "delivery": "61.3%"
-    },
-    {
-      "symbol": "APOLLO",
-      "name": "Apollo Micro Systems Ltd",
-      "price": "475.6",
-      "change": "8.07%",
-      "volume": "2,86,68,453",
-      "delivery": "27.0%"
-    },
-    {
-      "symbol": "STEL",
-      "name": "Stel Holdings Limited",
-      "price": "664.05",
-      "change": "7.62%",
-      "volume": "26,802",
-      "delivery": "64.1%"
-    },
-    {
-      "symbol": "AEGISVOPAK",
-      "name": "Aegis Vopak Terminals Ltd",
-      "price": "285.93",
-      "change": "7.05%",
-      "volume": "34,41,458",
-      "delivery": "58.0%"
-    },
-    {
-      "symbol": "CENTUM",
-      "name": "Centum Electronics Limited",
-      "price": "4,481.1",
-      "change": "5.7%",
-      "volume": "1,11,594",
-      "delivery": "31.4%"
-    },
-    {
-      "symbol": "STYLEBAAZA",
-      "name": "Baazar Style Retail Ltd",
-      "price": "468.75",
-      "change": "5.69%",
-      "volume": "58,47,095",
-      "delivery": "51.9%"
-    },
-    {
-      "symbol": "GVT&D",
-      "name": "GE Vernova T&D India Ltd",
-      "price": "4,420",
-      "change": "5.24%",
-      "volume": "16,89,991",
-      "delivery": "37.0%"
-    },
-    {
-      "symbol": "GCSL",
-      "name": "Gretex Corporate Services Ltd",
-      "price": "822.95",
-      "change": "5.09%",
-      "volume": "7,17,216",
-      "delivery": "19.8%"
-    }
-  ],
-  "Inst. Entry (Enhanced)": [
-    {
-      "symbol": "ALICON",
-      "name": "Alicon Castalloy Limited",
-      "price": "976.15",
-      "change": "17.32%",
-      "volume": "33,78,534",
-      "delivery": "28.4%"
-    },
-    {
-      "symbol": "PRECOT",
-      "name": "Precot Meridian Limited",
-      "price": "706.8",
-      "change": "12.39%",
-      "volume": "1,02,830",
-      "delivery": "72.7%"
-    },
-    {
-      "symbol": "POWERINDIA",
-      "name": "Hitachi Energy India Ltd",
-      "price": "31,595",
-      "change": "10.68%",
-      "volume": "8,92,554",
-      "delivery": "40.0%"
-    },
-    {
-      "symbol": "SHIVAMILLS",
-      "name": "Shiva Mills Ltd",
-      "price": "64.51",
-      "change": "9.99%",
-      "volume": "18,418",
-      "delivery": "69.9%"
-    },
-    {
-      "symbol": "GCSL",
-      "name": "Gretex Corporate Services Ltd",
-      "price": "822.95",
-      "change": "5.09%",
-      "volume": "7,17,216",
-      "delivery": "19.8%"
-    },
-    {
-      "symbol": "ROHLTD",
-      "name": "Royal Orchid Hotels Limited",
-      "price": "307.05",
-      "change": "5.01%",
-      "volume": "1,84,983",
-      "delivery": "67.5%"
-    },
-    {
-      "symbol": "SPECIALITY",
-      "name": "Speciality Restaurants Limited",
-      "price": "144.55",
-      "change": "4.61%",
-      "volume": "34,074",
-      "delivery": "87.0%"
-    },
-    {
-      "symbol": "GOODYEAR",
-      "name": "Goodyear India Ltd",
-      "price": "717",
-      "change": "4.45%",
-      "volume": "68,492",
-      "delivery": "73.0%"
-    },
-    {
-      "symbol": "COMPEAU",
-      "name": "Competent Automobiles Company Ltd",
-      "price": "385.6",
-      "change": "4.36%",
-      "volume": "3,016",
-      "delivery": "70.4%"
-    },
-    {
-      "symbol": "ARCL",
-      "name": "ARCL Organics Ltd",
-      "price": "232.9",
-      "change": "3.97%",
-      "volume": "2,602",
-      "delivery": "41.1%"
-    },
-    {
-      "symbol": "GPPL",
-      "name": "Gujarat Pipavav Port Limited",
-      "price": "173.59",
-      "change": "3.6%",
-      "volume": "36,15,948",
-      "delivery": "61.2%"
-    },
-    {
-      "symbol": "SDBL",
-      "name": "Som Distilleries & Breweries Limited",
-      "price": "76.92",
-      "change": "3.46%",
-      "volume": "21,94,653",
-      "delivery": "36.9%"
-    },
-    {
-      "symbol": "COSMOFIRST",
-      "name": "Cosmo First Ltd",
-      "price": "831.8",
-      "change": "1.94%",
-      "volume": "1,33,366",
-      "delivery": "58.5%"
-    }
-  ],
-  "Inst. Entry AG 2": [
-    {
-      "symbol": "ALICON",
-      "name": "Alicon Castalloy Limited",
-      "price": "976.15",
-      "change": "17.32%",
-      "volume": "33,78,534",
-      "delivery": "28.4%"
-    },
-    {
-      "symbol": "PRECOT",
-      "name": "Precot Meridian Limited",
-      "price": "706.8",
-      "change": "12.39%",
-      "volume": "1,02,830",
-      "delivery": "72.7%"
-    },
-    {
-      "symbol": "POWERINDIA",
-      "name": "Hitachi Energy India Ltd",
-      "price": "31,595",
-      "change": "10.68%",
-      "volume": "8,92,554",
-      "delivery": "40.0%"
-    },
-    {
-      "symbol": "SHIVAMILLS",
-      "name": "Shiva Mills Ltd",
-      "price": "64.51",
-      "change": "9.99%",
-      "volume": "18,418",
-      "delivery": "69.9%"
-    },
-    {
-      "symbol": "GCSL",
-      "name": "Gretex Corporate Services Ltd",
-      "price": "822.95",
-      "change": "5.09%",
-      "volume": "7,17,216",
-      "delivery": "19.8%"
-    },
-    {
-      "symbol": "ROHLTD",
-      "name": "Royal Orchid Hotels Limited",
-      "price": "307.05",
-      "change": "5.01%",
-      "volume": "1,84,983",
-      "delivery": "67.5%"
-    },
-    {
-      "symbol": "SPECIALITY",
-      "name": "Speciality Restaurants Limited",
-      "price": "144.55",
-      "change": "4.61%",
-      "volume": "34,074",
-      "delivery": "87.0%"
-    },
-    {
-      "symbol": "GOODYEAR",
-      "name": "Goodyear India Ltd",
-      "price": "717",
-      "change": "4.45%",
-      "volume": "68,492",
-      "delivery": "73.0%"
-    },
-    {
-      "symbol": "COMPEAU",
-      "name": "Competent Automobiles Company Ltd",
-      "price": "385.6",
-      "change": "4.36%",
-      "volume": "3,016",
-      "delivery": "70.4%"
-    },
-    {
-      "symbol": "ARCL",
-      "name": "ARCL Organics Ltd",
-      "price": "232.9",
-      "change": "3.97%",
-      "volume": "2,602",
-      "delivery": "41.1%"
-    },
-    {
-      "symbol": "GPPL",
-      "name": "Gujarat Pipavav Port Limited",
-      "price": "173.59",
-      "change": "3.6%",
-      "volume": "36,15,948",
-      "delivery": "61.2%"
-    },
-    {
-      "symbol": "SDBL",
-      "name": "Som Distilleries & Breweries Limited",
-      "price": "76.92",
-      "change": "3.46%",
-      "volume": "21,94,653",
-      "delivery": "36.9%"
-    },
-    {
-      "symbol": "COSMOFIRST",
-      "name": "Cosmo First Ltd",
-      "price": "831.8",
-      "change": "1.94%",
-      "volume": "1,33,366",
-      "delivery": "58.5%"
-    }
-  ],
-  "Inst. Entry AG 4": [
-    {
-      "symbol": "SHALPAINTS",
-      "name": "Shalimar Paints Limited",
-      "price": "95.93",
-      "change": "12.59%",
-      "volume": "20,97,519",
-      "delivery": "46.8%"
-    },
-    {
-      "symbol": "PRECOT",
-      "name": "Precot Meridian Limited",
-      "price": "706.8",
-      "change": "12.39%",
-      "volume": "1,02,830",
-      "delivery": "72.7%"
-    },
-    {
-      "symbol": "BFUTILITIE",
-      "name": "Bf Utilities Limited",
-      "price": "498.55",
-      "change": "10.72%",
-      "volume": "1,00,16,750",
-      "delivery": "24.8%"
-    },
-    {
-      "symbol": "AMBER",
-      "name": "Amber Enterprises India Ltd",
-      "price": "6,772",
-      "change": "9.07%",
-      "volume": "27,20,361",
-      "delivery": "34.0%"
-    },
-    {
-      "symbol": "APOLLO",
-      "name": "Apollo Micro Systems Ltd",
-      "price": "475.6",
-      "change": "8.07%",
-      "volume": "2,86,68,453",
-      "delivery": "27.0%"
-    },
-    {
-      "symbol": "STEL",
-      "name": "Stel Holdings Limited",
-      "price": "664.05",
-      "change": "7.62%",
-      "volume": "26,802",
-      "delivery": "64.1%"
-    },
-    {
-      "symbol": "BHAGYANGR",
-      "name": "Bhagyanagar India",
-      "price": "81.66",
-      "change": "4.99%",
-      "volume": "2,94,662",
-      "delivery": "-"
-    },
-    {
-      "symbol": "PALREDTEC",
-      "name": "Palred Technologies Limited",
-      "price": "48.8",
-      "change": "4.99%",
-      "volume": "11,434",
-      "delivery": "83.3%"
-    },
-    {
-      "symbol": "BLISSGVS",
-      "name": "Bliss Gvs Pharma Limited",
-      "price": "673.1",
-      "change": "4.92%",
-      "volume": "4,09,170",
-      "delivery": "-"
-    },
-    {
-      "symbol": "SHANTIGEAR",
-      "name": "Shanthi Gears Limited",
-      "price": "530.35",
-      "change": "4.75%",
-      "volume": "55,804",
-      "delivery": "56.4%"
-    },
-    {
-      "symbol": "GOODYEAR",
-      "name": "Goodyear India Ltd",
-      "price": "717",
-      "change": "4.45%",
-      "volume": "68,492",
-      "delivery": "73.0%"
-    },
-    {
-      "symbol": "COMPEAU",
-      "name": "Competent Automobiles Company Ltd",
-      "price": "385.6",
-      "change": "4.36%",
-      "volume": "6,032",
-      "delivery": "70.4%"
-    },
-    {
-      "symbol": "RICOAUTO",
-      "name": "Rico Auto Industries Limited",
-      "price": "102.64",
-      "change": "3.98%",
-      "volume": "22,14,012",
-      "delivery": "46.8%"
-    },
-    {
-      "symbol": "DECNGOLD",
-      "name": "Deccan Gold Mines Ltd",
-      "price": "192.98",
-      "change": "3.85%",
-      "volume": "16,36,681",
-      "delivery": "41.4%"
+      "symbol": "FIRSTCRY",
+      "name": "Brainbees Solutions Ltd",
+      "price": "178.97",
+      "change": "12.85%",
+      "volume": "13,68,54,430",
+      "delivery": "2.5%"
     },
     {
       "symbol": "LEAPIND",
       "name": "Leap India Ltd",
-      "price": "130.02",
-      "change": "3.73%",
-      "volume": "32,30,630",
+      "price": "134.26",
+      "change": "9.94%",
+      "volume": "83,82,410",
       "delivery": "17.1%"
     },
     {
-      "symbol": "GPPL",
-      "name": "Gujarat Pipavav Port Limited",
-      "price": "173.59",
-      "change": "3.6%",
-      "volume": "36,15,948",
-      "delivery": "61.2%"
+      "symbol": "SIGNATURE",
+      "name": "SignatureGlobal India Ltd",
+      "price": "835.6",
+      "change": "9.14%",
+      "volume": "17,97,681",
+      "delivery": "11.4%"
     },
     {
-      "symbol": "HBESD",
-      "name": "HB Estate Developers Ltd",
-      "price": "82.25",
-      "change": "3.5%",
-      "volume": "53,916",
-      "delivery": "98.3%"
+      "symbol": "NRL",
+      "name": "Nupur Recyclers Ltd",
+      "price": "190.96",
+      "change": "8.24%",
+      "volume": "2,54,383",
+      "delivery": "66.3%"
+    },
+    {
+      "symbol": "SGFIN",
+      "name": "SG Finserve Ltd",
+      "price": "793.8",
+      "change": "7.23%",
+      "volume": "14,35,667",
+      "delivery": "21.0%"
+    },
+    {
+      "symbol": "XPROINDIA",
+      "name": "Xpro India Limited",
+      "price": "1,277.1",
+      "change": "6.89%",
+      "volume": "2,26,078",
+      "delivery": "39.2%"
+    },
+    {
+      "symbol": "SANDHAR",
+      "name": "Sandhar Technologies Limited",
+      "price": "583.65",
+      "change": "6.87%",
+      "volume": "6,50,624",
+      "delivery": "26.1%"
+    },
+    {
+      "symbol": "GREAVESCOT",
+      "name": "Greaves Cotton Limited",
+      "price": "243.5",
+      "change": "6.74%",
+      "volume": "1,35,61,607",
+      "delivery": "14.1%"
+    },
+    {
+      "symbol": "DEEPAKFERT",
+      "name": "Deepak Fertilizers And Petrochemicals Corporation Limited",
+      "price": "1,443.7",
+      "change": "6.72%",
+      "volume": "24,27,264",
+      "delivery": "15.0%"
+    },
+    {
+      "symbol": "ARTEMISMED",
+      "name": "Artemis Medicare Services Ltd",
+      "price": "348.75",
+      "change": "6.42%",
+      "volume": "7,13,832",
+      "delivery": "48.2%"
+    },
+    {
+      "symbol": "IXIGO",
+      "name": "Le Travenues Technology Ltd",
+      "price": "175.61",
+      "change": "5.88%",
+      "volume": "73,38,464",
+      "delivery": "27.2%"
+    },
+    {
+      "symbol": "DAMCAPITAL",
+      "name": "Dam Capital Advisors Ltd",
+      "price": "148.6",
+      "change": "5.4%",
+      "volume": "8,02,133",
+      "delivery": "50.3%"
+    },
+    {
+      "symbol": "GHCLTEXTIL",
+      "name": "GHCL Textiles Ltd",
+      "price": "136.22",
+      "change": "5.24%",
+      "volume": "10,46,800",
+      "delivery": "33.4%"
+    },
+    {
+      "symbol": "CSBBANK",
+      "name": "CSB Bank Ltd",
+      "price": "330.6",
+      "change": "4.8%",
+      "volume": "10,05,687",
+      "delivery": "42.2%"
+    },
+    {
+      "symbol": "MANOMAY",
+      "name": "Manomay Tex India Ltd",
+      "price": "272.04",
+      "change": "4.61%",
+      "volume": "4,61,732",
+      "delivery": "28.3%"
+    },
+    {
+      "symbol": "HINDOILEXP",
+      "name": "Hindustan Oil Exploration Company Limited",
+      "price": "222.29",
+      "change": "4.53%",
+      "volume": "68,22,434",
+      "delivery": "20.5%"
+    },
+    {
+      "symbol": "MAHABANK",
+      "name": "Bank Of Maharashtra Ltd",
+      "price": "95.99",
+      "change": "4.34%",
+      "volume": "3,36,69,858",
+      "delivery": "39.0%"
+    }
+  ],
+  "Inst. Entry (Enhanced)": [
+    {
+      "symbol": "TTKHLTCARE",
+      "name": "Ttk Healthcare Limited",
+      "price": "1,096.75",
+      "change": "18.47%",
+      "volume": "10,33,793",
+      "delivery": "11.8%"
+    },
+    {
+      "symbol": "KDDL",
+      "name": "Kddl Limited",
+      "price": "4,560.4",
+      "change": "16.52%",
+      "volume": "9,05,824",
+      "delivery": "10.3%"
+    },
+    {
+      "symbol": "KMCSHIL",
+      "name": "KMC Speciality Hospitals (India) Ltd",
+      "price": "194.52",
+      "change": "15.63%",
+      "volume": "1,60,30,841",
+      "delivery": "5.4%"
+    },
+    {
+      "symbol": "FIRSTCRY",
+      "name": "Brainbees Solutions Ltd",
+      "price": "178.97",
+      "change": "12.85%",
+      "volume": "13,68,54,430",
+      "delivery": "2.5%"
+    },
+    {
+      "symbol": "LEAPIND",
+      "name": "Leap India Ltd",
+      "price": "134.26",
+      "change": "9.94%",
+      "volume": "83,82,410",
+      "delivery": "17.1%"
+    },
+    {
+      "symbol": "SIGNATURE",
+      "name": "SignatureGlobal India Ltd",
+      "price": "835.6",
+      "change": "9.14%",
+      "volume": "17,97,681",
+      "delivery": "11.4%"
+    },
+    {
+      "symbol": "JYOTIRES",
+      "name": "Jyoti Resins and Adhesives Ltd",
+      "price": "954.65",
+      "change": "5.85%",
+      "volume": "51,735",
+      "delivery": "50.0%"
+    },
+    {
+      "symbol": "DAMCAPITAL",
+      "name": "Dam Capital Advisors Ltd",
+      "price": "148.6",
+      "change": "5.4%",
+      "volume": "8,02,133",
+      "delivery": "50.3%"
+    },
+    {
+      "symbol": "MANOMAY",
+      "name": "Manomay Tex India Ltd",
+      "price": "272.04",
+      "change": "4.61%",
+      "volume": "4,61,732",
+      "delivery": "28.3%"
+    },
+    {
+      "symbol": "5PAISA",
+      "name": "5Paisa Capital Ltd",
+      "price": "350.05",
+      "change": "4.52%",
+      "volume": "1,52,008",
+      "delivery": "24.9%"
+    },
+    {
+      "symbol": "PGIL",
+      "name": "Pearl Global Industries Limited",
+      "price": "1,368.2",
+      "change": "4.07%",
+      "volume": "2,88,033",
+      "delivery": "42.2%"
+    },
+    {
+      "symbol": "GROWWPSUBK",
+      "name": "Groww Nifty PSU Bank ETF",
+      "price": "95.38",
+      "change": "4.05%",
+      "volume": "48,266",
+      "delivery": "51.0%"
+    },
+    {
+      "symbol": "BANCOINDIA",
+      "name": "Banco Products (i) Limited",
+      "price": "700.4",
+      "change": "3.93%",
+      "volume": "15,34,048",
+      "delivery": "22.4%"
+    },
+    {
+      "symbol": "CAPITALSFB",
+      "name": "Capital Small Finance Bank Ltd",
+      "price": "288.35",
+      "change": "3.89%",
+      "volume": "65,159",
+      "delivery": "51.3%"
     },
     {
       "symbol": "NAVINIFTY",
       "name": "Navi Nifty 50 ETF",
       "price": "291.4",
       "change": "3.31%",
-      "volume": "10,600",
+      "volume": "7,950",
       "delivery": "-"
+    },
+    {
+      "symbol": "CAMS",
+      "name": "Computer Age Management Services Ltd",
+      "price": "744",
+      "change": "2.86%",
+      "volume": "42,77,128",
+      "delivery": "36.5%"
+    },
+    {
+      "symbol": "KFINTECH",
+      "name": "KFin Technologies Ltd",
+      "price": "965",
+      "change": "2.85%",
+      "volume": "26,87,006",
+      "delivery": "29.9%"
+    },
+    {
+      "symbol": "AJMERA",
+      "name": "Ajmera Realty & Infra India Limited",
+      "price": "135.69",
+      "change": "2.43%",
+      "volume": "15,80,502",
+      "delivery": "41.9%"
+    },
+    {
+      "symbol": "ARIS",
+      "name": "Arisinfra Solutions Ltd",
+      "price": "150.47",
+      "change": "2.11%",
+      "volume": "61,63,235",
+      "delivery": "34.8%"
+    }
+  ],
+  "Inst. Entry AG 2": [
+    {
+      "symbol": "TTKHLTCARE",
+      "name": "Ttk Healthcare Limited",
+      "price": "1,096.75",
+      "change": "18.47%",
+      "volume": "10,33,793",
+      "delivery": "11.8%"
+    },
+    {
+      "symbol": "KDDL",
+      "name": "Kddl Limited",
+      "price": "4,560.4",
+      "change": "16.52%",
+      "volume": "9,05,824",
+      "delivery": "10.3%"
+    },
+    {
+      "symbol": "KMCSHIL",
+      "name": "KMC Speciality Hospitals (India) Ltd",
+      "price": "194.52",
+      "change": "15.63%",
+      "volume": "1,60,30,841",
+      "delivery": "5.4%"
+    },
+    {
+      "symbol": "FIRSTCRY",
+      "name": "Brainbees Solutions Ltd",
+      "price": "178.97",
+      "change": "12.85%",
+      "volume": "13,68,54,430",
+      "delivery": "2.5%"
+    },
+    {
+      "symbol": "LEAPIND",
+      "name": "Leap India Ltd",
+      "price": "134.26",
+      "change": "9.94%",
+      "volume": "83,82,410",
+      "delivery": "17.1%"
+    },
+    {
+      "symbol": "SIGNATURE",
+      "name": "SignatureGlobal India Ltd",
+      "price": "835.6",
+      "change": "9.14%",
+      "volume": "17,97,681",
+      "delivery": "11.4%"
+    },
+    {
+      "symbol": "KPIGREEN",
+      "name": "KPI Green Energy Ltd",
+      "price": "321.05",
+      "change": "7.75%",
+      "volume": "1,00,23,142",
+      "delivery": "7.3%"
+    },
+    {
+      "symbol": "JYOTIRES",
+      "name": "Jyoti Resins and Adhesives Ltd",
+      "price": "954.65",
+      "change": "5.85%",
+      "volume": "51,735",
+      "delivery": "50.0%"
+    },
+    {
+      "symbol": "DAMCAPITAL",
+      "name": "Dam Capital Advisors Ltd",
+      "price": "148.6",
+      "change": "5.4%",
+      "volume": "8,02,133",
+      "delivery": "50.3%"
+    },
+    {
+      "symbol": "MANOMAY",
+      "name": "Manomay Tex India Ltd",
+      "price": "272.04",
+      "change": "4.61%",
+      "volume": "4,61,732",
+      "delivery": "28.3%"
+    },
+    {
+      "symbol": "5PAISA",
+      "name": "5Paisa Capital Ltd",
+      "price": "350.05",
+      "change": "4.52%",
+      "volume": "1,52,008",
+      "delivery": "24.9%"
+    },
+    {
+      "symbol": "PGIL",
+      "name": "Pearl Global Industries Limited",
+      "price": "1,368.2",
+      "change": "4.07%",
+      "volume": "2,88,033",
+      "delivery": "42.2%"
+    },
+    {
+      "symbol": "GROWWPSUBK",
+      "name": "Groww Nifty PSU Bank ETF",
+      "price": "95.38",
+      "change": "4.05%",
+      "volume": "48,266",
+      "delivery": "51.0%"
+    },
+    {
+      "symbol": "BANCOINDIA",
+      "name": "Banco Products (i) Limited",
+      "price": "700.4",
+      "change": "3.93%",
+      "volume": "15,34,048",
+      "delivery": "22.4%"
+    },
+    {
+      "symbol": "CAPITALSFB",
+      "name": "Capital Small Finance Bank Ltd",
+      "price": "288.35",
+      "change": "3.89%",
+      "volume": "65,159",
+      "delivery": "51.3%"
+    },
+    {
+      "symbol": "NAVINIFTY",
+      "name": "Navi Nifty 50 ETF",
+      "price": "291.4",
+      "change": "3.31%",
+      "volume": "15,900",
+      "delivery": "-"
+    },
+    {
+      "symbol": "CAMS",
+      "name": "Computer Age Management Services Ltd",
+      "price": "744",
+      "change": "2.86%",
+      "volume": "42,77,128",
+      "delivery": "36.5%"
+    },
+    {
+      "symbol": "KFINTECH",
+      "name": "KFin Technologies Ltd",
+      "price": "965",
+      "change": "2.85%",
+      "volume": "26,87,006",
+      "delivery": "29.9%"
+    },
+    {
+      "symbol": "AJMERA",
+      "name": "Ajmera Realty & Infra India Limited",
+      "price": "135.69",
+      "change": "2.43%",
+      "volume": "15,80,502",
+      "delivery": "41.9%"
+    },
+    {
+      "symbol": "ARIS",
+      "name": "Arisinfra Solutions Ltd",
+      "price": "150.47",
+      "change": "2.11%",
+      "volume": "61,63,235",
+      "delivery": "34.8%"
+    }
+  ],
+  "Inst. Entry AG 4": [
+    {
+      "symbol": "FIRSTCRY",
+      "name": "Brainbees Solutions Ltd",
+      "price": "178.97",
+      "change": "12.85%",
+      "volume": "13,68,54,430",
+      "delivery": "2.5%"
+    },
+    {
+      "symbol": "LEAPIND",
+      "name": "Leap India Ltd",
+      "price": "134.26",
+      "change": "9.94%",
+      "volume": "83,82,410",
+      "delivery": "17.1%"
+    },
+    {
+      "symbol": "RAYMONDREL",
+      "name": "Raymond Realty Ltd",
+      "price": "606.4",
+      "change": "7.04%",
+      "volume": "13,10,087",
+      "delivery": "24.5%"
+    },
+    {
+      "symbol": "SONA",
+      "name": "Sonaselection India Ltd",
+      "price": "125.53",
+      "change": "5.2%",
+      "volume": "11,17,151",
+      "delivery": "38.1%"
+    },
+    {
+      "symbol": "5PAISA",
+      "name": "5Paisa Capital Ltd",
+      "price": "350.05",
+      "change": "4.52%",
+      "volume": "1,52,008",
+      "delivery": "24.9%"
+    },
+    {
+      "symbol": "PGIL",
+      "name": "Pearl Global Industries Limited",
+      "price": "1,368.2",
+      "change": "4.07%",
+      "volume": "2,88,033",
+      "delivery": "42.2%"
+    },
+    {
+      "symbol": "BANCOINDIA",
+      "name": "Banco Products (i) Limited",
+      "price": "700.4",
+      "change": "3.93%",
+      "volume": "15,34,048",
+      "delivery": "22.4%"
+    },
+    {
+      "symbol": "CAPITALSFB",
+      "name": "Capital Small Finance Bank Ltd",
+      "price": "288.35",
+      "change": "3.89%",
+      "volume": "65,159",
+      "delivery": "51.3%"
+    },
+    {
+      "symbol": "BRIGADE",
+      "name": "Brigade Enterprises Limited",
+      "price": "560.5",
+      "change": "3.37%",
+      "volume": "5,78,586",
+      "delivery": "29.4%"
+    },
+    {
+      "symbol": "NAVINIFTY",
+      "name": "Navi Nifty 50 ETF",
+      "price": "291.4",
+      "change": "3.31%",
+      "volume": "7,950",
+      "delivery": "-"
+    },
+    {
+      "symbol": "AUTOIND",
+      "name": "Autoline Industries Limited",
+      "price": "79.34",
+      "change": "2.93%",
+      "volume": "1,69,792",
+      "delivery": "59.9%"
+    },
+    {
+      "symbol": "KFINTECH",
+      "name": "KFin Technologies Ltd",
+      "price": "965",
+      "change": "2.85%",
+      "volume": "26,87,006",
+      "delivery": "29.9%"
+    },
+    {
+      "symbol": "AJMERA",
+      "name": "Ajmera Realty & Infra India Limited",
+      "price": "135.69",
+      "change": "2.43%",
+      "volume": "15,80,502",
+      "delivery": "41.9%"
+    },
+    {
+      "symbol": "TI",
+      "name": "Tilaknagar Industries Limited",
+      "price": "525.5",
+      "change": "2.37%",
+      "volume": "16,26,457",
+      "delivery": "48.3%"
+    },
+    {
+      "symbol": "360ONE",
+      "name": "360 ONE WAM Ltd",
+      "price": "1,202.85",
+      "change": "2.02%",
+      "volume": "14,29,280",
+      "delivery": "51.2%"
+    },
+    {
+      "symbol": "MOTILALOFS",
+      "name": "Motilal Oswal Financial Services Limited",
+      "price": "1,240.25",
+      "change": "1.91%",
+      "volume": "26,70,266",
+      "delivery": "28.2%"
+    },
+    {
+      "symbol": "CENTRALBK",
+      "name": "Central Bank Of India Ltd",
+      "price": "32.6",
+      "change": "1.53%",
+      "volume": "1,76,62,209",
+      "delivery": "42.0%"
     }
   ],
   "Inst. Entry AG 5": [],
   "Inst. Entry GPT 1": [
     {
-      "symbol": "MSTCLTD",
-      "name": "MSTC Ltd",
-      "price": "783.35",
+      "symbol": "MODTHREAD",
+      "name": "Modern Threads (I) Ltd",
+      "price": "55.92",
       "change": "20%",
-      "volume": "63,28,161",
-      "delivery": "35.7%"
+      "volume": "26,927",
+      "delivery": "53.8%"
     },
     {
-      "symbol": "ALICON",
-      "name": "Alicon Castalloy Limited",
-      "price": "976.15",
-      "change": "17.32%",
-      "volume": "33,78,534",
-      "delivery": "28.4%"
+      "symbol": "TTKHLTCARE",
+      "name": "Ttk Healthcare Limited",
+      "price": "1,096.75",
+      "change": "18.47%",
+      "volume": "10,33,793",
+      "delivery": "11.8%"
     },
     {
-      "symbol": "SHALPAINTS",
-      "name": "Shalimar Paints Limited",
-      "price": "95.93",
-      "change": "12.59%",
-      "volume": "20,97,519",
-      "delivery": "46.8%"
+      "symbol": "KDDL",
+      "name": "Kddl Limited",
+      "price": "4,560.4",
+      "change": "16.52%",
+      "volume": "9,05,824",
+      "delivery": "10.3%"
     },
     {
-      "symbol": "PRECOT",
-      "name": "Precot Meridian Limited",
-      "price": "706.8",
-      "change": "12.39%",
-      "volume": "1,02,830",
-      "delivery": "72.7%"
+      "symbol": "KMCSHIL",
+      "name": "KMC Speciality Hospitals (India) Ltd",
+      "price": "194.52",
+      "change": "15.63%",
+      "volume": "1,60,30,841",
+      "delivery": "5.4%"
     },
     {
-      "symbol": "BFUTILITIE",
-      "name": "Bf Utilities Limited",
-      "price": "498.55",
-      "change": "10.72%",
-      "volume": "1,00,16,750",
-      "delivery": "24.8%"
+      "symbol": "FIRSTCRY",
+      "name": "Brainbees Solutions Ltd",
+      "price": "178.97",
+      "change": "12.85%",
+      "volume": "13,68,54,430",
+      "delivery": "2.5%"
     },
     {
-      "symbol": "POWERINDIA",
-      "name": "Hitachi Energy India Ltd",
-      "price": "31,595",
-      "change": "10.68%",
-      "volume": "8,92,554",
-      "delivery": "40.0%"
+      "symbol": "LEAPIND",
+      "name": "Leap India Ltd",
+      "price": "134.26",
+      "change": "9.94%",
+      "volume": "83,82,410",
+      "delivery": "17.1%"
     },
     {
-      "symbol": "SHIVAMILLS",
-      "name": "Shiva Mills Ltd",
-      "price": "64.51",
-      "change": "9.99%",
-      "volume": "18,418",
-      "delivery": "69.9%"
+      "symbol": "ASALCBR",
+      "name": "Associated Alcohols & Breweries Ltd",
+      "price": "566.95",
+      "change": "9.5%",
+      "volume": "2,11,601",
+      "delivery": "38.1%"
     },
     {
-      "symbol": "AMBER",
-      "name": "Amber Enterprises India Ltd",
-      "price": "6,772",
-      "change": "9.07%",
-      "volume": "27,20,361",
-      "delivery": "34.0%"
+      "symbol": "SIGNATURE",
+      "name": "SignatureGlobal India Ltd",
+      "price": "835.6",
+      "change": "9.14%",
+      "volume": "17,97,681",
+      "delivery": "11.4%"
     },
     {
-      "symbol": "ORIENTCABL",
-      "name": "Orient Cables (India) Ltd",
-      "price": "408.95",
-      "change": "8.49%",
-      "volume": "29,54,328",
-      "delivery": "54.7%"
+      "symbol": "FEDDERSHOL",
+      "name": "Fedders Holding Ltd",
+      "price": "57.49",
+      "change": "8.15%",
+      "volume": "64,90,105",
+      "delivery": "9.4%"
     },
     {
-      "symbol": "KANCOTEA",
-      "name": "Kanco Tea & Industries Ltd",
-      "price": "64.99",
-      "change": "8.14%",
-      "volume": "32,039",
-      "delivery": "61.3%"
+      "symbol": "KPIGREEN",
+      "name": "KPI Green Energy Ltd",
+      "price": "321.05",
+      "change": "7.75%",
+      "volume": "1,00,23,142",
+      "delivery": "7.3%"
     },
     {
-      "symbol": "APOLLO",
-      "name": "Apollo Micro Systems Ltd",
-      "price": "475.6",
-      "change": "8.07%",
-      "volume": "2,86,68,453",
-      "delivery": "27.0%"
+      "symbol": "RAYMONDREL",
+      "name": "Raymond Realty Ltd",
+      "price": "606.4",
+      "change": "7.04%",
+      "volume": "13,10,087",
+      "delivery": "24.5%"
     },
     {
-      "symbol": "SHARDAMOTR",
-      "name": "Sharda Motor Industries Limited",
-      "price": "964.75",
-      "change": "8.06%",
-      "volume": "45,84,805",
-      "delivery": "17.7%"
+      "symbol": "SEJALLTD",
+      "name": "Sejal Glass Ltd",
+      "price": "927.85",
+      "change": "6.94%",
+      "volume": "74,196",
+      "delivery": "44.2%"
     },
     {
-      "symbol": "STEL",
-      "name": "Stel Holdings Limited",
-      "price": "664.05",
-      "change": "7.62%",
-      "volume": "26,802",
-      "delivery": "64.1%"
+      "symbol": "XPROINDIA",
+      "name": "Xpro India Limited",
+      "price": "1,277.1",
+      "change": "6.89%",
+      "volume": "2,26,078",
+      "delivery": "39.2%"
     },
     {
-      "symbol": "AEGISVOPAK",
-      "name": "Aegis Vopak Terminals Ltd",
-      "price": "285.93",
-      "change": "7.05%",
-      "volume": "34,41,458",
-      "delivery": "58.0%"
+      "symbol": "DEEDEV",
+      "name": "DEE Development Engineers Ltd",
+      "price": "574.65",
+      "change": "6.43%",
+      "volume": "4,76,061",
+      "delivery": "50.7%"
     },
     {
-      "symbol": "ITI",
-      "name": "Iti Limited",
-      "price": "268.07",
-      "change": "6.8%",
-      "volume": "2,34,01,218",
-      "delivery": "27.2%"
+      "symbol": "AMANTA",
+      "name": "Amanta Healthcare Ltd",
+      "price": "234.51",
+      "change": "6.39%",
+      "volume": "5,97,547",
+      "delivery": "26.3%"
     },
     {
-      "symbol": "ACI",
-      "name": "Archean Chemical Industries Ltd",
-      "price": "455.05",
-      "change": "6.64%",
-      "volume": "40,81,958",
-      "delivery": "53.6%"
+      "symbol": "JYOTIRES",
+      "name": "Jyoti Resins and Adhesives Ltd",
+      "price": "954.65",
+      "change": "5.85%",
+      "volume": "51,735",
+      "delivery": "50.0%"
     },
     {
-      "symbol": "STCINDIA",
-      "name": "The State Trading Corporation Of India Limited",
-      "price": "115.34",
-      "change": "6.37%",
-      "volume": "6,67,403",
-      "delivery": "60.7%"
+      "symbol": "TATAINVEST",
+      "name": "Tata Investment Corporation Limited",
+      "price": "609.55",
+      "change": "5.74%",
+      "volume": "27,90,253",
+      "delivery": "13.4%"
     },
     {
-      "symbol": "GVT&D",
-      "name": "GE Vernova T&D India Ltd",
-      "price": "4,420",
+      "symbol": "FREDUN",
+      "name": "Fredun Pharmaceuticals Ltd",
+      "price": "1,572",
+      "change": "5.63%",
+      "volume": "1,42,860",
+      "delivery": "39.4%"
+    },
+    {
+      "symbol": "DAMCAPITAL",
+      "name": "Dam Capital Advisors Ltd",
+      "price": "148.6",
+      "change": "5.4%",
+      "volume": "8,02,133",
+      "delivery": "50.3%"
+    },
+    {
+      "symbol": "GHCLTEXTIL",
+      "name": "GHCL Textiles Ltd",
+      "price": "136.22",
       "change": "5.24%",
-      "volume": "16,89,991",
-      "delivery": "37.0%"
-    },
-    {
-      "symbol": "GCSL",
-      "name": "Gretex Corporate Services Ltd",
-      "price": "822.95",
-      "change": "5.09%",
-      "volume": "7,17,216",
-      "delivery": "19.8%"
-    },
-    {
-      "symbol": "ROHLTD",
-      "name": "Royal Orchid Hotels Limited",
-      "price": "307.05",
-      "change": "5.01%",
-      "volume": "1,84,983",
-      "delivery": "67.5%"
+      "volume": "10,46,800",
+      "delivery": "33.4%"
     }
   ],
   "Inst. Entry GPT 2": [],
   "Cup and Handle": [
     {
-      "symbol": "POWERINDIA",
-      "name": "Hitachi Energy India Ltd",
-      "price": "31,595",
-      "change": "10.68%",
-      "volume": "8,92,554",
-      "delivery": "40.0%"
+      "symbol": "WSI",
+      "name": "W S Industries (i) Limited",
+      "price": "72.48",
+      "change": "7.97%",
+      "volume": "3,11,019",
+      "delivery": "50.6%"
     },
     {
-      "symbol": "SHARDAMOTR",
-      "name": "Sharda Motor Industries Limited",
-      "price": "964.75",
-      "change": "8.06%",
-      "volume": "45,84,805",
-      "delivery": "17.7%"
+      "symbol": "SEJALLTD",
+      "name": "Sejal Glass Ltd",
+      "price": "927.85",
+      "change": "6.94%",
+      "volume": "74,196",
+      "delivery": "44.2%"
     },
     {
-      "symbol": "GVT&D",
-      "name": "GE Vernova T&D India Ltd",
-      "price": "4,420",
+      "symbol": "ARTEMISMED",
+      "name": "Artemis Medicare Services Ltd",
+      "price": "348.75",
+      "change": "6.42%",
+      "volume": "7,13,832",
+      "delivery": "48.2%"
+    },
+    {
+      "symbol": "GHCLTEXTIL",
+      "name": "GHCL Textiles Ltd",
+      "price": "136.22",
       "change": "5.24%",
-      "volume": "16,89,991",
-      "delivery": "37.0%"
+      "volume": "10,46,800",
+      "delivery": "33.4%"
     },
     {
-      "symbol": "UMIYA-MRO",
-      "name": "Umiya Buildcon Ltd",
-      "price": "100.57",
-      "change": "5.19%",
-      "volume": "1,09,556",
-      "delivery": "83.9%"
+      "symbol": "CAPITALSFB",
+      "name": "Capital Small Finance Bank Ltd",
+      "price": "288.35",
+      "change": "3.89%",
+      "volume": "65,159",
+      "delivery": "51.3%"
     },
     {
-      "symbol": "BLISSGVS",
-      "name": "Bliss Gvs Pharma Limited",
-      "price": "673.1",
-      "change": "4.92%",
-      "volume": "4,09,170",
+      "symbol": "SPORTKING",
+      "name": "Sportking India Ltd",
+      "price": "220.34",
+      "change": "3.82%",
+      "volume": "9,87,472",
+      "delivery": "43.8%"
+    },
+    {
+      "symbol": "YATHARTH",
+      "name": "Yatharth Hospital & Trauma Care Services Ltd",
+      "price": "1,109.55",
+      "change": "3.79%",
+      "volume": "4,64,197",
+      "delivery": "34.5%"
+    },
+    {
+      "symbol": "RAYMOND",
+      "name": "Raymond Limited",
+      "price": "1,224",
+      "change": "3.22%",
+      "volume": "8,65,724",
+      "delivery": "26.7%"
+    },
+    {
+      "symbol": "QPOWER",
+      "name": "Quality Power Electrical Equipments Ltd",
+      "price": "1,573.3",
+      "change": "3.11%",
+      "volume": "3,54,253",
+      "delivery": "42.9%"
+    },
+    {
+      "symbol": "IDFCFIRSTB",
+      "name": "IDFC First Bank Ltd",
+      "price": "83.59",
+      "change": "2.82%",
+      "volume": "2,55,96,895",
+      "delivery": "47.7%"
+    },
+    {
+      "symbol": "OBEROIRLTY",
+      "name": "Oberoi Realty Limited",
+      "price": "1,819.7",
+      "change": "2.6%",
+      "volume": "4,09,456",
+      "delivery": "32.9%"
+    },
+    {
+      "symbol": "BGRENERGY",
+      "name": "Bgr Energy Systems Limited",
+      "price": "303",
+      "change": "2.43%",
+      "volume": "1,76,676",
       "delivery": "-"
     },
     {
-      "symbol": "SPECIALITY",
-      "name": "Speciality Restaurants Limited",
-      "price": "144.55",
-      "change": "4.61%",
-      "volume": "34,074",
-      "delivery": "87.0%"
+      "symbol": "REGAAL",
+      "name": "Regaal Resources Ltd",
+      "price": "96.66",
+      "change": "2.42%",
+      "volume": "15,12,870",
+      "delivery": "31.5%"
     },
     {
-      "symbol": "WONDERLA",
-      "name": "Wonderla Holidays Limited",
-      "price": "518.75",
-      "change": "3.87%",
-      "volume": "1,17,741",
-      "delivery": "54.6%"
+      "symbol": "KILITCH",
+      "name": "Kilitch Drugs (india) Limited",
+      "price": "244.16",
+      "change": "2.35%",
+      "volume": "1,35,673",
+      "delivery": "30.5%"
     },
     {
-      "symbol": "ROSSTECH",
-      "name": "Rossell Techsys Ltd",
-      "price": "1,543.4",
-      "change": "3.71%",
-      "volume": "2,42,543",
-      "delivery": "37.8%"
+      "symbol": "MAXHEALTH",
+      "name": "Max Healthcare Institute Ltd",
+      "price": "1,030.9",
+      "change": "2.08%",
+      "volume": "59,62,590",
+      "delivery": "52.8%"
     },
     {
-      "symbol": "GPPL",
-      "name": "Gujarat Pipavav Port Limited",
-      "price": "173.59",
-      "change": "3.6%",
-      "volume": "36,15,948",
-      "delivery": "61.2%"
+      "symbol": "VARROC",
+      "name": "Varroc Engineering Ltd",
+      "price": "835.9",
+      "change": "2.03%",
+      "volume": "7,33,865",
+      "delivery": "41.3%"
     },
     {
-      "symbol": "SDBL",
-      "name": "Som Distilleries & Breweries Limited",
-      "price": "76.92",
-      "change": "3.46%",
-      "volume": "21,94,653",
-      "delivery": "36.9%"
+      "symbol": "DELTACORP",
+      "name": "Delta Corp Limited",
+      "price": "84.98",
+      "change": "1.87%",
+      "volume": "52,62,360",
+      "delivery": "25.4%"
     },
     {
-      "symbol": "AERONEU",
-      "name": "Aeroflex Neu Ltd",
-      "price": "91.13",
-      "change": "3.44%",
-      "volume": "3,19,239",
-      "delivery": "45.5%"
+      "symbol": "MEGASTAR",
+      "name": "Megastar Foods Ltd",
+      "price": "293.3",
+      "change": "1.82%",
+      "volume": "21,464",
+      "delivery": "22.0%"
     },
     {
-      "symbol": "KOPRAN",
-      "name": "Kopran Limited",
-      "price": "289.07",
-      "change": "3.29%",
-      "volume": "10,36,167",
-      "delivery": "39.5%"
+      "symbol": "INDUSINDBK",
+      "name": "Indusind Bank Limited",
+      "price": "931",
+      "change": "1.8%",
+      "volume": "31,25,886",
+      "delivery": "53.2%"
     },
     {
-      "symbol": "ORIENTBELL",
-      "name": "Orient Bell Limited",
-      "price": "411.5",
-      "change": "3.16%",
-      "volume": "3,58,011",
-      "delivery": "60.4%"
-    },
-    {
-      "symbol": "NAHARCAP",
-      "name": "Nahar Capital And Financial Services Limited",
-      "price": "248.35",
-      "change": "3.02%",
-      "volume": "13,998",
-      "delivery": "93.1%"
-    },
-    {
-      "symbol": "ITDC",
-      "name": "India Tourism Development Corporation Ltd",
-      "price": "667.9",
-      "change": "2.99%",
-      "volume": "27,55,176",
-      "delivery": "35.5%"
-    },
-    {
-      "symbol": "GFLLIMITED",
-      "name": "GFL Ltd",
-      "price": "58.79",
-      "change": "2.89%",
-      "volume": "97,950",
-      "delivery": "-"
-    },
-    {
-      "symbol": "AJAXENGG",
-      "name": "Ajax Engineering Ltd",
-      "price": "578.85",
-      "change": "2.63%",
-      "volume": "50,370",
-      "delivery": "86.2%"
-    },
-    {
-      "symbol": "PWL",
-      "name": "Physicswallah Ltd",
-      "price": "131.58",
-      "change": "2.3%",
-      "volume": "1,44,57,051",
-      "delivery": "40.5%"
-    },
-    {
-      "symbol": "EDELWEISS",
-      "name": "Edelweiss Financial Services Limited",
-      "price": "136.19",
-      "change": "2.24%",
-      "volume": "1,43,54,610",
-      "delivery": "40.3%"
-    },
-    {
-      "symbol": "LYKALABS",
-      "name": "Lyka Labs Limited",
-      "price": "84.62",
-      "change": "1.99%",
-      "volume": "40,674",
-      "delivery": "-"
+      "symbol": "ASAHISONG",
+      "name": "Asahi Songwon Colors Limited",
+      "price": "387.95",
+      "change": "1.62%",
+      "volume": "31,885",
+      "delivery": "69.4%"
     }
   ],
   "EMA9/21 - InvertedHammer": [
     {
-      "symbol": "ROHLTD",
-      "name": "Royal Orchid Hotels Limited",
-      "price": "307.05",
-      "change": "5.01%",
-      "volume": "1,84,983",
-      "delivery": "67.5%"
+      "symbol": "LAHOTIOV",
+      "name": "Lahoti Overseas Ltd",
+      "price": "43.4",
+      "change": "5.83%",
+      "volume": "98,313",
+      "delivery": "37.6%"
     },
     {
-      "symbol": "ATL",
-      "name": "Allcargo Terminals Ltd",
-      "price": "28.03",
-      "change": "3.78%",
-      "volume": "12,43,889",
-      "delivery": "56.3%"
+      "symbol": "SENCO",
+      "name": "Senco Gold Ltd",
+      "price": "326.95",
+      "change": "4.89%",
+      "volume": "1,13,24,188",
+      "delivery": "9.7%"
     },
     {
-      "symbol": "HBESD",
-      "name": "HB Estate Developers Ltd",
-      "price": "82.25",
-      "change": "3.5%",
-      "volume": "53,916",
-      "delivery": "98.3%"
+      "symbol": "KANCOTEA",
+      "name": "Kanco Tea & Industries Ltd",
+      "price": "69.07",
+      "change": "3.1%",
+      "volume": "70,805",
+      "delivery": "61.3%"
     },
     {
-      "symbol": "ITDC",
-      "name": "India Tourism Development Corporation Ltd",
-      "price": "667.9",
-      "change": "2.99%",
-      "volume": "27,55,176",
-      "delivery": "35.5%"
+      "symbol": "SHARDAMOTR",
+      "name": "Sharda Motor Industries Limited",
+      "price": "967.7",
+      "change": "2.43%",
+      "volume": "10,04,584",
+      "delivery": "17.7%"
     },
     {
-      "symbol": "HONASA",
-      "name": "Honasa Consumer Ltd",
-      "price": "501.95",
-      "change": "1.27%",
-      "volume": "30,23,112",
-      "delivery": "45.2%"
+      "symbol": "REGAAL",
+      "name": "Regaal Resources Ltd",
+      "price": "96.66",
+      "change": "2.42%",
+      "volume": "15,12,870",
+      "delivery": "31.5%"
     },
     {
-      "symbol": "ALIVUS",
-      "name": "Alivus Life Sciences Ltd",
-      "price": "1,460.6",
-      "change": "1.17%",
-      "volume": "6,00,131",
-      "delivery": "57.1%"
+      "symbol": "VARROC",
+      "name": "Varroc Engineering Ltd",
+      "price": "835.9",
+      "change": "2.03%",
+      "volume": "7,33,865",
+      "delivery": "41.3%"
     },
     {
-      "symbol": "TECHNOCRAF",
-      "name": "Technocraft Ventures Ltd",
-      "price": "494.6",
-      "change": "0.87%",
-      "volume": "23,15,156",
-      "delivery": "50.9%"
+      "symbol": "JKTYRE",
+      "name": "Jk Tyre & Industries Limited",
+      "price": "364.5",
+      "change": "1.87%",
+      "volume": "7,17,055",
+      "delivery": "33.0%"
     },
     {
-      "symbol": "KALYANIFRG",
-      "name": "Kalyani Forge Limited",
-      "price": "901.1",
-      "change": "0.79%",
-      "volume": "1,920",
-      "delivery": "-"
+      "symbol": "BIKAJI",
+      "name": "Bikaji Foods International Ltd",
+      "price": "489.05",
+      "change": "1.82%",
+      "volume": "3,09,645",
+      "delivery": "43.2%"
     },
     {
-      "symbol": "NEULANDLAB",
-      "name": "Neuland Laboratories Limited",
-      "price": "21,078",
-      "change": "0.74%",
-      "volume": "70,762",
-      "delivery": "54.1%"
+      "symbol": "IREDA",
+      "name": "Indian Renewable Energy Development Agency Ltd",
+      "price": "117.4",
+      "change": "1.25%",
+      "volume": "2,01,91,579",
+      "delivery": "14.9%"
     },
     {
-      "symbol": "PNB",
-      "name": "Punjab National Bank Ltd",
-      "price": "142.81",
+      "symbol": "GROWW",
+      "name": "Billionbrains Garage Ventures Ltd",
+      "price": "227.53",
+      "change": "1.16%",
+      "volume": "5,57,49,160",
+      "delivery": "40.9%"
+    },
+    {
+      "symbol": "STANLEY",
+      "name": "Stanley Lifestyles Ltd",
+      "price": "133.54",
+      "change": "0.96%",
+      "volume": "93,845",
+      "delivery": "58.9%"
+    },
+    {
+      "symbol": "CENTUM",
+      "name": "Centum Electronics Limited",
+      "price": "4,377.2",
+      "change": "0.94%",
+      "volume": "1,31,862",
+      "delivery": "31.4%"
+    },
+    {
+      "symbol": "UCOBANK",
+      "name": "Uco Bank Ltd",
+      "price": "24.88",
+      "change": "0.85%",
+      "volume": "87,76,242",
+      "delivery": "31.8%"
+    },
+    {
+      "symbol": "MADHUCON",
+      "name": "Madhucon Projects Limited",
+      "price": "4.16",
+      "change": "0.73%",
+      "volume": "15,330",
+      "delivery": "98.1%"
+    },
+    {
+      "symbol": "SBICONS",
+      "name": "SBI Nifty Consumption ETF",
+      "price": "125.43",
       "change": "0.72%",
-      "volume": "6,12,38,582",
-      "delivery": "30.2%"
+      "volume": "6,439",
+      "delivery": "83.2%"
     },
     {
-      "symbol": "RAJSREESUG",
-      "name": "Rajshree Sugars & Chemicals Limited",
-      "price": "30.53",
-      "change": "0.66%",
-      "volume": "45,410",
-      "delivery": "80.2%"
+      "symbol": "HEALTHADD",
+      "name": "DSP Nifty Healthcare ETF",
+      "price": "17.4",
+      "change": "0.58%",
+      "volume": "39,526",
+      "delivery": "73.6%"
     },
     {
-      "symbol": "NORBTEAEXP",
-      "name": "Norben Tea & Exports Limited",
-      "price": "62.76",
-      "change": "-0.02%",
-      "volume": "2,591",
-      "delivery": "68.6%"
+      "symbol": "TASTYBITE",
+      "name": "Tasty Bite Eatables Ltd",
+      "price": "11,299.5",
+      "change": "0.49%",
+      "volume": "15,054",
+      "delivery": "42.5%"
     },
     {
-      "symbol": "NOVAAGRI",
-      "name": "Nova Agritech Ltd",
-      "price": "23.29",
-      "change": "-0.17%",
-      "volume": "45,343",
-      "delivery": "74.1%"
+      "symbol": "INTERNET",
+      "name": "Mirae Asset Nifty India Internet ETF",
+      "price": "14.53",
+      "change": "0.48%",
+      "volume": "4,91,927",
+      "delivery": "92.7%"
     },
     {
-      "symbol": "ALEMBICLTD",
-      "name": "Alembic Limited",
-      "price": "113.47",
-      "change": "-0.71%",
-      "volume": "27,70,968",
-      "delivery": "31.6%"
+      "symbol": "INDIANB",
+      "name": "Indian Bank Ltd",
+      "price": "936",
+      "change": "0.33%",
+      "volume": "25,32,266",
+      "delivery": "56.2%"
     },
     {
-      "symbol": "MTEDUCARE",
-      "name": "Mt Educare Limited",
-      "price": "1.63",
-      "change": "-4.12%",
-      "volume": "12,471",
-      "delivery": "-"
+      "symbol": "NOIDATOLL",
+      "name": "Noida Toll Bridge Company Limited",
+      "price": "3.84",
+      "change": "0.26%",
+      "volume": "2,20,520",
+      "delivery": "59.6%"
     }
   ],
   "EMA9/21 - Hammer": [
     {
-      "symbol": "LGHL",
-      "name": "Laxmi Goldorna House Ltd",
-      "price": "276.94",
-      "change": "4.92%",
-      "volume": "30,326",
+      "symbol": "ARIES",
+      "name": "Aries Agro Limited",
+      "price": "550.8",
+      "change": "4.57%",
+      "volume": "42,251",
       "delivery": "-"
     },
     {
-      "symbol": "BGLOBAL",
-      "name": "Bharatiya Global Infomedia Limited",
-      "price": "3.51",
-      "change": "4.46%",
-      "volume": "34,329",
-      "delivery": "-"
-    },
-    {
-      "symbol": "3PLAND",
-      "name": "3P Land Holdings Ltd",
-      "price": "32.44",
-      "change": "3.21%",
-      "volume": "10,206",
-      "delivery": "73.4%"
-    },
-    {
-      "symbol": "UPL",
-      "name": "Upl Limited",
-      "price": "559.4",
-      "change": "0.62%",
-      "volume": "23,59,811",
-      "delivery": "40.4%"
-    },
-    {
-      "symbol": "EMETAL",
-      "name": "Edelweiss Nifty Metal ETF",
-      "price": "13",
-      "change": "0.62%",
-      "volume": "13,953",
-      "delivery": "57.2%"
-    },
-    {
-      "symbol": "LIQUIDBETF",
-      "name": "Bajaj Finserv Nifty 1D Rate Liquid ETF",
-      "price": "1,107.95",
-      "change": "0.04%",
-      "volume": "4,90,571",
-      "delivery": "57.2%"
-    },
-    {
-      "symbol": "IVZSENSEX",
-      "name": "Invesco India BSE Sensex ETF",
-      "price": "82",
-      "change": "-0.23%",
-      "volume": "64,355",
-      "delivery": "87.9%"
+      "symbol": "SRHHYPOLTD",
+      "name": "Sree Rayalaseema Hi-strength Hypo Limited",
+      "price": "540.25",
+      "change": "2.11%",
+      "volume": "34,832",
+      "delivery": "75.0%"
     }
   ],
   "EMA9/21 - MARUBOZU": [
     {
-      "symbol": "SHIVAMILLS",
-      "name": "Shiva Mills Ltd",
-      "price": "64.51",
-      "change": "9.99%",
-      "volume": "18,418",
-      "delivery": "69.9%"
+      "symbol": "MODTHREAD",
+      "name": "Modern Threads (I) Ltd",
+      "price": "55.92",
+      "change": "20%",
+      "volume": "26,927",
+      "delivery": "53.8%"
     },
     {
-      "symbol": "ANURAS",
-      "name": "Anupam Rasayan India Ltd",
-      "price": "1,300.6",
-      "change": "8.22%",
-      "volume": "17,38,981",
-      "delivery": "43.1%"
+      "symbol": "BALAXI",
+      "name": "Balaxi Pharmaceuticals Ltd",
+      "price": "26.47",
+      "change": "19.99%",
+      "volume": "2,48,665",
+      "delivery": "87.9%"
     },
     {
-      "symbol": "ORICONENT",
-      "name": "Oricon Enterprises Limited",
-      "price": "58.22",
-      "change": "7.68%",
-      "volume": "4,46,432",
-      "delivery": "91.3%"
+      "symbol": "MAHABANK",
+      "name": "Bank Of Maharashtra Ltd",
+      "price": "95.99",
+      "change": "4.34%",
+      "volume": "3,36,69,858",
+      "delivery": "39.0%"
     },
     {
-      "symbol": "GCSL",
-      "name": "Gretex Corporate Services Ltd",
-      "price": "822.95",
-      "change": "5.09%",
-      "volume": "7,17,216",
-      "delivery": "19.8%"
+      "symbol": "ASSAMENT",
+      "name": "Assam Entrade Ltd",
+      "price": "859.3",
+      "change": "4.18%",
+      "volume": "227",
+      "delivery": "81.9%"
     },
     {
-      "symbol": "PALREDTEC",
-      "name": "Palred Technologies Limited",
-      "price": "48.8",
-      "change": "4.99%",
-      "volume": "11,434",
-      "delivery": "83.3%"
+      "symbol": "IDFCFIRSTB",
+      "name": "IDFC First Bank Ltd",
+      "price": "83.59",
+      "change": "2.82%",
+      "volume": "2,55,96,895",
+      "delivery": "47.7%"
     },
     {
-      "symbol": "TIPSMUSIC",
-      "name": "Tips Music Ltd",
-      "price": "816.45",
-      "change": "3.93%",
-      "volume": "9,84,024",
-      "delivery": "49.2%"
+      "symbol": "LYKALABS",
+      "name": "Lyka Labs Limited",
+      "price": "88.03",
+      "change": "1.99%",
+      "volume": "30,104",
+      "delivery": "-"
     },
     {
-      "symbol": "BNALTD",
-      "name": "B & A Ltd",
-      "price": "415",
-      "change": "2.47%",
-      "volume": "274",
-      "delivery": "100.0%"
+      "symbol": "BANKBEES",
+      "name": "Nippon India ETF Bank Bees",
+      "price": "646.22",
+      "change": "1.46%",
+      "volume": "12,69,628",
+      "delivery": "55.0%"
     },
     {
       "symbol": "RELCNX100",
       "name": "RELCNX100",
       "price": "123.66",
       "change": "1.38%",
-      "volume": "7,676",
+      "volume": "11,514",
       "delivery": "-"
     }
   ],
   "EMA50 - hammer pattern": [
     {
-      "symbol": "SAB",
-      "name": "SAB Industries Ltd",
-      "price": "168.5",
-      "change": "5%",
-      "volume": "19",
-      "delivery": "100.0%"
-    },
-    {
-      "symbol": "CTE",
-      "name": "Cambridge Technology Enterprises Limited",
-      "price": "38.45",
-      "change": "5%",
-      "volume": "1,742",
+      "symbol": "VIJIFIN",
+      "name": "Viji Finance Limited",
+      "price": "14.06",
+      "change": "1.96%",
+      "volume": "4,19,964",
       "delivery": "-"
     },
     {
-      "symbol": "SHERVANI",
-      "name": "Shervani Industrial Syndicate Ltd",
-      "price": "318",
+      "symbol": "GSEC10YEAR",
+      "name": "Mirae Asset Nifty 8-13 Yr G-Sec ETF",
+      "price": "30.26",
+      "change": "1.07%",
+      "volume": "1,112",
+      "delivery": "100.0%"
+    },
+    {
+      "symbol": "LIQUIDBETA",
+      "name": "UTI Nifty 1D Rate Liquid ETF - Growth",
+      "price": "1,016.91",
+      "change": "0.16%",
+      "volume": "172",
+      "delivery": "-"
+    },
+    {
+      "symbol": "UNIVAFOODS",
+      "name": "Univa Foods Ltd",
+      "price": "9.95",
       "change": "0%",
-      "volume": "1",
+      "volume": "1,252",
+      "delivery": "-"
+    },
+    {
+      "symbol": "THAKDEV",
+      "name": "Thakkers Developers Ltd",
+      "price": "137.31",
+      "change": "-0.5%",
+      "volume": "80",
       "delivery": "100.0%"
     },
     {
-      "symbol": "BHARATBOND-APR30",
-      "name": "BHARATBOND-APR30",
-      "price": "1,612.99",
-      "change": "-0.02%",
-      "volume": "0",
+      "symbol": "TIJARIA",
+      "name": "Tijaria Polypipes Limited",
+      "price": "6.17",
+      "change": "-1.91%",
+      "volume": "3,236",
       "delivery": "-"
     },
     {
-      "symbol": "BHARATBOND-APR33",
-      "name": "BHARATBOND-APR33",
-      "price": "1,277.55",
-      "change": "-0.06%",
-      "volume": "0",
-      "delivery": "-"
-    },
-    {
-      "symbol": "BHARATBOND-APR31",
-      "name": "BHARATBOND-APR31",
-      "price": "1,460.28",
-      "change": "-0.09%",
-      "volume": "0",
-      "delivery": "-"
-    },
-    {
-      "symbol": "GSEC10ABSL",
-      "name": "Aditya Birla Sun Life Crisil 10 Year Gilt ETF",
-      "price": "111.66",
-      "change": "-0.3%",
-      "volume": "4",
+      "symbol": "UPHOT",
+      "name": "U P Hotels Ltd",
+      "price": "1,485",
+      "change": "-3.45%",
+      "volume": "5",
       "delivery": "100.0%"
     }
   ],
   "EMA50 Pullback Zone - Green Candle": [
     {
-      "symbol": "JINDALSAW",
-      "name": "Jindal Saw Limited",
-      "price": "261.45",
-      "change": "3.74%",
-      "volume": "20,66,842",
-      "delivery": "56.6%"
+      "symbol": "INOXINDIA",
+      "name": "Inox India Ltd",
+      "price": "1,969.4",
+      "change": "3.65%",
+      "volume": "12,15,214",
+      "delivery": "14.5%"
     },
     {
-      "symbol": "EMMVEE",
-      "name": "Emmvee Photovoltaic Power Ltd",
-      "price": "277.09",
-      "change": "3.18%",
-      "volume": "27,73,559",
-      "delivery": "53.8%"
+      "symbol": "PARADEEP",
+      "name": "Paradeep Phosphates Ltd",
+      "price": "141.42",
+      "change": "3.36%",
+      "volume": "12,89,257",
+      "delivery": "36.4%"
     },
     {
-      "symbol": "PWL",
-      "name": "Physicswallah Ltd",
-      "price": "131.58",
-      "change": "2.3%",
-      "volume": "1,44,57,051",
-      "delivery": "40.5%"
+      "symbol": "ADANIENT",
+      "name": "Adani Enterprises Limited",
+      "price": "2,745.1",
+      "change": "3.24%",
+      "volume": "20,15,270",
+      "delivery": "40.8%"
     },
     {
-      "symbol": "MPHASIS",
-      "name": "Mphasis Limited",
-      "price": "2,455",
-      "change": "1.87%",
-      "volume": "6,79,553",
-      "delivery": "55.5%"
+      "symbol": "GRANULES",
+      "name": "Granules India Limited",
+      "price": "815.5",
+      "change": "2.07%",
+      "volume": "19,07,634",
+      "delivery": "30.9%"
     },
     {
-      "symbol": "CYIENT",
-      "name": "Cyient Limited",
-      "price": "1,104.9",
-      "change": "1.42%",
-      "volume": "3,48,282",
-      "delivery": "54.0%"
+      "symbol": "PRIVISCL",
+      "name": "Privi Speciality Chemicals Ltd",
+      "price": "3,430.7",
+      "change": "1.99%",
+      "volume": "95,846",
+      "delivery": "64.7%"
     },
     {
-      "symbol": "FINCABLES",
-      "name": "Finolex Cables Limited",
-      "price": "1,270",
-      "change": "1.38%",
-      "volume": "14,59,982",
-      "delivery": "39.6%"
-    },
-    {
-      "symbol": "GLAXO",
-      "name": "Glaxosmithkline Pharmaceuticals Limited",
-      "price": "2,672.6",
-      "change": "0.64%",
-      "volume": "77,475",
-      "delivery": "59.8%"
-    },
-    {
-      "symbol": "BALRAMCHIN",
-      "name": "Balrampur Chini Mills Limited",
-      "price": "654.8",
-      "change": "0.62%",
-      "volume": "7,08,048",
-      "delivery": "37.1%"
-    },
-    {
-      "symbol": "KAJARIACER",
-      "name": "Kajaria Ceramics Limited",
-      "price": "1,201.9",
-      "change": "0.44%",
-      "volume": "5,57,760",
-      "delivery": "57.5%"
+      "symbol": "SAIL",
+      "name": "Steel Authority Of India Limited",
+      "price": "171.31",
+      "change": "1.52%",
+      "volume": "1,11,16,893",
+      "delivery": "48.3%"
     },
     {
       "symbol": "SAGILITY",
       "name": "Sagility India Ltd",
-      "price": "43.87",
-      "change": "0.37%",
-      "volume": "1,26,12,568",
+      "price": "43.89",
+      "change": "1.13%",
+      "volume": "1,85,42,357",
       "delivery": "65.4%"
     },
     {
-      "symbol": "SOLARINDS",
-      "name": "Solar Industries India Limited",
-      "price": "19,338",
-      "change": "0.32%",
-      "volume": "1,01,910",
-      "delivery": "47.4%"
+      "symbol": "BALRAMCHIN",
+      "name": "Balrampur Chini Mills Limited",
+      "price": "656.65",
+      "change": "1.04%",
+      "volume": "3,27,000",
+      "delivery": "37.1%"
     },
     {
-      "symbol": "CGCL",
-      "name": "Capri Global Capital Limited",
-      "price": "246.27",
-      "change": "0.26%",
-      "volume": "99,96,534",
-      "delivery": "10.2%"
-    },
-    {
-      "symbol": "CHENNPETRO",
-      "name": "Chennai Petroleum Corporation Limited",
-      "price": "1,428.2",
-      "change": "0.2%",
-      "volume": "8,65,773",
-      "delivery": "32.6%"
-    },
-    {
-      "symbol": "INOXINDIA",
-      "name": "Inox India Ltd",
-      "price": "1,961.9",
-      "change": "0.05%",
-      "volume": "93,422",
-      "delivery": "14.5%"
-    },
-    {
-      "symbol": "KPIL",
-      "name": "Kalpataru Projects International Ltd",
-      "price": "1,349.5",
-      "change": "-0.05%",
-      "volume": "57,165",
-      "delivery": "65.5%"
+      "symbol": "JSWINFRA",
+      "name": "JSW Infrastructure Ltd",
+      "price": "339.1",
+      "change": "1.01%",
+      "volume": "17,01,933",
+      "delivery": "50.8%"
     },
     {
       "symbol": "VEDL",
       "name": "Vedanta Limited",
-      "price": "259.68",
-      "change": "-0.28%",
-      "volume": "66,78,175",
+      "price": "255.03",
+      "change": "0.8%",
+      "volume": "86,92,106",
       "delivery": "42.1%"
     },
     {
-      "symbol": "SIEMENS",
-      "name": "Siemens Limited",
-      "price": "3,660",
-      "change": "-0.3%",
-      "volume": "3,15,097",
-      "delivery": "35.9%"
+      "symbol": "NAM-INDIA",
+      "name": "Nippon Life India Asset Management Ltd",
+      "price": "1,085.5",
+      "change": "0.71%",
+      "volume": "10,40,930",
+      "delivery": "33.8%"
     },
     {
-      "symbol": "VIJAYA",
-      "name": "Vijaya Diagnostic Centre Ltd",
-      "price": "1,410.1",
-      "change": "-0.39%",
-      "volume": "55,287",
-      "delivery": "37.2%"
+      "symbol": "HBLENGINE",
+      "name": "HBL Engineering Ltd",
+      "price": "785.85",
+      "change": "0.69%",
+      "volume": "11,80,562",
+      "delivery": "27.8%"
+    },
+    {
+      "symbol": "SHRIPISTON",
+      "name": "Shriram Pistons & Rings Limited",
+      "price": "4,322.1",
+      "change": "0.66%",
+      "volume": "1,10,165",
+      "delivery": "65.8%"
+    },
+    {
+      "symbol": "CPPLUS",
+      "name": "Aditya Infotech Ltd",
+      "price": "3,989.2",
+      "change": "0.65%",
+      "volume": "1,38,035",
+      "delivery": "45.2%"
+    },
+    {
+      "symbol": "DATAPATTNS",
+      "name": "Data Patterns (India) Ltd",
+      "price": "4,215.9",
+      "change": "0.62%",
+      "volume": "3,35,719",
+      "delivery": "24.3%"
+    },
+    {
+      "symbol": "MPHASIS",
+      "name": "Mphasis Limited",
+      "price": "2,445",
+      "change": "0.5%",
+      "volume": "2,48,031",
+      "delivery": "55.5%"
+    },
+    {
+      "symbol": "CASTROLIND",
+      "name": "Castrol India Limited",
+      "price": "191.09",
+      "change": "0.5%",
+      "volume": "23,26,523",
+      "delivery": "56.2%"
+    },
+    {
+      "symbol": "PWL",
+      "name": "Physicswallah Ltd",
+      "price": "130.07",
+      "change": "0.48%",
+      "volume": "65,92,636",
+      "delivery": "40.5%"
     },
     {
       "symbol": "TBOTEK",
       "name": "TBO Tek Ltd",
-      "price": "1,614.3",
-      "change": "-0.43%",
-      "volume": "44,941",
+      "price": "1,586",
+      "change": "0.46%",
+      "volume": "1,02,102",
       "delivery": "47.8%"
+    },
+    {
+      "symbol": "BAJAJ-AUTO",
+      "name": "Bajaj Auto Limited",
+      "price": "10,770",
+      "change": "0.34%",
+      "volume": "3,06,268",
+      "delivery": "67.7%"
     }
   ],
   "Updated Swing Trading": [
     {
-      "symbol": "POWERINDIA",
-      "name": "Hitachi Energy India Ltd",
-      "price": "31,595",
-      "change": "10.68%",
-      "volume": "8,92,554",
-      "delivery": "40.0%"
+      "symbol": "TATACHEM",
+      "name": "Tata Chemicals Limited",
+      "price": "649.45",
+      "change": "6.1%",
+      "volume": "1,32,65,614",
+      "delivery": "9.5%"
     },
     {
-      "symbol": "AMBER",
-      "name": "Amber Enterprises India Ltd",
-      "price": "6,772",
-      "change": "9.07%",
-      "volume": "27,20,361",
-      "delivery": "34.0%"
+      "symbol": "TATAINVEST",
+      "name": "Tata Investment Corporation Limited",
+      "price": "609.55",
+      "change": "5.74%",
+      "volume": "27,90,253",
+      "delivery": "13.4%"
     },
     {
-      "symbol": "AEGISVOPAK",
-      "name": "Aegis Vopak Terminals Ltd",
-      "price": "285.93",
-      "change": "7.05%",
-      "volume": "34,41,458",
-      "delivery": "58.0%"
+      "symbol": "CEMPRO",
+      "name": "Cemindia Projects Ltd",
+      "price": "1,352.3",
+      "change": "4.14%",
+      "volume": "7,43,464",
+      "delivery": "30.8%"
     },
     {
-      "symbol": "GVT&D",
-      "name": "GE Vernova T&D India Ltd",
-      "price": "4,420",
-      "change": "5.24%",
-      "volume": "16,89,991",
-      "delivery": "37.0%"
+      "symbol": "TMCV",
+      "name": "Tata Motors Commercial Vehicles Ltd",
+      "price": "445.65",
+      "change": "4.06%",
+      "volume": "1,15,30,196",
+      "delivery": "42.2%"
     },
     {
-      "symbol": "GESHIP",
-      "name": "The Great Eastern Shipping Company Limited",
-      "price": "1,518",
-      "change": "4.73%",
-      "volume": "15,81,726",
-      "delivery": "58.4%"
+      "symbol": "SOBHA",
+      "name": "Sobha Limited",
+      "price": "1,290.4",
+      "change": "3.12%",
+      "volume": "3,62,756",
+      "delivery": "25.8%"
     },
     {
-      "symbol": "ENRIN",
-      "name": "Siemens Energy India Ltd",
-      "price": "3,125.9",
-      "change": "2.9%",
-      "volume": "17,68,160",
-      "delivery": "58.1%"
+      "symbol": "VAML",
+      "name": "Vedanta Aluminium Metal Ltd",
+      "price": "397",
+      "change": "3.05%",
+      "volume": "84,21,490",
+      "delivery": "52.4%"
     },
     {
-      "symbol": "BBOX",
-      "name": "Black Box Ltd",
-      "price": "900.7",
-      "change": "1.91%",
-      "volume": "48,50,753",
-      "delivery": "48.4%"
+      "symbol": "CAMS",
+      "name": "Computer Age Management Services Ltd",
+      "price": "744",
+      "change": "2.86%",
+      "volume": "42,77,128",
+      "delivery": "36.5%"
     },
     {
-      "symbol": "ABB",
-      "name": "Abb India Limited",
-      "price": "7,054.5",
-      "change": "1.9%",
-      "volume": "5,51,415",
-      "delivery": "33.3%"
+      "symbol": "KFINTECH",
+      "name": "KFin Technologies Ltd",
+      "price": "965",
+      "change": "2.85%",
+      "volume": "26,87,006",
+      "delivery": "29.9%"
     },
     {
-      "symbol": "MFSL",
-      "name": "Max Financial Services Limited",
-      "price": "1,401.1",
-      "change": "1.9%",
-      "volume": "22,75,539",
-      "delivery": "60.6%"
+      "symbol": "CANFINHOME",
+      "name": "Can Fin Homes Limited",
+      "price": "786.65",
+      "change": "2.7%",
+      "volume": "1,47,031",
+      "delivery": "50.5%"
     },
     {
-      "symbol": "TATACOMM",
-      "name": "Tata Communications Limited",
-      "price": "1,772.9",
-      "change": "1.69%",
-      "volume": "4,36,685",
-      "delivery": "54.8%"
+      "symbol": "OBEROIRLTY",
+      "name": "Oberoi Realty Limited",
+      "price": "1,819.7",
+      "change": "2.6%",
+      "volume": "4,09,456",
+      "delivery": "32.9%"
     },
     {
-      "symbol": "FINCABLES",
-      "name": "Finolex Cables Limited",
-      "price": "1,270",
-      "change": "1.38%",
-      "volume": "14,59,982",
-      "delivery": "39.6%"
+      "symbol": "AUBANK",
+      "name": "AU Small Finance Bank Ltd",
+      "price": "993.1",
+      "change": "2.24%",
+      "volume": "21,87,665",
+      "delivery": "49.4%"
     },
     {
-      "symbol": "NYKAA",
-      "name": "FSN E-Commerce Ventures Ltd",
-      "price": "365.2",
-      "change": "1.36%",
-      "volume": "47,63,655",
-      "delivery": "56.2%"
+      "symbol": "ELECON",
+      "name": "Elecon Engineering Company Limited",
+      "price": "453.9",
+      "change": "2.13%",
+      "volume": "4,86,632",
+      "delivery": "39.5%"
     },
     {
-      "symbol": "EICHERMOT",
-      "name": "Eicher Motors Limited",
-      "price": "7,650",
-      "change": "1.34%",
-      "volume": "5,23,543",
-      "delivery": "43.6%"
+      "symbol": "ITCHOTELS",
+      "name": "ITC Hotels Ltd",
+      "price": "177.81",
+      "change": "2.1%",
+      "volume": "95,15,504",
+      "delivery": "59.4%"
     },
     {
-      "symbol": "APLAPOLLO",
-      "name": "Apl Apollo Tubes Limited",
-      "price": "2,251.6",
-      "change": "1.16%",
-      "volume": "5,89,378",
-      "delivery": "45.2%"
+      "symbol": "JKTYRE",
+      "name": "Jk Tyre & Industries Limited",
+      "price": "364.5",
+      "change": "1.87%",
+      "volume": "7,17,055",
+      "delivery": "33.0%"
     },
     {
-      "symbol": "PTCIL",
-      "name": "PTC Industries Ltd",
-      "price": "24,365",
-      "change": "1.1%",
-      "volume": "19,896",
-      "delivery": "43.8%"
+      "symbol": "INDUSINDBK",
+      "name": "Indusind Bank Limited",
+      "price": "931",
+      "change": "1.8%",
+      "volume": "31,25,886",
+      "delivery": "53.2%"
     },
     {
-      "symbol": "HINDUNILVR",
-      "name": "Hindustan Unilever Limited",
-      "price": "1,992.9",
-      "change": "0.96%",
-      "volume": "12,68,888",
-      "delivery": "56.8%"
+      "symbol": "HYUNDAI",
+      "name": "Hyundai Motor India Ltd",
+      "price": "2,121.3",
+      "change": "1.79%",
+      "volume": "14,49,187",
+      "delivery": "56.3%"
     },
     {
-      "symbol": "LGEINDIA",
-      "name": "LG Electronics India Ltd",
-      "price": "1,745.4",
-      "change": "0.96%",
-      "volume": "6,44,493",
-      "delivery": "59.7%"
+      "symbol": "ADANIGREEN",
+      "name": "Adani Green Energy Ltd",
+      "price": "1,429.9",
+      "change": "1.66%",
+      "volume": "21,31,495",
+      "delivery": "44.7%"
     },
     {
-      "symbol": "CLEANMAX",
-      "name": "Clean Max Enviro Energy Solutions Ltd",
-      "price": "1,317.6",
-      "change": "0.94%",
-      "volume": "2,38,376",
-      "delivery": "48.8%"
+      "symbol": "IOB",
+      "name": "Indian Overseas Bank Ltd",
+      "price": "31.67",
+      "change": "1.57%",
+      "volume": "1,19,02,611",
+      "delivery": "37.6%"
     },
     {
-      "symbol": "IEX",
-      "name": "Indian Energy Exchange Ltd",
-      "price": "116.38",
-      "change": "0.88%",
-      "volume": "56,80,118",
-      "delivery": "51.7%"
+      "symbol": "NUVAMA",
+      "name": "Nuvama Wealth Management Ltd",
+      "price": "1,888.3",
+      "change": "1.5%",
+      "volume": "3,75,777",
+      "delivery": "40.7%"
     },
     {
-      "symbol": "ENDURANCE",
-      "name": "Endurance Technologies Limited",
-      "price": "2,540.2",
-      "change": "0.81%",
-      "volume": "94,374",
-      "delivery": "54.1%"
+      "symbol": "DIXON",
+      "name": "Dixon Technologies Ltd",
+      "price": "13,081",
+      "change": "1.48%",
+      "volume": "3,74,964",
+      "delivery": "36.1%"
     }
   ],
   "Swing Trading - Find Higher low from uptrend stocks.": [
     {
-      "symbol": "ALICON",
-      "name": "Alicon Castalloy Limited",
-      "price": "976.15",
-      "change": "17.32%",
-      "volume": "33,78,534",
-      "delivery": "28.4%"
+      "symbol": "KDDL",
+      "name": "Kddl Limited",
+      "price": "4,560.4",
+      "change": "16.52%",
+      "volume": "9,05,824",
+      "delivery": "10.3%"
     },
     {
-      "symbol": "ORICONENT",
-      "name": "Oricon Enterprises Limited",
-      "price": "58.22",
-      "change": "7.68%",
-      "volume": "4,46,432",
-      "delivery": "91.3%"
+      "symbol": "KMCSHIL",
+      "name": "KMC Speciality Hospitals (India) Ltd",
+      "price": "194.52",
+      "change": "15.63%",
+      "volume": "1,60,30,841",
+      "delivery": "5.4%"
     },
     {
-      "symbol": "STYLEBAAZA",
-      "name": "Baazar Style Retail Ltd",
-      "price": "468.75",
-      "change": "5.69%",
-      "volume": "58,47,095",
-      "delivery": "51.9%"
+      "symbol": "SGFIN",
+      "name": "SG Finserve Ltd",
+      "price": "793.8",
+      "change": "7.23%",
+      "volume": "14,35,667",
+      "delivery": "21.0%"
     },
     {
-      "symbol": "GCSL",
-      "name": "Gretex Corporate Services Ltd",
-      "price": "822.95",
-      "change": "5.09%",
-      "volume": "7,17,216",
-      "delivery": "19.8%"
+      "symbol": "SEJALLTD",
+      "name": "Sejal Glass Ltd",
+      "price": "927.85",
+      "change": "6.94%",
+      "volume": "74,196",
+      "delivery": "44.2%"
     },
     {
-      "symbol": "BGLOBAL",
-      "name": "Bharatiya Global Infomedia Limited",
-      "price": "3.51",
-      "change": "4.46%",
-      "volume": "1,37,316",
-      "delivery": "-"
+      "symbol": "GREAVESCOT",
+      "name": "Greaves Cotton Limited",
+      "price": "243.5",
+      "change": "6.74%",
+      "volume": "1,35,61,607",
+      "delivery": "14.1%"
     },
     {
-      "symbol": "VHLTD",
-      "name": "Viceroy Hotels Ltd",
-      "price": "148.71",
-      "change": "3.83%",
-      "volume": "34,049",
-      "delivery": "-"
+      "symbol": "ARTEMISMED",
+      "name": "Artemis Medicare Services Ltd",
+      "price": "348.75",
+      "change": "6.42%",
+      "volume": "7,13,832",
+      "delivery": "48.2%"
     },
     {
-      "symbol": "MANIKA",
-      "name": "Manika Plastech Ltd",
-      "price": "50.4",
-      "change": "3.53%",
-      "volume": "7,64,215",
-      "delivery": "54.8%"
+      "symbol": "AMANTA",
+      "name": "Amanta Healthcare Ltd",
+      "price": "234.51",
+      "change": "6.39%",
+      "volume": "5,97,547",
+      "delivery": "26.3%"
+    },
+    {
+      "symbol": "FREDUN",
+      "name": "Fredun Pharmaceuticals Ltd",
+      "price": "1,572",
+      "change": "5.63%",
+      "volume": "1,42,860",
+      "delivery": "39.4%"
+    },
+    {
+      "symbol": "AVTNPL",
+      "name": "Avt Natural Products Limited",
+      "price": "101.22",
+      "change": "5.59%",
+      "volume": "68,85,691",
+      "delivery": "14.0%"
+    },
+    {
+      "symbol": "63MOONS",
+      "name": "63 Moons Technologies Ltd",
+      "price": "958.9",
+      "change": "4.86%",
+      "volume": "4,60,983",
+      "delivery": "53.2%"
+    },
+    {
+      "symbol": "MANOMAY",
+      "name": "Manomay Tex India Ltd",
+      "price": "272.04",
+      "change": "4.61%",
+      "volume": "4,61,732",
+      "delivery": "28.3%"
+    },
+    {
+      "symbol": "MOMSBELIEF",
+      "name": "MOMSBELIEF",
+      "price": "293.83",
+      "change": "4.25%",
+      "volume": "6,34,244",
+      "delivery": "13.0%"
+    },
+    {
+      "symbol": "PGIL",
+      "name": "Pearl Global Industries Limited",
+      "price": "1,368.2",
+      "change": "4.07%",
+      "volume": "2,88,033",
+      "delivery": "42.2%"
+    },
+    {
+      "symbol": "GROWWPSUBK",
+      "name": "Groww Nifty PSU Bank ETF",
+      "price": "95.38",
+      "change": "4.05%",
+      "volume": "48,266",
+      "delivery": "51.0%"
+    },
+    {
+      "symbol": "BANCOINDIA",
+      "name": "Banco Products (i) Limited",
+      "price": "700.4",
+      "change": "3.93%",
+      "volume": "15,34,048",
+      "delivery": "22.4%"
+    },
+    {
+      "symbol": "KOVAI",
+      "name": "Kovai Medical Center & Hospital Ltd",
+      "price": "6,592",
+      "change": "3.66%",
+      "volume": "11,325",
+      "delivery": "53.4%"
     },
     {
       "symbol": "NAVINIFTY",
       "name": "Navi Nifty 50 ETF",
       "price": "291.4",
       "change": "3.31%",
-      "volume": "10,600",
+      "volume": "7,950",
       "delivery": "-"
     },
     {
-      "symbol": "DVL",
-      "name": "Dhunseri Ventures Ltd",
-      "price": "307.9",
-      "change": "2.6%",
-      "volume": "45,638",
-      "delivery": "37.8%"
+      "symbol": "HONASA",
+      "name": "Honasa Consumer Ltd",
+      "price": "517.8",
+      "change": "3.3%",
+      "volume": "25,80,356",
+      "delivery": "45.2%"
     },
     {
-      "symbol": "RPEL",
-      "name": "Raghav Productivity Enhancers Ltd",
-      "price": "1,946.2",
-      "change": "2.4%",
-      "volume": "3,40,249",
-      "delivery": "45.0%"
+      "symbol": "PRESTIGE",
+      "name": "Prestige Estates Projects Limited",
+      "price": "1,691.5",
+      "change": "3.22%",
+      "volume": "5,82,154",
+      "delivery": "40.5%"
     },
     {
-      "symbol": "ANGELONE",
-      "name": "Angel One Ltd",
-      "price": "349",
-      "change": "2.35%",
-      "volume": "1,32,53,460",
-      "delivery": "23.7%"
-    },
-    {
-      "symbol": "KIRANVYPAR",
-      "name": "Kiran Vyapar Ltd",
-      "price": "206.05",
-      "change": "2.35%",
-      "volume": "17,809",
-      "delivery": "72.8%"
-    },
-    {
-      "symbol": "DCI",
-      "name": "DC Infotech & Communication Ltd",
-      "price": "337.8",
-      "change": "1.58%",
-      "volume": "1,76,346",
-      "delivery": "63.9%"
+      "symbol": "KFINTECH",
+      "name": "KFin Technologies Ltd",
+      "price": "965",
+      "change": "2.85%",
+      "volume": "26,87,006",
+      "delivery": "29.9%"
     }
   ],
   "EMA9/21 - pullback": [
     {
-      "symbol": "MSTCLTD",
-      "name": "MSTC Ltd",
-      "price": "783.35",
+      "symbol": "MODTHREAD",
+      "name": "Modern Threads (I) Ltd",
+      "price": "55.92",
       "change": "20%",
-      "volume": "63,28,161",
-      "delivery": "35.7%"
+      "volume": "26,927",
+      "delivery": "53.8%"
     },
     {
-      "symbol": "ALICON",
-      "name": "Alicon Castalloy Limited",
-      "price": "976.15",
-      "change": "17.32%",
-      "volume": "33,78,534",
-      "delivery": "28.4%"
+      "symbol": "BALAXI",
+      "name": "Balaxi Pharmaceuticals Ltd",
+      "price": "26.47",
+      "change": "19.99%",
+      "volume": "2,48,665",
+      "delivery": "87.9%"
     },
     {
-      "symbol": "ANTGRAPHIC",
-      "name": "Antarctica Limited",
-      "price": "0.84",
-      "change": "16.67%",
-      "volume": "52,14,044",
-      "delivery": "60.6%"
+      "symbol": "KDDL",
+      "name": "Kddl Limited",
+      "price": "4,560.4",
+      "change": "16.52%",
+      "volume": "9,05,824",
+      "delivery": "10.3%"
     },
     {
-      "symbol": "DHANBANK",
-      "name": "Dhanlaxmi Bank Limited",
-      "price": "40.24",
-      "change": "14.81%",
-      "volume": "10,91,45,887",
-      "delivery": "8.8%"
+      "symbol": "KMCSHIL",
+      "name": "KMC Speciality Hospitals (India) Ltd",
+      "price": "194.52",
+      "change": "15.63%",
+      "volume": "1,60,30,841",
+      "delivery": "5.4%"
     },
     {
-      "symbol": "SHALPAINTS",
-      "name": "Shalimar Paints Limited",
-      "price": "95.93",
-      "change": "12.59%",
-      "volume": "20,97,519",
-      "delivery": "46.8%"
+      "symbol": "SIGNATURE",
+      "name": "SignatureGlobal India Ltd",
+      "price": "835.6",
+      "change": "9.14%",
+      "volume": "17,97,681",
+      "delivery": "11.4%"
     },
     {
-      "symbol": "PRECOT",
-      "name": "Precot Meridian Limited",
-      "price": "706.8",
-      "change": "12.39%",
-      "volume": "1,02,830",
-      "delivery": "72.7%"
+      "symbol": "NRL",
+      "name": "Nupur Recyclers Ltd",
+      "price": "190.96",
+      "change": "8.24%",
+      "volume": "2,54,383",
+      "delivery": "66.3%"
     },
     {
-      "symbol": "BPLPHARMA",
-      "name": "Bharat Parenterals Ltd",
-      "price": "2,120.7",
-      "change": "11.04%",
-      "volume": "52,762",
-      "delivery": "49.4%"
+      "symbol": "WSI",
+      "name": "W S Industries (i) Limited",
+      "price": "72.48",
+      "change": "7.97%",
+      "volume": "3,11,019",
+      "delivery": "50.6%"
     },
     {
-      "symbol": "POWERINDIA",
-      "name": "Hitachi Energy India Ltd",
-      "price": "31,595",
-      "change": "10.68%",
-      "volume": "8,92,554",
-      "delivery": "40.0%"
+      "symbol": "WELSPUNLIV",
+      "name": "Welspun Living Ltd",
+      "price": "265.62",
+      "change": "7.92%",
+      "volume": "1,22,44,187",
+      "delivery": "21.4%"
     },
     {
-      "symbol": "AUTOAXLES",
-      "name": "Automotive Axles Limited",
-      "price": "1,815.3",
-      "change": "10.08%",
-      "volume": "5,59,410",
-      "delivery": "55.3%"
+      "symbol": "SGFIN",
+      "name": "SG Finserve Ltd",
+      "price": "793.8",
+      "change": "7.23%",
+      "volume": "14,35,667",
+      "delivery": "21.0%"
     },
     {
-      "symbol": "KJMCFIN",
-      "name": "KJMC Financial Services Ltd",
-      "price": "71.06",
-      "change": "10%",
-      "volume": "5,335",
-      "delivery": "98.5%"
+      "symbol": "SEJALLTD",
+      "name": "Sejal Glass Ltd",
+      "price": "927.85",
+      "change": "6.94%",
+      "volume": "74,196",
+      "delivery": "44.2%"
     },
     {
-      "symbol": "SHIVAMILLS",
-      "name": "Shiva Mills Ltd",
-      "price": "64.51",
-      "change": "9.99%",
-      "volume": "18,418",
-      "delivery": "69.9%"
+      "symbol": "XPROINDIA",
+      "name": "Xpro India Limited",
+      "price": "1,277.1",
+      "change": "6.89%",
+      "volume": "2,26,078",
+      "delivery": "39.2%"
     },
     {
-      "symbol": "FIEMIND",
-      "name": "Fiem Industries Limited",
-      "price": "2,133.3",
-      "change": "9.77%",
-      "volume": "10,27,476",
-      "delivery": "33.6%"
+      "symbol": "SANDHAR",
+      "name": "Sandhar Technologies Limited",
+      "price": "583.65",
+      "change": "6.87%",
+      "volume": "6,50,624",
+      "delivery": "26.1%"
     },
     {
-      "symbol": "JMA",
-      "name": "Jullundur Motor Agency (delhi) Limited",
-      "price": "103.95",
-      "change": "8.77%",
-      "volume": "4,17,179",
-      "delivery": "79.1%"
+      "symbol": "GREAVESCOT",
+      "name": "Greaves Cotton Limited",
+      "price": "243.5",
+      "change": "6.74%",
+      "volume": "1,35,61,607",
+      "delivery": "14.1%"
     },
     {
-      "symbol": "NECCLTD",
-      "name": "North Eastern Carrying Corporation Limited",
-      "price": "22.91",
-      "change": "8.53%",
-      "volume": "19,61,620",
-      "delivery": "53.5%"
+      "symbol": "DEEPAKFERT",
+      "name": "Deepak Fertilizers And Petrochemicals Corporation Limited",
+      "price": "1,443.7",
+      "change": "6.72%",
+      "volume": "24,27,264",
+      "delivery": "15.0%"
     },
     {
-      "symbol": "ORIENTCABL",
-      "name": "Orient Cables (India) Ltd",
-      "price": "408.95",
-      "change": "8.49%",
-      "volume": "29,54,328",
-      "delivery": "54.7%"
+      "symbol": "KMSUGAR",
+      "name": "K.m.sugar Mills Limited",
+      "price": "34.09",
+      "change": "6.56%",
+      "volume": "7,47,648",
+      "delivery": "59.1%"
     },
     {
-      "symbol": "ANURAS",
-      "name": "Anupam Rasayan India Ltd",
-      "price": "1,300.6",
-      "change": "8.22%",
-      "volume": "17,38,981",
-      "delivery": "43.1%"
+      "symbol": "ARTEMISMED",
+      "name": "Artemis Medicare Services Ltd",
+      "price": "348.75",
+      "change": "6.42%",
+      "volume": "7,13,832",
+      "delivery": "48.2%"
     },
     {
-      "symbol": "KANCOTEA",
-      "name": "Kanco Tea & Industries Ltd",
-      "price": "64.99",
-      "change": "8.14%",
-      "volume": "32,039",
-      "delivery": "61.3%"
+      "symbol": "AMANTA",
+      "name": "Amanta Healthcare Ltd",
+      "price": "234.51",
+      "change": "6.39%",
+      "volume": "5,97,547",
+      "delivery": "26.3%"
     },
     {
-      "symbol": "APOLLO",
-      "name": "Apollo Micro Systems Ltd",
-      "price": "475.6",
-      "change": "8.07%",
-      "volume": "2,86,68,453",
-      "delivery": "27.0%"
+      "symbol": "JYOTIRES",
+      "name": "Jyoti Resins and Adhesives Ltd",
+      "price": "954.65",
+      "change": "5.85%",
+      "volume": "51,735",
+      "delivery": "50.0%"
     },
     {
-      "symbol": "SHARDAMOTR",
-      "name": "Sharda Motor Industries Limited",
-      "price": "964.75",
-      "change": "8.06%",
-      "volume": "45,84,805",
-      "delivery": "17.7%"
+      "symbol": "LAHOTIOV",
+      "name": "Lahoti Overseas Ltd",
+      "price": "43.4",
+      "change": "5.83%",
+      "volume": "98,313",
+      "delivery": "37.6%"
     },
     {
-      "symbol": "SONA",
-      "name": "Sonaselection India Ltd",
-      "price": "120.94",
-      "change": "7.94%",
-      "volume": "28,88,431",
-      "delivery": "38.1%"
+      "symbol": "GLASSWALL",
+      "name": "Glass Wall Systems (India) Ltd",
+      "price": "272.94",
+      "change": "5.7%",
+      "volume": "53,63,516",
+      "delivery": "22.3%"
     }
   ]
 }
