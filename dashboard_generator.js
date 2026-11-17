@@ -39,8 +39,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
   <link rel="shortcut icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <!-- Official TradingView Real-Time Charting Library (tv.js) & Lightweight Charts Engine -->
-  <script src="https://s3.tradingview.com/tv.js"></script>
+  <!-- Official TradingView Lightweight Charts Library -->
   <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
   <!-- Register Service Worker for PWA Offline & Native App Install -->
   <script>
@@ -834,13 +833,13 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       box-shadow: var(--shadow);
     }
 
-    /* ─── ENLARGED FLOATING HOVER CHART CARD (860px x 620px) ─── */
+    /* ─── ENLARGED FLOATING HOVER CHART CARD (780px x 580px) ─── */
     .hover-chart-card {
       position: fixed;
-      width: 860px;
-      height: 620px;
-      max-width: 95vw;
-      max-height: 90vh;
+      width: 780px;
+      height: 580px;
+      max-width: 94vw;
+      max-height: 88vh;
       background: var(--floating-bg);
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -1423,13 +1422,13 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     </div>
   </div>
 
-  <!-- ─── FLOATING HOVER CHART CARD (860px x 620px / Mobile Bottom Sheet) ─── -->
+  <!-- ─── FLOATING HOVER CHART CARD (780px x 580px / Mobile Bottom Sheet) ─── -->
   <div class="card-backdrop" id="cardBackdrop" onclick="hideCard(true)"></div>
   <div class="hover-chart-card" id="hoverCard">
     <div class="card-topbar">
       <div class="card-title-group">
         <span class="card-symbol" id="cardSymbolText">NSE:SELECT</span>
-        <span style="font-size:0.75rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">EMA 9 · EMA 21 · Volume · RSI 14 · MFI 14</span>
+        <span class="card-ohlc" id="cardOhlcDisplay">O: - H: - L: - C: -</span>
       </div>
       <div class="card-actions">
         <a href="#" target="_blank" class="card-btn" id="cardTvAccountBtn" title="Open chart directly in TradingView">
@@ -1450,21 +1449,36 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       </div>
     </div>
 
-    <!-- Official TradingView Advanced Real-Time Chart Container -->
-    <div class="chart-body-container">
-      <div id="tvWidgetContainer" style="width: 100%; height: 100%; position: relative; overflow: hidden;">
-        <div id="tvWidgetInner" style="width: 100%; height: 100%;"></div>
+    <!-- PineScript 1 & 2 Indicator Legend -->
+    <div class="indicator-legend-bar">
+      <div class="legend-group">
+        <!-- PineScript 1: ONLY EMA 9 & EMA 21 (Thin 1px) -->
+        <span class="legend-tag" style="color:#38bdf8;" id="ema9Legend"><span class="legend-dot" style="background:#2962ff;"></span>EMA 9</span>
+        <span class="legend-tag" style="color:#fb923c;" id="ema21Legend"><span class="legend-dot" style="background:#ff9800;"></span>EMA 21</span>
+        <!-- PineScript 2: LuxAlgo SMC -->
+        <span class="smc-badge-pill">⚡ LuxAlgo SMC</span>
+      </div>
+      <div class="legend-group">
+        <!-- Sub-Pane: RSI & MFI -->
+        <span class="legend-tag" style="color:#b39ddb;">RSI 14</span>
+        <span class="legend-tag" style="color:#ffd600;">RSI MA 14</span>
+        <span class="legend-tag" style="color:#00e676;">MFI 14</span>
       </div>
     </div>
-  </div>
 
-  <!-- Offscreen Patternlytics AI Engine (Captures high-res 2-month candles & SMC) -->
-  <div style="position: absolute; left: -9999px; top: -9999px; width: 800px; height: 500px; visibility: hidden; pointer-events: none;">
-    <div id="mainCandleChart" style="width: 800px; height: 350px;">
-      <canvas id="smcCanvas"></canvas>
-    </div>
-    <div id="subPaneRsiMfi" style="width: 800px; height: 150px;">
-      <div id="subpaneReadout"></div>
+    <!-- Chart Containers -->
+    <div class="chart-body-container">
+      <div id="mainCandleChart">
+        <!-- GPU Zero-Lag Canvas Overlay -->
+        <canvas id="smcCanvas"></canvas>
+      </div>
+      <div id="subPaneRsiMfi">
+        <div class="subpane-header-readout" id="subpaneReadout">
+          <span style="color:#b39ddb;">RSI: --</span>
+          <span style="color:#ffd600;">MA: --</span>
+          <span style="color:#00e676;">MFI: --</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1926,53 +1940,6 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       document.querySelectorAll('.symbol-pill').forEach(el => el.classList.remove('active-preview'));
     }
 
-    let currentTvLoadedSymbol = "";
-
-    function renderTradingViewWidget(symbol) {
-      if (!symbol) return;
-      const tvContainer = document.getElementById("tvWidgetContainer");
-      if (!tvContainer) return;
-
-      if (currentTvLoadedSymbol === symbol && tvContainer.querySelector("iframe")) {
-        return;
-      }
-      currentTvLoadedSymbol = symbol;
-
-      const boxId = "tv_chart_inner_" + Date.now();
-      tvContainer.innerHTML = '<div id="' + boxId + '" style="width:100%; height:100%;"></div>';
-
-      if (typeof TradingView !== "undefined" && TradingView.widget) {
-        new TradingView.widget({
-          autosize: true,
-          symbol: "BSE:" + symbol,
-          interval: "D",
-          timezone: "Asia/Kolkata",
-          theme: "dark",
-          style: "1",
-          locale: "en",
-          toolbar_bg: "#131722",
-          enable_publishing: false,
-          hide_side_toolbar: false,
-          allow_symbol_change: true,
-          studies: [
-            { id: "MAExp@tv-basicstudies", inputs: { length: 9 } },
-            { id: "MAExp@tv-basicstudies", inputs: { length: 21 } },
-            { id: "RSI@tv-basicstudies", inputs: { length: 14 } },
-            { id: "MF@tv-basicstudies", inputs: { length: 14 } }
-          ],
-          studies_overrides: {
-            "maexp.ma.color.0": "#2962ff",
-            "maexp.ma.color.1": "#ff9800",
-            "rsi.rsi.color": "#b39ddb",
-            "mf.mf.color": "#00e676"
-          },
-          container_id: boxId
-        });
-      } else {
-        tvContainer.innerHTML = '<div style="display:flex; align-items:center; justify-content:center; height:100%; color:var(--text-muted); font-size:0.85rem;">Connecting to TradingView...</div>';
-      }
-    }
-
     function showCardForSymbol(symbol, mouseEvent) {
       if (!symbol) return;
       const card = document.getElementById("hoverCard");
@@ -1983,8 +1950,8 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       if (mouseEvent && window.innerWidth > 768) {
         const mouseX = mouseEvent.clientX;
         const mouseY = mouseEvent.clientY;
-        const cardW = 860;
-        const cardH = 620;
+        const cardW = 780;
+        const cardH = 580;
 
         let left = mouseX + 28;
         let top = mouseY - 150;
@@ -2011,7 +1978,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       document.getElementById("cardTvAccountBtn").href = "https://www.tradingview.com/chart/?symbol=NSE:" + symbol;
 
       card.classList.add("visible");
-      renderTradingViewWidget(symbol);
+      renderPineScriptChart(symbol);
 
       if (window.innerWidth <= 768) {
         setTimeout(() => {
