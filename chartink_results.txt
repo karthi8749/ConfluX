@@ -1,5 +1,5 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 17/11/2026, 1:57:00 pm
+CHARTINK SCAN RESULTS (BY FILTER) — 17/11/2026, 2:01:45 pm
 ═════════════════════════════════════════════════════════════════
 
 📋 FILTER: Sniper OB Retest Bounce Scanner (4 stocks)
@@ -94,7 +94,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 17/11/2026, 1:57:00 pm
   13. NSE:GROWWPSUBK      | Groww Nifty PSU Bank ETF  | LTP: ₹95.38    | 4.05%   | Vol: 48,266      | Deliv: 51.0%
   14. NSE:BANCOINDIA      | Banco Products (i) Limited | LTP: ₹700.4    | 3.93%   | Vol: 15,34,048   | Deliv: 22.4%
   15. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹288.35   | 3.89%   | Vol: 65,159      | Deliv: 51.3%
-  16. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 15,900      | Deliv: -
+  16. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 7,950       | Deliv: -
   17. NSE:CAMS            | Computer Age Management Services Ltd | LTP: ₹744      | 2.86%   | Vol: 42,77,128   | Deliv: 36.5%
   18. NSE:KFINTECH        | KFin Technologies Ltd     | LTP: ₹965      | 2.85%   | Vol: 26,87,006   | Deliv: 29.9%
   19. NSE:AJMERA          | Ajmera Realty & Infra India Limited | LTP: ₹135.69   | 2.43%   | Vol: 15,80,502   | Deliv: 41.9%
@@ -111,7 +111,7 @@ CHARTINK SCAN RESULTS (BY FILTER) — 17/11/2026, 1:57:00 pm
    7. NSE:BANCOINDIA      | Banco Products (i) Limited | LTP: ₹700.4    | 3.93%   | Vol: 15,34,048   | Deliv: 22.4%
    8. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹288.35   | 3.89%   | Vol: 65,159      | Deliv: 51.3%
    9. NSE:BRIGADE         | Brigade Enterprises Limited | LTP: ₹560.5    | 3.37%   | Vol: 5,78,586    | Deliv: 29.4%
-  10. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 7,950       | Deliv: -
+  10. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 15,900      | Deliv: -
   11. NSE:AUTOIND         | Autoline Industries Limited | LTP: ₹79.34    | 2.93%   | Vol: 1,69,792    | Deliv: 59.9%
   12. NSE:KFINTECH        | KFin Technologies Ltd     | LTP: ₹965      | 2.85%   | Vol: 26,87,006   | Deliv: 29.9%
   13. NSE:AJMERA          | Ajmera Realty & Infra India Limited | LTP: ₹135.69   | 2.43%   | Vol: 15,80,502   | Deliv: 41.9%
