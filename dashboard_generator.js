@@ -2107,15 +2107,22 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           allow_symbol_change: true,
           studies: [
             { id: "MAExp@tv-basicstudies", inputs: { length: 9 } },
-            { id: "MAExp@tv-basicstudies", inputs: { length: 21 } },
+            { id: "MASimple@tv-basicstudies", inputs: { length: 21 } },
             { id: "RSI@tv-basicstudies", inputs: { length: 14 } },
             { id: "MF@tv-basicstudies", inputs: { length: 14 } }
           ],
           studies_overrides: {
-            "maexp.ma.color.0": "#2962ff",
-            "maexp.ma.color.1": "#ff9800",
-            "rsi.rsi.color": "#b39ddb",
-            "mf.mf.color": "#00e676"
+            "moving average exponential.ma.color": "#2962ff",
+            "moving average exponential.ma.linewidth": 2,
+            "moving average.ma.color": "#ff9800",
+            "moving average.ma.linewidth": 2,
+            "relative strength index.rsi.color": "#b39ddb",
+            "relative strength index.rsi.linewidth": 2,
+            "relative strength index.smoothed ma.color": "#ffd600",
+            "relative strength index.smoothed ma.linewidth": 2,
+            "relative strength index.smoothed ma.display": 1,
+            "money flow index.mfi.color": "#00e676",
+            "money flow index.mfi.linewidth": 2
           },
           container_id: boxId
         });
