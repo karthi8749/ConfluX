@@ -1,151 +1,90 @@
 ═════════════════════════════════════════════════════════════════
-CHARTINK SCAN RESULTS (BY FILTER) — 17/11/2026, 2:01:45 pm
+CHARTINK SCAN RESULTS (BY FILTER) — 18/11/2026, 1:17:45 pm
 ═════════════════════════════════════════════════════════════════
 
-📋 FILTER: Sniper OB Retest Bounce Scanner (4 stocks)
+📋 FILTER: Sniper OB Retest Bounce Scanner (2 stocks)
 --------------------------------------------------
-   1. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹134.26   | 9.94%   | Vol: 83,82,410   | Deliv: 17.1%
-   2. NSE:ASKAUTOLTD      | ASK Automotive Ltd        | LTP: ₹639.85   | 2.18%   | Vol: 1,59,185    | Deliv: 43.0%
-   3. NSE:NAM-INDIA       | Nippon Life India Asset Management Ltd | LTP: ₹1,085.5  | 0.71%   | Vol: 10,40,930   | Deliv: 33.8%
-   4. NSE:NFL             | National Fertilizers Limited | LTP: ₹64.7     | 0.37%   | Vol: 3,51,744    | Deliv: 33.5%
+   1. NSE:SIMPLEXINF      | Simplex Infrastructures Limited | LTP: ₹298.65   | 3.82%   | Vol: 8,01,702    | Deliv: 56.3%
+   2. NSE:DLF             | Dlf Limited               | LTP: ₹764.3    | -0.22%  | Vol: 15,00,129   | Deliv: 41.1%
 
-📋 FILTER: Inst.Dynamic OB Retest Scan (20 stocks)
+📋 FILTER: Inst.Dynamic OB Retest Scan (14 stocks)
 --------------------------------------------------
-   1. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹134.26   | 9.94%   | Vol: 83,82,410   | Deliv: 17.1%
-   2. NSE:SIGNATURE       | SignatureGlobal India Ltd | LTP: ₹835.6    | 9.14%   | Vol: 17,97,681   | Deliv: 11.4%
-   3. NSE:SGFIN           | SG Finserve Ltd           | LTP: ₹793.8    | 7.23%   | Vol: 14,35,667   | Deliv: 21.0%
-   4. NSE:DAMCAPITAL      | Dam Capital Advisors Ltd  | LTP: ₹148.6    | 5.4%    | Vol: 8,02,133    | Deliv: 50.3%
-   5. NSE:GHCLTEXTIL      | GHCL Textiles Ltd         | LTP: ₹136.22   | 5.24%   | Vol: 10,46,800   | Deliv: 33.4%
-   6. NSE:PACEDIGITK      | Pace Digitek Ltd          | LTP: ₹177.87   | 4.34%   | Vol: 1,11,87,876 | Deliv: 14.6%
-   7. NSE:TMCV            | Tata Motors Commercial Vehicles Ltd | LTP: ₹445.65   | 4.06%   | Vol: 1,15,30,196 | Deliv: 42.2%
-   8. NSE:LAOPALA         | La Opala Rg Limited       | LTP: ₹157.69   | 3.99%   | Vol: 3,86,061    | Deliv: 41.2%
-   9. NSE:SBIFUNDS        | SBI Funds Management Ltd  | LTP: ₹530.05   | 3.93%   | Vol: 19,40,751   | Deliv: 50.4%
-  10. NSE:IGIL            | International Gemmological Institute (India) Ltd | LTP: ₹450.6    | 3.9%    | Vol: 12,09,763   | Deliv: 55.2%
-  11. NSE:PRESTIGE        | Prestige Estates Projects Limited | LTP: ₹1,691.5  | 3.22%   | Vol: 5,82,154    | Deliv: 40.5%
-  12. NSE:TIPSMUSIC       | Tips Music Ltd            | LTP: ₹833.15   | 3.22%   | Vol: 5,08,900    | Deliv: 49.2%
-  13. NSE:ARSSBL          | Anand Rathi Share & Stock Brokers Ltd | LTP: ₹513.9    | 3.06%   | Vol: 2,64,258    | Deliv: 32.3%
-  14. NSE:VAML            | Vedanta Aluminium Metal Ltd | LTP: ₹397      | 3.05%   | Vol: 84,21,490   | Deliv: 52.4%
-  15. NSE:CAMS            | Computer Age Management Services Ltd | LTP: ₹744      | 2.86%   | Vol: 42,77,128   | Deliv: 36.5%
-  16. NSE:ADANIENSOL      | Adani Energy Solutions Ltd | LTP: ₹1,493.7  | 2.83%   | Vol: 16,57,569   | Deliv: 43.2%
-  17. NSE:ALGOQUANT       | Algoquant Fintech Ltd     | LTP: ₹87.03    | 2.71%   | Vol: 13,15,951   | Deliv: 20.3%
-  18. NSE:CANFINHOME      | Can Fin Homes Limited     | LTP: ₹786.65   | 2.7%    | Vol: 1,47,031    | Deliv: 50.5%
-  19. NSE:GHCL            | Ghcl Limited              | LTP: ₹456.8    | 2.61%   | Vol: 5,43,727    | Deliv: 64.2%
-  20. NSE:OBEROIRLTY      | Oberoi Realty Limited     | LTP: ₹1,819.7  | 2.6%    | Vol: 4,09,456    | Deliv: 32.9%
+   1. NSE:SUBROS          | Subros Limited            | LTP: ₹693.25   | 13.1%   | Vol: 59,71,955   | Deliv: 5.5%
+   2. NSE:INOXINDIA       | Inox India Ltd            | LTP: ₹2,123.2  | 7.81%   | Vol: 31,49,972   | Deliv: 11.8%
+   3. NSE:FAZE3Q          | Faze Three Ltd            | LTP: ₹612.05   | 6.98%   | Vol: 35,52,713   | Deliv: 8.4%
+   4. NSE:SUNTV           | Sun Tv Network Limited    | LTP: ₹696.35   | 5.56%   | Vol: 29,89,983   | Deliv: 13.0%
+   5. NSE:ICIL            | Indo Count Industries Limited | LTP: ₹576.55   | 4.78%   | Vol: 12,94,851   | Deliv: 39.6%
+   6. NSE:GREENPANEL      | Greenpanel Industries Ltd | LTP: ₹154.42   | 2.99%   | Vol: 4,88,411    | Deliv: 53.8%
+   7. NSE:ORCHPHARMA      | Orchid Pharma Ltd         | LTP: ₹955.95   | 2.7%    | Vol: 2,28,286    | Deliv: 28.4%
+   8. NSE:EUREKAFORB      | Eureka Forbes Ltd         | LTP: ₹396.1    | 2.46%   | Vol: 3,07,564    | Deliv: 48.5%
+   9. NSE:POONAWALLA      | Poonawalla Fincorp Ltd    | LTP: ₹501.35   | 2.18%   | Vol: 12,48,408   | Deliv: 50.4%
+  10. NSE:SHINDL          | Sharat Industries Ltd     | LTP: ₹154.8    | 1.71%   | Vol: 1,32,943    | Deliv: 14.5%
+  11. NSE:ACE             | Action Construction Equipment Limited | LTP: ₹1,189.2  | 1.32%   | Vol: 2,35,247    | Deliv: 51.0%
+  12. NSE:APOLLOHOSP      | Apollo Hospitals Enterprise Limited | LTP: ₹8,821    | 1.25%   | Vol: 4,68,147    | Deliv: 44.5%
+  13. NSE:IGL             | Indraprastha Gas Limited  | LTP: ₹149.14   | 0.64%   | Vol: 14,19,024   | Deliv: 48.0%
+  14. NSE:LIQUIDCASE      | Zerodha Nifty 1D Rate Liquid ETF | LTP: ₹116.97   | 0.03%   | Vol: 2,29,70,023 | Deliv: 80.5%
 
 📋 FILTER: OB AG 1 -NOV (20 stocks)
 --------------------------------------------------
-   1. NSE:MODTHREAD       | Modern Threads (I) Ltd    | LTP: ₹55.92    | 20%     | Vol: 26,927      | Deliv: 53.8%
-   2. NSE:KDDL            | Kddl Limited              | LTP: ₹4,560.4  | 16.52%  | Vol: 9,05,824    | Deliv: 10.3%
-   3. NSE:KMCSHIL         | KMC Speciality Hospitals (India) Ltd | LTP: ₹194.52   | 15.63%  | Vol: 1,60,30,841 | Deliv: 5.4%
-   4. NSE:FIRSTCRY        | Brainbees Solutions Ltd   | LTP: ₹178.97   | 12.85%  | Vol: 13,68,54,430 | Deliv: 2.5%
-   5. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹134.26   | 9.94%   | Vol: 83,82,410   | Deliv: 17.1%
-   6. NSE:SIGNATURE       | SignatureGlobal India Ltd | LTP: ₹835.6    | 9.14%   | Vol: 17,97,681   | Deliv: 11.4%
-   7. NSE:NRL             | Nupur Recyclers Ltd       | LTP: ₹190.96   | 8.24%   | Vol: 2,54,383    | Deliv: 66.3%
-   8. NSE:SGFIN           | SG Finserve Ltd           | LTP: ₹793.8    | 7.23%   | Vol: 14,35,667   | Deliv: 21.0%
-   9. NSE:XPROINDIA       | Xpro India Limited        | LTP: ₹1,277.1  | 6.89%   | Vol: 2,26,078    | Deliv: 39.2%
-  10. NSE:SANDHAR         | Sandhar Technologies Limited | LTP: ₹583.65   | 6.87%   | Vol: 6,50,624    | Deliv: 26.1%
-  11. NSE:GREAVESCOT      | Greaves Cotton Limited    | LTP: ₹243.5    | 6.74%   | Vol: 1,35,61,607 | Deliv: 14.1%
-  12. NSE:DEEPAKFERT      | Deepak Fertilizers And Petrochemicals Corporation Limited | LTP: ₹1,443.7  | 6.72%   | Vol: 24,27,264   | Deliv: 15.0%
-  13. NSE:ARTEMISMED      | Artemis Medicare Services Ltd | LTP: ₹348.75   | 6.42%   | Vol: 7,13,832    | Deliv: 48.2%
-  14. NSE:IXIGO           | Le Travenues Technology Ltd | LTP: ₹175.61   | 5.88%   | Vol: 73,38,464   | Deliv: 27.2%
-  15. NSE:DAMCAPITAL      | Dam Capital Advisors Ltd  | LTP: ₹148.6    | 5.4%    | Vol: 8,02,133    | Deliv: 50.3%
-  16. NSE:GHCLTEXTIL      | GHCL Textiles Ltd         | LTP: ₹136.22   | 5.24%   | Vol: 10,46,800   | Deliv: 33.4%
-  17. NSE:CSBBANK         | CSB Bank Ltd              | LTP: ₹330.6    | 4.8%    | Vol: 10,05,687   | Deliv: 42.2%
-  18. NSE:MANOMAY         | Manomay Tex India Ltd     | LTP: ₹272.04   | 4.61%   | Vol: 4,61,732    | Deliv: 28.3%
-  19. NSE:HINDOILEXP      | Hindustan Oil Exploration Company Limited | LTP: ₹222.29   | 4.53%   | Vol: 68,22,434   | Deliv: 20.5%
-  20. NSE:MAHABANK        | Bank Of Maharashtra Ltd   | LTP: ₹95.99    | 4.34%   | Vol: 3,36,69,858 | Deliv: 39.0%
+   1. NSE:OMPOWER         | Om Power Transmission Ltd | LTP: ₹152.74   | 19.99%  | Vol: 44,26,088   | Deliv: 11.3%
+   2. NSE:SUBROS          | Subros Limited            | LTP: ₹693.25   | 13.1%   | Vol: 59,71,955   | Deliv: 5.5%
+   3. NSE:GREENLAM        | Greenlam Industries Limited | LTP: ₹228.03   | 10.61%  | Vol: 37,19,716   | Deliv: 64.9%
+   4. NSE:APOLLOPIPE      | Apollo Pipes Ltd          | LTP: ₹547.35   | 10.54%  | Vol: 11,53,195   | Deliv: 34.1%
+   5. NSE:BPLPHARMA       | Bharat Parenterals Ltd    | LTP: ₹2,440    | 10.51%  | Vol: 1,11,727    | Deliv: 12.4%
+   6. NSE:GREAVESCOT      | Greaves Cotton Limited    | LTP: ₹266.63   | 9.5%    | Vol: 3,63,16,006 | Deliv: 9.3%
+   7. NSE:AJAXENGG        | Ajax Engineering Ltd      | LTP: ₹623.9    | 8.08%   | Vol: 6,97,985    | Deliv: 25.7%
+   8. NSE:WSI             | W S Industries (i) Limited | LTP: ₹78.32    | 8.06%   | Vol: 4,63,688    | Deliv: 52.8%
+   9. NSE:INOXINDIA       | Inox India Ltd            | LTP: ₹2,123.2  | 7.81%   | Vol: 31,49,972   | Deliv: 11.8%
+  10. NSE:INDOCO          | Indoco Remedies Limited   | LTP: ₹242.01   | 7.57%   | Vol: 2,76,40,267 | Deliv: 2.7%
+  11. NSE:KDDL            | Kddl Limited              | LTP: ₹4,876.8  | 6.94%   | Vol: 9,28,825    | Deliv: 11.9%
+  12. NSE:SUNTV           | Sun Tv Network Limited    | LTP: ₹696.35   | 5.56%   | Vol: 29,89,983   | Deliv: 13.0%
+  13. NSE:INDIASHLTR      | India Shelter Finance Corporation Ltd | LTP: ₹659.15   | 5.3%    | Vol: 8,29,190    | Deliv: 17.4%
+  14. NSE:SUNSHINE        | SUNSHINE                  | LTP: ₹501.75   | 5.2%    | Vol: 11,62,780   | Deliv: 35.0%
+  15. NSE:SGFIN           | SG Finserve Ltd           | LTP: ₹833.95   | 5.06%   | Vol: 13,16,172   | Deliv: 27.3%
+  16. NSE:RAYMONDREL      | Raymond Realty Ltd        | LTP: ₹634      | 4.55%   | Vol: 11,51,853   | Deliv: 29.5%
+  17. NSE:VIJAYA          | Vijaya Diagnostic Centre Ltd | LTP: ₹1,533.6  | 4.51%   | Vol: 5,52,678    | Deliv: 20.3%
+  18. NSE:FINEORG         | Fine Organic Industries Ltd | LTP: ₹5,519    | 4.15%   | Vol: 1,05,229    | Deliv: 28.7%
+  19. NSE:FREDUN          | Fredun Pharmaceuticals Ltd | LTP: ₹1,636.4  | 4.1%    | Vol: 1,97,066    | Deliv: 36.4%
+  20. NSE:NRL             | Nupur Recyclers Ltd       | LTP: ₹197.9    | 3.63%   | Vol: 2,65,267    | Deliv: 58.8%
 
-📋 FILTER: Inst. Entry (Enhanced) (19 stocks)
+📋 FILTER: Inst. Entry (Enhanced) (4 stocks)
 --------------------------------------------------
-   1. NSE:TTKHLTCARE      | Ttk Healthcare Limited    | LTP: ₹1,096.75 | 18.47%  | Vol: 10,33,793   | Deliv: 11.8%
-   2. NSE:KDDL            | Kddl Limited              | LTP: ₹4,560.4  | 16.52%  | Vol: 9,05,824    | Deliv: 10.3%
-   3. NSE:KMCSHIL         | KMC Speciality Hospitals (India) Ltd | LTP: ₹194.52   | 15.63%  | Vol: 1,60,30,841 | Deliv: 5.4%
-   4. NSE:FIRSTCRY        | Brainbees Solutions Ltd   | LTP: ₹178.97   | 12.85%  | Vol: 13,68,54,430 | Deliv: 2.5%
-   5. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹134.26   | 9.94%   | Vol: 83,82,410   | Deliv: 17.1%
-   6. NSE:SIGNATURE       | SignatureGlobal India Ltd | LTP: ₹835.6    | 9.14%   | Vol: 17,97,681   | Deliv: 11.4%
-   7. NSE:JYOTIRES        | Jyoti Resins and Adhesives Ltd | LTP: ₹954.65   | 5.85%   | Vol: 51,735      | Deliv: 50.0%
-   8. NSE:DAMCAPITAL      | Dam Capital Advisors Ltd  | LTP: ₹148.6    | 5.4%    | Vol: 8,02,133    | Deliv: 50.3%
-   9. NSE:MANOMAY         | Manomay Tex India Ltd     | LTP: ₹272.04   | 4.61%   | Vol: 4,61,732    | Deliv: 28.3%
-  10. NSE:5PAISA          | 5Paisa Capital Ltd        | LTP: ₹350.05   | 4.52%   | Vol: 1,52,008    | Deliv: 24.9%
-  11. NSE:PGIL            | Pearl Global Industries Limited | LTP: ₹1,368.2  | 4.07%   | Vol: 2,88,033    | Deliv: 42.2%
-  12. NSE:GROWWPSUBK      | Groww Nifty PSU Bank ETF  | LTP: ₹95.38    | 4.05%   | Vol: 48,266      | Deliv: 51.0%
-  13. NSE:BANCOINDIA      | Banco Products (i) Limited | LTP: ₹700.4    | 3.93%   | Vol: 15,34,048   | Deliv: 22.4%
-  14. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹288.35   | 3.89%   | Vol: 65,159      | Deliv: 51.3%
-  15. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 7,950       | Deliv: -
-  16. NSE:CAMS            | Computer Age Management Services Ltd | LTP: ₹744      | 2.86%   | Vol: 42,77,128   | Deliv: 36.5%
-  17. NSE:KFINTECH        | KFin Technologies Ltd     | LTP: ₹965      | 2.85%   | Vol: 26,87,006   | Deliv: 29.9%
-  18. NSE:AJMERA          | Ajmera Realty & Infra India Limited | LTP: ₹135.69   | 2.43%   | Vol: 15,80,502   | Deliv: 41.9%
-  19. NSE:ARIS            | Arisinfra Solutions Ltd   | LTP: ₹150.47   | 2.11%   | Vol: 61,63,235   | Deliv: 34.8%
+   1. NSE:APOLLOPIPE      | Apollo Pipes Ltd          | LTP: ₹547.35   | 10.54%  | Vol: 11,53,195   | Deliv: 34.1%
+   2. NSE:INDOCO          | Indoco Remedies Limited   | LTP: ₹242.01   | 7.57%   | Vol: 2,76,40,267 | Deliv: 2.7%
+   3. NSE:BBTC            | Bombay Burmah Trading Corporation Limited | LTP: ₹1,319.8  | 5.04%   | Vol: 6,66,754    | Deliv: 7.5%
+   4. NSE:ROTO            | Roto Pumps Ltd            | LTP: ₹74.3     | 4.75%   | Vol: 40,97,235   | Deliv: 23.1%
 
-📋 FILTER: Inst. Entry AG 2 (20 stocks)
+📋 FILTER: Inst. Entry AG 2 (4 stocks)
 --------------------------------------------------
-   1. NSE:TTKHLTCARE      | Ttk Healthcare Limited    | LTP: ₹1,096.75 | 18.47%  | Vol: 10,33,793   | Deliv: 11.8%
-   2. NSE:KDDL            | Kddl Limited              | LTP: ₹4,560.4  | 16.52%  | Vol: 9,05,824    | Deliv: 10.3%
-   3. NSE:KMCSHIL         | KMC Speciality Hospitals (India) Ltd | LTP: ₹194.52   | 15.63%  | Vol: 1,60,30,841 | Deliv: 5.4%
-   4. NSE:FIRSTCRY        | Brainbees Solutions Ltd   | LTP: ₹178.97   | 12.85%  | Vol: 13,68,54,430 | Deliv: 2.5%
-   5. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹134.26   | 9.94%   | Vol: 83,82,410   | Deliv: 17.1%
-   6. NSE:SIGNATURE       | SignatureGlobal India Ltd | LTP: ₹835.6    | 9.14%   | Vol: 17,97,681   | Deliv: 11.4%
-   7. NSE:KPIGREEN        | KPI Green Energy Ltd      | LTP: ₹321.05   | 7.75%   | Vol: 1,00,23,142 | Deliv: 7.3%
-   8. NSE:JYOTIRES        | Jyoti Resins and Adhesives Ltd | LTP: ₹954.65   | 5.85%   | Vol: 51,735      | Deliv: 50.0%
-   9. NSE:DAMCAPITAL      | Dam Capital Advisors Ltd  | LTP: ₹148.6    | 5.4%    | Vol: 8,02,133    | Deliv: 50.3%
-  10. NSE:MANOMAY         | Manomay Tex India Ltd     | LTP: ₹272.04   | 4.61%   | Vol: 4,61,732    | Deliv: 28.3%
-  11. NSE:5PAISA          | 5Paisa Capital Ltd        | LTP: ₹350.05   | 4.52%   | Vol: 1,52,008    | Deliv: 24.9%
-  12. NSE:PGIL            | Pearl Global Industries Limited | LTP: ₹1,368.2  | 4.07%   | Vol: 2,88,033    | Deliv: 42.2%
-  13. NSE:GROWWPSUBK      | Groww Nifty PSU Bank ETF  | LTP: ₹95.38    | 4.05%   | Vol: 48,266      | Deliv: 51.0%
-  14. NSE:BANCOINDIA      | Banco Products (i) Limited | LTP: ₹700.4    | 3.93%   | Vol: 15,34,048   | Deliv: 22.4%
-  15. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹288.35   | 3.89%   | Vol: 65,159      | Deliv: 51.3%
-  16. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 7,950       | Deliv: -
-  17. NSE:CAMS            | Computer Age Management Services Ltd | LTP: ₹744      | 2.86%   | Vol: 42,77,128   | Deliv: 36.5%
-  18. NSE:KFINTECH        | KFin Technologies Ltd     | LTP: ₹965      | 2.85%   | Vol: 26,87,006   | Deliv: 29.9%
-  19. NSE:AJMERA          | Ajmera Realty & Infra India Limited | LTP: ₹135.69   | 2.43%   | Vol: 15,80,502   | Deliv: 41.9%
-  20. NSE:ARIS            | Arisinfra Solutions Ltd   | LTP: ₹150.47   | 2.11%   | Vol: 61,63,235   | Deliv: 34.8%
+   1. NSE:APOLLOPIPE      | Apollo Pipes Ltd          | LTP: ₹547.35   | 10.54%  | Vol: 11,53,195   | Deliv: 34.1%
+   2. NSE:INDOCO          | Indoco Remedies Limited   | LTP: ₹242.01   | 7.57%   | Vol: 2,76,40,267 | Deliv: 2.7%
+   3. NSE:BBTC            | Bombay Burmah Trading Corporation Limited | LTP: ₹1,319.8  | 5.04%   | Vol: 6,66,754    | Deliv: 7.5%
+   4. NSE:ROTO            | Roto Pumps Ltd            | LTP: ₹74.3     | 4.75%   | Vol: 40,97,235   | Deliv: 23.1%
 
-📋 FILTER: Inst. Entry AG 4 (17 stocks)
+📋 FILTER: Inst. Entry AG 4 (2 stocks)
 --------------------------------------------------
-   1. NSE:FIRSTCRY        | Brainbees Solutions Ltd   | LTP: ₹178.97   | 12.85%  | Vol: 13,68,54,430 | Deliv: 2.5%
-   2. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹134.26   | 9.94%   | Vol: 83,82,410   | Deliv: 17.1%
-   3. NSE:RAYMONDREL      | Raymond Realty Ltd        | LTP: ₹606.4    | 7.04%   | Vol: 13,10,087   | Deliv: 24.5%
-   4. NSE:SONA            | Sonaselection India Ltd   | LTP: ₹125.53   | 5.2%    | Vol: 11,17,151   | Deliv: 38.1%
-   5. NSE:5PAISA          | 5Paisa Capital Ltd        | LTP: ₹350.05   | 4.52%   | Vol: 1,52,008    | Deliv: 24.9%
-   6. NSE:PGIL            | Pearl Global Industries Limited | LTP: ₹1,368.2  | 4.07%   | Vol: 2,88,033    | Deliv: 42.2%
-   7. NSE:BANCOINDIA      | Banco Products (i) Limited | LTP: ₹700.4    | 3.93%   | Vol: 15,34,048   | Deliv: 22.4%
-   8. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹288.35   | 3.89%   | Vol: 65,159      | Deliv: 51.3%
-   9. NSE:BRIGADE         | Brigade Enterprises Limited | LTP: ₹560.5    | 3.37%   | Vol: 5,78,586    | Deliv: 29.4%
-  10. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 15,900      | Deliv: -
-  11. NSE:AUTOIND         | Autoline Industries Limited | LTP: ₹79.34    | 2.93%   | Vol: 1,69,792    | Deliv: 59.9%
-  12. NSE:KFINTECH        | KFin Technologies Ltd     | LTP: ₹965      | 2.85%   | Vol: 26,87,006   | Deliv: 29.9%
-  13. NSE:AJMERA          | Ajmera Realty & Infra India Limited | LTP: ₹135.69   | 2.43%   | Vol: 15,80,502   | Deliv: 41.9%
-  14. NSE:TI              | Tilaknagar Industries Limited | LTP: ₹525.5    | 2.37%   | Vol: 16,26,457   | Deliv: 48.3%
-  15. NSE:360ONE          | 360 ONE WAM Ltd           | LTP: ₹1,202.85 | 2.02%   | Vol: 14,29,280   | Deliv: 51.2%
-  16. NSE:MOTILALOFS      | Motilal Oswal Financial Services Limited | LTP: ₹1,240.25 | 1.91%   | Vol: 26,70,266   | Deliv: 28.2%
-  17. NSE:CENTRALBK       | Central Bank Of India Ltd | LTP: ₹32.6     | 1.53%   | Vol: 1,76,62,209 | Deliv: 42.0%
+   1. NSE:RVHL            | Ravinder Heights Ltd      | LTP: ₹39.18    | 8.83%   | Vol: 29,303      | Deliv: 79.6%
+   2. NSE:VIJAYA          | Vijaya Diagnostic Centre Ltd | LTP: ₹1,533.6  | 4.51%   | Vol: 5,52,678    | Deliv: 20.3%
 
 📋 FILTER: Inst. Entry AG 5 (0 stocks)
 --------------------------------------------------
   (No stocks matched this filter)
 
-📋 FILTER: Inst. Entry GPT 1 (20 stocks)
+📋 FILTER: Inst. Entry GPT 1 (13 stocks)
 --------------------------------------------------
-   1. NSE:MODTHREAD       | Modern Threads (I) Ltd    | LTP: ₹55.92    | 20%     | Vol: 26,927      | Deliv: 53.8%
-   2. NSE:TTKHLTCARE      | Ttk Healthcare Limited    | LTP: ₹1,096.75 | 18.47%  | Vol: 10,33,793   | Deliv: 11.8%
-   3. NSE:KDDL            | Kddl Limited              | LTP: ₹4,560.4  | 16.52%  | Vol: 9,05,824    | Deliv: 10.3%
-   4. NSE:KMCSHIL         | KMC Speciality Hospitals (India) Ltd | LTP: ₹194.52   | 15.63%  | Vol: 1,60,30,841 | Deliv: 5.4%
-   5. NSE:FIRSTCRY        | Brainbees Solutions Ltd   | LTP: ₹178.97   | 12.85%  | Vol: 13,68,54,430 | Deliv: 2.5%
-   6. NSE:LEAPIND         | Leap India Ltd            | LTP: ₹134.26   | 9.94%   | Vol: 83,82,410   | Deliv: 17.1%
-   7. NSE:ASALCBR         | Associated Alcohols & Breweries Ltd | LTP: ₹566.95   | 9.5%    | Vol: 2,11,601    | Deliv: 38.1%
-   8. NSE:SIGNATURE       | SignatureGlobal India Ltd | LTP: ₹835.6    | 9.14%   | Vol: 17,97,681   | Deliv: 11.4%
-   9. NSE:FEDDERSHOL      | Fedders Holding Ltd       | LTP: ₹57.49    | 8.15%   | Vol: 64,90,105   | Deliv: 9.4%
-  10. NSE:KPIGREEN        | KPI Green Energy Ltd      | LTP: ₹321.05   | 7.75%   | Vol: 1,00,23,142 | Deliv: 7.3%
-  11. NSE:RAYMONDREL      | Raymond Realty Ltd        | LTP: ₹606.4    | 7.04%   | Vol: 13,10,087   | Deliv: 24.5%
-  12. NSE:SEJALLTD        | Sejal Glass Ltd           | LTP: ₹927.85   | 6.94%   | Vol: 74,196      | Deliv: 44.2%
-  13. NSE:XPROINDIA       | Xpro India Limited        | LTP: ₹1,277.1  | 6.89%   | Vol: 2,26,078    | Deliv: 39.2%
-  14. NSE:DEEDEV          | DEE Development Engineers Ltd | LTP: ₹574.65   | 6.43%   | Vol: 4,76,061    | Deliv: 50.7%
-  15. NSE:AMANTA          | Amanta Healthcare Ltd     | LTP: ₹234.51   | 6.39%   | Vol: 5,97,547    | Deliv: 26.3%
-  16. NSE:JYOTIRES        | Jyoti Resins and Adhesives Ltd | LTP: ₹954.65   | 5.85%   | Vol: 51,735      | Deliv: 50.0%
-  17. NSE:TATAINVEST      | Tata Investment Corporation Limited | LTP: ₹609.55   | 5.74%   | Vol: 27,90,253   | Deliv: 13.4%
-  18. NSE:FREDUN          | Fredun Pharmaceuticals Ltd | LTP: ₹1,572    | 5.63%   | Vol: 1,42,860    | Deliv: 39.4%
-  19. NSE:DAMCAPITAL      | Dam Capital Advisors Ltd  | LTP: ₹148.6    | 5.4%    | Vol: 8,02,133    | Deliv: 50.3%
-  20. NSE:GHCLTEXTIL      | GHCL Textiles Ltd         | LTP: ₹136.22   | 5.24%   | Vol: 10,46,800   | Deliv: 33.4%
+   1. NSE:VESUVIUS        | Vesuvius India Limited    | LTP: ₹377.2    | 10.81%  | Vol: 1,99,00,155 | Deliv: 3.2%
+   2. NSE:GREENLAM        | Greenlam Industries Limited | LTP: ₹228.03   | 10.61%  | Vol: 37,19,716   | Deliv: 64.9%
+   3. NSE:APOLLOPIPE      | Apollo Pipes Ltd          | LTP: ₹547.35   | 10.54%  | Vol: 11,53,195   | Deliv: 34.1%
+   4. NSE:BPLPHARMA       | Bharat Parenterals Ltd    | LTP: ₹2,440    | 10.51%  | Vol: 1,11,727    | Deliv: 12.4%
+   5. NSE:NDRAUTO         | NDR Auto Components Ltd   | LTP: ₹777.6    | 7.81%   | Vol: 17,40,327   | Deliv: 4.2%
+   6. NSE:INDOCO          | Indoco Remedies Limited   | LTP: ₹242.01   | 7.57%   | Vol: 2,76,40,267 | Deliv: 2.7%
+   7. NSE:GSPLTRANS       | GSPL Transmission Ltd     | LTP: ₹102.75   | 6%      | Vol: 32,54,629   | Deliv: 40.2%
+   8. NSE:SUNSHINE        | SUNSHINE                  | LTP: ₹501.75   | 5.2%    | Vol: 11,62,780   | Deliv: 35.0%
+   9. NSE:BBTC            | Bombay Burmah Trading Corporation Limited | LTP: ₹1,319.8  | 5.04%   | Vol: 6,66,754    | Deliv: 7.5%
+  10. NSE:ROTO            | Roto Pumps Ltd            | LTP: ₹74.3     | 4.75%   | Vol: 40,97,235   | Deliv: 23.1%
+  11. NSE:VIJAYA          | Vijaya Diagnostic Centre Ltd | LTP: ₹1,533.6  | 4.51%   | Vol: 5,52,678    | Deliv: 20.3%
+  12. NSE:TOTAL           | Total Transport Systems Ltd | LTP: ₹84.9     | 3.27%   | Vol: 15,621      | Deliv: -
+  13. NSE:BBTCL           | B&B Triplewall Containers Ltd | LTP: ₹221      | 3.1%    | Vol: 5,784       | Deliv: 69.5%
 
 📋 FILTER: Inst. Entry GPT 2 (0 stocks)
 --------------------------------------------------
@@ -153,318 +92,246 @@ CHARTINK SCAN RESULTS (BY FILTER) — 17/11/2026, 2:01:45 pm
 
 📋 FILTER: Cup and Handle (20 stocks)
 --------------------------------------------------
-   1. NSE:WSI             | W S Industries (i) Limited | LTP: ₹72.48    | 7.97%   | Vol: 3,11,019    | Deliv: 50.6%
-   2. NSE:SEJALLTD        | Sejal Glass Ltd           | LTP: ₹927.85   | 6.94%   | Vol: 74,196      | Deliv: 44.2%
-   3. NSE:ARTEMISMED      | Artemis Medicare Services Ltd | LTP: ₹348.75   | 6.42%   | Vol: 7,13,832    | Deliv: 48.2%
-   4. NSE:GHCLTEXTIL      | GHCL Textiles Ltd         | LTP: ₹136.22   | 5.24%   | Vol: 10,46,800   | Deliv: 33.4%
-   5. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹288.35   | 3.89%   | Vol: 65,159      | Deliv: 51.3%
-   6. NSE:SPORTKING       | Sportking India Ltd       | LTP: ₹220.34   | 3.82%   | Vol: 9,87,472    | Deliv: 43.8%
-   7. NSE:YATHARTH        | Yatharth Hospital & Trauma Care Services Ltd | LTP: ₹1,109.55 | 3.79%   | Vol: 4,64,197    | Deliv: 34.5%
-   8. NSE:RAYMOND         | Raymond Limited           | LTP: ₹1,224    | 3.22%   | Vol: 8,65,724    | Deliv: 26.7%
-   9. NSE:QPOWER          | Quality Power Electrical Equipments Ltd | LTP: ₹1,573.3  | 3.11%   | Vol: 3,54,253    | Deliv: 42.9%
-  10. NSE:IDFCFIRSTB      | IDFC First Bank Ltd       | LTP: ₹83.59    | 2.82%   | Vol: 2,55,96,895 | Deliv: 47.7%
-  11. NSE:OBEROIRLTY      | Oberoi Realty Limited     | LTP: ₹1,819.7  | 2.6%    | Vol: 4,09,456    | Deliv: 32.9%
-  12. NSE:BGRENERGY       | Bgr Energy Systems Limited | LTP: ₹303      | 2.43%   | Vol: 1,76,676    | Deliv: -
-  13. NSE:REGAAL          | Regaal Resources Ltd      | LTP: ₹96.66    | 2.42%   | Vol: 15,12,870   | Deliv: 31.5%
-  14. NSE:KILITCH         | Kilitch Drugs (india) Limited | LTP: ₹244.16   | 2.35%   | Vol: 1,35,673    | Deliv: 30.5%
-  15. NSE:MAXHEALTH       | Max Healthcare Institute Ltd | LTP: ₹1,030.9  | 2.08%   | Vol: 59,62,590   | Deliv: 52.8%
-  16. NSE:VARROC          | Varroc Engineering Ltd    | LTP: ₹835.9    | 2.03%   | Vol: 7,33,865    | Deliv: 41.3%
-  17. NSE:DELTACORP       | Delta Corp Limited        | LTP: ₹84.98    | 1.87%   | Vol: 52,62,360   | Deliv: 25.4%
-  18. NSE:MEGASTAR        | Megastar Foods Ltd        | LTP: ₹293.3    | 1.82%   | Vol: 21,464      | Deliv: 22.0%
-  19. NSE:INDUSINDBK      | Indusind Bank Limited     | LTP: ₹931      | 1.8%    | Vol: 31,25,886   | Deliv: 53.2%
-  20. NSE:ASAHISONG       | Asahi Songwon Colors Limited | LTP: ₹387.95   | 1.62%   | Vol: 31,885      | Deliv: 69.4%
+   1. NSE:INOXINDIA       | Inox India Ltd            | LTP: ₹2,123.2  | 7.81%   | Vol: 31,49,972   | Deliv: 11.8%
+   2. NSE:URBANCO         | Urban Company Ltd         | LTP: ₹172.73   | 6.87%   | Vol: 5,13,34,907 | Deliv: 23.8%
+   3. NSE:VIJAYA          | Vijaya Diagnostic Centre Ltd | LTP: ₹1,533.6  | 4.51%   | Vol: 5,52,678    | Deliv: 20.3%
+   4. NSE:GFLLIMITED      | GFL Ltd                   | LTP: ₹57.6     | 4.42%   | Vol: 90,060      | Deliv: 58.1%
+   5. NSE:FINEORG         | Fine Organic Industries Ltd | LTP: ₹5,519    | 4.15%   | Vol: 1,05,229    | Deliv: 28.7%
+   6. NSE:BLISSGVS        | Bliss Gvs Pharma Limited  | LTP: ₹680.35   | 3.66%   | Vol: 2,58,229    | Deliv: -
+   7. NSE:VINEETLAB       | Vineet Laboratories Ltd   | LTP: ₹38.39    | 3.62%   | Vol: 3,69,886    | Deliv: 79.5%
+   8. NSE:SAGILITY        | Sagility India Ltd        | LTP: ₹45.15    | 2.87%   | Vol: 7,51,30,559 | Deliv: 44.5%
+   9. NSE:SPECIALITY      | Speciality Restaurants Limited | LTP: ₹144      | 2.47%   | Vol: 24,351      | Deliv: 78.2%
+  10. NSE:DYNAMATECH      | Dynamatic Technologies Limited | LTP: ₹13,388   | 2%      | Vol: 22,097      | Deliv: 31.9%
+  11. NSE:GPPL            | Gujarat Pipavav Port Limited | LTP: ₹174.72   | 0.93%   | Vol: 20,20,832   | Deliv: 43.0%
+  12. NSE:HEALTHADD       | DSP Nifty Healthcare ETF  | LTP: ₹17.54    | 0.8%    | Vol: 35,842      | Deliv: 65.4%
+  13. NSE:MOGSEC          | Motilal Oswal 5 Year G-Sec ETF | LTP: ₹65.35    | 0.68%   | Vol: 86,062      | Deliv: 96.2%
+  14. NSE:GEECEE          | Geecee Ventures Limited   | LTP: ₹363.95   | 0.47%   | Vol: 3,911       | Deliv: 25.7%
+  15. NSE:DAMCAPITAL      | Dam Capital Advisors Ltd  | LTP: ₹149.26   | 0.44%   | Vol: 7,82,989    | Deliv: 58.0%
+  16. NSE:BBETF0432       | Bharat Bond ETF - April 2032 | LTP: ₹1,340    | -0.04%  | Vol: 57,974      | Deliv: 99.9%
+  17. NSE:SWANDEF         | Swan Defence and Heavy Industries Ltd | LTP: ₹2,825    | -0.08%  | Vol: 9,120       | Deliv: -
+  18. NSE:VMART           | V-mart Retail Limited     | LTP: ₹783.8    | -0.85%  | Vol: 1,32,895    | Deliv: 82.7%
+  19. NSE:MSCIADD         | DSP MSCI India ETF        | LTP: ₹30.28    | -1.05%  | Vol: 38,184      | Deliv: 91.4%
+  20. NSE:MID150CASE      | Zerodha Nifty Midcap 150 ETF | LTP: ₹11.26    | -1.57%  | Vol: 16,16,798   | Deliv: 50.9%
 
-📋 FILTER: EMA9/21 - InvertedHammer (20 stocks)
+📋 FILTER: EMA9/21 - InvertedHammer (5 stocks)
 --------------------------------------------------
-   1. NSE:LAHOTIOV        | Lahoti Overseas Ltd       | LTP: ₹43.4     | 5.83%   | Vol: 98,313      | Deliv: 37.6%
-   2. NSE:SENCO           | Senco Gold Ltd            | LTP: ₹326.95   | 4.89%   | Vol: 1,13,24,188 | Deliv: 9.7%
-   3. NSE:KANCOTEA        | Kanco Tea & Industries Ltd | LTP: ₹69.07    | 3.1%    | Vol: 70,805      | Deliv: 61.3%
-   4. NSE:SHARDAMOTR      | Sharda Motor Industries Limited | LTP: ₹967.7    | 2.43%   | Vol: 10,04,584   | Deliv: 17.7%
-   5. NSE:REGAAL          | Regaal Resources Ltd      | LTP: ₹96.66    | 2.42%   | Vol: 15,12,870   | Deliv: 31.5%
-   6. NSE:VARROC          | Varroc Engineering Ltd    | LTP: ₹835.9    | 2.03%   | Vol: 7,33,865    | Deliv: 41.3%
-   7. NSE:JKTYRE          | Jk Tyre & Industries Limited | LTP: ₹364.5    | 1.87%   | Vol: 7,17,055    | Deliv: 33.0%
-   8. NSE:BIKAJI          | Bikaji Foods International Ltd | LTP: ₹489.05   | 1.82%   | Vol: 3,09,645    | Deliv: 43.2%
-   9. NSE:IREDA           | Indian Renewable Energy Development Agency Ltd | LTP: ₹117.4    | 1.25%   | Vol: 2,01,91,579 | Deliv: 14.9%
-  10. NSE:GROWW           | Billionbrains Garage Ventures Ltd | LTP: ₹227.53   | 1.16%   | Vol: 5,57,49,160 | Deliv: 40.9%
-  11. NSE:STANLEY         | Stanley Lifestyles Ltd    | LTP: ₹133.54   | 0.96%   | Vol: 93,845      | Deliv: 58.9%
-  12. NSE:CENTUM          | Centum Electronics Limited | LTP: ₹4,377.2  | 0.94%   | Vol: 1,31,862    | Deliv: 31.4%
-  13. NSE:UCOBANK         | Uco Bank Ltd              | LTP: ₹24.88    | 0.85%   | Vol: 87,76,242   | Deliv: 31.8%
-  14. NSE:MADHUCON        | Madhucon Projects Limited | LTP: ₹4.16     | 0.73%   | Vol: 15,330      | Deliv: 98.1%
-  15. NSE:SBICONS         | SBI Nifty Consumption ETF | LTP: ₹125.43   | 0.72%   | Vol: 6,439       | Deliv: 83.2%
-  16. NSE:HEALTHADD       | DSP Nifty Healthcare ETF  | LTP: ₹17.4     | 0.58%   | Vol: 39,526      | Deliv: 73.6%
-  17. NSE:TASTYBITE       | Tasty Bite Eatables Ltd   | LTP: ₹11,299.5 | 0.49%   | Vol: 15,054      | Deliv: 42.5%
-  18. NSE:INTERNET        | Mirae Asset Nifty India Internet ETF | LTP: ₹14.53    | 0.48%   | Vol: 4,91,927    | Deliv: 92.7%
-  19. NSE:INDIANB         | Indian Bank Ltd           | LTP: ₹936      | 0.33%   | Vol: 25,32,266   | Deliv: 56.2%
-  20. NSE:NOIDATOLL       | Noida Toll Bridge Company Limited | LTP: ₹3.84     | 0.26%   | Vol: 2,20,520    | Deliv: 59.6%
+   1. NSE:FAZE3Q          | Faze Three Ltd            | LTP: ₹612.05   | 6.98%   | Vol: 35,52,713   | Deliv: 8.4%
+   2. NSE:ARVSMART        | Arvind Smartspaces Limited | LTP: ₹633.55   | 2.14%   | Vol: 1,81,459    | Deliv: 34.1%
+   3. NSE:CMLL            | Caliber Mining and Logistics Ltd | LTP: ₹569.5    | 1.74%   | Vol: 9,31,893    | Deliv: 41.8%
+   4. NSE:EIHOTEL         | Eih Limited               | LTP: ₹313.45   | 0.97%   | Vol: 5,51,621    | Deliv: 31.4%
+   5. NSE:CAPITALSFB      | Capital Small Finance Bank Ltd | LTP: ₹290.3    | 0.68%   | Vol: 1,24,013    | Deliv: 55.4%
 
-📋 FILTER: EMA9/21 - Hammer (2 stocks)
+📋 FILTER: EMA9/21 - Hammer (5 stocks)
 --------------------------------------------------
-   1. NSE:ARIES           | Aries Agro Limited        | LTP: ₹550.8    | 4.57%   | Vol: 42,251      | Deliv: -
-   2. NSE:SRHHYPOLTD      | Sree Rayalaseema Hi-strength Hypo Limited | LTP: ₹540.25   | 2.11%   | Vol: 34,832      | Deliv: 75.0%
+   1. NSE:VITAL           | Vital Chemtech Ltd        | LTP: ₹52.68    | 5.42%   | Vol: 5,004       | Deliv: 95.7%
+   2. NSE:ZSARACOM        | Saraswati Commercial (India) Ltd | LTP: ₹10,178   | 1.78%   | Vol: 43          | Deliv: 58.1%
+   3. NSE:PGHL            | Procter & Gamble Health Ltd | LTP: ₹5,541    | 1.4%    | Vol: 21,566      | Deliv: 60.0%
+   4. NSE:FMCGADD         | DSP Nifty FMCG ETF        | LTP: ₹47.94    | 0.25%   | Vol: 41,583      | Deliv: 93.5%
+   5. NSE:CASHIETF        | ICICI Prudential BSE Liquid Rate ETF - Growth | LTP: ₹1,089.35 | 0.02%   | Vol: 7,28,722    | Deliv: 79.7%
 
-📋 FILTER: EMA9/21 - MARUBOZU (8 stocks)
+📋 FILTER: EMA9/21 - MARUBOZU (2 stocks)
 --------------------------------------------------
-   1. NSE:MODTHREAD       | Modern Threads (I) Ltd    | LTP: ₹55.92    | 20%     | Vol: 26,927      | Deliv: 53.8%
-   2. NSE:BALAXI          | Balaxi Pharmaceuticals Ltd | LTP: ₹26.47    | 19.99%  | Vol: 2,48,665    | Deliv: 87.9%
-   3. NSE:MAHABANK        | Bank Of Maharashtra Ltd   | LTP: ₹95.99    | 4.34%   | Vol: 3,36,69,858 | Deliv: 39.0%
-   4. NSE:ASSAMENT        | Assam Entrade Ltd         | LTP: ₹859.3    | 4.18%   | Vol: 227         | Deliv: 81.9%
-   5. NSE:IDFCFIRSTB      | IDFC First Bank Ltd       | LTP: ₹83.59    | 2.82%   | Vol: 2,55,96,895 | Deliv: 47.7%
-   6. NSE:LYKALABS        | Lyka Labs Limited         | LTP: ₹88.03    | 1.99%   | Vol: 30,104      | Deliv: -
-   7. NSE:BANKBEES        | Nippon India ETF Bank Bees | LTP: ₹646.22   | 1.46%   | Vol: 12,69,628   | Deliv: 55.0%
-   8. NSE:RELCNX100       | RELCNX100                 | LTP: ₹123.66   | 1.38%   | Vol: 11,514      | Deliv: -
+   1. NSE:GTECJAINX       | G-Tec Janix Education Ltd | LTP: ₹33.09    | 4.98%   | Vol: 4,643       | Deliv: -
+   2. NSE:GROBTEA         | The Grob Tea Company Limited | LTP: ₹925      | 0.87%   | Vol: 202         | Deliv: 100.0%
 
-📋 FILTER: EMA50 - hammer pattern (7 stocks)
+📋 FILTER: EMA50 - hammer pattern (4 stocks)
 --------------------------------------------------
-   1. NSE:VIJIFIN         | Viji Finance Limited      | LTP: ₹14.06    | 1.96%   | Vol: 4,19,964    | Deliv: -
-   2. NSE:GSEC10YEAR      | Mirae Asset Nifty 8-13 Yr G-Sec ETF | LTP: ₹30.26    | 1.07%   | Vol: 1,112       | Deliv: 100.0%
-   3. NSE:LIQUIDBETA      | UTI Nifty 1D Rate Liquid ETF - Growth | LTP: ₹1,016.91 | 0.16%   | Vol: 172         | Deliv: -
-   4. NSE:UNIVAFOODS      | Univa Foods Ltd           | LTP: ₹9.95     | 0%      | Vol: 1,252       | Deliv: -
-   5. NSE:THAKDEV         | Thakkers Developers Ltd   | LTP: ₹137.31   | -0.5%   | Vol: 80          | Deliv: 100.0%
-   6. NSE:TIJARIA         | Tijaria Polypipes Limited | LTP: ₹6.17     | -1.91%  | Vol: 3,236       | Deliv: -
-   7. NSE:UPHOT           | U P Hotels Ltd            | LTP: ₹1,485    | -3.45%  | Vol: 5           | Deliv: 100.0%
+   1. NSE:THAKDEV         | Thakkers Developers Ltd   | LTP: ₹138.5    | 0.87%   | Vol: 5           | Deliv: 100.0%
+   2. NSE:GSEC10YEAR      | Mirae Asset Nifty 8-13 Yr G-Sec ETF | LTP: ₹30.32    | 0.2%    | Vol: 38          | Deliv: 100.0%
+   3. NSE:ABGSEC          | Aditya Birla Sun Life CRISIL Broad Based Gilt ETF | LTP: ₹113.89   | 0%      | Vol: 1           | Deliv: 100.0%
+   4. NSE:BHARATBOND-APR33 | BHARATBOND-APR33          | LTP: ₹1,277.81 | -0.16%  | Vol: 0           | Deliv: -
 
-📋 FILTER: EMA50 Pullback Zone - Green Candle (20 stocks)
+📋 FILTER: EMA50 Pullback Zone - Green Candle (15 stocks)
 --------------------------------------------------
-   1. NSE:INOXINDIA       | Inox India Ltd            | LTP: ₹1,969.4  | 3.65%   | Vol: 12,15,214   | Deliv: 14.5%
-   2. NSE:PARADEEP        | Paradeep Phosphates Ltd   | LTP: ₹141.42   | 3.36%   | Vol: 12,89,257   | Deliv: 36.4%
-   3. NSE:ADANIENT        | Adani Enterprises Limited | LTP: ₹2,745.1  | 3.24%   | Vol: 20,15,270   | Deliv: 40.8%
-   4. NSE:GRANULES        | Granules India Limited    | LTP: ₹815.5    | 2.07%   | Vol: 19,07,634   | Deliv: 30.9%
-   5. NSE:PRIVISCL        | Privi Speciality Chemicals Ltd | LTP: ₹3,430.7  | 1.99%   | Vol: 95,846      | Deliv: 64.7%
-   6. NSE:SAIL            | Steel Authority Of India Limited | LTP: ₹171.31   | 1.52%   | Vol: 1,11,16,893 | Deliv: 48.3%
-   7. NSE:SAGILITY        | Sagility India Ltd        | LTP: ₹43.89    | 1.13%   | Vol: 1,85,42,357 | Deliv: 65.4%
-   8. NSE:BALRAMCHIN      | Balrampur Chini Mills Limited | LTP: ₹656.65   | 1.04%   | Vol: 3,27,000    | Deliv: 37.1%
-   9. NSE:JSWINFRA        | JSW Infrastructure Ltd    | LTP: ₹339.1    | 1.01%   | Vol: 17,01,933   | Deliv: 50.8%
-  10. NSE:VEDL            | Vedanta Limited           | LTP: ₹255.03   | 0.8%    | Vol: 86,92,106   | Deliv: 42.1%
-  11. NSE:NAM-INDIA       | Nippon Life India Asset Management Ltd | LTP: ₹1,085.5  | 0.71%   | Vol: 10,40,930   | Deliv: 33.8%
-  12. NSE:HBLENGINE       | HBL Engineering Ltd       | LTP: ₹785.85   | 0.69%   | Vol: 11,80,562   | Deliv: 27.8%
-  13. NSE:SHRIPISTON      | Shriram Pistons & Rings Limited | LTP: ₹4,322.1  | 0.66%   | Vol: 1,10,165    | Deliv: 65.8%
-  14. NSE:CPPLUS          | Aditya Infotech Ltd       | LTP: ₹3,989.2  | 0.65%   | Vol: 1,38,035    | Deliv: 45.2%
-  15. NSE:DATAPATTNS      | Data Patterns (India) Ltd | LTP: ₹4,215.9  | 0.62%   | Vol: 3,35,719    | Deliv: 24.3%
-  16. NSE:MPHASIS         | Mphasis Limited           | LTP: ₹2,445    | 0.5%    | Vol: 2,48,031    | Deliv: 55.5%
-  17. NSE:CASTROLIND      | Castrol India Limited     | LTP: ₹191.09   | 0.5%    | Vol: 23,26,523   | Deliv: 56.2%
-  18. NSE:PWL             | Physicswallah Ltd         | LTP: ₹130.07   | 0.48%   | Vol: 65,92,636   | Deliv: 40.5%
-  19. NSE:TBOTEK          | TBO Tek Ltd               | LTP: ₹1,586    | 0.46%   | Vol: 1,02,102    | Deliv: 47.8%
-  20. NSE:BAJAJ-AUTO      | Bajaj Auto Limited        | LTP: ₹10,770   | 0.34%   | Vol: 3,06,268    | Deliv: 67.7%
+   1. NSE:STARHEALTH      | Star Health & Allied Insurance Company Ltd | LTP: ₹559.8    | 1.94%   | Vol: 3,07,762    | Deliv: 53.6%
+   2. NSE:ACMESOLAR       | ACME Solar Holdings Ltd   | LTP: ₹409.7    | 1.51%   | Vol: 10,82,067   | Deliv: 29.8%
+   3. NSE:MRPL            | Mangalore Refinery And Petrochemicals Limited | LTP: ₹175.97   | 0.99%   | Vol: 48,80,945   | Deliv: 26.3%
+   4. NSE:KAJARIACER      | Kajaria Ceramics Limited  | LTP: ₹1,180.2  | 0.98%   | Vol: 97,928      | Deliv: 54.5%
+   5. NSE:WOCKPHARMA      | Wockhardt Limited         | LTP: ₹2,026.6  | 0.88%   | Vol: 7,26,108    | Deliv: 31.7%
+   6. NSE:CLEANMAX        | Clean Max Enviro Energy Solutions Ltd | LTP: ₹1,272.1  | 0.86%   | Vol: 1,00,176    | Deliv: 45.8%
+   7. NSE:CHENNPETRO      | Chennai Petroleum Corporation Limited | LTP: ₹1,419.7  | 0.66%   | Vol: 9,50,045    | Deliv: 26.3%
+   8. NSE:HBLENGINE       | HBL Engineering Ltd       | LTP: ₹788.05   | 0.28%   | Vol: 4,54,510    | Deliv: 33.9%
+   9. NSE:GRASIM          | Grasim Industries Limited | LTP: ₹3,062    | 0.24%   | Vol: 6,43,806    | Deliv: 61.3%
+  10. NSE:CYIENT          | Cyient Limited            | LTP: ₹1,086.4  | 0.03%   | Vol: 2,65,415    | Deliv: 53.0%
+  11. NSE:PRIVISCL        | Privi Speciality Chemicals Ltd | LTP: ₹3,430    | -0.02%  | Vol: 49,342      | Deliv: 50.3%
+  12. NSE:JSWINFRA        | JSW Infrastructure Ltd    | LTP: ₹338.75   | -0.1%   | Vol: 12,27,544   | Deliv: 51.0%
+  13. NSE:LTFOODS         | L T Foods Ltd             | LTP: ₹419.25   | -0.21%  | Vol: 1,40,373    | Deliv: 58.9%
+  14. NSE:TBOTEK          | TBO Tek Ltd               | LTP: ₹1,577.3  | -0.55%  | Vol: 73,325      | Deliv: 67.3%
+  15. NSE:CPPLUS          | Aditya Infotech Ltd       | LTP: ₹3,941.6  | -1.19%  | Vol: 1,39,601    | Deliv: 51.3%
 
 📋 FILTER: Updated Swing Trading (20 stocks)
 --------------------------------------------------
-   1. NSE:TATACHEM        | Tata Chemicals Limited    | LTP: ₹649.45   | 6.1%    | Vol: 1,32,65,614 | Deliv: 9.5%
-   2. NSE:TATAINVEST      | Tata Investment Corporation Limited | LTP: ₹609.55   | 5.74%   | Vol: 27,90,253   | Deliv: 13.4%
-   3. NSE:CEMPRO          | Cemindia Projects Ltd     | LTP: ₹1,352.3  | 4.14%   | Vol: 7,43,464    | Deliv: 30.8%
-   4. NSE:TMCV            | Tata Motors Commercial Vehicles Ltd | LTP: ₹445.65   | 4.06%   | Vol: 1,15,30,196 | Deliv: 42.2%
-   5. NSE:SOBHA           | Sobha Limited             | LTP: ₹1,290.4  | 3.12%   | Vol: 3,62,756    | Deliv: 25.8%
-   6. NSE:VAML            | Vedanta Aluminium Metal Ltd | LTP: ₹397      | 3.05%   | Vol: 84,21,490   | Deliv: 52.4%
-   7. NSE:CAMS            | Computer Age Management Services Ltd | LTP: ₹744      | 2.86%   | Vol: 42,77,128   | Deliv: 36.5%
-   8. NSE:KFINTECH        | KFin Technologies Ltd     | LTP: ₹965      | 2.85%   | Vol: 26,87,006   | Deliv: 29.9%
-   9. NSE:CANFINHOME      | Can Fin Homes Limited     | LTP: ₹786.65   | 2.7%    | Vol: 1,47,031    | Deliv: 50.5%
-  10. NSE:OBEROIRLTY      | Oberoi Realty Limited     | LTP: ₹1,819.7  | 2.6%    | Vol: 4,09,456    | Deliv: 32.9%
-  11. NSE:AUBANK          | AU Small Finance Bank Ltd | LTP: ₹993.1    | 2.24%   | Vol: 21,87,665   | Deliv: 49.4%
-  12. NSE:ELECON          | Elecon Engineering Company Limited | LTP: ₹453.9    | 2.13%   | Vol: 4,86,632    | Deliv: 39.5%
-  13. NSE:ITCHOTELS       | ITC Hotels Ltd            | LTP: ₹177.81   | 2.1%    | Vol: 95,15,504   | Deliv: 59.4%
-  14. NSE:JKTYRE          | Jk Tyre & Industries Limited | LTP: ₹364.5    | 1.87%   | Vol: 7,17,055    | Deliv: 33.0%
-  15. NSE:INDUSINDBK      | Indusind Bank Limited     | LTP: ₹931      | 1.8%    | Vol: 31,25,886   | Deliv: 53.2%
-  16. NSE:HYUNDAI         | Hyundai Motor India Ltd   | LTP: ₹2,121.3  | 1.79%   | Vol: 14,49,187   | Deliv: 56.3%
-  17. NSE:ADANIGREEN      | Adani Green Energy Ltd    | LTP: ₹1,429.9  | 1.66%   | Vol: 21,31,495   | Deliv: 44.7%
-  18. NSE:IOB             | Indian Overseas Bank Ltd  | LTP: ₹31.67    | 1.57%   | Vol: 1,19,02,611 | Deliv: 37.6%
-  19. NSE:NUVAMA          | Nuvama Wealth Management Ltd | LTP: ₹1,888.3  | 1.5%    | Vol: 3,75,777    | Deliv: 40.7%
-  20. NSE:DIXON           | Dixon Technologies Ltd    | LTP: ₹13,081   | 1.48%   | Vol: 3,74,964    | Deliv: 36.1%
+   1. NSE:INOXINDIA       | Inox India Ltd            | LTP: ₹2,123.2  | 7.81%   | Vol: 31,49,972   | Deliv: 11.8%
+   2. NSE:URBANCO         | Urban Company Ltd         | LTP: ₹172.73   | 6.87%   | Vol: 5,13,34,907 | Deliv: 23.8%
+   3. NSE:IIFL            | IIFL Finance Ltd          | LTP: ₹661.95   | 4.01%   | Vol: 3,93,60,867 | Deliv: 18.8%
+   4. NSE:EXIDEIND        | Exide Industries Limited  | LTP: ₹389.05   | 2.34%   | Vol: 48,85,750   | Deliv: 43.7%
+   5. NSE:FLUOROCHEM      | Gujarat Fluorochemicals Ltd | LTP: ₹4,820.4  | 1.44%   | Vol: 1,06,539    | Deliv: 58.7%
+   6. NSE:POWERINDIA      | Hitachi Energy India Ltd  | LTP: ₹30,840   | 1.33%   | Vol: 1,74,627    | Deliv: 33.0%
+   7. NSE:APOLLOHOSP      | Apollo Hospitals Enterprise Limited | LTP: ₹8,821    | 1.25%   | Vol: 4,68,147    | Deliv: 44.5%
+   8. NSE:MGL             | Mahanagar Gas Limited     | LTP: ₹1,115.5  | 1.03%   | Vol: 3,32,954    | Deliv: 48.2%
+   9. NSE:EIHOTEL         | Eih Limited               | LTP: ₹313.45   | 0.97%   | Vol: 5,51,621    | Deliv: 31.4%
+  10. NSE:WOCKPHARMA      | Wockhardt Limited         | LTP: ₹2,026.6  | 0.88%   | Vol: 7,26,108    | Deliv: 31.7%
+  11. NSE:BLUESTARCO      | Blue Star Limited         | LTP: ₹1,621.8  | 0.86%   | Vol: 3,91,694    | Deliv: 48.1%
+  12. NSE:IGL             | Indraprastha Gas Limited  | LTP: ₹149.14   | 0.64%   | Vol: 14,19,024   | Deliv: 48.0%
+  13. NSE:LICI            | Life Insurance Corporation of India Ltd | LTP: ₹400      | 0.58%   | Vol: 99,54,717   | Deliv: 67.4%
+  14. NSE:IEX             | Indian Energy Exchange Ltd | LTP: ₹115      | 0.52%   | Vol: 1,40,17,681 | Deliv: 54.0%
+  15. NSE:CEMPRO          | Cemindia Projects Ltd     | LTP: ₹1,354.4  | 0.16%   | Vol: 6,69,777    | Deliv: 59.8%
+  16. NSE:GPIL            | Godawari Power And Ispat Limited | LTP: ₹221.16   | 0.15%   | Vol: 11,26,595   | Deliv: 43.0%
+  17. NSE:AUROPHARMA      | Aurobindo Pharma Limited  | LTP: ₹1,796.3  | 0.12%   | Vol: 11,39,082   | Deliv: 59.7%
+  18. NSE:MARUTI          | Maruti Suzuki India Limited | LTP: ₹12,632   | 0.06%   | Vol: 5,58,737    | Deliv: 56.2%
+  19. NSE:UPL             | Upl Limited               | LTP: ₹552      | 0.05%   | Vol: 40,53,099   | Deliv: 35.7%
+  20. NSE:ADANIENSOL      | Adani Energy Solutions Ltd | LTP: ₹1,490    | -0.25%  | Vol: 32,74,998   | Deliv: 44.2%
 
-📋 FILTER: Swing Trading - Find Higher low from uptrend stocks. (20 stocks)
+📋 FILTER: Swing Trading - Find Higher low from uptrend stocks. (12 stocks)
 --------------------------------------------------
-   1. NSE:KDDL            | Kddl Limited              | LTP: ₹4,560.4  | 16.52%  | Vol: 9,05,824    | Deliv: 10.3%
-   2. NSE:KMCSHIL         | KMC Speciality Hospitals (India) Ltd | LTP: ₹194.52   | 15.63%  | Vol: 1,60,30,841 | Deliv: 5.4%
-   3. NSE:SGFIN           | SG Finserve Ltd           | LTP: ₹793.8    | 7.23%   | Vol: 14,35,667   | Deliv: 21.0%
-   4. NSE:SEJALLTD        | Sejal Glass Ltd           | LTP: ₹927.85   | 6.94%   | Vol: 74,196      | Deliv: 44.2%
-   5. NSE:GREAVESCOT      | Greaves Cotton Limited    | LTP: ₹243.5    | 6.74%   | Vol: 1,35,61,607 | Deliv: 14.1%
-   6. NSE:ARTEMISMED      | Artemis Medicare Services Ltd | LTP: ₹348.75   | 6.42%   | Vol: 7,13,832    | Deliv: 48.2%
-   7. NSE:AMANTA          | Amanta Healthcare Ltd     | LTP: ₹234.51   | 6.39%   | Vol: 5,97,547    | Deliv: 26.3%
-   8. NSE:FREDUN          | Fredun Pharmaceuticals Ltd | LTP: ₹1,572    | 5.63%   | Vol: 1,42,860    | Deliv: 39.4%
-   9. NSE:AVTNPL          | Avt Natural Products Limited | LTP: ₹101.22   | 5.59%   | Vol: 68,85,691   | Deliv: 14.0%
-  10. NSE:63MOONS         | 63 Moons Technologies Ltd | LTP: ₹958.9    | 4.86%   | Vol: 4,60,983    | Deliv: 53.2%
-  11. NSE:MANOMAY         | Manomay Tex India Ltd     | LTP: ₹272.04   | 4.61%   | Vol: 4,61,732    | Deliv: 28.3%
-  12. NSE:MOMSBELIEF      | MOMSBELIEF                | LTP: ₹293.83   | 4.25%   | Vol: 6,34,244    | Deliv: 13.0%
-  13. NSE:PGIL            | Pearl Global Industries Limited | LTP: ₹1,368.2  | 4.07%   | Vol: 2,88,033    | Deliv: 42.2%
-  14. NSE:GROWWPSUBK      | Groww Nifty PSU Bank ETF  | LTP: ₹95.38    | 4.05%   | Vol: 48,266      | Deliv: 51.0%
-  15. NSE:BANCOINDIA      | Banco Products (i) Limited | LTP: ₹700.4    | 3.93%   | Vol: 15,34,048   | Deliv: 22.4%
-  16. NSE:KOVAI           | Kovai Medical Center & Hospital Ltd | LTP: ₹6,592    | 3.66%   | Vol: 11,325      | Deliv: 53.4%
-  17. NSE:NAVINIFTY       | Navi Nifty 50 ETF         | LTP: ₹291.4    | 3.31%   | Vol: 7,950       | Deliv: -
-  18. NSE:HONASA          | Honasa Consumer Ltd       | LTP: ₹517.8    | 3.3%    | Vol: 25,80,356   | Deliv: 45.2%
-  19. NSE:PRESTIGE        | Prestige Estates Projects Limited | LTP: ₹1,691.5  | 3.22%   | Vol: 5,82,154    | Deliv: 40.5%
-  20. NSE:KFINTECH        | KFin Technologies Ltd     | LTP: ₹965      | 2.85%   | Vol: 26,87,006   | Deliv: 29.9%
+   1. NSE:AJAXENGG        | Ajax Engineering Ltd      | LTP: ₹623.9    | 8.08%   | Vol: 6,97,985    | Deliv: 25.7%
+   2. NSE:WSI             | W S Industries (i) Limited | LTP: ₹78.32    | 8.06%   | Vol: 4,63,688    | Deliv: 52.8%
+   3. NSE:SYNCOMF         | Syncom Formulations (India) Ltd | LTP: ₹22.08    | 5.7%    | Vol: 7,65,71,720 | Deliv: 10.2%
+   4. NSE:ALMONDZ         | Almondz Global Securities Limited | LTP: ₹18.96    | 4.98%   | Vol: 1,78,878    | Deliv: -
+   5. NSE:MMWL            | Media Matrix Worldwide Ltd | LTP: ₹20.94    | 4.96%   | Vol: 1,58,730    | Deliv: -
+   6. NSE:NAVINFLUOR      | Navin Fluorine International Limited | LTP: ₹10,278   | 4.72%   | Vol: 3,57,719    | Deliv: 35.4%
+   7. NSE:FINEORG         | Fine Organic Industries Ltd | LTP: ₹5,519    | 4.15%   | Vol: 1,05,229    | Deliv: 28.7%
+   8. NSE:BLISSGVS        | Bliss Gvs Pharma Limited  | LTP: ₹680.35   | 3.66%   | Vol: 2,58,229    | Deliv: -
+   9. NSE:DTIL            | Dhunseri Tea & Industries Limited | LTP: ₹160.21   | 2.25%   | Vol: 12,705      | Deliv: 80.8%
+  10. NSE:ARVSMART        | Arvind Smartspaces Limited | LTP: ₹633.55   | 2.14%   | Vol: 1,81,459    | Deliv: 34.1%
+  11. NSE:SHIVAMILLS      | Shiva Mills Ltd           | LTP: ₹68.58    | 1.89%   | Vol: 9,124       | Deliv: 70.2%
+  12. NSE:GKWLIMITED      | Gkw Limited               | LTP: ₹1,700    | 0.67%   | Vol: 4,101       | Deliv: 93.5%
 
 📋 FILTER: EMA9/21 - pullback (20 stocks)
 --------------------------------------------------
-   1. NSE:MODTHREAD       | Modern Threads (I) Ltd    | LTP: ₹55.92    | 20%     | Vol: 26,927      | Deliv: 53.8%
-   2. NSE:BALAXI          | Balaxi Pharmaceuticals Ltd | LTP: ₹26.47    | 19.99%  | Vol: 2,48,665    | Deliv: 87.9%
-   3. NSE:KDDL            | Kddl Limited              | LTP: ₹4,560.4  | 16.52%  | Vol: 9,05,824    | Deliv: 10.3%
-   4. NSE:KMCSHIL         | KMC Speciality Hospitals (India) Ltd | LTP: ₹194.52   | 15.63%  | Vol: 1,60,30,841 | Deliv: 5.4%
-   5. NSE:SIGNATURE       | SignatureGlobal India Ltd | LTP: ₹835.6    | 9.14%   | Vol: 17,97,681   | Deliv: 11.4%
-   6. NSE:NRL             | Nupur Recyclers Ltd       | LTP: ₹190.96   | 8.24%   | Vol: 2,54,383    | Deliv: 66.3%
-   7. NSE:WSI             | W S Industries (i) Limited | LTP: ₹72.48    | 7.97%   | Vol: 3,11,019    | Deliv: 50.6%
-   8. NSE:WELSPUNLIV      | Welspun Living Ltd        | LTP: ₹265.62   | 7.92%   | Vol: 1,22,44,187 | Deliv: 21.4%
-   9. NSE:SGFIN           | SG Finserve Ltd           | LTP: ₹793.8    | 7.23%   | Vol: 14,35,667   | Deliv: 21.0%
-  10. NSE:SEJALLTD        | Sejal Glass Ltd           | LTP: ₹927.85   | 6.94%   | Vol: 74,196      | Deliv: 44.2%
-  11. NSE:XPROINDIA       | Xpro India Limited        | LTP: ₹1,277.1  | 6.89%   | Vol: 2,26,078    | Deliv: 39.2%
-  12. NSE:SANDHAR         | Sandhar Technologies Limited | LTP: ₹583.65   | 6.87%   | Vol: 6,50,624    | Deliv: 26.1%
-  13. NSE:GREAVESCOT      | Greaves Cotton Limited    | LTP: ₹243.5    | 6.74%   | Vol: 1,35,61,607 | Deliv: 14.1%
-  14. NSE:DEEPAKFERT      | Deepak Fertilizers And Petrochemicals Corporation Limited | LTP: ₹1,443.7  | 6.72%   | Vol: 24,27,264   | Deliv: 15.0%
-  15. NSE:KMSUGAR         | K.m.sugar Mills Limited   | LTP: ₹34.09    | 6.56%   | Vol: 7,47,648    | Deliv: 59.1%
-  16. NSE:ARTEMISMED      | Artemis Medicare Services Ltd | LTP: ₹348.75   | 6.42%   | Vol: 7,13,832    | Deliv: 48.2%
-  17. NSE:AMANTA          | Amanta Healthcare Ltd     | LTP: ₹234.51   | 6.39%   | Vol: 5,97,547    | Deliv: 26.3%
-  18. NSE:JYOTIRES        | Jyoti Resins and Adhesives Ltd | LTP: ₹954.65   | 5.85%   | Vol: 51,735      | Deliv: 50.0%
-  19. NSE:LAHOTIOV        | Lahoti Overseas Ltd       | LTP: ₹43.4     | 5.83%   | Vol: 98,313      | Deliv: 37.6%
-  20. NSE:GLASSWALL       | Glass Wall Systems (India) Ltd | LTP: ₹272.94   | 5.7%    | Vol: 53,63,516   | Deliv: 22.3%
+   1. NSE:BALAXI          | Balaxi Pharmaceuticals Ltd | LTP: ₹31.65    | 19.57%  | Vol: 17,69,148   | Deliv: 40.1%
+   2. NSE:APOLLOPIPE      | Apollo Pipes Ltd          | LTP: ₹547.35   | 10.54%  | Vol: 11,53,195   | Deliv: 34.1%
+   3. NSE:BPLPHARMA       | Bharat Parenterals Ltd    | LTP: ₹2,440    | 10.51%  | Vol: 1,11,727    | Deliv: 12.4%
+   4. NSE:GREAVESCOT      | Greaves Cotton Limited    | LTP: ₹266.63   | 9.5%    | Vol: 3,63,16,006 | Deliv: 9.3%
+   5. NSE:AJAXENGG        | Ajax Engineering Ltd      | LTP: ₹623.9    | 8.08%   | Vol: 6,97,985    | Deliv: 25.7%
+   6. NSE:WSI             | W S Industries (i) Limited | LTP: ₹78.32    | 8.06%   | Vol: 4,63,688    | Deliv: 52.8%
+   7. NSE:INOXINDIA       | Inox India Ltd            | LTP: ₹2,123.2  | 7.81%   | Vol: 31,49,972   | Deliv: 11.8%
+   8. NSE:NDRAUTO         | NDR Auto Components Ltd   | LTP: ₹777.6    | 7.81%   | Vol: 17,40,327   | Deliv: 4.2%
+   9. NSE:INDOCO          | Indoco Remedies Limited   | LTP: ₹242.01   | 7.57%   | Vol: 2,76,40,267 | Deliv: 2.7%
+  10. NSE:FAZE3Q          | Faze Three Ltd            | LTP: ₹612.05   | 6.98%   | Vol: 35,52,713   | Deliv: 8.4%
+  11. NSE:KDDL            | Kddl Limited              | LTP: ₹4,876.8  | 6.94%   | Vol: 9,28,825    | Deliv: 11.9%
+  12. NSE:SANGAMIND       | Sangam (india) Limited    | LTP: ₹682.2    | 6.45%   | Vol: 12,32,241   | Deliv: 14.3%
+  13. NSE:SYNCOMF         | Syncom Formulations (India) Ltd | LTP: ₹22.08    | 5.7%    | Vol: 7,65,71,720 | Deliv: 10.2%
+  14. NSE:SUNTV           | Sun Tv Network Limited    | LTP: ₹696.35   | 5.56%   | Vol: 29,89,983   | Deliv: 13.0%
+  15. NSE:BLUSPRING       | Bluspring Enterprises Ltd | LTP: ₹162.06   | 5.39%   | Vol: 4,86,783    | Deliv: 28.0%
+  16. NSE:SUNSHINE        | SUNSHINE                  | LTP: ₹501.75   | 5.2%    | Vol: 11,62,780   | Deliv: 35.0%
+  17. NSE:SGFIN           | SG Finserve Ltd           | LTP: ₹833.95   | 5.06%   | Vol: 13,16,172   | Deliv: 27.3%
+  18. NSE:GTECJAINX       | G-Tec Janix Education Ltd | LTP: ₹33.09    | 4.98%   | Vol: 4,643       | Deliv: -
+  19. NSE:MMWL            | Media Matrix Worldwide Ltd | LTP: ₹20.94    | 4.96%   | Vol: 1,58,730    | Deliv: -
+  20. NSE:ICIL            | Indo Count Industries Limited | LTP: ₹576.55   | 4.78%   | Vol: 12,94,851   | Deliv: 39.6%
 
 ═════════════════════════════════════════════════════════════════
-TOTAL UNIQUE SYMBOLS (150 stocks):
+TOTAL UNIQUE SYMBOLS (112 stocks):
 ═════════════════════════════════════════════════════════════════
-NSE:LEAPIND
-NSE:ASKAUTOLTD
-NSE:NAM-INDIA
-NSE:NFL
-NSE:SIGNATURE
-NSE:SGFIN
-NSE:DAMCAPITAL
-NSE:GHCLTEXTIL
-NSE:PACEDIGITK
-NSE:TMCV
-NSE:LAOPALA
-NSE:SBIFUNDS
-NSE:IGIL
-NSE:PRESTIGE
-NSE:TIPSMUSIC
-NSE:ARSSBL
-NSE:VAML
-NSE:CAMS
-NSE:ADANIENSOL
-NSE:ALGOQUANT
-NSE:CANFINHOME
-NSE:GHCL
-NSE:OBEROIRLTY
-NSE:MODTHREAD
-NSE:KDDL
-NSE:KMCSHIL
-NSE:FIRSTCRY
-NSE:NRL
-NSE:XPROINDIA
-NSE:SANDHAR
-NSE:GREAVESCOT
-NSE:DEEPAKFERT
-NSE:ARTEMISMED
-NSE:IXIGO
-NSE:CSBBANK
-NSE:MANOMAY
-NSE:HINDOILEXP
-NSE:MAHABANK
-NSE:TTKHLTCARE
-NSE:JYOTIRES
-NSE:5PAISA
-NSE:PGIL
-NSE:GROWWPSUBK
-NSE:BANCOINDIA
-NSE:CAPITALSFB
-NSE:NAVINIFTY
-NSE:KFINTECH
-NSE:AJMERA
-NSE:ARIS
-NSE:KPIGREEN
-NSE:RAYMONDREL
-NSE:SONA
-NSE:BRIGADE
-NSE:AUTOIND
-NSE:TI
-NSE:360ONE
-NSE:MOTILALOFS
-NSE:CENTRALBK
-NSE:ASALCBR
-NSE:FEDDERSHOL
-NSE:SEJALLTD
-NSE:DEEDEV
-NSE:AMANTA
-NSE:TATAINVEST
-NSE:FREDUN
-NSE:WSI
-NSE:SPORTKING
-NSE:YATHARTH
-NSE:RAYMOND
-NSE:QPOWER
-NSE:IDFCFIRSTB
-NSE:BGRENERGY
-NSE:REGAAL
-NSE:KILITCH
-NSE:MAXHEALTH
-NSE:VARROC
-NSE:DELTACORP
-NSE:MEGASTAR
-NSE:INDUSINDBK
-NSE:ASAHISONG
-NSE:LAHOTIOV
-NSE:SENCO
-NSE:KANCOTEA
-NSE:SHARDAMOTR
-NSE:JKTYRE
-NSE:BIKAJI
-NSE:IREDA
-NSE:GROWW
-NSE:STANLEY
-NSE:CENTUM
-NSE:UCOBANK
-NSE:MADHUCON
-NSE:SBICONS
-NSE:HEALTHADD
-NSE:TASTYBITE
-NSE:INTERNET
-NSE:INDIANB
-NSE:NOIDATOLL
-NSE:ARIES
-NSE:SRHHYPOLTD
-NSE:BALAXI
-NSE:ASSAMENT
-NSE:LYKALABS
-NSE:BANKBEES
-NSE:RELCNX100
-NSE:VIJIFIN
-NSE:GSEC10YEAR
-NSE:LIQUIDBETA
-NSE:UNIVAFOODS
-NSE:THAKDEV
-NSE:TIJARIA
-NSE:UPHOT
+NSE:SIMPLEXINF
+NSE:DLF
+NSE:SUBROS
 NSE:INOXINDIA
-NSE:PARADEEP
-NSE:ADANIENT
-NSE:GRANULES
-NSE:PRIVISCL
-NSE:SAIL
+NSE:FAZE3Q
+NSE:SUNTV
+NSE:ICIL
+NSE:GREENPANEL
+NSE:ORCHPHARMA
+NSE:EUREKAFORB
+NSE:POONAWALLA
+NSE:SHINDL
+NSE:ACE
+NSE:APOLLOHOSP
+NSE:IGL
+NSE:LIQUIDCASE
+NSE:OMPOWER
+NSE:GREENLAM
+NSE:APOLLOPIPE
+NSE:BPLPHARMA
+NSE:GREAVESCOT
+NSE:AJAXENGG
+NSE:WSI
+NSE:INDOCO
+NSE:KDDL
+NSE:INDIASHLTR
+NSE:SUNSHINE
+NSE:SGFIN
+NSE:RAYMONDREL
+NSE:VIJAYA
+NSE:FINEORG
+NSE:FREDUN
+NSE:NRL
+NSE:BBTC
+NSE:ROTO
+NSE:RVHL
+NSE:VESUVIUS
+NSE:NDRAUTO
+NSE:GSPLTRANS
+NSE:TOTAL
+NSE:BBTCL
+NSE:URBANCO
+NSE:GFLLIMITED
+NSE:BLISSGVS
+NSE:VINEETLAB
 NSE:SAGILITY
-NSE:BALRAMCHIN
-NSE:JSWINFRA
-NSE:VEDL
+NSE:SPECIALITY
+NSE:DYNAMATECH
+NSE:GPPL
+NSE:HEALTHADD
+NSE:MOGSEC
+NSE:GEECEE
+NSE:DAMCAPITAL
+NSE:BBETF0432
+NSE:SWANDEF
+NSE:VMART
+NSE:MSCIADD
+NSE:MID150CASE
+NSE:ARVSMART
+NSE:CMLL
+NSE:EIHOTEL
+NSE:CAPITALSFB
+NSE:VITAL
+NSE:ZSARACOM
+NSE:PGHL
+NSE:FMCGADD
+NSE:CASHIETF
+NSE:GTECJAINX
+NSE:GROBTEA
+NSE:THAKDEV
+NSE:GSEC10YEAR
+NSE:ABGSEC
+NSE:BHARATBOND-APR33
+NSE:STARHEALTH
+NSE:ACMESOLAR
+NSE:MRPL
+NSE:KAJARIACER
+NSE:WOCKPHARMA
+NSE:CLEANMAX
+NSE:CHENNPETRO
 NSE:HBLENGINE
-NSE:SHRIPISTON
-NSE:CPPLUS
-NSE:DATAPATTNS
-NSE:MPHASIS
-NSE:CASTROLIND
-NSE:PWL
+NSE:GRASIM
+NSE:CYIENT
+NSE:PRIVISCL
+NSE:JSWINFRA
+NSE:LTFOODS
 NSE:TBOTEK
-NSE:BAJAJ-AUTO
-NSE:TATACHEM
+NSE:CPPLUS
+NSE:IIFL
+NSE:EXIDEIND
+NSE:FLUOROCHEM
+NSE:POWERINDIA
+NSE:MGL
+NSE:BLUESTARCO
+NSE:LICI
+NSE:IEX
 NSE:CEMPRO
-NSE:SOBHA
-NSE:AUBANK
-NSE:ELECON
-NSE:ITCHOTELS
-NSE:HYUNDAI
-NSE:ADANIGREEN
-NSE:IOB
-NSE:NUVAMA
-NSE:DIXON
-NSE:AVTNPL
-NSE:63MOONS
-NSE:MOMSBELIEF
-NSE:KOVAI
-NSE:HONASA
-NSE:WELSPUNLIV
-NSE:KMSUGAR
-NSE:GLASSWALL
+NSE:GPIL
+NSE:AUROPHARMA
+NSE:MARUTI
+NSE:UPL
+NSE:ADANIENSOL
+NSE:SYNCOMF
+NSE:ALMONDZ
+NSE:MMWL
+NSE:NAVINFLUOR
+NSE:DTIL
+NSE:SHIVAMILLS
+NSE:GKWLIMITED
+NSE:BALAXI
+NSE:SANGAMIND
+NSE:BLUSPRING
