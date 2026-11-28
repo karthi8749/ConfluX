@@ -724,62 +724,35 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
     .tbl-pat-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
+      flex-direction: column;
+      gap: 2px;
       margin-top: 5px;
     }
-    .pat-mini {
+    .pat-text-line {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      line-height: 1.2;
-      max-width: 100%;
+      font-size: 0.68rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text-muted);
     }
-    .pat-bull {
-      background: rgba(16, 185, 129, 0.14);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.35);
-    }
-    .pat-bear {
-      background: rgba(242, 54, 69, 0.14);
-      color: #f87171;
-      border: 1px solid rgba(242, 54, 69, 0.35);
-    }
-    .pat-neut {
-      background: rgba(148, 163, 184, 0.12);
-      color: #cbd5e1;
-      border: 1px solid rgba(148, 163, 184, 0.28);
-    }
-    .pat-chart {
-      background: rgba(168, 85, 247, 0.15);
-      color: #d8b4fe;
-      border: 1px solid rgba(168, 85, 247, 0.38);
-    }
-    body[data-theme="light"] .pat-bull {
-      background: #dcfce7;
-      color: #15803d;
-      border-color: #86efac;
-    }
-    body[data-theme="light"] .pat-bear {
-      background: #fee2e2;
-      color: #b91c1c;
-      border-color: #fca5a5;
-    }
-    body[data-theme="light"] .pat-neut {
-      background: #f1f5f9;
-      color: #475569;
-      border-color: #cbd5e1;
-    }
-    body[data-theme="light"] .pat-chart {
-      background: #f3e8ff;
-      color: #7e22ce;
-      border-color: #d8b4fe;
-    }
+    .pat-txt-bull { color: #34d399; }
+    .pat-txt-bear { color: #f87171; }
+    .pat-txt-neut { color: #cbd5e1; }
+    .pat-txt-chart { color: #c084fc; }
+    .pat-arrow { color: var(--text-muted); opacity: 0.6; }
+    body[data-theme="light"] .pat-txt-bull { color: #059669; }
+    body[data-theme="light"] .pat-txt-bear { color: #dc2626; }
+    body[data-theme="light"] .pat-txt-neut { color: #475569; }
+    body[data-theme="light"] .pat-txt-chart { color: #7e22ce; }
+
+    .pat-bull { color: #34d399; }
+    .pat-bear { color: #f87171; }
+    .pat-neut { color: #cbd5e1; }
+    .pat-chart { color: #c084fc; }
+    body[data-theme="light"] .pat-bull { color: #059669; }
+    body[data-theme="light"] .pat-bear { color: #dc2626; }
+    body[data-theme="light"] .pat-neut { color: #475569; }
+    body[data-theme="light"] .pat-chart { color: #7e22ce; }
 
     /* ─── CHART POPUP PATTERN STRIP ─── */
     .pattern-strip {
@@ -813,10 +786,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 2px 7px;
-      border-radius: 5px;
+      padding: 0;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
+      font-size: 0.69rem;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -4646,7 +4618,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         const statusPart = cp.status ? " • " + cp.status : "";
         const lvlPart = cp.levelLabel ? " " + cp.levelLabel : "";
         return '<span class="candle-step ' + cls + '">' + cp.name + statusPart + lvlPart + '</span>';
-      }).join("");
+      }).join(' <span class="pat-arrow">|</span> ');
 
       strip.innerHTML =
         '<div class="pat-line"><span class="pat-lbl">🕯️ Last 3 Candles</span>' + stepsHtml + '</div>' +
@@ -5048,12 +5020,16 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         let rowPatternsHtml = "";
         if (patData && patData.last3Candles && patData.last3Candles.length > 0) {
           const l3 = patData.last3Candles;
-          const chainText = l3.map(c => c.shortName).join(" → ");
           const chainTitle = l3.map(c => c.dayLabel + " (" + c.dateLabel + "): " + c.name).join(" | ");
-          const todayBiasCls = biasToClass(l3[l3.length - 1].bias);
+          const chainTextHtml = l3.map(c => {
+            const cls = c.bias === "bullish" ? "pat-txt-bull" : (c.bias === "bearish" ? "pat-txt-bear" : "pat-txt-neut");
+            return '<span class="' + cls + '">' + c.shortName + '</span>';
+          }).join(' <span class="pat-arrow">→</span> ');
           const cp = patData.chartPattern && patData.chartPattern.primary;
-          const cpBadge = cp ? '<span class="pat-mini pat-chart" title="' + cp.name + (cp.status ? ' (' + cp.status + ')' : '') + ' ' + (cp.levelLabel || '') + '">📐 ' + cp.name + '</span>' : "";
-          rowPatternsHtml = '<div class="tbl-pat-row"><span class="pat-mini ' + todayBiasCls + '" title="' + chainTitle + '">🕯️ ' + chainText + '</span>' + cpBadge + '</div>';
+          const cpLine = cp
+            ? '<div class="pat-text-line" title="' + cp.name + (cp.status ? ' (' + cp.status + ')' : '') + ' ' + (cp.levelLabel || '') + '">📐 <span class="pat-txt-chart">' + cp.name + '</span></div>'
+            : "";
+          rowPatternsHtml = '<div class="tbl-pat-row"><div class="pat-text-line" title="' + chainTitle + '">🕯️ ' + chainTextHtml + '</div>' + cpLine + '</div>';
         }
 
         tr.innerHTML = \`
