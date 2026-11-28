@@ -87,9 +87,17 @@ class TradingViewManager {
     }
 
     // 5. Generate Interactive Visual Dashboard with PineScripts Engine
+    const now = new Date();
+    const scanDate = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(now);
+    const scanDateDisplay = new Intl.DateTimeFormat("en-IN", { day: "2-digit", month: "short", year: "numeric", timeZone: "Asia/Kolkata" }).format(now);
     const dashboardPath = path.resolve("dashboard.html");
     const indexPath = path.resolve("index.html");
-    const htmlContent = generateDashboardHtml(results, { totalUnique: allUnique.length }, candleMap);
+    const htmlContent = generateDashboardHtml(results, {
+      totalUnique: allUnique.length,
+      scanId: String(now.getTime()),
+      scanDate,
+      scanDateDisplay
+    }, candleMap);
     fs.writeFileSync(dashboardPath, htmlContent, "utf-8");
     fs.writeFileSync(indexPath, htmlContent, "utf-8");
     fs.writeFileSync(path.resolve("cached_data.json"), JSON.stringify(results, null, 2), "utf-8");

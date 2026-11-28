@@ -19,7 +19,26 @@ const { fetchLatestDeliveryMap, attachDeliveryToResults } = require('./delivery_
   const deliveryMap = await fetchLatestDeliveryMap();
   attachDeliveryToResults(data, deliveryMap);
 
-  const newHtml = generateDashboardHtml(data, { totalUnique: 145 }, candleStore);
+  let scanTime = new Date();
+  try {
+    if (fs.existsSync('cached_data.json')) {
+      scanTime = fs.statSync('cached_data.json').mtime;
+    }
+  } catch (_) {}
+  const scanDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(scanTime);
+  const scanDateDisplay = new Intl.DateTimeFormat('en-IN', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' }).format(scanTime);
+
+  const uniqueSyms = new Set();
+  Object.values(data).forEach(arr => {
+    if (Array.isArray(arr)) arr.forEach(s => s && s.symbol && uniqueSyms.add(s.symbol));
+  });
+
+  const newHtml = generateDashboardHtml(data, {
+    totalUnique: uniqueSyms.size || 145,
+    scanId: String(scanTime.getTime()),
+    scanDate,
+    scanDateDisplay
+  }, candleStore);
 
   fs.writeFileSync('index.html', newHtml, 'utf8');
   fs.writeFileSync('dashboard.html', newHtml, 'utf8');

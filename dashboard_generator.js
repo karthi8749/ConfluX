@@ -16,6 +16,14 @@ const path = require("path");
 function generateDashboardHtml(results, summary, candleMap = {}) {
   const jsonResults = JSON.stringify(results);
   const jsonCandles = JSON.stringify(candleMap);
+  const scanNow = new Date();
+  const scanId = (summary && summary.scanId) ? String(summary.scanId) : String(scanNow.getTime());
+  const scanDate = (summary && summary.scanDate)
+    ? String(summary.scanDate)
+    : new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(scanNow);
+  const scanDateDisplay = (summary && summary.scanDateDisplay)
+    ? String(summary.scanDateDisplay)
+    : new Intl.DateTimeFormat("en-IN", { day: "2-digit", month: "short", year: "numeric", timeZone: "Asia/Kolkata" }).format(scanNow);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -274,7 +282,34 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     .scan-item.confluence-special {
       border: 1px dashed var(--accent);
       background: var(--accent-pill);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+    }
+    .scan-item.favourites-special {
+      border: 1px dashed rgba(250, 204, 21, 0.5);
+      background: rgba(250, 204, 21, 0.08);
+    }
+    .scan-item.favourites-special.active {
+      border: 1px solid #facc15;
+      background: rgba(250, 204, 21, 0.16);
+      box-shadow: 0 2px 10px rgba(250, 204, 21, 0.18);
+    }
+    .scan-item.watchlist-special {
+      border: 1px dashed rgba(16, 185, 129, 0.5);
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .scan-item.watchlist-special.active {
+      border: 1px solid #10b981;
+      background: rgba(16, 185, 129, 0.16);
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.18);
+    }
+    .sidebar-section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 8px 6px 2px;
+      opacity: 0.75;
     }
     .scan-name {
       font-size: 0.85rem;
@@ -312,19 +347,21 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       width: 100%;
     }
     .topbar {
-      padding: 12px 22px;
+      padding: 10px 18px;
       border-bottom: 1px solid var(--border);
       background: var(--card-bg);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       transition: var(--transition);
-      gap: 12px;
+      gap: 10px;
     }
     .topbar-left {
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
     }
     .sidebar-expand-btn {
       display: none;
@@ -347,13 +384,13 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     .topbar-left h2 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 360px;
+      max-width: 260px;
     }
     .topbar-left p {
       font-size: 0.78rem;
@@ -363,8 +400,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     .topbar-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-shrink: 1;
+      max-width: 100%;
     }
 
     /* Search Box */
@@ -380,13 +420,13 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       padding: 7px 12px 7px 30px;
       border-radius: 8px;
       font-size: 0.82rem;
-      width: 180px;
+      width: 155px;
       outline: none;
       transition: var(--transition);
     }
     .search-input:focus {
       border-color: var(--accent);
-      width: 220px;
+      width: 195px;
     }
     .search-icon {
       position: absolute;
@@ -460,6 +500,78 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       border: 1px solid var(--border);
     }
     .btn-secondary:hover { background: var(--hover-bg); border-color: var(--accent); }
+
+    /* ─── HEADER QUICK LIST BUTTONS (FAVOURITES & WATCHLIST) ─── */
+    .header-quick-lists {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-hdr-fav {
+      background: rgba(250, 204, 21, 0.1);
+      color: #fde047;
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      white-space: nowrap;
+    }
+    .btn-hdr-fav:hover {
+      background: rgba(250, 204, 21, 0.2);
+      border-color: #facc15;
+      transform: translateY(-1px);
+    }
+    .btn-hdr-fav.active {
+      background: linear-gradient(135deg, #eab308, #ca8a04);
+      color: #070b14;
+      border-color: #facc15;
+      box-shadow: 0 2px 12px rgba(250, 204, 21, 0.45);
+      font-weight: 800;
+    }
+    .btn-hdr-watch {
+      background: rgba(16, 185, 129, 0.1);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      white-space: nowrap;
+    }
+    .btn-hdr-watch:hover {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #10b981;
+      transform: translateY(-1px);
+    }
+    .btn-hdr-watch.active {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      border-color: #34d399;
+      box-shadow: 0 2px 12px rgba(16, 185, 129, 0.45);
+      font-weight: 800;
+    }
+    .hdr-list-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.28);
+      font-weight: 700;
+    }
+    body[data-theme="light"] .btn-hdr-fav {
+      background: #fef9c3;
+      color: #a16207;
+      border-color: #fde047;
+    }
+    body[data-theme="light"] .btn-hdr-fav.active {
+      background: #eab308;
+      color: #ffffff;
+    }
+    body[data-theme="light"] .btn-hdr-watch {
+      background: #d1fae5;
+      color: #047857;
+      border-color: #6ee7b7;
+    }
+    body[data-theme="light"] .btn-hdr-watch.active {
+      background: #059669;
+      color: #ffffff;
+    }
+    body[data-theme="light"] .hdr-list-count {
+      background: rgba(0, 0, 0, 0.1);
+    }
 
     /* ─── RUN SCANS BUTTON (RUN.bat TRIGGER) ─── */
     .btn-run {
@@ -729,6 +841,204 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
     .stock-copy-btn.copied {
       background: rgba(16, 185, 129, 0.25);
+      border-color: #10b981;
+      color: #34d399;
+    }
+    .stock-fav-btn, .stock-watch-btn, .stock-delete-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      color: var(--text-muted);
+      cursor: pointer;
+      margin-left: 5px;
+      transition: var(--transition);
+      padding: 0;
+      vertical-align: middle;
+      line-height: 1;
+      flex-shrink: 0;
+      font-size: 0.78rem;
+    }
+    .stock-fav-btn:hover {
+      background: rgba(250, 204, 21, 0.22);
+      border-color: #facc15;
+      color: #facc15;
+      transform: scale(1.14);
+    }
+    .stock-fav-btn.active {
+      background: rgba(250, 204, 21, 0.22);
+      border-color: #facc15;
+      color: #facc15;
+      box-shadow: 0 0 8px rgba(250, 204, 21, 0.35);
+    }
+    .stock-watch-btn:hover {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: #10b981;
+      color: #34d399;
+      transform: scale(1.14);
+    }
+    .stock-watch-btn.active {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: #10b981;
+      color: #34d399;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.35);
+    }
+    .stock-delete-btn {
+      background: rgba(239, 68, 68, 0.1);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+    .stock-delete-btn:hover {
+      background: rgba(239, 68, 68, 0.28);
+      border-color: #ef4444;
+      color: #fff;
+      transform: scale(1.14);
+    }
+
+    /* ─── FAVOURITES & WATCHLIST CONTEXT BAR & PILLS ─── */
+    .list-context-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+    }
+    .list-context-bar.fav-bar {
+      border-color: rgba(250, 204, 21, 0.35);
+      background: rgba(250, 204, 21, 0.06);
+    }
+    .list-context-bar.watch-bar {
+      border-color: rgba(16, 185, 129, 0.35);
+      background: rgba(16, 185, 129, 0.06);
+    }
+    .context-info {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+    .context-stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .mini-action-btn {
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+    }
+    .mini-action-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .mini-action-btn.danger:hover {
+      border-color: #ef4444;
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.12);
+    }
+
+    .filter-date-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 145px;
+    }
+    .filter-name-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: var(--accent-pill);
+      color: var(--accent-pill-text);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      max-width: 210px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .filter-date-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .entry-price-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      display: block;
+    }
+    .movement-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .movement-pos {
+      background: rgba(16, 185, 129, 0.16);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .movement-neg {
+      background: rgba(239, 68, 68, 0.16);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+    .movement-flat {
+      background: var(--vol-bg);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .movement-abs-sub {
+      font-size: 0.67rem;
+      font-weight: 600;
+      opacity: 0.85;
+    }
+    .card-btn.fav-active {
+      background: rgba(250, 204, 21, 0.2);
+      border-color: #facc15;
+      color: #facc15;
+    }
+    .card-btn.watch-active {
+      background: rgba(16, 185, 129, 0.2);
       border-color: #10b981;
       color: #34d399;
     }
@@ -1150,6 +1460,17 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       }
       .scan-name { max-width: 130px; font-size: 0.78rem; }
       .scan-count { font-size: 0.7rem; }
+      .sidebar-section-label { display: none; }
+      .list-context-bar {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+        font-size: 0.72rem;
+      }
+      .stock-fav-btn, .stock-watch-btn, .stock-delete-btn {
+        width: 23px;
+        height: 23px;
+        margin-left: 4px;
+      }
 
       /* Topbar Mobile Multi-Row Layout */
       .topbar {
@@ -1205,6 +1526,17 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       .btn-group .btn {
         padding: 6px 10px;
         font-size: 0.75rem;
+      }
+      .header-quick-lists {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+      }
+      .header-quick-lists .btn {
+        flex: 1;
+        justify-content: center;
+        padding: 7px 10px;
+        font-size: 0.78rem;
       }
 
       /* Row 2: Search input + Run Scans button */
@@ -1410,6 +1742,18 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           </div>
         </div>
 
+        <!-- Quick Header Access: Favourites & Long-Term Watchlist -->
+        <div class="header-quick-lists">
+          <button type="button" class="btn btn-hdr-fav" id="hdrFavBtn" onclick="selectFavourites()" title="Scan Favourites (Auto-resets on next scan)">
+            <span>⭐ Favourites</span>
+            <span class="hdr-list-count" id="hdrFavCount">0</span>
+          </button>
+          <button type="button" class="btn btn-hdr-watch" id="hdrWatchBtn" onclick="selectWatchlist()" title="Long-Term Watchlist (Persistent until manual delete)">
+            <span>👁️ Watchlist</span>
+            <span class="hdr-list-count" id="hdrWatchCount">0</span>
+          </button>
+        </div>
+
         <!-- Action Row 2: Main Search & Run Scans -->
         <div class="action-row action-row-main">
           <!-- Search Box -->
@@ -1435,10 +1779,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     </div>
 
     <!-- Full-Width Table Workspace -->
-    <div class="table-container">
+    <div class="table-container" id="tableContainer">
+      <div class="list-context-bar" id="listContextBar" style="display:none;"></div>
       <table>
         <thead>
-          <tr>
+          <tr id="tableHeaderRow">
             <th style="width: 35px;">#</th>
             <th onclick="sortTable('symbol')">Symbol <span class="sort-arrow" id="sort-symbol">↕</span></th>
             <th onclick="sortTable('name')">Company Name <span class="sort-arrow" id="sort-name">↕</span></th>
@@ -1453,7 +1798,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         <tbody id="stocksTable"></tbody>
       </table>
       <div id="emptyNotice" class="empty-state" style="display:none; text-align:center; padding:40px 10px; color:var(--text-muted);">
-        <p>No stocks matched your search/filter.</p>
+        <p id="emptyNoticeText">No stocks matched your search/filter.</p>
       </div>
     </div>
   </div>
@@ -1486,6 +1831,12 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           </svg>
           <span>TradingView ↗</span>
         </a>
+        <button type="button" class="card-btn" id="cardFavBtn" onclick="event.stopPropagation(); toggleFavourite(currentHoverSymbol)" title="Add/Remove from Scan Favourites (resets on next scan)">
+          <span>☆</span>
+        </button>
+        <button type="button" class="card-btn" id="cardWatchBtn" onclick="event.stopPropagation(); toggleWatchlist(currentHoverSymbol)" title="Add/Remove from Long-Term Watchlist">
+          <span>👁️</span>
+        </button>
         <button type="button" class="card-btn" id="cardAnalyzeBtn" onclick="analyzeStockAuto(currentHoverSymbol)" style="color:#c084fc; border-color:rgba(168,85,247,0.35); cursor:pointer;" title="Auto-analyze chart in Patternlytics">
           <span>✨ AI Analyze</span>
         </button>
@@ -1567,9 +1918,24 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     </div>
   </div>
 
+  <!-- Dark-Mode Confirmation Modal (for Watchlist Delete / Clear Favourites) -->
+  <div class="token-modal-backdrop" id="confirmModalBackdrop" onclick="closeConfirmModal()">
+    <div class="token-modal-card" style="max-width:340px;" onclick="event.stopPropagation()">
+      <h3 id="confirmModalTitle" style="font-size:1rem; font-weight:800; color:var(--text); margin-bottom:8px;">Confirm Action</h3>
+      <p id="confirmModalMessage" style="font-size:0.8rem; color:var(--text-muted); line-height:1.45; margin-bottom:16px;"></p>
+      <div style="display:flex; justify-content:flex-end; gap:8px;">
+        <button type="button" class="btn btn-secondary" onclick="closeConfirmModal()">Cancel</button>
+        <button type="button" class="btn" id="confirmModalOkBtn" style="background:#ef4444; color:#fff;">Delete</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const data = ${jsonResults};
     const candleStore = ${jsonCandles};
+    const currentScanId = "${scanId}";
+    const currentScanDate = "${scanDate}";
+    const currentScanDateDisplay = "${scanDateDisplay}";
     const scanNames = Object.keys(data);
     let activeMode = "scan";
     let firstNonEmptyScan = scanNames.findIndex(k => (data[k] || []).length > 0);
@@ -1628,6 +1994,366 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       .filter(s => s.count > 1)
       .sort((a, b) => b.count - a.count);
 
+    // ── Favourites (Auto-Reset on New Scan) & Watchlist (Long-Term) ──
+    const FAV_STORAGE_KEY = "conflux_favourites_v1";
+    const FAV_SCAN_ID_KEY = "conflux_favourites_scan_id_v1";
+    const WATCHLIST_STORAGE_KEY = "conflux_watchlist_v1";
+
+    function loadFavourites() {
+      try {
+        const lastScanId = localStorage.getItem(FAV_SCAN_ID_KEY);
+        if (lastScanId && lastScanId !== currentScanId) {
+          localStorage.removeItem(FAV_STORAGE_KEY);
+          localStorage.setItem(FAV_SCAN_ID_KEY, currentScanId);
+          return [];
+        }
+        if (!lastScanId) {
+          localStorage.setItem(FAV_SCAN_ID_KEY, currentScanId);
+        }
+        const parsed = JSON.parse(localStorage.getItem(FAV_STORAGE_KEY) || "[]");
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function saveFavourites() {
+      try {
+        localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(favourites));
+        localStorage.setItem(FAV_SCAN_ID_KEY, currentScanId);
+      } catch (_) {}
+    }
+
+    function loadWatchlist() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(WATCHLIST_STORAGE_KEY) || "[]");
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function saveWatchlist() {
+      try {
+        localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify(watchlist));
+      } catch (_) {}
+    }
+
+    let favourites = loadFavourites();
+    let watchlist = loadWatchlist();
+    let confirmModalCallback = null;
+
+    function isFavourite(symbol) {
+      const sym = (symbol || "").toUpperCase();
+      return favourites.some(f => (f.symbol || "").toUpperCase() === sym);
+    }
+
+    function isInWatchlist(symbol) {
+      const sym = (symbol || "").toUpperCase();
+      return watchlist.some(w => (w.symbol || "").toUpperCase() === sym);
+    }
+
+    function openConfirmModal(title, message, okLabel, onConfirm) {
+      const backdrop = document.getElementById("confirmModalBackdrop");
+      const titleEl = document.getElementById("confirmModalTitle");
+      const msgEl = document.getElementById("confirmModalMessage");
+      const okBtn = document.getElementById("confirmModalOkBtn");
+      if (!backdrop || !okBtn) {
+        if (window.confirm(message)) onConfirm();
+        return;
+      }
+      if (titleEl) titleEl.innerText = title;
+      if (msgEl) msgEl.innerText = message;
+      okBtn.innerText = okLabel || "Delete";
+      confirmModalCallback = onConfirm;
+      okBtn.onclick = () => {
+        const cb = confirmModalCallback;
+        closeConfirmModal();
+        if (cb) cb();
+      };
+      backdrop.classList.add("visible");
+    }
+
+    function closeConfirmModal() {
+      const backdrop = document.getElementById("confirmModalBackdrop");
+      if (backdrop) backdrop.classList.remove("visible");
+      confirmModalCallback = null;
+    }
+
+    function formatInrNum(num) {
+      if (num === null || num === undefined || isNaN(num)) return "-";
+      return Number(num).toLocaleString("en-IN", { maximumFractionDigits: 2 });
+    }
+
+    function findStockSnapshot(symbol) {
+      const sym = (symbol || "").toUpperCase();
+      // Prefer active scan row if currently viewing a specific scan
+      if (activeMode === "scan") {
+        const scanName = scanNames[activeIndex];
+        const match = (data[scanName] || []).find(s => (s.symbol || "").toUpperCase() === sym);
+        if (match) {
+          const conf = confluenceMap[match.symbol];
+          return {
+            stock: match,
+            filterName: scanName,
+            matchedFilters: conf ? [...conf.scans] : [scanName]
+          };
+        }
+      }
+      // Check confluenceMap
+      const confMatch = Object.values(confluenceMap).find(s => (s.symbol || "").toUpperCase() === sym);
+      if (confMatch) {
+        const fName = activeMode === "confluence" && confMatch.count > 1
+          ? "Confluence (" + confMatch.count + "x)"
+          : (confMatch.scans[0] || "Scan");
+        return {
+          stock: confMatch,
+          filterName: fName,
+          matchedFilters: [...confMatch.scans]
+        };
+      }
+      // Check favourites
+      const favMatch = favourites.find(f => (f.symbol || "").toUpperCase() === sym);
+      if (favMatch) {
+        return {
+          stock: favMatch,
+          filterName: favMatch.sourceFilter || "Favourites",
+          matchedFilters: favMatch.matchedFilters || [favMatch.sourceFilter || "Favourites"]
+        };
+      }
+      // Check watchlist
+      const wMatch = watchlist.find(w => (w.symbol || "").toUpperCase() === sym);
+      if (wMatch) {
+        return {
+          stock: {
+            symbol: wMatch.symbol,
+            name: wMatch.name,
+            price: wMatch.lastPriceFormatted || wMatch.entryPriceFormatted,
+            change: wMatch.lastChange || wMatch.entryChange,
+            volume: wMatch.lastVolume || wMatch.entryVolume,
+            delivery: wMatch.lastDelivery || wMatch.entryDelivery
+          },
+          filterName: wMatch.filterName || "Watchlist",
+          matchedFilters: wMatch.matchedFilters || [wMatch.filterName || "Watchlist"]
+        };
+      }
+      return null;
+    }
+
+    function updateHoverCardActionButtons(symbol) {
+      const favBtn = document.getElementById("cardFavBtn");
+      const watchBtn = document.getElementById("cardWatchBtn");
+      if (favBtn) {
+        const fav = isFavourite(symbol);
+        favBtn.classList.toggle("fav-active", fav);
+        favBtn.innerHTML = fav ? "<span>★</span>" : "<span>☆</span>";
+      }
+      if (watchBtn) {
+        const watched = isInWatchlist(symbol);
+        watchBtn.classList.toggle("watch-active", watched);
+        watchBtn.innerHTML = watched ? "<span>👁️✓</span>" : "<span>👁️</span>";
+      }
+    }
+
+    function toggleFavourite(symbol) {
+      if (!symbol) return;
+      const sym = symbol.toUpperCase();
+      const idx = favourites.findIndex(f => (f.symbol || "").toUpperCase() === sym);
+      const tc = document.getElementById("tableContainer");
+      const prevScroll = tc ? tc.scrollTop : 0;
+
+      if (idx !== -1) {
+        favourites.splice(idx, 1);
+        saveFavourites();
+        showToast("☆ Removed " + symbol + " from Favourites");
+      } else {
+        const snap = findStockSnapshot(symbol);
+        if (!snap) return;
+        const s = snap.stock;
+        favourites.push({
+          symbol: s.symbol,
+          name: s.name || s.symbol,
+          price: s.price || "-",
+          change: s.change || "-",
+          volume: s.volume || "-",
+          delivery: s.delivery || "-",
+          sourceFilter: snap.filterName,
+          matchedFilters: snap.matchedFilters,
+          addedAt: Date.now()
+        });
+        saveFavourites();
+        showToast("⭐ Added " + s.symbol + " to Favourites (resets next scan)");
+      }
+
+      renderSidebar();
+      renderContent();
+      updateHoverCardActionButtons(symbol);
+      if (tc) tc.scrollTop = prevScroll;
+    }
+
+    function clearFavourites() {
+      if (favourites.length === 0) return;
+      openConfirmModal(
+        "Clear Favourites?",
+        "This will remove all " + favourites.length + " stocks from your current scan Favourites.",
+        "Clear All",
+        () => {
+          favourites = [];
+          saveFavourites();
+          renderSidebar();
+          renderContent();
+          if (currentHoverSymbol) updateHoverCardActionButtons(currentHoverSymbol);
+          showToast("🧹 Favourites cleared");
+        }
+      );
+    }
+
+    function toggleWatchlist(symbol) {
+      if (!symbol) return;
+      const sym = symbol.toUpperCase();
+      const idx = watchlist.findIndex(w => (w.symbol || "").toUpperCase() === sym);
+      if (idx !== -1) {
+        removeFromWatchlist(symbol);
+        return;
+      }
+
+      const snap = findStockSnapshot(symbol);
+      if (!snap) return;
+      const s = snap.stock;
+      const tc = document.getElementById("tableContainer");
+      const prevScroll = tc ? tc.scrollTop : 0;
+
+      const entryNum = parseNumeric(s.price);
+      const liveInfo = liveQuotesMap[sym];
+      const latestNum = (liveInfo && typeof liveInfo.price === "number") ? liveInfo.price : entryNum;
+
+      watchlist.unshift({
+        symbol: s.symbol,
+        name: s.name || s.symbol,
+        entryPrice: entryNum,
+        entryPriceFormatted: s.price || formatInrNum(entryNum),
+        entryChange: s.change || "-",
+        entryVolume: s.volume || "-",
+        entryDelivery: s.delivery || "-",
+        filterName: snap.filterName,
+        matchedFilters: snap.matchedFilters,
+        addedDate: currentScanDate,
+        addedDateDisplay: currentScanDateDisplay,
+        addedTimestamp: Date.now(),
+        lastPrice: latestNum,
+        lastPriceFormatted: (liveInfo && typeof liveInfo.price === "number") ? formatInrNum(liveInfo.price) : (s.price || "-"),
+        lastChange: (liveInfo && typeof liveInfo.change === "number") ? ((liveInfo.change >= 0 ? "+" : "") + liveInfo.change.toFixed(2) + "%") : (s.change || "-"),
+        lastVolume: (liveInfo && liveInfo.volume) ? formatInrNum(liveInfo.volume) : (s.volume || "-"),
+        lastDelivery: s.delivery || "-"
+      });
+      saveWatchlist();
+      showToast("👁️ Added " + s.symbol + " to Long-Term Watchlist");
+
+      renderSidebar();
+      renderContent();
+      updateHoverCardActionButtons(symbol);
+      if (tc) tc.scrollTop = prevScroll;
+    }
+
+    function removeFromWatchlist(symbol) {
+      const sym = (symbol || "").toUpperCase();
+      const idx = watchlist.findIndex(w => (w.symbol || "").toUpperCase() === sym);
+      if (idx === -1) return;
+      openConfirmModal(
+        "Delete from Watchlist?",
+        "Remove " + watchlist[idx].symbol + " (added on " + (watchlist[idx].addedDateDisplay || watchlist[idx].addedDate) + ") from your long-term Watchlist?",
+        "Delete",
+        () => {
+          const tc = document.getElementById("tableContainer");
+          const prevScroll = tc ? tc.scrollTop : 0;
+          const removedSym = watchlist[idx].symbol;
+          watchlist.splice(idx, 1);
+          saveWatchlist();
+          renderSidebar();
+          renderContent();
+          updateHoverCardActionButtons(removedSym);
+          if (tc) tc.scrollTop = prevScroll;
+          showToast("🗑️ Removed " + removedSym + " from Watchlist");
+        }
+      );
+    }
+
+    function getWatchlistMetrics(w) {
+      const sym = (w.symbol || "").toUpperCase();
+      const liveInfo = liveQuotesMap[sym];
+      const activeScanMatch = Object.values(confluenceMap).find(s => (s.symbol || "").toUpperCase() === sym);
+      const entryPrice = parseNumeric(w.entryPrice || w.entryPriceFormatted);
+
+      let currentPrice = parseNumeric(w.lastPrice || entryPrice);
+      let currentPriceFormatted = w.lastPriceFormatted || w.entryPriceFormatted || "-";
+      let dayChange = w.lastChange || w.entryChange || "-";
+      let volume = w.lastVolume || w.entryVolume || "-";
+      let delivery = w.lastDelivery || w.entryDelivery || "-";
+      let isLive = false;
+
+      if (activeScanMatch) {
+        const scanPrice = parseNumeric(activeScanMatch.price);
+        if (scanPrice > 0) {
+          currentPrice = scanPrice;
+          currentPriceFormatted = activeScanMatch.price;
+        }
+        dayChange = activeScanMatch.change || dayChange;
+        volume = activeScanMatch.volume || volume;
+        delivery = activeScanMatch.delivery || delivery;
+      }
+
+      if (liveInfo && typeof liveInfo.price === "number" && liveInfo.price > 0) {
+        currentPrice = liveInfo.price;
+        currentPriceFormatted = formatInrNum(liveInfo.price);
+        if (typeof liveInfo.change === "number") {
+          dayChange = (liveInfo.change >= 0 ? "+" : "") + liveInfo.change.toFixed(2) + "%";
+        }
+        if (liveInfo.volume) {
+          volume = formatInrNum(liveInfo.volume);
+        }
+        isLive = true;
+      }
+
+      const movementAbs = (entryPrice > 0 && currentPrice > 0) ? (currentPrice - entryPrice) : 0;
+      const movementPct = (entryPrice > 0 && currentPrice > 0) ? ((currentPrice - entryPrice) / entryPrice) * 100 : 0;
+
+      return {
+        entryPrice,
+        entryPriceFormatted: w.entryPriceFormatted || formatInrNum(entryPrice),
+        currentPrice,
+        currentPriceFormatted,
+        dayChange,
+        volume,
+        delivery,
+        movementAbs,
+        movementPct,
+        isLive,
+        activeScanMatch
+      };
+    }
+
+    // Sync watchlist cached metrics if any watched stock appears in latest scan data
+    (function syncWatchlistOnBoot() {
+      if (!watchlist.length) return;
+      let changed = false;
+      watchlist.forEach(w => {
+        const sym = (w.symbol || "").toUpperCase();
+        const match = Object.values(confluenceMap).find(s => (s.symbol || "").toUpperCase() === sym);
+        if (match) {
+          const p = parseNumeric(match.price);
+          if (p > 0) {
+            w.lastPrice = p;
+            w.lastPriceFormatted = match.price;
+          }
+          if (match.change) w.lastChange = match.change;
+          if (match.volume) w.lastVolume = match.volume;
+          if (match.delivery && match.delivery !== "-") w.lastDelivery = match.delivery;
+          changed = true;
+        }
+      });
+      if (changed) saveWatchlist();
+    })();
+
     // ── 100% Stock Load Guarantee (Realistic Fallback for ETFs) ───
     function getCandlesForSymbol(symbol) {
       if (candleStore[symbol] && candleStore[symbol].length > 0) {
@@ -1639,6 +2365,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           const match = list.find(s => s.symbol === symbol);
           if (match) { stockObj = match; break; }
         }
+      }
+      if (!stockObj) {
+        const wMatch = watchlist.find(w => w.symbol === symbol);
+        if (wMatch) stockObj = { price: wMatch.lastPrice || wMatch.entryPrice };
+      }
+      if (!stockObj) {
+        const fMatch = favourites.find(f => f.symbol === symbol);
+        if (fMatch) stockObj = { price: fMatch.price };
       }
       const price = parseNumeric(stockObj ? stockObj.price : 100) || 100;
       const list = [];
@@ -1696,6 +2430,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           if (bar) bar.style.width = "100%";
           if (icon) icon.innerText = "✅";
           text.innerText = "100% Done!";
+          try { localStorage.removeItem(FAV_STORAGE_KEY); } catch (_) {}
           showToast("🎉 Scans completed & Watchlists updated! Reloading dashboard...");
           setTimeout(() => window.location.reload(), 1400);
         }
@@ -2055,6 +2790,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       if (symEl) symEl.innerText = "NSE:" + symbol;
       const tvBtn = document.getElementById("cardTvAccountBtn");
       if (tvBtn) tvBtn.href = "https://www.tradingview.com/chart/?symbol=NSE:" + symbol;
+      updateHoverCardActionButtons(symbol);
 
       const tabTv = document.getElementById("tabTvChart");
       const tabSmc = document.getElementById("tabSmcChart");
@@ -3074,8 +3810,22 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       }
     }
 
+    // ── Header Quick List Badges & Active State ──────────────
+    function updateHeaderQuickLists() {
+      const favBtn = document.getElementById("hdrFavBtn");
+      const watchBtn = document.getElementById("hdrWatchBtn");
+      const favCountEl = document.getElementById("hdrFavCount");
+      const watchCountEl = document.getElementById("hdrWatchCount");
+
+      if (favCountEl) favCountEl.innerText = String(favourites.length);
+      if (watchCountEl) watchCountEl.innerText = String(watchlist.length);
+      if (favBtn) favBtn.classList.toggle("active", activeMode === "favourites");
+      if (watchBtn) watchBtn.classList.toggle("active", activeMode === "watchlist");
+    }
+
     // ── Sidebar Render ───────────────────────────────────────
     function renderSidebar() {
+      updateHeaderQuickLists();
       const container = document.getElementById("scanList");
       container.innerHTML = "";
 
@@ -3089,7 +3839,32 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       \`;
       container.appendChild(confDiv);
 
-      // 2. Individual Scans
+      // 2. Favourites Tab (Per-Scan Picks - Auto-resets on next scan run)
+      const favDiv = document.createElement("div");
+      favDiv.className = "scan-item favourites-special" + (activeMode === "favourites" ? " active" : "");
+      favDiv.onclick = () => selectFavourites();
+      favDiv.innerHTML = \`
+        <span class="scan-name" style="font-weight:700; color:#facc15;">⭐ Favourites</span>
+        <span class="scan-count" style="\${favourites.length > 0 ? 'background:rgba(250,204,21,0.25); color:#fde047;' : ''}">\${favourites.length}</span>
+      \`;
+      container.appendChild(favDiv);
+
+      // 3. Watchlist Tab (Long-Term Persistent - Manual Delete Only)
+      const watchDiv = document.createElement("div");
+      watchDiv.className = "scan-item watchlist-special" + (activeMode === "watchlist" ? " active" : "");
+      watchDiv.onclick = () => selectWatchlist();
+      watchDiv.innerHTML = \`
+        <span class="scan-name" style="font-weight:700; color:#34d399;">👁️ Watchlist</span>
+        <span class="scan-count" style="\${watchlist.length > 0 ? 'background:rgba(16,185,129,0.25); color:#34d399;' : ''}">\${watchlist.length}</span>
+      \`;
+      container.appendChild(watchDiv);
+
+      const divider = document.createElement("div");
+      divider.className = "sidebar-section-label";
+      divider.innerText = "Chartink Scans";
+      container.appendChild(divider);
+
+      // 4. Individual Scans
       scanNames.forEach((name, idx) => {
         const stocks = data[name] || [];
         const count = stocks.length;
@@ -3112,6 +3887,27 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       renderContent();
     }
 
+    function selectFavourites() {
+      activeMode = "favourites";
+      searchQuery = "";
+      document.getElementById("searchInput").value = "";
+      renderSidebar();
+      renderContent();
+    }
+
+    function selectWatchlist() {
+      activeMode = "watchlist";
+      searchQuery = "";
+      document.getElementById("searchInput").value = "";
+      renderSidebar();
+      renderContent();
+      // Auto-fetch live quotes if any watchlist stock doesn't have a live quote in this session
+      const needsLive = watchlist.some(w => !liveQuotesMap[(w.symbol || "").toUpperCase()]);
+      if (needsLive && watchlist.length > 0) {
+        updateLivePercentage(true);
+      }
+    }
+
     function selectScan(idx) {
       activeMode = "scan";
       activeIndex = idx;
@@ -3126,20 +3922,54 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       renderContent();
     }
 
-    // ── Sorting Logic ────────────────────────────────────────
+    // ── Dynamic Table Headers & Sorting Logic ────────────────
+    function renderTableHeaders() {
+      const headerRow = document.getElementById("tableHeaderRow");
+      if (!headerRow) return;
+
+      if (activeMode === "watchlist") {
+        headerRow.innerHTML = \`
+          <th style="width: 35px;">#</th>
+          <th onclick="sortTable('symbol')">Symbol <span class="sort-arrow" id="sort-symbol">↕</span></th>
+          <th onclick="sortTable('name')">Company Name <span class="sort-arrow" id="sort-name">↕</span></th>
+          <th onclick="sortTable('filterDate')">Filter &amp; Date <span class="sort-arrow" id="sort-filterDate">↕</span></th>
+          <th onclick="sortTable('price')">LTP (₹) <span class="sort-arrow" id="sort-price">↕</span></th>
+          <th onclick="sortTable('sinceFilter')">Since Filter % <span class="sort-arrow" id="sort-sinceFilter">↕</span></th>
+          <th onclick="sortTable('change')">Change % <span class="sort-arrow" id="sort-change">↕</span></th>
+          <th onclick="sortTable('volume')">Volume <span class="sort-arrow" id="sort-volume">↕</span></th>
+          <th onclick="sortTable('delivery')">Delivery % <span class="sort-arrow" id="sort-delivery">↕</span></th>
+          <th>Your TradingView</th>
+          <th onclick="sortTable('liveChange')">Live % Change <span class="sort-arrow" id="sort-liveChange">↕</span></th>
+        \`;
+      } else {
+        headerRow.innerHTML = \`
+          <th style="width: 35px;">#</th>
+          <th onclick="sortTable('symbol')">Symbol <span class="sort-arrow" id="sort-symbol">↕</span></th>
+          <th onclick="sortTable('name')">Company Name <span class="sort-arrow" id="sort-name">↕</span></th>
+          <th onclick="sortTable('price')">LTP (₹) <span class="sort-arrow" id="sort-price">↕</span></th>
+          <th onclick="sortTable('change')">Change % <span class="sort-arrow" id="sort-change">↕</span></th>
+          <th onclick="sortTable('volume')">Volume <span class="sort-arrow" id="sort-volume">↕</span></th>
+          <th onclick="sortTable('delivery')">Delivery % <span class="sort-arrow" id="sort-delivery">↕</span></th>
+          <th>Your TradingView</th>
+          <th onclick="sortTable('liveChange')">Live % Change <span class="sort-arrow" id="sort-liveChange">↕</span></th>
+        \`;
+      }
+      updateSortHeaders();
+    }
+
     function sortTable(column) {
       if (sortColumn === column) {
         sortDirection = sortDirection === "asc" ? "desc" : "asc";
       } else {
         sortColumn = column;
-        sortDirection = (column === "change" || column === "volume" || column === "price" || column === "delivery" || column === "liveChange") ? "desc" : "asc";
+        sortDirection = (column === "change" || column === "volume" || column === "price" || column === "delivery" || column === "liveChange" || column === "sinceFilter" || column === "filterDate") ? "desc" : "asc";
       }
       updateSortHeaders();
       renderContent();
     }
 
     function updateSortHeaders() {
-      ["symbol", "name", "price", "change", "volume", "delivery", "liveChange"].forEach(col => {
+      ["symbol", "name", "filterDate", "price", "sinceFilter", "change", "volume", "delivery", "liveChange"].forEach(col => {
         const th = document.getElementById("sort-" + col);
         if (!th) return;
         const parentTh = th.parentElement;
@@ -3159,28 +3989,103 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       return parseFloat(str) || 0;
     }
 
-    // ── Content Render ───────────────────────────────────────
-    function renderContent() {
-      let stocks = [];
-      let title = "";
-      let desc = "";
-
+    function getActiveStocksList() {
       if (activeMode === "confluence") {
-        stocks = [...confluenceStocks];
-        title = "High Confluence Stocks";
-        desc = \`\${confluenceStocks.length} stocks matched multiple filters simultaneously!\`;
+        return [...confluenceStocks];
+      } else if (activeMode === "favourites") {
+        return favourites.map(f => {
+          const liveScan = confluenceMap[f.symbol];
+          return liveScan ? { ...f, ...liveScan, sourceFilter: f.sourceFilter, matchedFilters: f.matchedFilters } : { ...f };
+        });
+      } else if (activeMode === "watchlist") {
+        return watchlist.map(w => {
+          const wm = getWatchlistMetrics(w);
+          return {
+            ...w,
+            price: wm.currentPriceFormatted,
+            change: wm.dayChange,
+            volume: wm.volume,
+            delivery: wm.delivery,
+            _wm: wm
+          };
+        });
       } else {
         const scanName = scanNames[activeIndex];
-        stocks = [...(data[scanName] || [])];
+        return [...(data[scanName] || [])];
+      }
+    }
+
+    // ── Content Render ───────────────────────────────────────
+    function renderContent() {
+      if (activeMode !== "watchlist" && (sortColumn === "sinceFilter" || sortColumn === "filterDate")) {
+        sortColumn = null;
+      }
+      renderTableHeaders();
+      let stocks = getActiveStocksList();
+      let title = "";
+      let desc = "";
+      const ctxBar = document.getElementById("listContextBar");
+
+      if (activeMode === "confluence") {
+        title = "High Confluence Stocks";
+        desc = \`\${confluenceStocks.length} stocks matched multiple filters simultaneously!\`;
+        if (ctxBar) ctxBar.style.display = "none";
+      } else if (activeMode === "favourites") {
+        title = "⭐ Scan Favourites";
+        desc = \`\${stocks.length} picked stock\${stocks.length === 1 ? '' : 's'} • Auto-resets when next scan runs\`;
+        if (ctxBar) {
+          ctxBar.className = "list-context-bar fav-bar";
+          ctxBar.style.display = "flex";
+          ctxBar.innerHTML = \`
+            <div class="context-info">
+              <span class="context-stat-pill" style="color:#facc15; border-color:rgba(250,204,21,0.3);">⭐ Session Picks: \${stocks.length}</span>
+              <span>Scan Date: <b>\${currentScanDateDisplay}</b> • Automatically resets on next scan run</span>
+            </div>
+            \${stocks.length > 0 ? '<button type="button" class="mini-action-btn danger" onclick="clearFavourites()">🗑️ Clear Favourites</button>' : ''}
+          \`;
+        }
+      } else if (activeMode === "watchlist") {
+        title = "👁️ Long-Term Watchlist";
+        desc = \`\${stocks.length} watched stock\${stocks.length === 1 ? '' : 's'} • Persistent until manually deleted\`;
+        if (ctxBar) {
+          let gainers = 0, losers = 0, totalMove = 0;
+          stocks.forEach(item => {
+            const pct = item._wm ? item._wm.movementPct : 0;
+            if (pct > 0.001) gainers++;
+            else if (pct < -0.001) losers++;
+            totalMove += pct;
+          });
+          const avgMove = stocks.length > 0 ? (totalMove / stocks.length) : 0;
+          const avgColor = avgMove >= 0 ? "#10b981" : "#ef4444";
+          const avgSign = avgMove >= 0 ? "+" : "";
+          ctxBar.className = "list-context-bar watch-bar";
+          ctxBar.style.display = "flex";
+          ctxBar.innerHTML = \`
+            <div class="context-info">
+              <span class="context-stat-pill" style="color:#34d399; border-color:rgba(16,185,129,0.3);">👁️ Tracking: \${stocks.length}</span>
+              \${stocks.length > 0 ? \`
+                <span class="context-stat-pill" style="color:#10b981;">▲ Gainers: \${gainers}</span>
+                <span class="context-stat-pill" style="color:#ef4444;">▼ Losers: \${losers}</span>
+                <span class="context-stat-pill" style="color:\${avgColor};">Avg Move: \${avgSign}\${avgMove.toFixed(2)}%</span>
+              \` : '<span>Tap 👁️ on any stock row or chart popup to watch long-term</span>'}
+            </div>
+            \${stocks.length > 0 ? '<button type="button" class="mini-action-btn" onclick="updateLivePercentage()">🔄 Refresh Live Movement</button>' : ''}
+          \`;
+        }
+      } else {
+        const scanName = scanNames[activeIndex];
         title = scanName;
-        desc = \`\${stocks.length} stocks matched this scan\`;
+        desc = \`\${stocks.length} stocks matched this scan (\${currentScanDateDisplay})\`;
+        if (ctxBar) ctxBar.style.display = "none";
       }
 
       // Filter by Search Query
       if (searchQuery) {
         stocks = stocks.filter(s =>
           (s.symbol || "").toLowerCase().includes(searchQuery) ||
-          (s.name || "").toLowerCase().includes(searchQuery)
+          (s.name || "").toLowerCase().includes(searchQuery) ||
+          (s.filterName || "").toLowerCase().includes(searchQuery) ||
+          (s.sourceFilter || "").toLowerCase().includes(searchQuery)
         );
       }
 
@@ -3192,6 +4097,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             aVal = (a[sortColumn] || "").toLowerCase();
             bVal = (b[sortColumn] || "").toLowerCase();
             return sortDirection === "asc" ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+          } else if (sortColumn === "sinceFilter") {
+            aVal = a._wm ? a._wm.movementPct : 0;
+            bVal = b._wm ? b._wm.movementPct : 0;
+            return sortDirection === "asc" ? aVal - bVal : bVal - aVal;
+          } else if (sortColumn === "filterDate") {
+            aVal = a.addedTimestamp || 0;
+            bVal = b.addedTimestamp || 0;
+            return sortDirection === "asc" ? aVal - bVal : bVal - aVal;
           } else if (sortColumn === "liveChange") {
             const aLive = liveQuotesMap[(a.symbol || "").toUpperCase()];
             const bLive = liveQuotesMap[(b.symbol || "").toUpperCase()];
@@ -3214,9 +4127,19 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
 
       const tbody = document.getElementById("stocksTable");
       const emptyNotice = document.getElementById("emptyNotice");
+      const emptyText = document.getElementById("emptyNoticeText");
       tbody.innerHTML = "";
 
       if (stocks.length === 0) {
+        if (emptyText) {
+          if (activeMode === "favourites" && !searchQuery) {
+            emptyText.innerText = "No Favourites picked yet. Click ⭐ on any stock to save it for this scan session (auto-resets on next scan).";
+          } else if (activeMode === "watchlist" && !searchQuery) {
+            emptyText.innerText = "Your long-term Watchlist is empty. Click 👁️ on any stock to track its filter entry date and movement % over time.";
+          } else {
+            emptyText.innerText = "No stocks matched your search/filter.";
+          }
+        }
         emptyNotice.style.display = "block";
         return;
       }
@@ -3229,7 +4152,6 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
 
         const changeVal = parseNumeric(s.change);
         const changeClass = changeVal >= 0 ? "positive" : "negative";
-        // Reliable direct TradingView chart link
         const tvUrl = "https://www.tradingview.com/chart/?symbol=NSE:" + s.symbol;
 
         const confInfo = confluenceMap[s.symbol];
@@ -3241,6 +4163,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         let extraTags = "";
         if (activeMode === "confluence" && confInfo && confInfo.scans) {
           extraTags = \`<div class="filter-tags">\${confInfo.scans.map(f => \`<span class="filter-tag">\${f}</span>\`).join('')}</div>\`;
+        } else if (activeMode === "favourites") {
+          const filters = (s.matchedFilters && s.matchedFilters.length) ? s.matchedFilters : (s.sourceFilter ? [s.sourceFilter] : []);
+          if (filters.length) {
+            extraTags = \`<div class="filter-tags">\${filters.map(f => \`<span class="filter-tag">\${f}</span>\`).join('')}</div>\`;
+          }
         }
 
         const delivVal = parseNumeric(s.delivery);
@@ -3264,16 +4191,65 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           liveHtml = '<span class="live-pill live-neutral" style="opacity:0.6; cursor:pointer;" onclick="event.stopPropagation(); updateLivePercentage()" title="Click Live % button above to fetch live prices">—</span>';
         }
 
+        const favActive = isFavourite(s.symbol);
+        const watchActive = isInWatchlist(s.symbol);
+        const favBtnHtml = \`<button type="button" class="stock-fav-btn\${favActive ? ' active' : ''}" onclick="event.stopPropagation(); toggleFavourite('\${s.symbol}')" title="\${favActive ? 'Remove from Favourites' : 'Add to Favourites (resets on next scan)'}">\${favActive ? '★' : '☆'}</button>\`;
+        const watchOrDeleteBtnHtml = activeMode === "watchlist"
+          ? \`<button type="button" class="stock-delete-btn" onclick="event.stopPropagation(); removeFromWatchlist('\${s.symbol}')" title="Delete \${s.symbol} from Watchlist">🗑️</button>\`
+          : \`<button type="button" class="stock-watch-btn\${watchActive ? ' active' : ''}" onclick="event.stopPropagation(); toggleWatchlist('\${s.symbol}')" title="\${watchActive ? 'In Long-Term Watchlist (Click to remove)' : 'Add to Long-Term Watchlist'}">👁️</button>\`;
+
+        let watchlistColsBeforePrice = "";
+        let watchlistColsAfterPrice = "";
+        let priceSubHtml = "";
+
+        if (activeMode === "watchlist" && s._wm) {
+          const wm = s._wm;
+          const filtersList = (s.matchedFilters && s.matchedFilters.length) ? s.matchedFilters : [s.filterName || "Scan"];
+          const primaryFilter = s.filterName || filtersList[0];
+          const secondaryFilters = filtersList.filter(f => f !== primaryFilter);
+          const extraMatchesHtml = secondaryFilters.length > 0
+            ? \`<div class="filter-tags">\${secondaryFilters.slice(0, 3).map(f => \`<span class="filter-tag">\${f}</span>\`).join('')}</div>\`
+            : "";
+
+          watchlistColsBeforePrice = \`
+            <td>
+              <div class="filter-date-cell">
+                <span class="filter-name-badge" title="\${filtersList.join(', ')}">\${primaryFilter}</span>
+                <span class="filter-date-sub">📅 \${s.addedDateDisplay || s.addedDate || "-"}</span>
+                \${extraMatchesHtml}
+              </div>
+            </td>
+          \`;
+
+          priceSubHtml = \`<span class="entry-price-sub" title="Price when added from filter">Entry: ₹\${wm.entryPriceFormatted}</span>\`;
+
+          const mPct = wm.movementPct;
+          const mAbs = wm.movementAbs;
+          const mClass = Math.abs(mPct) < 0.01 ? "movement-flat" : (mPct > 0 ? "movement-pos" : "movement-neg");
+          const mSign = mPct > 0 ? "▲ +" : (mPct < 0 ? "▼ " : "");
+          const absSign = mAbs >= 0 ? "+" : "-";
+          watchlistColsAfterPrice = \`
+            <td>
+              <div class="movement-pill \${mClass}" title="From ₹\${wm.entryPriceFormatted} (\${s.addedDateDisplay || s.addedDate}) to ₹\${wm.currentPriceFormatted}\${wm.isLive ? ' (Live)' : ''}">
+                <span>\${mSign}\${Math.abs(mPct).toFixed(2)}%</span>
+                <span class="movement-abs-sub">\${absSign}₹\${Math.abs(mAbs).toFixed(2)}</span>
+              </div>
+            </td>
+          \`;
+        }
+
         tr.innerHTML = \`
           <td style="color:var(--text-muted); font-size:0.75rem;">\${i + 1}</td>
           <td>
-            <div style="display:flex; align-items:center;">
+            <div style="display:flex; align-items:center; flex-wrap:nowrap;">
               <span class="symbol-pill" 
                     onmouseenter="onSymbolEnter(event, '\${s.symbol}')"
                     onmouseleave="onSymbolLeave()"
                     onclick="onSymbolClick(event, '\${s.symbol}')"
                     title="Hover to view PineScript Chart | Click to Pin">\${s.symbol}</span>
               \${confluenceHtml}
+              \${favBtnHtml}
+              \${watchOrDeleteBtnHtml}
               <button type="button" class="stock-analyze-btn" onclick="event.stopPropagation(); analyzeStockAuto('\${s.symbol}')" title="Auto-capture & analyze \${s.symbol} in Patternlytics">✨</button>
               <button type="button" class="stock-copy-btn" onclick="event.stopPropagation(); copySymbolSingle('\${s.symbol}', this)" title="Copy NSE:\${s.symbol} to clipboard for TradingView">
                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3285,7 +4261,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             \${extraTags}
           </td>
           <td style="font-weight:500;" title="\${s.name}">\${s.name}</td>
-          <td class="price">₹\${s.price || "-"}</td>
+          \${watchlistColsBeforePrice}
+          <td class="price">₹\${s.price || "-"}\${priceSubHtml}</td>
+          \${watchlistColsAfterPrice}
           <td class="\${changeClass}">\${s.change || "-"}</td>
           <td><span class="volume-pill">\${s.volume || "-"}</span></td>
           <td><span class="delivery-pill \${delivClass}" title="Delivery %: \${s.delivery || 'N/A'}">\${s.delivery || "-"}</span></td>
@@ -3348,7 +4326,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     // ── Live Market Percentage Update (TradingView Scanner API) ─────────────
-    async function updateLivePercentage() {
+    async function updateLivePercentage(silent = false) {
       const btn = document.getElementById("updateLiveBtn");
       const text = document.getElementById("liveBtnText");
       if (btn) btn.classList.add("loading");
@@ -3361,9 +4339,12 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             scanStocks.forEach(s => { if (s.symbol) allSyms.add(s.symbol.toUpperCase()); });
           }
         }
+        favourites.forEach(f => { if (f.symbol) allSyms.add(f.symbol.toUpperCase()); });
+        watchlist.forEach(w => { if (w.symbol) allSyms.add(w.symbol.toUpperCase()); });
+
         const symbolList = Array.from(allSyms);
         if (symbolList.length === 0) {
-          showToast("No stocks found to update.");
+          if (!silent) showToast("No stocks found to update.");
           return;
         }
 
@@ -3427,11 +4408,31 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           sessionStorage.setItem("conflux_live_quotes", JSON.stringify(liveQuotesMap));
         } catch (_) {}
 
+        // Persist latest fetched price/change/volume into Watchlist so movement survives browser restart
+        if (watchlist.length > 0) {
+          let wUpdated = false;
+          watchlist.forEach(w => {
+            const liveQ = liveQuotesMap[(w.symbol || "").toUpperCase()];
+            if (liveQ && typeof liveQ.price === "number" && liveQ.price > 0) {
+              w.lastPrice = liveQ.price;
+              w.lastPriceFormatted = formatInrNum(liveQ.price);
+              if (typeof liveQ.change === "number") {
+                w.lastChange = (liveQ.change >= 0 ? "+" : "") + liveQ.change.toFixed(2) + "%";
+              }
+              if (liveQ.volume) {
+                w.lastVolume = formatInrNum(liveQ.volume);
+              }
+              wUpdated = true;
+            }
+          });
+          if (wUpdated) saveWatchlist();
+        }
+
         renderContent();
-        showToast("⚡ Live % updated for " + updatedCount + " stocks!");
+        if (!silent) showToast("⚡ Live % updated for " + updatedCount + " stocks!");
       } catch (err) {
         console.error("Live update error:", err);
-        showToast("⚠️ Could not fetch live quotes. Check connection.");
+        if (!silent) showToast("⚠️ Could not fetch live quotes. Check connection.");
       } finally {
         if (btn) btn.classList.remove("loading");
         if (text) text.innerText = "Live %";
@@ -3439,13 +4440,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     function copyActiveScan() {
-      let stocks = [];
-      if (activeMode === "confluence") {
-        stocks = confluenceStocks;
-      } else {
-        const scanName = scanNames[activeIndex];
-        stocks = data[scanName] || [];
-      }
+      const stocks = getActiveStocksList();
       if (stocks.length === 0) return;
 
       const tvFormatted = stocks.map(s => "NSE:" + s.symbol).join(", ");
