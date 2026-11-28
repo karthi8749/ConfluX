@@ -662,7 +662,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
     th {
       text-align: left;
-      padding: 11px 10px;
+      padding: 10px 8px;
       color: var(--text-muted);
       font-weight: 600;
       font-size: 0.72rem;
@@ -682,7 +682,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     th .sort-arrow { margin-left: 3px; font-size: 0.7rem; opacity: 0.4; }
     th.sorted .sort-arrow { opacity: 1; color: var(--accent); }
     td {
-      padding: 10px 10px;
+      padding: 10px 8px;
       border-bottom: 1px solid var(--row-border);
       transition: var(--transition);
       vertical-align: middle;
@@ -715,12 +715,120 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
     .company-name-cell {
       font-weight: 500;
-      max-width: 175px;
+      max-width: 220px;
       line-height: 1.3;
     }
     .table-container.watchlist-mode .company-name-cell {
-      max-width: 120px;
+      max-width: 145px;
       font-size: 0.76rem;
+    }
+    .tbl-pat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 5px;
+    }
+    .pat-mini {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      line-height: 1.2;
+      max-width: 100%;
+    }
+    .pat-bull {
+      background: rgba(16, 185, 129, 0.14);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .pat-bear {
+      background: rgba(242, 54, 69, 0.14);
+      color: #f87171;
+      border: 1px solid rgba(242, 54, 69, 0.35);
+    }
+    .pat-neut {
+      background: rgba(148, 163, 184, 0.12);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+    }
+    .pat-chart {
+      background: rgba(168, 85, 247, 0.15);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.38);
+    }
+    body[data-theme="light"] .pat-bull {
+      background: #dcfce7;
+      color: #15803d;
+      border-color: #86efac;
+    }
+    body[data-theme="light"] .pat-bear {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fca5a5;
+    }
+    body[data-theme="light"] .pat-neut {
+      background: #f1f5f9;
+      color: #475569;
+      border-color: #cbd5e1;
+    }
+    body[data-theme="light"] .pat-chart {
+      background: #f3e8ff;
+      color: #7e22ce;
+      border-color: #d8b4fe;
+    }
+
+    /* ─── CHART POPUP PATTERN STRIP ─── */
+    .pattern-strip {
+      padding: 7px 14px;
+      background: rgba(15, 23, 42, 0.72);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    body[data-theme="light"] .pattern-strip {
+      background: #f8fafc;
+    }
+    .pat-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      font-size: 0.7rem;
+    }
+    .pat-lbl {
+      font-weight: 700;
+      color: var(--text-muted);
+      min-width: 108px;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .candle-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .step-day {
+      opacity: 0.78;
+      font-weight: 500;
+      font-size: 0.63rem;
+    }
+    .arrow-sep {
+      color: var(--text-muted);
+      font-weight: 800;
+      font-size: 0.72rem;
     }
     .stock-actions-row {
       display: flex;
@@ -1738,6 +1846,18 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         font-size: 0.64rem;
         padding: 1px 5px;
       }
+      .pattern-strip {
+        padding: 5px 10px;
+        gap: 4px;
+      }
+      .pat-lbl {
+        min-width: auto;
+        font-size: 0.6rem;
+      }
+      .candle-step {
+        font-size: 0.61rem;
+        padding: 2px 5px;
+      }
 
       #mainCandleChart {
         height: 72%;
@@ -1945,11 +2065,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           </div>
         </div>
 
-        <div id="mainCandleChart" style="width: 100%; height: 70%; position: relative;">
+        <!-- Last 3 Candles (Day-2 -> Day-1 -> Today) & Chart Pattern Strip -->
+        <div class="pattern-strip" id="patternStrip" style="display:none;"></div>
+
+        <div id="mainCandleChart" style="width: 100%; flex: 7; min-height: 0; position: relative;">
           <!-- GPU Zero-Lag Canvas Overlay -->
           <canvas id="smcCanvas"></canvas>
         </div>
-        <div id="subPaneRsiMfi" style="width: 100%; height: 30%; position: relative; background: var(--rsi-bg);">
+        <div id="subPaneRsiMfi" style="width: 100%; flex: 3; min-height: 0; position: relative; background: var(--rsi-bg);">
           <div class="subpane-header-readout" id="subpaneReadout">
             <span style="color:#b39ddb;">RSI: --</span>
             <span style="color:#ffd600;">MA: --</span>
@@ -2019,7 +2142,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     let currentHoverSymbol = "";
     let isSyncingRange = false;
     let currentSmcData = null;
+    let currentPatternData = null;
     let smcAnimFrame = null;
+    const patternCache = {};
 
     // Real-Time Live Market Quotes Store (TradingView Scanner Engine)
     let liveQuotesMap = {};
@@ -3501,6 +3626,68 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           }
         });
       }
+
+      // 5. Chart Pattern Overlay (Neckline / Key Resistance / Support + Last 3 Candles Box)
+      if (currentPatternData) {
+        const cp = currentPatternData.chartPattern && currentPatternData.chartPattern.primary;
+        if (cp && cp.level && cp.startTime) {
+          const yLvl = candleSeries.priceToCoordinate(cp.level);
+          let xStart = null;
+          try { xStart = mainChart.timeScale().timeToCoordinate(cp.startTime); } catch (_) {}
+          if (yLvl !== null && yLvl > 12 && yLvl < h - 12) {
+            const startX = Math.max(0, xStart !== null ? xStart : 20);
+            ctx.strokeStyle = "#c084fc";
+            ctx.lineWidth = 1.4;
+            ctx.setLineDash([6, 4]);
+            ctx.beginPath();
+            ctx.moveTo(startX, yLvl);
+            ctx.lineTo(endX, yLvl);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            const lbl = cp.name + (cp.levelLabel ? " " + cp.levelLabel : "");
+            const lblW = Math.min(200, lbl.length * 6 + 12);
+            const lblX = Math.max(8, endX - lblW - 8);
+            const lblY = yLvl > 22 ? yLvl - 5 : yLvl + 13;
+            ctx.fillStyle = "rgba(168, 85, 247, 0.28)";
+            ctx.fillRect(lblX - 4, lblY - 10, lblW, 13);
+            ctx.fillStyle = "#e9d5ff";
+            ctx.font = "bold 9px 'JetBrains Mono', monospace";
+            ctx.fillText(lbl, lblX, lblY);
+          }
+        }
+
+        // Highlight Last 3 Candles window
+        const l3 = currentPatternData.last3Candles;
+        if (l3 && l3.length === 3 && currentPatternData.last3Window) {
+          const win = currentPatternData.last3Window;
+          let x1 = null, x2 = null;
+          try {
+            x1 = mainChart.timeScale().timeToCoordinate(win.startTime);
+            x2 = mainChart.timeScale().timeToCoordinate(win.endTime);
+          } catch (_) {}
+          const yHi = candleSeries.priceToCoordinate(win.high);
+          const yLo = candleSeries.priceToCoordinate(win.low);
+          if (x1 !== null && x2 !== null && yHi !== null && yLo !== null) {
+            const bx = Math.max(0, Math.min(x1, x2) - 10);
+            const bw = Math.min(endX - bx, Math.abs(x2 - x1) + 20);
+            const by = Math.max(4, Math.min(yHi, yLo) - 6);
+            const bh = Math.max(16, Math.abs(yLo - yHi) + 12);
+            if (bw > 10 && bx < endX) {
+              ctx.fillStyle = "rgba(250, 204, 21, 0.06)";
+              ctx.fillRect(bx, by, bw, bh);
+              ctx.strokeStyle = "rgba(250, 204, 21, 0.7)";
+              ctx.lineWidth = 1.1;
+              ctx.setLineDash([3, 3]);
+              ctx.strokeRect(bx, by, bw, bh);
+              ctx.setLineDash([]);
+              ctx.fillStyle = "#fde047";
+              ctx.font = "bold 8px 'JetBrains Mono', monospace";
+              ctx.fillText("Last 3", bx + 2, by > 14 ? by - 3 : by + bh + 9);
+            }
+          }
+        }
+      }
       ctx.restore();
     }
 
@@ -3859,6 +4046,20 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       // 5. PineScript 2: LuxAlgo SMC (Order Block & BOS)
       currentSmcData = detectSmartMoneyConcepts(candles);
 
+      // 5b. Last 3 Candles & Classical Chart Pattern Analysis
+      currentPatternData = getPatternsForSymbol(symbol);
+      renderPatternStrip(symbol, currentPatternData);
+      requestAnimationFrame(() => {
+        if (mainChart && subChart) {
+          const mc = document.getElementById("mainCandleChart");
+          const sc = document.getElementById("subPaneRsiMfi");
+          if (mc && sc && mc.clientHeight > 0 && sc.clientHeight > 0) {
+            mainChart.applyOptions({ width: mc.clientWidth, height: mc.clientHeight });
+            subChart.applyOptions({ width: sc.clientWidth, height: sc.clientHeight });
+          }
+        }
+      });
+
       // 6. AUTO-FRAME STRICTLY THE LAST 30 DAYS WITH 5.5 BARS RIGHT PADDING (Zero interfere with right price axis!)
       const totalCandles = candles.length;
       if (totalCandles > 0) {
@@ -3891,6 +4092,566 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       if (watchCountEl) watchCountEl.innerText = String(watchlist.length);
       if (favBtn) favBtn.classList.toggle("active", activeMode === "favourites");
       if (watchBtn) watchBtn.classList.toggle("active", activeMode === "watchlist");
+    }
+
+    // ── CANDLESTICK (LAST 3 DAYS) & CHART PATTERN ENGINE ─────
+    function formatPatternDate(isoStr) {
+      if (!isoStr) return "";
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const parts = String(isoStr).split("-");
+      if (parts.length !== 3) return isoStr;
+      const mIdx = parseInt(parts[1], 10) - 1;
+      return parts[2] + " " + (months[mIdx] || parts[1]);
+    }
+
+    function classifyCandleAt(candles, i, dayLabel) {
+      const c = candles[i];
+      const o = c.open, h = c.high, l = c.low, cl = c.close;
+      const range = h - l;
+      const dateLabel = formatPatternDate(c.time);
+
+      if (!range || range <= 0) {
+        return { dayLabel, dateLabel, name: "Flat Doji", shortName: "Doji", bias: "neutral" };
+      }
+
+      const body = Math.abs(cl - o);
+      const bodyRatio = body / range;
+      const upperWick = h - Math.max(o, cl);
+      const lowerWick = Math.min(o, cl) - l;
+      const upperRatio = upperWick / range;
+      const lowerRatio = lowerWick / range;
+      const isBull = cl > o;
+      const isBear = cl < o;
+
+      // Prior 5-bar trend context
+      const prevIdx = Math.max(0, i - 1);
+      const lookIdx = Math.max(0, i - 6);
+      let priorTrend = "flat";
+      if (i >= 2) {
+        const refClose = candles[lookIdx].close || o;
+        if (candles[prevIdx].close < refClose * 0.992) priorTrend = "down";
+        else if (candles[prevIdx].close > refClose * 1.008) priorTrend = "up";
+      }
+
+      // 1. Check 3-Candle Patterns
+      if (i >= 2) {
+        const c2 = candles[i - 2];
+        const c1 = candles[i - 1];
+        const r2 = (c2.high - c2.low) || 1;
+        const b2 = Math.abs(c2.close - c2.open);
+        const r1 = (c1.high - c1.low) || 1;
+        const b1 = Math.abs(c1.close - c1.open);
+
+        // Morning Star
+        if (c2.close < c2.open && (b2 / r2) >= 0.45 && (b1 / r1) <= 0.35 && isBull && bodyRatio >= 0.45 && cl > (c2.open + c2.close) / 2) {
+          return { dayLabel, dateLabel, name: "Morning Star", shortName: "Morning Star", bias: "bullish" };
+        }
+        // Evening Star
+        if (c2.close > c2.open && (b2 / r2) >= 0.45 && (b1 / r1) <= 0.35 && isBear && bodyRatio >= 0.45 && cl < (c2.open + c2.close) / 2) {
+          return { dayLabel, dateLabel, name: "Evening Star", shortName: "Evening Star", bias: "bearish" };
+        }
+        // Three White Soldiers
+        if (c2.close > c2.open && c1.close > c1.open && isBull &&
+            (b2 / r2) >= 0.48 && (b1 / r1) >= 0.48 && bodyRatio >= 0.48 &&
+            c1.close > c2.close && cl > c1.close) {
+          return { dayLabel, dateLabel, name: "3 White Soldiers", shortName: "3 Soldiers", bias: "bullish" };
+        }
+        // Three Black Crows
+        if (c2.close < c2.open && c1.close < c1.open && isBear &&
+            (b2 / r2) >= 0.48 && (b1 / r1) >= 0.48 && bodyRatio >= 0.48 &&
+            c1.close < c2.close && cl < c1.close) {
+          return { dayLabel, dateLabel, name: "3 Black Crows", shortName: "3 Crows", bias: "bearish" };
+        }
+      }
+
+      // 2. Check 2-Candle Patterns
+      if (i >= 1) {
+        const p = candles[i - 1];
+        const pRange = (p.high - p.low) || 1;
+        const pBody = Math.abs(p.close - p.open);
+        const pBodyRatio = pBody / pRange;
+        const pMid = (p.open + p.close) / 2;
+
+        // Bullish Engulfing
+        if (p.close < p.open && isBull && body > pBody * 1.05 && o <= p.close * 1.003 && cl >= p.open * 0.997) {
+          return { dayLabel, dateLabel, name: "Bullish Engulfing", shortName: "Bull Engulf", bias: "bullish" };
+        }
+        // Bearish Engulfing
+        if (p.close > p.open && isBear && body > pBody * 1.05 && o >= p.close * 0.997 && cl <= p.open * 1.003) {
+          return { dayLabel, dateLabel, name: "Bearish Engulfing", shortName: "Bear Engulf", bias: "bearish" };
+        }
+        // Piercing Line
+        if (p.close < p.open && pBodyRatio >= 0.5 && isBull && o < p.close && cl > pMid && cl < p.open) {
+          return { dayLabel, dateLabel, name: "Piercing Line", shortName: "Piercing", bias: "bullish" };
+        }
+        // Dark Cloud Cover
+        if (p.close > p.open && pBodyRatio >= 0.5 && isBear && o > p.close && cl < pMid && cl > p.open) {
+          return { dayLabel, dateLabel, name: "Dark Cloud Cover", shortName: "Dark Cloud", bias: "bearish" };
+        }
+        // Bullish Harami
+        if (p.close < p.open && pBodyRatio >= 0.52 && isBull && bodyRatio <= 0.45 && o >= p.close && cl <= p.open && body < pBody * 0.6) {
+          return { dayLabel, dateLabel, name: "Bullish Harami", shortName: "Bull Harami", bias: "bullish" };
+        }
+        // Bearish Harami
+        if (p.close > p.open && pBodyRatio >= 0.52 && isBear && bodyRatio <= 0.45 && o <= p.close && cl >= p.open && body < pBody * 0.6) {
+          return { dayLabel, dateLabel, name: "Bearish Harami", shortName: "Bear Harami", bias: "bearish" };
+        }
+        // Tweezer Bottom
+        if (priorTrend === "down" && p.close < p.open && isBull && Math.abs(l - p.low) / p.low <= 0.0025) {
+          return { dayLabel, dateLabel, name: "Tweezer Bottom", shortName: "Tweezer Btm", bias: "bullish" };
+        }
+        // Tweezer Top
+        if (priorTrend === "up" && p.close > p.open && isBear && Math.abs(h - p.high) / p.high <= 0.0025) {
+          return { dayLabel, dateLabel, name: "Tweezer Top", shortName: "Tweezer Top", bias: "bearish" };
+        }
+      }
+
+      // 3. Single-Candle Patterns (Every day gets an exact pattern/candle type)
+      if (bodyRatio <= 0.12) {
+        if (lowerRatio >= 0.58 && upperRatio <= 0.2) {
+          return { dayLabel, dateLabel, name: "Dragonfly Doji", shortName: "Dragonfly Doji", bias: "bullish" };
+        }
+        if (upperRatio >= 0.58 && lowerRatio <= 0.2) {
+          return { dayLabel, dateLabel, name: "Gravestone Doji", shortName: "Gravestone Doji", bias: "bearish" };
+        }
+        return { dayLabel, dateLabel, name: "Doji", shortName: "Doji", bias: "neutral" };
+      }
+
+      if (bodyRatio >= 0.78) {
+        return isBull
+          ? { dayLabel, dateLabel, name: "Bullish Marubozu", shortName: "Marubozu", bias: "bullish" }
+          : { dayLabel, dateLabel, name: "Bearish Marubozu", shortName: "Bear Marubozu", bias: "bearish" };
+      }
+
+      if (lowerRatio >= 0.52 && bodyRatio <= 0.36 && upperRatio <= 0.18) {
+        if (priorTrend === "up") {
+          return { dayLabel, dateLabel, name: "Hanging Man", shortName: "Hanging Man", bias: "bearish" };
+        }
+        return { dayLabel, dateLabel, name: "Hammer", shortName: "Hammer", bias: "bullish" };
+      }
+
+      if (upperRatio >= 0.52 && bodyRatio <= 0.36 && lowerRatio <= 0.18) {
+        if (priorTrend === "up") {
+          return { dayLabel, dateLabel, name: "Shooting Star", shortName: "Shooting Star", bias: "bearish" };
+        }
+        return { dayLabel, dateLabel, name: "Inverted Hammer", shortName: "Inv Hammer", bias: "bullish" };
+      }
+
+      if (bodyRatio <= 0.32 && upperRatio >= 0.22 && lowerRatio >= 0.22) {
+        return { dayLabel, dateLabel, name: "Spinning Top", shortName: "Spinning Top", bias: "neutral" };
+      }
+
+      if (isBull) {
+        return bodyRatio >= 0.52
+          ? { dayLabel, dateLabel, name: "Strong Bullish", shortName: "Strong Bull", bias: "bullish" }
+          : { dayLabel, dateLabel, name: "Bullish Candle", shortName: "Bull Candle", bias: "bullish" };
+      }
+      if (isBear) {
+        return bodyRatio >= 0.52
+          ? { dayLabel, dateLabel, name: "Strong Bearish", shortName: "Strong Bear", bias: "bearish" }
+          : { dayLabel, dateLabel, name: "Bearish Candle", shortName: "Bear Candle", bias: "bearish" };
+      }
+
+      return { dayLabel, dateLabel, name: "Doji", shortName: "Doji", bias: "neutral" };
+    }
+
+    function analyzeLast3Candles(candles) {
+      if (!candles || candles.length === 0) return { list: [], window: null };
+      const n = candles.length;
+      const start = Math.max(0, n - 3);
+      const sliceCount = n - start;
+      const labels = sliceCount === 3 ? ["Day-2", "Day-1", "Today"] : (sliceCount === 2 ? ["Day-1", "Today"] : ["Today"]);
+      const list = [];
+      let hi = -Infinity, lo = Infinity;
+      for (let k = 0; k < sliceCount; k++) {
+        const idx = start + k;
+        const c = candles[idx];
+        if (c.high > hi) hi = c.high;
+        if (c.low < lo) lo = c.low;
+        list.push(classifyCandleAt(candles, idx, labels[k]));
+      }
+      return {
+        list,
+        window: { startTime: candles[start].time, endTime: candles[n - 1].time, high: hi, low: lo }
+      };
+    }
+
+    function findChartPivots(candles, lb = 4) {
+      const highs = [], lows = [];
+      for (let i = lb; i < candles.length - lb; i++) {
+        let isH = true, isL = true;
+        for (let j = i - lb; j <= i + lb; j++) {
+          if (j === i) continue;
+          if (candles[j].high >= candles[i].high) isH = false;
+          if (candles[j].low <= candles[i].low) isL = false;
+        }
+        if (isH) highs.push({ idx: i, price: candles[i].high, time: candles[i].time });
+        if (isL) lows.push({ idx: i, price: candles[i].low, time: candles[i].time });
+      }
+      return { highs, lows };
+    }
+
+    function calcPivotSlopePct(pts) {
+      if (!pts || pts.length < 2) return 0;
+      const n = pts.length;
+      let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+      const base = pts[0].price || 1;
+      for (let i = 0; i < n; i++) {
+        sumX += pts[i].idx;
+        sumY += pts[i].price;
+        sumXY += pts[i].idx * pts[i].price;
+        sumXX += pts[i].idx * pts[i].idx;
+      }
+      const denom = n * sumXX - sumX * sumX;
+      if (Math.abs(denom) < 1e-6) return 0;
+      const slope = (n * sumXY - sumX * sumY) / denom;
+      return (slope / base) * 100; // % change per bar
+    }
+
+    function detectChartPatterns(candles) {
+      if (!candles || candles.length < 25) {
+        return { primary: { name: "Insufficient Data", bias: "neutral", status: "", level: null, startTime: null }, all: [] };
+      }
+
+      const sub = candles.slice(-130);
+      const n = sub.length;
+      const latest = sub[n - 1];
+      const latestClose = latest.close;
+      const { highs, lows } = findChartPivots(sub, 4);
+      const found = [];
+
+      // 1. Cup & Handle (look back 35..120 bars)
+      if (n >= 40) {
+        let bestCup = null;
+        const leftEnd = Math.floor(n * 0.45);
+        let p1Idx = 0;
+        for (let i = 3; i < leftEnd; i++) {
+          if (sub[i].high > sub[p1Idx].high) p1Idx = i;
+        }
+        const p1 = sub[p1Idx].high;
+
+        let troughIdx = p1Idx + 5;
+        if (troughIdx < n - 12) {
+          for (let i = p1Idx + 4; i < n - 10; i++) {
+            if (sub[i].low < sub[troughIdx].low) troughIdx = i;
+          }
+          const tLow = sub[troughIdx].low;
+          const depthPct = (p1 - tLow) / p1;
+
+          if (depthPct >= 0.08 && depthPct <= 0.38 && troughIdx - p1Idx >= 6) {
+            let p2Idx = troughIdx + 5;
+            for (let i = troughIdx + 4; i < n - 2; i++) {
+              if (sub[i].high > sub[p2Idx].high) p2Idx = i;
+            }
+            const p2 = sub[p2Idx].high;
+            const rimDiff = Math.abs(p2 - p1) / p1;
+
+            if (rimDiff <= 0.06 && p2Idx - troughIdx >= 6) {
+              const handleSlice = sub.slice(p2Idx);
+              if (handleSlice.length >= 2 && handleSlice.length <= 22) {
+                const handleLow = Math.min(...handleSlice.map(c => c.low));
+                const handlePullback = (p2 - handleLow) / (p1 - tLow);
+                if (handlePullback >= 0.05 && handlePullback <= 0.55) {
+                  const neckline = Math.round(Math.max(p1, p2) * 100) / 100;
+                  const dist = (neckline - latestClose) / neckline;
+                  const status = latestClose > neckline ? "Breakout" : (dist <= 0.04 ? "Near Breakout" : "Forming");
+                  bestCup = {
+                    name: "Cup & Handle",
+                    bias: "bullish",
+                    status,
+                    level: neckline,
+                    levelLabel: "@ ₹" + neckline,
+                    startTime: sub[p1Idx].time,
+                    score: 95 - Math.abs(dist) * 100
+                  };
+                }
+              }
+            }
+          }
+        }
+        if (bestCup) found.push(bestCup);
+      }
+
+      // 2. Double Bottom (W)
+      if (lows.length >= 2) {
+        for (let a = lows.length - 2; a >= 0; a--) {
+          const l1 = lows[a];
+          const l2 = lows[lows.length - 1];
+          if (l2.idx - l1.idx < 8 || l2.idx < n - 38) continue;
+          const diff = Math.abs(l2.price - l1.price) / l1.price;
+          if (diff <= 0.032) {
+            let peak = -Infinity;
+            for (let k = l1.idx + 1; k < l2.idx; k++) {
+              if (sub[k].high > peak) peak = sub[k].high;
+            }
+            const bounce = (peak - Math.min(l1.price, l2.price)) / Math.min(l1.price, l2.price);
+            if (bounce >= 0.04 && latestClose >= Math.min(l1.price, l2.price) * 0.98) {
+              const neckline = Math.round(peak * 100) / 100;
+              const dist = (neckline - latestClose) / neckline;
+              const status = latestClose > neckline ? "Breakout" : (dist <= 0.035 ? "Near Neckline" : "Support Hold");
+              found.push({
+                name: "Double Bottom",
+                bias: "bullish",
+                status,
+                level: neckline,
+                levelLabel: "@ ₹" + neckline,
+                startTime: l1.time,
+                score: 90
+              });
+              break;
+            }
+          }
+        }
+      }
+
+      // 3. Double Top (M)
+      if (highs.length >= 2) {
+        for (let a = highs.length - 2; a >= 0; a--) {
+          const h1 = highs[a];
+          const h2 = highs[highs.length - 1];
+          if (h2.idx - h1.idx < 8 || h2.idx < n - 35) continue;
+          const diff = Math.abs(h2.price - h1.price) / h1.price;
+          if (diff <= 0.032) {
+            let valley = Infinity;
+            for (let k = h1.idx + 1; k < h2.idx; k++) {
+              if (sub[k].low < valley) valley = sub[k].low;
+            }
+            const maxTop = Math.max(h1.price, h2.price);
+            const drop = (maxTop - valley) / maxTop;
+            // Only report Double Top if price is below the twin tops (not breaking out above them)
+            if (drop >= 0.04 && latestClose < maxTop * 0.99) {
+              const neckline = Math.round(valley * 100) / 100;
+              const status = latestClose < neckline ? "Breakdown" : "Resistance Test";
+              found.push({
+                name: "Double Top",
+                bias: "bearish",
+                status,
+                level: neckline,
+                levelLabel: "@ ₹" + neckline,
+                startTime: h1.time,
+                score: 86
+              });
+              break;
+            }
+          }
+        }
+      }
+
+      // 4. Inverse Head & Shoulders / Head & Shoulders
+      if (lows.length >= 3) {
+        const ls = lows[lows.length - 3], hd = lows[lows.length - 2], rs = lows[lows.length - 1];
+        if (hd.idx > ls.idx + 4 && rs.idx > hd.idx + 4 && hd.price < ls.price * 0.985 && hd.price < rs.price * 0.985 && Math.abs(ls.price - rs.price) / ls.price <= 0.05) {
+          let pA = -Infinity, pB = -Infinity;
+          for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].high > pA) pA = sub[k].high;
+          for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].high > pB) pB = sub[k].high;
+          const neck = Math.round(((pA + pB) / 2) * 100) / 100;
+          found.push({
+            name: "Inv Head & Shoulders",
+            bias: "bullish",
+            status: latestClose > neck ? "Breakout" : "Near Neckline",
+            level: neck,
+            levelLabel: "@ ₹" + neck,
+            startTime: ls.time,
+            score: 88
+          });
+        }
+      }
+      if (highs.length >= 3) {
+        const ls = highs[highs.length - 3], hd = highs[highs.length - 2], rs = highs[highs.length - 1];
+        if (hd.idx > ls.idx + 4 && rs.idx > hd.idx + 4 && hd.price > ls.price * 1.015 && hd.price > rs.price * 1.015 && Math.abs(ls.price - rs.price) / ls.price <= 0.05) {
+          let vA = Infinity, vB = Infinity;
+          for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].low < vA) vA = sub[k].low;
+          for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].low < vB) vB = sub[k].low;
+          const neck = Math.round(((vA + vB) / 2) * 100) / 100;
+          found.push({
+            name: "Head & Shoulders",
+            bias: "bearish",
+            status: latestClose < neck ? "Breakdown" : "Forming",
+            level: neck,
+            levelLabel: "@ ₹" + neck,
+            startTime: ls.time,
+            score: 85
+          });
+        }
+      }
+
+      // 5. Triangles & Wedges from recent Pivots (last ~70 bars)
+      const rHighs = highs.filter(p => p.idx >= n - 75);
+      const rLows = lows.filter(p => p.idx >= n - 75);
+      if (rHighs.length >= 2 && rLows.length >= 2) {
+        const hSlope = calcPivotSlopePct(rHighs.slice(-3));
+        const lSlope = calcPivotSlopePct(rLows.slice(-3));
+        const resLvl = Math.round((rHighs.slice(-2).reduce((a, b) => a + b.price, 0) / Math.min(2, rHighs.length)) * 100) / 100;
+        const supLvl = Math.round((rLows.slice(-2).reduce((a, b) => a + b.price, 0) / Math.min(2, rLows.length)) * 100) / 100;
+        const triStart = rHighs[0].idx < rLows[0].idx ? rHighs[0].time : rLows[0].time;
+
+        if (Math.abs(hSlope) <= 0.07 && lSlope > 0.07) {
+          found.push({
+            name: "Ascending Triangle",
+            bias: "bullish",
+            status: latestClose > resLvl ? "Breakout" : "Coiling",
+            level: resLvl,
+            levelLabel: "@ ₹" + resLvl,
+            startTime: triStart,
+            score: 84
+          });
+        } else if (Math.abs(lSlope) <= 0.07 && hSlope < -0.07) {
+          found.push({
+            name: "Descending Triangle",
+            bias: "bearish",
+            status: latestClose < supLvl ? "Breakdown" : "Coiling",
+            level: supLvl,
+            levelLabel: "@ ₹" + supLvl,
+            startTime: triStart,
+            score: 82
+          });
+        } else if (hSlope < -0.05 && lSlope > 0.05) {
+          found.push({
+            name: "Symmetrical Triangle",
+            bias: "neutral",
+            status: latestClose > resLvl ? "Breakout" : "Squeeze",
+            level: resLvl,
+            levelLabel: "@ ₹" + resLvl,
+            startTime: triStart,
+            score: 79
+          });
+        } else if (hSlope < -0.06 && lSlope < -0.02 && hSlope < lSlope * 1.15) {
+          found.push({
+            name: "Falling Wedge",
+            bias: "bullish",
+            status: latestClose > resLvl ? "Breakout" : "Reversal Watch",
+            level: resLvl,
+            levelLabel: "@ ₹" + resLvl,
+            startTime: triStart,
+            score: 81
+          });
+        } else if (hSlope > 0.02 && lSlope > 0.06 && lSlope > hSlope * 1.15) {
+          found.push({
+            name: "Rising Wedge",
+            bias: "bearish",
+            status: latestClose < supLvl ? "Breakdown" : "Caution",
+            level: supLvl,
+            levelLabel: "@ ₹" + supLvl,
+            startTime: triStart,
+            score: 78
+          });
+        }
+      }
+
+      // 6. Bull Flag / Consolidation Box fallback
+      if (n >= 28) {
+        const flagBars = sub.slice(-14);
+        const poleBars = sub.slice(-28, -14);
+        const poleLow = Math.min(...poleBars.map(c => c.low));
+        const poleHigh = Math.max(...poleBars.map(c => c.high));
+        const poleMove = (poleHigh - poleLow) / poleLow;
+        const flagHigh = Math.max(...flagBars.map(c => c.high));
+        const flagLow = Math.min(...flagBars.map(c => c.low));
+        const flagRange = (flagHigh - flagLow) / flagHigh;
+
+        if (poleMove >= 0.08 && flagRange <= 0.085 && flagLow > poleLow + (poleHigh - poleLow) * 0.4) {
+          const brk = Math.round(flagHigh * 100) / 100;
+          found.push({
+            name: "Bull Flag",
+            bias: "bullish",
+            status: latestClose >= brk * 0.995 ? "Breakout" : "Flagging",
+            level: brk,
+            levelLabel: "@ ₹" + brk,
+            startTime: flagBars[0].time,
+            score: 80
+          });
+        } else if (flagRange <= 0.065) {
+          const boxRes = Math.round(flagHigh * 100) / 100;
+          found.push({
+            name: "Tight Box Range",
+            bias: "neutral",
+            status: latestClose >= boxRes * 0.995 ? "Near High" : "Consolidation",
+            level: boxRes,
+            levelLabel: "@ ₹" + boxRes,
+            startTime: flagBars[0].time,
+            score: 70
+          });
+        }
+      }
+
+      // Final trend structure fallback so every stock shows structural insight
+      if (found.length === 0) {
+        const recent20 = sub.slice(-20);
+        const hi20 = Math.round(Math.max(...recent20.map(c => c.high)) * 100) / 100;
+        const lo20 = Math.round(Math.min(...recent20.map(c => c.low)) * 100) / 100;
+        const pctFromLow = (latestClose - lo20) / (hi20 - lo20 || 1);
+        const isUp = latestClose > sub[Math.max(0, n - 20)].close;
+        found.push({
+          name: isUp ? (pctFromLow < 0.72 ? "Pullback in Uptrend" : "Uptrend Channel") : "Downtrend Channel",
+          bias: isUp ? "bullish" : "bearish",
+          status: pctFromLow >= 0.88 ? "Near Resistance" : (pctFromLow <= 0.25 ? "At Support" : "Active"),
+          level: isUp ? hi20 : lo20,
+          levelLabel: "@ ₹" + (isUp ? hi20 : lo20),
+          startTime: recent20[0].time,
+          score: 50
+        });
+      }
+
+      found.sort((a, b) => (b.score || 0) - (a.score || 0));
+      const deduped = [];
+      const seenNames = new Set();
+      for (const item of found) {
+        if (!seenNames.has(item.name)) {
+          seenNames.add(item.name);
+          deduped.push(item);
+        }
+      }
+      return { primary: deduped[0], all: deduped.slice(0, 2) };
+    }
+
+    function getPatternsForSymbol(symbol) {
+      const sym = (symbol || "").toUpperCase();
+      if (patternCache[sym]) return patternCache[sym];
+      const candles = getCandlesForSymbol(symbol);
+      const candleRes = analyzeLast3Candles(candles);
+      const chartPattern = detectChartPatterns(candles);
+      const res = {
+        last3Candles: candleRes.list,
+        last3Window: candleRes.window,
+        chartPattern
+      };
+      patternCache[sym] = res;
+      return res;
+    }
+
+    function biasToClass(bias) {
+      if (bias === "bullish") return "pat-bull";
+      if (bias === "bearish") return "pat-bear";
+      return "pat-neut";
+    }
+
+    function renderPatternStrip(symbol, patData) {
+      const strip = document.getElementById("patternStrip");
+      if (!strip) return;
+      const pd = patData || getPatternsForSymbol(symbol);
+      if (!pd || !pd.last3Candles || pd.last3Candles.length === 0) {
+        strip.style.display = "none";
+        return;
+      }
+
+      const stepsHtml = pd.last3Candles.map((c, idx) => {
+        const cls = biasToClass(c.bias);
+        const arrow = idx < pd.last3Candles.length - 1 ? '<span class="arrow-sep">→</span>' : '';
+        return '<span class="candle-step ' + cls + '"><span class="step-day">' + c.dayLabel + ' (' + c.dateLabel + '):</span> ' + c.name + '</span>' + arrow;
+      }).join("");
+
+      const cpAll = (pd.chartPattern && pd.chartPattern.all && pd.chartPattern.all.length) ? pd.chartPattern.all : [];
+      const cpHtml = cpAll.map((cp, idx) => {
+        const cls = idx === 0 ? "pat-chart" : biasToClass(cp.bias);
+        const statusPart = cp.status ? " • " + cp.status : "";
+        const lvlPart = cp.levelLabel ? " " + cp.levelLabel : "";
+        return '<span class="candle-step ' + cls + '">' + cp.name + statusPart + lvlPart + '</span>';
+      }).join("");
+
+      strip.innerHTML =
+        '<div class="pat-line"><span class="pat-lbl">🕯️ Last 3 Candles</span>' + stepsHtml + '</div>' +
+        '<div class="pat-line"><span class="pat-lbl">📐 Chart Pattern</span>' + cpHtml + '</div>';
+      strip.style.display = "flex";
     }
 
     // ── Sidebar Render ───────────────────────────────────────
@@ -4283,6 +5044,18 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           \`;
         }
 
+        const patData = getPatternsForSymbol(s.symbol);
+        let rowPatternsHtml = "";
+        if (patData && patData.last3Candles && patData.last3Candles.length > 0) {
+          const l3 = patData.last3Candles;
+          const chainText = l3.map(c => c.shortName).join(" → ");
+          const chainTitle = l3.map(c => c.dayLabel + " (" + c.dateLabel + "): " + c.name).join(" | ");
+          const todayBiasCls = biasToClass(l3[l3.length - 1].bias);
+          const cp = patData.chartPattern && patData.chartPattern.primary;
+          const cpBadge = cp ? '<span class="pat-mini pat-chart" title="' + cp.name + (cp.status ? ' (' + cp.status + ')' : '') + ' ' + (cp.levelLabel || '') + '">📐 ' + cp.name + '</span>' : "";
+          rowPatternsHtml = '<div class="tbl-pat-row"><span class="pat-mini ' + todayBiasCls + '" title="' + chainTitle + '">🕯️ ' + chainText + '</span>' + cpBadge + '</div>';
+        }
+
         tr.innerHTML = \`
           <td style="color:var(--text-muted); font-size:0.75rem;">\${i + 1}</td>
           <td>
@@ -4307,7 +5080,10 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             </div>
             \${extraTags}
           </td>
-          <td class="company-name-cell" title="\${s.name}">\${s.name}</td>
+          <td class="company-name-cell">
+            <div title="\${s.name}">\${s.name}</div>
+            \${rowPatternsHtml}
+          </td>
           \${watchlistColsBeforePrice}
           <td class="price">₹\${s.price || "-"}\${priceSubHtml}</td>
           \${watchlistColsAfterPrice}
