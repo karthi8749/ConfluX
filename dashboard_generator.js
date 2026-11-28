@@ -347,7 +347,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       width: 100%;
     }
     .topbar {
-      padding: 10px 18px;
+      padding: 10px 16px;
       border-bottom: 1px solid var(--border);
       background: var(--card-bg);
       display: flex;
@@ -355,13 +355,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       align-items: center;
       flex-wrap: wrap;
       transition: var(--transition);
-      gap: 10px;
+      gap: 8px;
     }
     .topbar-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       min-width: 0;
+      flex: 0 1 auto;
     }
     .sidebar-expand-btn {
       display: none;
@@ -384,28 +385,39 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     .topbar-left h2 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 260px;
+      max-width: 210px;
     }
     .topbar-left p {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
       margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
     }
     .topbar-actions {
+      margin-left: auto;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 8px;
+      gap: 5px;
       flex-shrink: 1;
       max-width: 100%;
     }
+    .topbar-actions .btn {
+      padding: 5px 9px;
+      font-size: 0.74rem;
+    }
+    .btn-group { display: flex; gap: 5px; }
+    .action-row { display: flex; align-items: center; gap: 6px; }
 
     /* Search Box */
     .search-box-wrapper {
@@ -417,16 +429,16 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       background: var(--bg);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 7px 12px 7px 30px;
+      padding: 5px 9px 5px 26px;
       border-radius: 8px;
-      font-size: 0.82rem;
-      width: 155px;
+      font-size: 0.76rem;
+      width: 128px;
       outline: none;
       transition: var(--transition);
     }
     .search-input:focus {
       border-color: var(--accent);
-      width: 195px;
+      width: 165px;
     }
     .search-icon {
       position: absolute;
@@ -581,7 +593,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
       position: relative;
       overflow: hidden;
-      min-width: 135px;
+      min-width: 108px;
       justify-content: center;
     }
     .btn-run:hover {
@@ -624,7 +636,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       flex: 1;
       overflow-y: auto;
       overflow-x: auto;
-      padding: 16px 24px;
+      padding: 14px 18px;
       width: 100%;
     }
     .table-container::-webkit-scrollbar {
@@ -646,16 +658,16 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.9rem;
+      font-size: 0.86rem;
     }
     th {
       text-align: left;
-      padding: 12px 14px;
+      padding: 11px 10px;
       color: var(--text-muted);
       font-weight: 600;
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
@@ -664,14 +676,64 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       z-index: 10;
       cursor: pointer;
       user-select: none;
+      white-space: nowrap;
     }
     th:hover { color: var(--accent); }
     th .sort-arrow { margin-left: 3px; font-size: 0.7rem; opacity: 0.4; }
     th.sorted .sort-arrow { opacity: 1; color: var(--accent); }
     td {
-      padding: 12px 14px;
+      padding: 10px 10px;
       border-bottom: 1px solid var(--row-border);
       transition: var(--transition);
+      vertical-align: middle;
+    }
+    .table-container.watchlist-mode {
+      padding: 12px 14px;
+    }
+    .table-container.watchlist-mode th {
+      padding: 9px 5px;
+      font-size: 0.67rem;
+    }
+    .table-container.watchlist-mode td {
+      padding: 8px 5px;
+      font-size: 0.79rem;
+    }
+    .table-container.watchlist-mode .volume-pill,
+    .table-container.watchlist-mode .delivery-pill,
+    .table-container.watchlist-mode .live-pill {
+      padding: 3px 6px;
+      font-size: 0.75rem;
+    }
+    .table-container.watchlist-mode .open-chart-btn {
+      padding: 4px 7px;
+      font-size: 0.71rem;
+      gap: 4px;
+    }
+    .table-container.watchlist-mode .movement-pill {
+      padding: 3px 6px;
+      font-size: 0.76rem;
+    }
+    .company-name-cell {
+      font-weight: 500;
+      max-width: 175px;
+      line-height: 1.3;
+    }
+    .table-container.watchlist-mode .company-name-cell {
+      max-width: 120px;
+      font-size: 0.76rem;
+    }
+    .stock-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+    }
+    .stock-actions-row .stock-fav-btn,
+    .stock-actions-row .stock-watch-btn,
+    .stock-actions-row .stock-delete-btn,
+    .stock-actions-row .stock-analyze-btn,
+    .stock-actions-row .stock-copy-btn {
+      margin-left: 0;
     }
     tr.stock-row:hover td { background: var(--hover-bg); }
 
@@ -775,8 +837,8 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     .open-chart-btn {
-      padding: 5px 11px;
-      font-size: 0.78rem;
+      padding: 4px 9px;
+      font-size: 0.75rem;
       background: rgba(41, 98, 255, 0.12);
       color: #38bdf8;
       border: 1px solid rgba(41, 98, 255, 0.3);
@@ -784,10 +846,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       font-weight: 700;
       transition: var(--transition);
       user-select: none;
+      white-space: nowrap;
     }
     
     .stock-analyze-btn {
@@ -968,8 +1031,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     .filter-date-cell {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      min-width: 145px;
+      gap: 4px;
+      min-width: 0;
+      max-width: 155px;
     }
     .filter-name-badge {
       display: inline-block;
@@ -1403,15 +1467,19 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
 
     /* ─── DESKTOP ACTION ROWS ─── */
     .topbar-actions {
+      margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 6px;
+      flex-shrink: 1;
+      max-width: 100%;
     }
     .action-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
     }
 
     /* ─── MOBILE RESPONSIVENESS (Samsung S23 6.1" & Handhelds) ─── */
@@ -1495,8 +1563,10 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       }
 
       .topbar-actions {
+        margin-left: 0;
         display: flex;
         flex-direction: column;
+        align-items: stretch;
         gap: 8px;
         width: 100%;
       }
@@ -3839,32 +3909,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       \`;
       container.appendChild(confDiv);
 
-      // 2. Favourites Tab (Per-Scan Picks - Auto-resets on next scan run)
-      const favDiv = document.createElement("div");
-      favDiv.className = "scan-item favourites-special" + (activeMode === "favourites" ? " active" : "");
-      favDiv.onclick = () => selectFavourites();
-      favDiv.innerHTML = \`
-        <span class="scan-name" style="font-weight:700; color:#facc15;">⭐ Favourites</span>
-        <span class="scan-count" style="\${favourites.length > 0 ? 'background:rgba(250,204,21,0.25); color:#fde047;' : ''}">\${favourites.length}</span>
-      \`;
-      container.appendChild(favDiv);
-
-      // 3. Watchlist Tab (Long-Term Persistent - Manual Delete Only)
-      const watchDiv = document.createElement("div");
-      watchDiv.className = "scan-item watchlist-special" + (activeMode === "watchlist" ? " active" : "");
-      watchDiv.onclick = () => selectWatchlist();
-      watchDiv.innerHTML = \`
-        <span class="scan-name" style="font-weight:700; color:#34d399;">👁️ Watchlist</span>
-        <span class="scan-count" style="\${watchlist.length > 0 ? 'background:rgba(16,185,129,0.25); color:#34d399;' : ''}">\${watchlist.length}</span>
-      \`;
-      container.appendChild(watchDiv);
-
-      const divider = document.createElement("div");
-      divider.className = "sidebar-section-label";
-      divider.innerText = "Chartink Scans";
-      container.appendChild(divider);
-
-      // 4. Individual Scans
+      // 2. Individual Scans
       scanNames.forEach((name, idx) => {
         const stocks = data[name] || [];
         const count = stocks.length;
@@ -3929,17 +3974,17 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
 
       if (activeMode === "watchlist") {
         headerRow.innerHTML = \`
-          <th style="width: 35px;">#</th>
+          <th style="width: 28px;">#</th>
           <th onclick="sortTable('symbol')">Symbol <span class="sort-arrow" id="sort-symbol">↕</span></th>
-          <th onclick="sortTable('name')">Company Name <span class="sort-arrow" id="sort-name">↕</span></th>
+          <th onclick="sortTable('name')">Company <span class="sort-arrow" id="sort-name">↕</span></th>
           <th onclick="sortTable('filterDate')">Filter &amp; Date <span class="sort-arrow" id="sort-filterDate">↕</span></th>
           <th onclick="sortTable('price')">LTP (₹) <span class="sort-arrow" id="sort-price">↕</span></th>
-          <th onclick="sortTable('sinceFilter')">Since Filter % <span class="sort-arrow" id="sort-sinceFilter">↕</span></th>
-          <th onclick="sortTable('change')">Change % <span class="sort-arrow" id="sort-change">↕</span></th>
+          <th onclick="sortTable('sinceFilter')">Since Filter <span class="sort-arrow" id="sort-sinceFilter">↕</span></th>
+          <th onclick="sortTable('change')">Chg % <span class="sort-arrow" id="sort-change">↕</span></th>
           <th onclick="sortTable('volume')">Volume <span class="sort-arrow" id="sort-volume">↕</span></th>
-          <th onclick="sortTable('delivery')">Delivery % <span class="sort-arrow" id="sort-delivery">↕</span></th>
-          <th>Your TradingView</th>
-          <th onclick="sortTable('liveChange')">Live % Change <span class="sort-arrow" id="sort-liveChange">↕</span></th>
+          <th onclick="sortTable('delivery')">Deliv % <span class="sort-arrow" id="sort-delivery">↕</span></th>
+          <th>Chart</th>
+          <th onclick="sortTable('liveChange')">Live % <span class="sort-arrow" id="sort-liveChange">↕</span></th>
         \`;
       } else {
         headerRow.innerHTML = \`
@@ -4016,10 +4061,14 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     // ── Content Render ───────────────────────────────────────
+    const TRASH_SVG = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>';
+
     function renderContent() {
       if (activeMode !== "watchlist" && (sortColumn === "sinceFilter" || sortColumn === "filterDate")) {
         sortColumn = null;
       }
+      const tcEl = document.getElementById("tableContainer");
+      if (tcEl) tcEl.classList.toggle("watchlist-mode", activeMode === "watchlist");
       renderTableHeaders();
       let stocks = getActiveStocksList();
       let title = "";
@@ -4041,7 +4090,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
               <span class="context-stat-pill" style="color:#facc15; border-color:rgba(250,204,21,0.3);">⭐ Session Picks: \${stocks.length}</span>
               <span>Scan Date: <b>\${currentScanDateDisplay}</b> • Automatically resets on next scan run</span>
             </div>
-            \${stocks.length > 0 ? '<button type="button" class="mini-action-btn danger" onclick="clearFavourites()">🗑️ Clear Favourites</button>' : ''}
+            \${stocks.length > 0 ? '<button type="button" class="mini-action-btn danger" onclick="clearFavourites()">' + TRASH_SVG + ' Clear Favourites</button>' : ''}
           \`;
         }
       } else if (activeMode === "watchlist") {
@@ -4195,7 +4244,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         const watchActive = isInWatchlist(s.symbol);
         const favBtnHtml = \`<button type="button" class="stock-fav-btn\${favActive ? ' active' : ''}" onclick="event.stopPropagation(); toggleFavourite('\${s.symbol}')" title="\${favActive ? 'Remove from Favourites' : 'Add to Favourites (resets on next scan)'}">\${favActive ? '★' : '☆'}</button>\`;
         const watchOrDeleteBtnHtml = activeMode === "watchlist"
-          ? \`<button type="button" class="stock-delete-btn" onclick="event.stopPropagation(); removeFromWatchlist('\${s.symbol}')" title="Delete \${s.symbol} from Watchlist">🗑️</button>\`
+          ? \`<button type="button" class="stock-delete-btn" onclick="event.stopPropagation(); removeFromWatchlist('\${s.symbol}')" title="Delete \${s.symbol} from Watchlist">\${TRASH_SVG}</button>\`
           : \`<button type="button" class="stock-watch-btn\${watchActive ? ' active' : ''}" onclick="event.stopPropagation(); toggleWatchlist('\${s.symbol}')" title="\${watchActive ? 'In Long-Term Watchlist (Click to remove)' : 'Add to Long-Term Watchlist'}">👁️</button>\`;
 
         let watchlistColsBeforePrice = "";
@@ -4204,19 +4253,15 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
 
         if (activeMode === "watchlist" && s._wm) {
           const wm = s._wm;
-          const filtersList = (s.matchedFilters && s.matchedFilters.length) ? s.matchedFilters : [s.filterName || "Scan"];
-          const primaryFilter = s.filterName || filtersList[0];
-          const secondaryFilters = filtersList.filter(f => f !== primaryFilter);
-          const extraMatchesHtml = secondaryFilters.length > 0
-            ? \`<div class="filter-tags">\${secondaryFilters.slice(0, 3).map(f => \`<span class="filter-tag">\${f}</span>\`).join('')}</div>\`
-            : "";
+          const rawFilters = (s.matchedFilters && s.matchedFilters.length) ? s.matchedFilters : [s.filterName || "Scan"];
+          const uniqueFilters = [...new Set(s.filterName ? [s.filterName, ...rawFilters] : rawFilters)];
+          const normalFilterTagsHtml = uniqueFilters.slice(0, 4).map(f => \`<span class="filter-tag" title="\${f}">\${f}</span>\`).join('');
 
           watchlistColsBeforePrice = \`
             <td>
               <div class="filter-date-cell">
-                <span class="filter-name-badge" title="\${filtersList.join(', ')}">\${primaryFilter}</span>
                 <span class="filter-date-sub">📅 \${s.addedDateDisplay || s.addedDate || "-"}</span>
-                \${extraMatchesHtml}
+                <div class="filter-tags">\${normalFilterTagsHtml}</div>
               </div>
             </td>
           \`;
@@ -4248,6 +4293,8 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
                     onclick="onSymbolClick(event, '\${s.symbol}')"
                     title="Hover to view PineScript Chart | Click to Pin">\${s.symbol}</span>
               \${confluenceHtml}
+            </div>
+            <div class="stock-actions-row">
               \${favBtnHtml}
               \${watchOrDeleteBtnHtml}
               <button type="button" class="stock-analyze-btn" onclick="event.stopPropagation(); analyzeStockAuto('\${s.symbol}')" title="Auto-capture & analyze \${s.symbol} in Patternlytics">✨</button>
@@ -4260,7 +4307,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             </div>
             \${extraTags}
           </td>
-          <td style="font-weight:500;" title="\${s.name}">\${s.name}</td>
+          <td class="company-name-cell" title="\${s.name}">\${s.name}</td>
           \${watchlistColsBeforePrice}
           <td class="price">₹\${s.price || "-"}\${priceSubHtml}</td>
           \${watchlistColsAfterPrice}
