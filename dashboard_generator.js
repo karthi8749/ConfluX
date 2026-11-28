@@ -730,29 +730,30 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
     .pat-text-line {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      font-weight: 600;
+      font-size: 0.67rem;
+      font-weight: 500;
       line-height: 1.35;
       color: var(--text-muted);
+      opacity: 0.92;
     }
-    .pat-txt-bull { color: #34d399; }
-    .pat-txt-bear { color: #f87171; }
-    .pat-txt-neut { color: #cbd5e1; }
-    .pat-txt-chart { color: #c084fc; }
-    .pat-arrow { color: var(--text-muted); opacity: 0.6; }
-    body[data-theme="light"] .pat-txt-bull { color: #059669; }
-    body[data-theme="light"] .pat-txt-bear { color: #dc2626; }
-    body[data-theme="light"] .pat-txt-neut { color: #475569; }
-    body[data-theme="light"] .pat-txt-chart { color: #7e22ce; }
+    .pat-txt-bull { color: rgba(52, 211, 153, 0.72); }
+    .pat-txt-bear { color: rgba(248, 113, 113, 0.72); }
+    .pat-txt-neut { color: rgba(148, 163, 184, 0.72); }
+    .pat-txt-chart { color: rgba(192, 132, 252, 0.74); }
+    .pat-arrow { color: var(--text-muted); opacity: 0.45; }
+    body[data-theme="light"] .pat-txt-bull { color: rgba(5, 150, 105, 0.78); }
+    body[data-theme="light"] .pat-txt-bear { color: rgba(220, 38, 38, 0.78); }
+    body[data-theme="light"] .pat-txt-neut { color: rgba(71, 85, 105, 0.78); }
+    body[data-theme="light"] .pat-txt-chart { color: rgba(126, 34, 206, 0.78); }
 
-    .pat-bull { color: #34d399; }
-    .pat-bear { color: #f87171; }
-    .pat-neut { color: #cbd5e1; }
-    .pat-chart { color: #c084fc; }
-    body[data-theme="light"] .pat-bull { color: #059669; }
-    body[data-theme="light"] .pat-bear { color: #dc2626; }
-    body[data-theme="light"] .pat-neut { color: #475569; }
-    body[data-theme="light"] .pat-chart { color: #7e22ce; }
+    .pat-bull { color: rgba(52, 211, 153, 0.78); }
+    .pat-bear { color: rgba(248, 113, 113, 0.78); }
+    .pat-neut { color: rgba(148, 163, 184, 0.78); }
+    .pat-chart { color: rgba(192, 132, 252, 0.8); }
+    body[data-theme="light"] .pat-bull { color: rgba(5, 150, 105, 0.82); }
+    body[data-theme="light"] .pat-bear { color: rgba(220, 38, 38, 0.82); }
+    body[data-theme="light"] .pat-neut { color: rgba(71, 85, 105, 0.82); }
+    body[data-theme="light"] .pat-chart { color: rgba(126, 34, 206, 0.82); }
 
     /* ─── CHART POPUP PATTERN STRIP ─── */
     .pattern-strip {
@@ -1288,10 +1289,10 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       box-shadow: var(--shadow);
     }
 
-    /* ─── ENLARGED FLOATING HOVER CHART CARD (840px x 600px) ─── */
+    /* ─── ENLARGED FLOATING HOVER CHART CARD (880px x 600px) ─── */
     .hover-chart-card {
       position: fixed;
-      width: 840px;
+      width: 880px;
       height: 600px;
       max-width: 95vw;
       max-height: 90vh;
@@ -1331,9 +1332,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       background: transparent;
       border: 1px solid transparent;
       color: var(--text-muted);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      padding: 4px 9px;
+      padding: 4px 8px;
       border-radius: 6px;
       cursor: pointer;
       transition: var(--transition);
@@ -1341,6 +1342,8 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       align-items: center;
       gap: 4px;
       line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .chart-tab-btn:hover {
       color: var(--text);
@@ -1354,53 +1357,71 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     }
 
     .card-topbar {
-      padding: 10px 16px;
+      padding: 8px 14px;
       background: var(--card-bg);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
       user-select: none;
       flex-shrink: 0;
     }
     .card-title-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      min-width: 0;
+      flex: 1 1 auto;
     }
     .card-symbol {
       font-family: 'JetBrains Mono', monospace;
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 0.96rem;
       color: var(--accent);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .card-ohlc {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.69rem;
       color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .card-actions {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      flex-shrink: 0;
     }
     .card-btn {
       background: var(--bg);
       border: 1px solid var(--border);
       color: var(--text-muted);
       border-radius: 6px;
-      padding: 5px 9px;
-      font-size: 0.75rem;
+      padding: 4px 8px;
+      height: 27px;
+      font-size: 0.72rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 4px;
       text-decoration: none;
       font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
       transition: var(--transition);
+    }
+    .card-btn.ind-active {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--accent);
     }
     .card-btn:hover {
       color: var(--text);
@@ -1764,8 +1785,10 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       .card-topbar {
         padding: 8px 12px;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+        gap: 6px;
       }
       .card-title-group {
         display: flex;
@@ -1780,8 +1803,9 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       }
       .card-actions {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 6px;
+        gap: 4px;
       }
       .card-btn.pin-btn {
         display: none !important;
@@ -1898,9 +1922,6 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             <button class="btn btn-accent" id="copyScanBtn" onclick="copyActiveScan()">
               📋 Copy
             </button>
-            <button class="btn btn-secondary" onclick="copyTop30()" title="Copy Top 30 Unique stocks">
-              ⭐ Top 30
-            </button>
           </div>
         </div>
 
@@ -1987,12 +2008,12 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           </button>
         </div>
 
-        <a href="#" target="_blank" class="card-btn" id="cardTvAccountBtn" title="Open full chart directly in TradingView.com tab">
-          <svg class="tv-logo-svg" role="img" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.8654 8.2789c0 1.3541 -1.0978 2.4519 -2.452 2.4519 -1.354 0 -2.4519 -1.0978 -2.4519 -2.452 0 -1.354 1.0978 -2.4518 2.452 -2.4518 1.3541 0 2.4519 1.0977 2.4519 2.4519zM9.75 6H0v4.9038h4.8462v7.2692H9.75Zm8.5962 0H24l-5.1058 12.173h-5.6538z"/>
-          </svg>
-          <span>TradingView ↗</span>
+        <a href="#" target="_blank" class="card-btn" id="cardTvAccountBtn" title="Open full chart on TradingView.com">
+          <span>↗ TV</span>
         </a>
+        <button type="button" class="card-btn ind-active" id="toggleIndicatorsBtn" onclick="event.stopPropagation(); toggleChartIndicators()" title="Hide / Show Chart Indicators (EMA, SMC, RSI/MFI)">
+          <span>📊 Indicators</span>
+        </button>
         <button type="button" class="card-btn" id="cardFavBtn" onclick="event.stopPropagation(); toggleFavourite(currentHoverSymbol)" title="Add/Remove from Scan Favourites (resets on next scan)">
           <span>☆</span>
         </button>
@@ -2000,7 +2021,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           <span>👁️</span>
         </button>
         <button type="button" class="card-btn" id="cardAnalyzeBtn" onclick="analyzeStockAuto(currentHoverSymbol)" style="color:#c084fc; border-color:rgba(168,85,247,0.35); cursor:pointer;" title="Auto-analyze chart in Patternlytics">
-          <span>✨ AI Analyze</span>
+          <span>✨ AI</span>
         </button>
         <button class="card-btn pin-btn" id="pinBtn" onclick="togglePinCard()" title="Pin this chart open while moving mouse">
           📌 Pin
@@ -2021,7 +2042,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       <!-- 2. ConfluX PineScript 1 & 2 Engine (Candles + SMC + Subpane RSI/MFI) -->
       <div id="smcChartWrapper" style="display: flex; flex-direction: column; width: 100%; height: 100%;">
         <!-- PineScript 1 & 2 Indicator Legend -->
-        <div class="indicator-legend-bar">
+        <div class="indicator-legend-bar" id="indicatorLegendBar">
           <div class="legend-group">
             <!-- PineScript 1: ONLY EMA 9 & EMA 21 (Thin 1px) -->
             <span class="legend-tag" style="color:#38bdf8;" id="ema9Legend"><span class="legend-dot" style="background:#2962ff;"></span>EMA 9</span>
@@ -2908,6 +2929,52 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
     })();
     let currentTvLoadedSymbol = "";
 
+    let showChartIndicators = (function() {
+      try {
+        return localStorage.getItem("conflux_show_indicators") !== "false";
+      } catch (_) {
+        return true;
+      }
+    })();
+
+    function applyIndicatorsVisibility() {
+      const btn = document.getElementById("toggleIndicatorsBtn");
+      const legend = document.getElementById("indicatorLegendBar");
+      const subPane = document.getElementById("subPaneRsiMfi");
+      const mainPane = document.getElementById("mainCandleChart");
+
+      if (btn) {
+        btn.classList.toggle("ind-active", showChartIndicators);
+        btn.innerHTML = showChartIndicators ? "<span>📊 Indicators</span>" : "<span>📊 Ind: Off</span>";
+        btn.style.display = currentChartMode === "tv" ? "none" : "inline-flex";
+      }
+      if (legend) legend.style.display = showChartIndicators ? "flex" : "none";
+      if (subPane) subPane.style.display = showChartIndicators ? "block" : "none";
+      if (mainPane) mainPane.style.flex = showChartIndicators ? "7" : "1";
+
+      if (ema9Series) ema9Series.applyOptions({ visible: showChartIndicators });
+      if (ema21Series) ema21Series.applyOptions({ visible: showChartIndicators });
+
+      requestAnimationFrame(() => {
+        if (mainChart && mainPane && mainPane.clientHeight > 0) {
+          mainChart.applyOptions({ width: mainPane.clientWidth, height: mainPane.clientHeight });
+        }
+        if (showChartIndicators && subChart && subPane && subPane.clientHeight > 0) {
+          subChart.applyOptions({ width: subPane.clientWidth, height: subPane.clientHeight });
+        }
+        scheduleSmcUpdate();
+      });
+    }
+
+    function toggleChartIndicators() {
+      showChartIndicators = !showChartIndicators;
+      try {
+        localStorage.setItem("conflux_show_indicators", showChartIndicators ? "true" : "false");
+      } catch (_) {}
+      applyIndicatorsVisibility();
+      showToast(showChartIndicators ? "📊 Chart Indicators Shown" : "🕯️ Pure Price Action Mode (Indicators Hidden)");
+    }
+
     function setChartMode(mode) {
       currentChartMode = mode;
       try {
@@ -2919,6 +2986,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       const tvContainer = document.getElementById("tvWidgetContainer");
       const smcWrapper = document.getElementById("smcChartWrapper");
       const ohlcDisplay = document.getElementById("cardOhlcDisplay");
+      const indBtn = document.getElementById("toggleIndicatorsBtn");
 
       if (mode === "tv") {
         if (tabTv) tabTv.classList.add("active");
@@ -2926,6 +2994,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         if (tvContainer) tvContainer.style.display = "block";
         if (smcWrapper) smcWrapper.style.display = "none";
         if (ohlcDisplay) ohlcDisplay.style.display = "none";
+        if (indBtn) indBtn.style.display = "none";
         renderTradingViewWidget(currentHoverSymbol);
       } else {
         if (tabTv) tabTv.classList.remove("active");
@@ -2933,16 +3002,18 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         if (tvContainer) tvContainer.style.display = "none";
         if (smcWrapper) smcWrapper.style.display = "flex";
         if (ohlcDisplay) ohlcDisplay.style.display = "inline-block";
+        if (indBtn) indBtn.style.display = "inline-flex";
         renderPineScriptChart(currentHoverSymbol);
         setTimeout(() => {
+          applyIndicatorsVisibility();
           if (mainChart && subChart) {
             const mc = document.getElementById("mainCandleChart");
             const sc = document.getElementById("subPaneRsiMfi");
             if (mc && sc) {
               mainChart.applyOptions({ width: mc.clientWidth, height: mc.clientHeight });
-              subChart.applyOptions({ width: sc.clientWidth, height: sc.clientHeight });
+              if (showChartIndicators) subChart.applyOptions({ width: sc.clientWidth, height: sc.clientHeight });
               mainChart.timeScale().fitContent();
-              subChart.timeScale().fitContent();
+              if (showChartIndicators) subChart.timeScale().fitContent();
               scheduleSmcUpdate();
             }
           }
@@ -2964,6 +3035,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       const tvContainer = document.getElementById("tvWidgetContainer");
       const smcWrapper = document.getElementById("smcChartWrapper");
       const ohlcDisplay = document.getElementById("cardOhlcDisplay");
+      const indBtn = document.getElementById("toggleIndicatorsBtn");
 
       if (currentChartMode === "tv") {
         if (tabTv) tabTv.classList.add("active");
@@ -2971,6 +3043,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         if (tvContainer) tvContainer.style.display = "block";
         if (smcWrapper) smcWrapper.style.display = "none";
         if (ohlcDisplay) ohlcDisplay.style.display = "none";
+        if (indBtn) indBtn.style.display = "none";
         renderTradingViewWidget(symbol);
       } else {
         if (tabTv) tabTv.classList.remove("active");
@@ -2978,6 +3051,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         if (tvContainer) tvContainer.style.display = "none";
         if (smcWrapper) smcWrapper.style.display = "flex";
         if (ohlcDisplay) ohlcDisplay.style.display = "inline-block";
+        if (indBtn) indBtn.style.display = "inline-flex";
         renderPineScriptChart(symbol);
       }
     }
@@ -3044,7 +3118,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       if (mouseEvent && window.innerWidth > 768) {
         const mouseX = mouseEvent.clientX;
         const mouseY = mouseEvent.clientY;
-        const cardW = 840;
+        const cardW = 880;
         const cardH = 600;
 
         let left = mouseX + 28;
@@ -3467,6 +3541,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       // Stop 68px before right edge so shapes NEVER interfere with right price axis
       const endX = w - 68;
 
+      if (showChartIndicators) {
       // 1. Order Blocks (LuxAlgo Unmitigated Active OBs)
       if (currentSmcData.orderBlocks && currentSmcData.orderBlocks.length > 0) {
         currentSmcData.orderBlocks.forEach(ob => {
@@ -3598,32 +3673,33 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           }
         });
       }
+      } // end if (showChartIndicators)
 
-      // 5. Chart Pattern Overlay (Neckline / Key Resistance / Support + Last 3 Candles Box)
+      // 5. Chart Pattern Overlay (Short Neckline / Key Level + Last 3 Candles Box)
       if (currentPatternData) {
         const cp = currentPatternData.chartPattern && currentPatternData.chartPattern.primary;
         if (cp && cp.level && cp.startTime) {
           const yLvl = candleSeries.priceToCoordinate(cp.level);
-          let xStart = null;
-          try { xStart = mainChart.timeScale().timeToCoordinate(cp.startTime); } catch (_) {}
-          if (yLvl !== null && yLvl > 12 && yLvl < h - 12) {
-            const startX = Math.max(0, xStart !== null ? xStart : 20);
-            ctx.strokeStyle = "#c084fc";
+          if (yLvl !== null && yLvl > 14 && yLvl < h - 14) {
+            // Draw short, clean dashed purple segment near current candles (~125px)
+            const shortEndX = endX - 6;
+            const shortStartX = Math.max(20, shortEndX - 125);
+            ctx.strokeStyle = "rgba(192, 132, 252, 0.85)";
             ctx.lineWidth = 1.4;
-            ctx.setLineDash([6, 4]);
+            ctx.setLineDash([5, 4]);
             ctx.beginPath();
-            ctx.moveTo(startX, yLvl);
-            ctx.lineTo(endX, yLvl);
+            ctx.moveTo(shortStartX, yLvl);
+            ctx.lineTo(shortEndX, yLvl);
             ctx.stroke();
             ctx.setLineDash([]);
 
             const lbl = cp.name + (cp.levelLabel ? " " + cp.levelLabel : "");
-            const lblW = Math.min(200, lbl.length * 6 + 12);
-            const lblX = Math.max(8, endX - lblW - 8);
-            const lblY = yLvl > 22 ? yLvl - 5 : yLvl + 13;
-            ctx.fillStyle = "rgba(168, 85, 247, 0.28)";
+            const lblW = Math.min(190, lbl.length * 5.8 + 10);
+            const lblX = Math.max(8, shortStartX - lblW - 6);
+            const lblY = yLvl > 20 ? yLvl + 3 : yLvl + 13;
+            ctx.fillStyle = "rgba(168, 85, 247, 0.22)";
             ctx.fillRect(lblX - 4, lblY - 10, lblW, 13);
-            ctx.fillStyle = "#e9d5ff";
+            ctx.fillStyle = "#d8b4fe";
             ctx.font = "bold 9px 'JetBrains Mono', monospace";
             ctx.fillText(lbl, lblX, lblY);
           }
@@ -4021,16 +4097,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       // 5b. Last 3 Candles & Classical Chart Pattern Analysis
       currentPatternData = getPatternsForSymbol(symbol);
       renderPatternStrip(symbol, currentPatternData);
-      requestAnimationFrame(() => {
-        if (mainChart && subChart) {
-          const mc = document.getElementById("mainCandleChart");
-          const sc = document.getElementById("subPaneRsiMfi");
-          if (mc && sc && mc.clientHeight > 0 && sc.clientHeight > 0) {
-            mainChart.applyOptions({ width: mc.clientWidth, height: mc.clientHeight });
-            subChart.applyOptions({ width: sc.clientWidth, height: sc.clientHeight });
-          }
-        }
-      });
+      applyIndicatorsVisibility();
 
       // 6. AUTO-FRAME STRICTLY THE LAST 30 DAYS WITH 5.5 BARS RIGHT PADDING (Zero interfere with right price axis!)
       const totalCandles = candles.length;
