@@ -3675,34 +3675,184 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       }
       } // end if (showChartIndicators)
 
-      // 5. Chart Pattern Overlay (Short Neckline / Key Level + Last 3 Candles Box)
+      // 5. Chart Pattern Geometric Drawing (W, M, Cup & Handle, H&S, Triangles, Wedges, Channels, Boxes + Last 3 Box)
       if (currentPatternData) {
         const cp = currentPatternData.chartPattern && currentPatternData.chartPattern.primary;
-        if (cp && cp.level && cp.startTime) {
-          const yLvl = candleSeries.priceToCoordinate(cp.level);
-          if (yLvl !== null && yLvl > 14 && yLvl < h - 14) {
-            // Draw short, clean dashed purple segment near current candles (~125px)
-            const shortEndX = endX - 6;
-            const shortStartX = Math.max(20, shortEndX - 125);
-            ctx.strokeStyle = "rgba(192, 132, 252, 0.85)";
-            ctx.lineWidth = 1.4;
-            ctx.setLineDash([5, 4]);
-            ctx.beginPath();
-            ctx.moveTo(shortStartX, yLvl);
-            ctx.lineTo(shortEndX, yLvl);
-            ctx.stroke();
-            ctx.setLineDash([]);
+        const candlesRef = currentPatternData.candles || [];
+        const visRange = mainChart.timeScale().getVisibleLogicalRange();
 
+        function mapPointXY(pt) {
+          if (!pt || pt.price === undefined || pt.price === null) return null;
+          const y = candleSeries.priceToCoordinate(pt.price);
+          if (y === null) return null;
+          let x = null;
+          try { x = mainChart.timeScale().timeToCoordinate(pt.time); } catch (_) {}
+          if (x === null && visRange && candlesRef.length > 0) {
+            const cIdx = pt.idx !== undefined ? pt.idx : candlesRef.findIndex(c => c.time === pt.time);
+            if (cIdx >= 0 && visRange.to > visRange.from) {
+              x = ((cIdx - visRange.from) / (visRange.to - visRange.from)) * w;
+            }
+          }
+          if (x === null || isNaN(x) || isNaN(y)) return null;
+          return { x, y };
+        }
+
+        if (cp && cp.shapes && cp.shapes.length > 0) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.rect(0, 0, endX, h);
+          ctx.clip();
+
+          let badgeAnchor = null;
+
+          cp.shapes.forEach(shape => {
+            const strokeCol = shape.color || "rgba(192, 132, 252, 0.9)";
+
+            if (shape.type === "polyline" && shape.points && shape.points.length >= 2) {
+              const pts = shape.points.map(mapPointXY).filter(Boolean);
+              if (pts.length >= 2) {
+                ctx.strokeStyle = strokeCol;
+                ctx.lineWidth = shape.lineWidth || 2;
+                ctx.setLineDash(shape.dashed ? [5, 4] : []);
+                ctx.beginPath();
+                ctx.moveTo(pts[0].x, pts[0].y);
+                for (let k = 1; k < pts.length; k++) ctx.lineTo(pts[k].x, pts[k].y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                if (shape.dots) {
+                  pts.forEach((p, idx) => {
+                    if (idx === 0 || idx === pts.length - 1) return;
+                    ctx.fillStyle = strokeCol;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2);
+                    ctx.fill();
+                  });
+                }
+                if (!badgeAnchor) badgeAnchor = pts[Math.floor(pts.length / 2)];
+              }
+            } else if (shape.type === "cupCurve" && shape.rim1 && shape.trough && shape.rim2) {
+              const r1 = mapPointXY(shape.rim1);
+              const tr = mapPointXY(shape.trough);
+              const r2 = mapPointXY(shape.rim2);
+              if (r1 && tr && r2) {
+                // Quadratic bezier control point so curve passes nicely near trough
+                const ctrlX = tr.x;
+                const ctrlY = tr.y * 2 - (r1.y + r2.y) / 2;
+                ctx.strokeStyle = strokeCol;
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 3]);
+                ctx.beginPath();
+                ctx.moveTo(r1.x, r1.y);
+                ctx.quadraticCurveTo(ctrlX, ctrlY, r2.x, r2.y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Handle downward/sideways channel line
+                if (shape.handlePts && shape.handlePts.length >= 2) {
+                  const hPts = shape.handlePts.map(mapPointXY).filter(Boolean);
+                  if (hPts.length >= 2) {
+                    ctx.strokeStyle = "#38bdf8";
+                    ctx.lineWidth = 1.8;
+                    ctx.beginPath();
+                    ctx.moveTo(hPts[0].x, hPts[0].y);
+                    for (let k = 1; k < hPts.length; k++) ctx.lineTo(hPts[k].x, hPts[k].y);
+                    ctx.stroke();
+                  }
+                }
+                badgeAnchor = { x: tr.x, y: Math.min(r1.y, r2.y) - 6 };
+              }
+            } else if (shape.type === "channel" && shape.topStart && shape.topEnd && shape.botStart && shape.botEnd) {
+              const t1 = mapPointXY(shape.topStart);
+              const t2 = mapPointXY(shape.topEnd);
+              const b1 = mapPointXY(shape.botStart);
+              const b2 = mapPointXY(shape.botEnd);
+              if (t1 && t2 && b1 && b2) {
+                // Shaded pattern zone
+                ctx.fillStyle = shape.fillColor || "rgba(168, 85, 247, 0.08)";
+                ctx.beginPath();
+                ctx.moveTo(t1.x, t1.y);
+                ctx.lineTo(t2.x, t2.y);
+                ctx.lineTo(b2.x, b2.y);
+                ctx.lineTo(b1.x, b1.y);
+                ctx.closePath();
+                ctx.fill();
+
+                // Top & bottom boundary lines
+                ctx.strokeStyle = strokeCol;
+                ctx.lineWidth = 1.7;
+                ctx.setLineDash([5, 3]);
+                ctx.beginPath();
+                ctx.moveTo(t1.x, t1.y);
+                ctx.lineTo(t2.x, t2.y);
+                ctx.moveTo(b1.x, b1.y);
+                ctx.lineTo(b2.x, b2.y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                badgeAnchor = { x: (t1.x + t2.x) / 2, y: Math.min(t1.y, t2.y) - 6 };
+              }
+            } else if (shape.type === "box") {
+              const p1 = mapPointXY({ time: shape.startTime, idx: shape.startIdx, price: shape.high });
+              const p2 = mapPointXY({ time: shape.endTime, idx: shape.endIdx, price: shape.low });
+              if (p1 && p2) {
+                const bx = Math.min(p1.x, p2.x);
+                const bw = Math.max(12, Math.abs(p2.x - p1.x));
+                const by = Math.min(p1.y, p2.y);
+                const bh = Math.max(8, Math.abs(p2.y - p1.y));
+                ctx.fillStyle = shape.fillColor || "rgba(168, 85, 247, 0.09)";
+                ctx.fillRect(bx, by, bw, bh);
+                ctx.strokeStyle = strokeCol;
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([4, 3]);
+                ctx.strokeRect(bx, by, bw, bh);
+                ctx.setLineDash([]);
+                badgeAnchor = { x: bx + bw / 2, y: by - 6 };
+              }
+            }
+          });
+
+          // Draw compact short neckline if present & pattern tag
+          let drewPatternLabel = false;
+          if (cp.level) {
+            const yLvl = candleSeries.priceToCoordinate(cp.level);
+            if (yLvl !== null && yLvl > 6 && yLvl < h - 8) {
+              const shortEndX = endX - 6;
+              const shortStartX = Math.max(20, shortEndX - 115);
+              ctx.strokeStyle = "rgba(192, 132, 252, 0.72)";
+              ctx.lineWidth = 1.2;
+              ctx.setLineDash([4, 4]);
+              ctx.beginPath();
+              ctx.moveTo(shortStartX, yLvl);
+              ctx.lineTo(shortEndX, yLvl);
+              ctx.stroke();
+              ctx.setLineDash([]);
+
+              const lbl = cp.name + (cp.levelLabel ? " " + cp.levelLabel : "");
+              const lblW = Math.min(205, lbl.length * 5.8 + 10);
+              const lblX = Math.max(8, shortStartX - lblW - 6);
+              const lblY = Math.max(15, yLvl > 20 ? yLvl + 3 : yLvl + 13);
+              ctx.fillStyle = "rgba(168, 85, 247, 0.24)";
+              ctx.fillRect(lblX - 4, lblY - 10, lblW, 13);
+              ctx.fillStyle = "#d8b4fe";
+              ctx.font = "bold 9px 'JetBrains Mono', monospace";
+              ctx.fillText(lbl, lblX, lblY);
+              drewPatternLabel = true;
+            }
+          }
+          if (!drewPatternLabel && badgeAnchor) {
             const lbl = cp.name + (cp.levelLabel ? " " + cp.levelLabel : "");
-            const lblW = Math.min(190, lbl.length * 5.8 + 10);
-            const lblX = Math.max(8, shortStartX - lblW - 6);
-            const lblY = yLvl > 20 ? yLvl + 3 : yLvl + 13;
-            ctx.fillStyle = "rgba(168, 85, 247, 0.22)";
+            const lblW = Math.min(205, lbl.length * 5.8 + 10);
+            const lblX = Math.max(8, Math.min(endX - lblW - 8, badgeAnchor.x - lblW / 2));
+            const lblY = Math.max(15, Math.min(h - 14, badgeAnchor.y));
+            ctx.fillStyle = "rgba(168, 85, 247, 0.24)";
             ctx.fillRect(lblX - 4, lblY - 10, lblW, 13);
             ctx.fillStyle = "#d8b4fe";
             ctx.font = "bold 9px 'JetBrains Mono', monospace";
             ctx.fillText(lbl, lblX, lblY);
           }
+
+          ctx.restore();
         }
 
         // Highlight Last 3 Candles window
@@ -4099,10 +4249,15 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       renderPatternStrip(symbol, currentPatternData);
       applyIndicatorsVisibility();
 
-      // 6. AUTO-FRAME STRICTLY THE LAST 30 DAYS WITH 5.5 BARS RIGHT PADDING (Zero interfere with right price axis!)
+      // 6. AUTO-FRAME TO SHOW FULL PATTERN + LAST 48 BARS WITH 5.5 BARS RIGHT PADDING
       const totalCandles = candles.length;
       if (totalCandles > 0) {
-        const startBar = Math.max(0, totalCandles - 48);
+        let startBar = Math.max(0, totalCandles - 48);
+        const cpPrimary = currentPatternData && currentPatternData.chartPattern && currentPatternData.chartPattern.primary;
+        if (cpPrimary && typeof cpPrimary.minIdx === "number") {
+          const earliestAllowed = Math.max(0, totalCandles - 95);
+          startBar = Math.max(earliestAllowed, Math.min(startBar, cpPrimary.minIdx - 3));
+        }
         const range = { from: startBar - 0.5, to: totalCandles + 5.5 };
         
         try {
@@ -4353,6 +4508,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       }
 
       const sub = candles.slice(-130);
+      const offset = candles.length - sub.length;
       const n = sub.length;
       const latest = sub[n - 1];
       const latestClose = latest.close;
@@ -4388,7 +4544,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             if (rimDiff <= 0.06 && p2Idx - troughIdx >= 6) {
               const handleSlice = sub.slice(p2Idx);
               if (handleSlice.length >= 2 && handleSlice.length <= 22) {
-                const handleLow = Math.min(...handleSlice.map(c => c.low));
+                let hLowIdxRel = 0;
+                for (let k = 1; k < handleSlice.length; k++) {
+                  if (handleSlice[k].low < handleSlice[hLowIdxRel].low) hLowIdxRel = k;
+                }
+                const handleLow = handleSlice[hLowIdxRel].low;
                 const handlePullback = (p2 - handleLow) / (p1 - tLow);
                 if (handlePullback >= 0.05 && handlePullback <= 0.55) {
                   const neckline = Math.round(Math.max(p1, p2) * 100) / 100;
@@ -4401,6 +4561,19 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
                     level: neckline,
                     levelLabel: "@ ₹" + neckline,
                     startTime: sub[p1Idx].time,
+                    minIdx: offset + p1Idx,
+                    shapes: [{
+                      type: "cupCurve",
+                      color: "#c084fc",
+                      rim1: { time: sub[p1Idx].time, idx: offset + p1Idx, price: p1 },
+                      trough: { time: sub[troughIdx].time, idx: offset + troughIdx, price: tLow },
+                      rim2: { time: sub[p2Idx].time, idx: offset + p2Idx, price: p2 },
+                      handlePts: [
+                        { time: sub[p2Idx].time, idx: offset + p2Idx, price: p2 },
+                        { time: handleSlice[hLowIdxRel].time, idx: offset + p2Idx + hLowIdxRel, price: handleLow },
+                        { time: latest.time, idx: offset + n - 1, price: latestClose }
+                      ]
+                    }],
                     score: 95 - Math.abs(dist) * 100
                   };
                 }
@@ -4419,12 +4592,17 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           if (l2.idx - l1.idx < 8 || l2.idx < n - 38) continue;
           const diff = Math.abs(l2.price - l1.price) / l1.price;
           if (diff <= 0.032) {
-            let peak = -Infinity;
+            let peak = -Infinity, peakIdx = l1.idx + 1;
             for (let k = l1.idx + 1; k < l2.idx; k++) {
-              if (sub[k].high > peak) peak = sub[k].high;
+              if (sub[k].high > peak) { peak = sub[k].high; peakIdx = k; }
             }
             const bounce = (peak - Math.min(l1.price, l2.price)) / Math.min(l1.price, l2.price);
             if (bounce >= 0.04 && latestClose >= Math.min(l1.price, l2.price) * 0.98) {
+              // Entry high just before L1 so W has full left leg
+              let preIdx = Math.max(0, l1.idx - 8);
+              for (let k = Math.max(0, l1.idx - 12); k < l1.idx; k++) {
+                if (sub[k].high > sub[preIdx].high) preIdx = k;
+              }
               const neckline = Math.round(peak * 100) / 100;
               const dist = (neckline - latestClose) / neckline;
               const status = latestClose > neckline ? "Breakout" : (dist <= 0.035 ? "Near Neckline" : "Support Hold");
@@ -4435,6 +4613,20 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
                 level: neckline,
                 levelLabel: "@ ₹" + neckline,
                 startTime: l1.time,
+                minIdx: offset + preIdx,
+                shapes: [{
+                  type: "polyline",
+                  color: "#38bdf8",
+                  lineWidth: 2,
+                  dots: true,
+                  points: [
+                    { time: sub[preIdx].time, idx: offset + preIdx, price: sub[preIdx].high },
+                    { time: l1.time, idx: offset + l1.idx, price: l1.price },
+                    { time: sub[peakIdx].time, idx: offset + peakIdx, price: peak },
+                    { time: l2.time, idx: offset + l2.idx, price: l2.price },
+                    { time: latest.time, idx: offset + n - 1, price: Math.max(latestClose, l2.price) }
+                  ]
+                }],
                 score: 90
               });
               break;
@@ -4451,14 +4643,17 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
           if (h2.idx - h1.idx < 8 || h2.idx < n - 35) continue;
           const diff = Math.abs(h2.price - h1.price) / h1.price;
           if (diff <= 0.032) {
-            let valley = Infinity;
+            let valley = Infinity, valIdx = h1.idx + 1;
             for (let k = h1.idx + 1; k < h2.idx; k++) {
-              if (sub[k].low < valley) valley = sub[k].low;
+              if (sub[k].low < valley) { valley = sub[k].low; valIdx = k; }
             }
             const maxTop = Math.max(h1.price, h2.price);
             const drop = (maxTop - valley) / maxTop;
-            // Only report Double Top if price is below the twin tops (not breaking out above them)
             if (drop >= 0.04 && latestClose < maxTop * 0.99) {
+              let preIdx = Math.max(0, h1.idx - 8);
+              for (let k = Math.max(0, h1.idx - 12); k < h1.idx; k++) {
+                if (sub[k].low < sub[preIdx].low) preIdx = k;
+              }
               const neckline = Math.round(valley * 100) / 100;
               const status = latestClose < neckline ? "Breakdown" : "Resistance Test";
               found.push({
@@ -4468,6 +4663,20 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
                 level: neckline,
                 levelLabel: "@ ₹" + neckline,
                 startTime: h1.time,
+                minIdx: offset + preIdx,
+                shapes: [{
+                  type: "polyline",
+                  color: "#f87171",
+                  lineWidth: 2,
+                  dots: true,
+                  points: [
+                    { time: sub[preIdx].time, idx: offset + preIdx, price: sub[preIdx].low },
+                    { time: h1.time, idx: offset + h1.idx, price: h1.price },
+                    { time: sub[valIdx].time, idx: offset + valIdx, price: valley },
+                    { time: h2.time, idx: offset + h2.idx, price: h2.price },
+                    { time: latest.time, idx: offset + n - 1, price: Math.min(latestClose, h2.price) }
+                  ]
+                }],
                 score: 86
               });
               break;
@@ -4480,10 +4689,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       if (lows.length >= 3) {
         const ls = lows[lows.length - 3], hd = lows[lows.length - 2], rs = lows[lows.length - 1];
         if (hd.idx > ls.idx + 4 && rs.idx > hd.idx + 4 && hd.price < ls.price * 0.985 && hd.price < rs.price * 0.985 && Math.abs(ls.price - rs.price) / ls.price <= 0.05) {
-          let pA = -Infinity, pB = -Infinity;
-          for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].high > pA) pA = sub[k].high;
-          for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].high > pB) pB = sub[k].high;
+          let pA = -Infinity, pAIdx = ls.idx, pB = -Infinity, pBIdx = hd.idx;
+          for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].high > pA) { pA = sub[k].high; pAIdx = k; }
+          for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].high > pB) { pB = sub[k].high; pBIdx = k; }
           const neck = Math.round(((pA + pB) / 2) * 100) / 100;
+          const preIdx = Math.max(0, ls.idx - 6);
           found.push({
             name: "Inv Head & Shoulders",
             bias: "bullish",
@@ -4491,6 +4701,22 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             level: neck,
             levelLabel: "@ ₹" + neck,
             startTime: ls.time,
+            minIdx: offset + preIdx,
+            shapes: [{
+              type: "polyline",
+              color: "#38bdf8",
+              lineWidth: 2,
+              dots: true,
+              points: [
+                { time: sub[preIdx].time, idx: offset + preIdx, price: sub[preIdx].high },
+                { time: ls.time, idx: offset + ls.idx, price: ls.price },
+                { time: sub[pAIdx].time, idx: offset + pAIdx, price: pA },
+                { time: hd.time, idx: offset + hd.idx, price: hd.price },
+                { time: sub[pBIdx].time, idx: offset + pBIdx, price: pB },
+                { time: rs.time, idx: offset + rs.idx, price: rs.price },
+                { time: latest.time, idx: offset + n - 1, price: latestClose }
+              ]
+            }],
             score: 88
           });
         }
@@ -4498,10 +4724,11 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       if (highs.length >= 3) {
         const ls = highs[highs.length - 3], hd = highs[highs.length - 2], rs = highs[highs.length - 1];
         if (hd.idx > ls.idx + 4 && rs.idx > hd.idx + 4 && hd.price > ls.price * 1.015 && hd.price > rs.price * 1.015 && Math.abs(ls.price - rs.price) / ls.price <= 0.05) {
-          let vA = Infinity, vB = Infinity;
-          for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].low < vA) vA = sub[k].low;
-          for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].low < vB) vB = sub[k].low;
+          let vA = Infinity, vAIdx = ls.idx, vB = Infinity, vBIdx = hd.idx;
+          for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].low < vA) { vA = sub[k].low; vAIdx = k; }
+          for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].low < vB) { vB = sub[k].low; vBIdx = k; }
           const neck = Math.round(((vA + vB) / 2) * 100) / 100;
+          const preIdx = Math.max(0, ls.idx - 6);
           found.push({
             name: "Head & Shoulders",
             bias: "bearish",
@@ -4509,6 +4736,22 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             level: neck,
             levelLabel: "@ ₹" + neck,
             startTime: ls.time,
+            minIdx: offset + preIdx,
+            shapes: [{
+              type: "polyline",
+              color: "#f87171",
+              lineWidth: 2,
+              dots: true,
+              points: [
+                { time: sub[preIdx].time, idx: offset + preIdx, price: sub[preIdx].low },
+                { time: ls.time, idx: offset + ls.idx, price: ls.price },
+                { time: sub[vAIdx].time, idx: offset + vAIdx, price: vA },
+                { time: hd.time, idx: offset + hd.idx, price: hd.price },
+                { time: sub[vBIdx].time, idx: offset + vBIdx, price: vB },
+                { time: rs.time, idx: offset + rs.idx, price: rs.price },
+                { time: latest.time, idx: offset + n - 1, price: latestClose }
+              ]
+            }],
             score: 85
           });
         }
@@ -4518,71 +4761,56 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       const rHighs = highs.filter(p => p.idx >= n - 75);
       const rLows = lows.filter(p => p.idx >= n - 75);
       if (rHighs.length >= 2 && rLows.length >= 2) {
+        const hFirst = rHighs[0], hLast = rHighs[rHighs.length - 1];
+        const lFirst = rLows[0], lLast = rLows[rLows.length - 1];
         const hSlope = calcPivotSlopePct(rHighs.slice(-3));
         const lSlope = calcPivotSlopePct(rLows.slice(-3));
         const resLvl = Math.round((rHighs.slice(-2).reduce((a, b) => a + b.price, 0) / Math.min(2, rHighs.length)) * 100) / 100;
         const supLvl = Math.round((rLows.slice(-2).reduce((a, b) => a + b.price, 0) / Math.min(2, rLows.length)) * 100) / 100;
-        const triStart = rHighs[0].idx < rLows[0].idx ? rHighs[0].time : rLows[0].time;
+        const triStartIdx = Math.min(hFirst.idx, lFirst.idx);
+        const triStart = sub[triStartIdx].time;
+
+        // Project upper & lower lines to latest bar cleanly
+        const hPerBar = (hLast.idx > hFirst.idx) ? (hLast.price - hFirst.price) / (hLast.idx - hFirst.idx) : 0;
+        const lPerBar = (lLast.idx > lFirst.idx) ? (lLast.price - lFirst.price) / (lLast.idx - lFirst.idx) : 0;
+        const projTopEnd = hLast.price + hPerBar * ((n - 1) - hLast.idx);
+        const projBotEnd = lLast.price + lPerBar * ((n - 1) - lLast.idx);
+        const triShape = {
+          type: "channel",
+          color: "#c084fc",
+          fillColor: "rgba(168, 85, 247, 0.08)",
+          topStart: { time: hFirst.time, idx: offset + hFirst.idx, price: hFirst.price },
+          topEnd: { time: latest.time, idx: offset + n - 1, price: projTopEnd },
+          botStart: { time: lFirst.time, idx: offset + lFirst.idx, price: lFirst.price },
+          botEnd: { time: latest.time, idx: offset + n - 1, price: projBotEnd }
+        };
 
         if (Math.abs(hSlope) <= 0.07 && lSlope > 0.07) {
-          found.push({
-            name: "Ascending Triangle",
-            bias: "bullish",
-            status: latestClose > resLvl ? "Breakout" : "Coiling",
-            level: resLvl,
-            levelLabel: "@ ₹" + resLvl,
-            startTime: triStart,
-            score: 84
-          });
+          found.push({ name: "Ascending Triangle", bias: "bullish", status: latestClose > resLvl ? "Breakout" : "Coiling", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 84 });
         } else if (Math.abs(lSlope) <= 0.07 && hSlope < -0.07) {
-          found.push({
-            name: "Descending Triangle",
-            bias: "bearish",
-            status: latestClose < supLvl ? "Breakdown" : "Coiling",
-            level: supLvl,
-            levelLabel: "@ ₹" + supLvl,
-            startTime: triStart,
-            score: 82
-          });
+          found.push({ name: "Descending Triangle", bias: "bearish", status: latestClose < supLvl ? "Breakdown" : "Coiling", level: supLvl, levelLabel: "@ ₹" + supLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 82 });
         } else if (hSlope < -0.05 && lSlope > 0.05) {
-          found.push({
-            name: "Symmetrical Triangle",
-            bias: "neutral",
-            status: latestClose > resLvl ? "Breakout" : "Squeeze",
-            level: resLvl,
-            levelLabel: "@ ₹" + resLvl,
-            startTime: triStart,
-            score: 79
-          });
+          found.push({ name: "Symmetrical Triangle", bias: "neutral", status: latestClose > resLvl ? "Breakout" : "Squeeze", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 79 });
         } else if (hSlope < -0.06 && lSlope < -0.02 && hSlope < lSlope * 1.15) {
-          found.push({
-            name: "Falling Wedge",
-            bias: "bullish",
-            status: latestClose > resLvl ? "Breakout" : "Reversal Watch",
-            level: resLvl,
-            levelLabel: "@ ₹" + resLvl,
-            startTime: triStart,
-            score: 81
-          });
+          found.push({ name: "Falling Wedge", bias: "bullish", status: latestClose > resLvl ? "Breakout" : "Reversal Watch", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 81 });
         } else if (hSlope > 0.02 && lSlope > 0.06 && lSlope > hSlope * 1.15) {
-          found.push({
-            name: "Rising Wedge",
-            bias: "bearish",
-            status: latestClose < supLvl ? "Breakdown" : "Caution",
-            level: supLvl,
-            levelLabel: "@ ₹" + supLvl,
-            startTime: triStart,
-            score: 78
-          });
+          found.push({ name: "Rising Wedge", bias: "bearish", status: latestClose < supLvl ? "Breakdown" : "Caution", level: supLvl, levelLabel: "@ ₹" + supLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 78 });
         }
       }
 
       // 6. Bull Flag / Consolidation Box fallback
       if (n >= 28) {
-        const flagBars = sub.slice(-14);
-        const poleBars = sub.slice(-28, -14);
-        const poleLow = Math.min(...poleBars.map(c => c.low));
-        const poleHigh = Math.max(...poleBars.map(c => c.high));
+        const flagStart = n - 14;
+        const poleStart = n - 28;
+        const flagBars = sub.slice(flagStart);
+        const poleBars = sub.slice(poleStart, flagStart);
+        let pLowIdxRel = 0, pHighIdxRel = 0;
+        for (let k = 1; k < poleBars.length; k++) {
+          if (poleBars[k].low < poleBars[pLowIdxRel].low) pLowIdxRel = k;
+          if (poleBars[k].high > poleBars[pHighIdxRel].high) pHighIdxRel = k;
+        }
+        const poleLow = poleBars[pLowIdxRel].low;
+        const poleHigh = poleBars[pHighIdxRel].high;
         const poleMove = (poleHigh - poleLow) / poleLow;
         const flagHigh = Math.max(...flagBars.map(c => c.high));
         const flagLow = Math.min(...flagBars.map(c => c.low));
@@ -4597,6 +4825,28 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             level: brk,
             levelLabel: "@ ₹" + brk,
             startTime: flagBars[0].time,
+            minIdx: offset + poleStart,
+            shapes: [
+              {
+                type: "polyline",
+                color: "#38bdf8",
+                lineWidth: 2,
+                dots: false,
+                points: [
+                  { time: poleBars[pLowIdxRel].time, idx: offset + poleStart + pLowIdxRel, price: poleLow },
+                  { time: poleBars[pHighIdxRel].time, idx: offset + poleStart + pHighIdxRel, price: poleHigh }
+                ]
+              },
+              {
+                type: "channel",
+                color: "#c084fc",
+                fillColor: "rgba(168, 85, 247, 0.09)",
+                topStart: { time: flagBars[0].time, idx: offset + flagStart, price: flagHigh },
+                topEnd: { time: latest.time, idx: offset + n - 1, price: flagHigh * 0.995 },
+                botStart: { time: flagBars[0].time, idx: offset + flagStart, price: flagLow },
+                botEnd: { time: latest.time, idx: offset + n - 1, price: flagLow * 0.995 }
+              }
+            ],
             score: 80
           });
         } else if (flagRange <= 0.065) {
@@ -4608,25 +4858,79 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             level: boxRes,
             levelLabel: "@ ₹" + boxRes,
             startTime: flagBars[0].time,
+            minIdx: offset + flagStart,
+            shapes: [{
+              type: "box",
+              color: "#c084fc",
+              fillColor: "rgba(168, 85, 247, 0.08)",
+              startTime: flagBars[0].time,
+              startIdx: offset + flagStart,
+              endTime: latest.time,
+              endIdx: offset + n - 1,
+              high: flagHigh,
+              low: flagLow
+            }],
             score: 70
           });
         }
       }
 
-      // Final trend structure fallback so every stock shows structural insight
+      // Final trend structure fallback with Parallel Linear Regression Channel (Uptrend / Downtrend Channel)
       if (found.length === 0) {
-        const recent20 = sub.slice(-20);
-        const hi20 = Math.round(Math.max(...recent20.map(c => c.high)) * 100) / 100;
-        const lo20 = Math.round(Math.min(...recent20.map(c => c.low)) * 100) / 100;
+        const chLen = Math.min(20, n);
+        const chStart = n - chLen;
+        const recent = sub.slice(chStart);
+        let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+        for (let i = 0; i < chLen; i++) {
+          const mid = (recent[i].high + recent[i].low) / 2;
+          sumX += i; sumY += mid; sumXY += i * mid; sumXX += i * i;
+        }
+        const denom = chLen * sumXX - sumX * sumX;
+        const slope = Math.abs(denom) > 1e-6 ? (chLen * sumXY - sumX * sumY) / denom : 0;
+        const intercept = (sumY - slope * sumX) / chLen;
+
+        const upDevs = [], dnDevs = [];
+        for (let i = 0; i < chLen; i++) {
+          const reg = intercept + slope * i;
+          upDevs.push(recent[i].high - reg);
+          dnDevs.push(reg - recent[i].low);
+        }
+        upDevs.sort((a, b) => a - b);
+        dnDevs.sort((a, b) => a - b);
+        const upIdx = Math.min(upDevs.length - 1, Math.floor(upDevs.length * 0.9));
+        const dnIdx = Math.min(dnDevs.length - 1, Math.floor(dnDevs.length * 0.9));
+        const upDev = upDevs[upIdx];
+        const dnDev = dnDevs[dnIdx];
+
+        const topStartY = intercept + upDev;
+        const topEndY = intercept + slope * (chLen - 1) + upDev;
+        const botStartY = intercept - dnDev;
+        const botEndY = intercept + slope * (chLen - 1) - dnDev;
+
+        const hi20 = Math.round(Math.max(...recent.map(c => c.high)) * 100) / 100;
+        const lo20 = Math.round(Math.min(...recent.map(c => c.low)) * 100) / 100;
         const pctFromLow = (latestClose - lo20) / (hi20 - lo20 || 1);
-        const isUp = latestClose > sub[Math.max(0, n - 20)].close;
+        const isUp = slope >= 0;
+        const chColor = isUp ? "rgba(16, 185, 129, 0.85)" : "rgba(248, 113, 113, 0.85)";
+        const chFill = isUp ? "rgba(16, 185, 129, 0.06)" : "rgba(248, 113, 113, 0.06)";
+
         found.push({
           name: isUp ? (pctFromLow < 0.72 ? "Pullback in Uptrend" : "Uptrend Channel") : "Downtrend Channel",
           bias: isUp ? "bullish" : "bearish",
           status: pctFromLow >= 0.88 ? "Near Resistance" : (pctFromLow <= 0.25 ? "At Support" : "Active"),
           level: isUp ? hi20 : lo20,
           levelLabel: "@ ₹" + (isUp ? hi20 : lo20),
-          startTime: recent20[0].time,
+          startTime: recent[0].time,
+          minIdx: offset + chStart,
+          shapes: [{
+            type: "channel",
+            color: chColor,
+            fillColor: chFill,
+            topStart: { time: recent[0].time, idx: offset + chStart, price: topStartY },
+            topEnd: { time: latest.time, idx: offset + n - 1, price: topEndY },
+            botStart: { time: recent[0].time, idx: offset + chStart, price: botStartY },
+            botEnd: { time: latest.time, idx: offset + n - 1, price: botEndY }
+          }],
           score: 50
         });
       }
@@ -4652,7 +4956,8 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       const res = {
         last3Candles: candleRes.list,
         last3Window: candleRes.window,
-        chartPattern
+        chartPattern,
+        candles
       };
       patternCache[sym] = res;
       return res;
