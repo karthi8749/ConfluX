@@ -4502,6 +4502,42 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       return (slope / base) * 100; // % change per bar
     }
 
+    function fitLinearChannel(bars) {
+      const m = bars.length;
+      let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+      for (let i = 0; i < m; i++) {
+        const mid = (bars[i].high + bars[i].low) / 2;
+        sumX += i; sumY += mid; sumXY += i * mid; sumXX += i * i;
+      }
+      const denom = m * sumXX - sumX * sumX;
+      const slope = Math.abs(denom) > 1e-6 ? (m * sumXY - sumX * sumY) / denom : 0;
+      const intercept = (sumY - slope * sumX) / m;
+      const upDevs = [], dnDevs = [];
+      let hi = -Infinity, lo = Infinity;
+      for (let i = 0; i < m; i++) {
+        const reg = intercept + slope * i;
+        upDevs.push(bars[i].high - reg);
+        dnDevs.push(reg - bars[i].low);
+        if (bars[i].high > hi) hi = bars[i].high;
+        if (bars[i].low < lo) lo = bars[i].low;
+      }
+      upDevs.sort((a, b) => a - b);
+      dnDevs.sort((a, b) => a - b);
+      const upDev = upDevs[Math.min(upDevs.length - 1, Math.floor(upDevs.length * 0.9))];
+      const dnDev = dnDevs[Math.min(dnDevs.length - 1, Math.floor(dnDevs.length * 0.9))];
+      const basePrice = bars[0].close || intercept || 1;
+      return {
+        slope,
+        slopePct: (slope / basePrice) * 100,
+        topStartY: intercept + upDev,
+        topEndY: intercept + slope * (m - 1) + upDev,
+        botStartY: intercept - dnDev,
+        botEndY: intercept + slope * (m - 1) - dnDev,
+        hi: Math.round(hi * 100) / 100,
+        lo: Math.round(lo * 100) / 100
+      };
+    }
+
     function detectChartPatterns(candles) {
       if (!candles || candles.length < 25) {
         return { primary: { name: "Insufficient Data", bias: "neutral", status: "", level: null, startTime: null }, all: [] };
@@ -4515,95 +4551,123 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
       const { highs, lows } = findChartPivots(sub, 4);
       const found = [];
 
-      // 1. Cup & Handle (look back 35..120 bars)
+      // 1. Cup & Handle (multi-window with strict rim, U-shape & handle integrity)
       if (n >= 40) {
         let bestCup = null;
-        const leftEnd = Math.floor(n * 0.45);
-        let p1Idx = 0;
-        for (let i = 3; i < leftEnd; i++) {
-          if (sub[i].high > sub[p1Idx].high) p1Idx = i;
-        }
-        const p1 = sub[p1Idx].high;
+        for (const winLen of [n, Math.min(n, 85), Math.min(n, 55)]) {
+          if (winLen < 35) continue;
+          const wStart = n - winLen;
+          const leftEnd = wStart + Math.floor(winLen * 0.42);
+          let p1Idx = wStart + 2;
+          for (let i = wStart + 2; i < leftEnd; i++) {
+            if (sub[i].high > sub[p1Idx].high) p1Idx = i;
+          }
+          const p1 = sub[p1Idx].high;
 
-        let troughIdx = p1Idx + 5;
-        if (troughIdx < n - 12) {
-          for (let i = p1Idx + 4; i < n - 10; i++) {
+          let troughIdx = p1Idx + 5;
+          if (troughIdx >= n - 9) continue;
+          for (let i = p1Idx + 4; i < n - 8; i++) {
             if (sub[i].low < sub[troughIdx].low) troughIdx = i;
           }
           const tLow = sub[troughIdx].low;
           const depthPct = (p1 - tLow) / p1;
+          if (depthPct < 0.08 || depthPct > 0.36 || troughIdx - p1Idx < 5) continue;
 
-          if (depthPct >= 0.08 && depthPct <= 0.38 && troughIdx - p1Idx >= 6) {
-            let p2Idx = troughIdx + 5;
-            for (let i = troughIdx + 4; i < n - 2; i++) {
-              if (sub[i].high > sub[p2Idx].high) p2Idx = i;
-            }
-            const p2 = sub[p2Idx].high;
-            const rimDiff = Math.abs(p2 - p1) / p1;
-
-            if (rimDiff <= 0.06 && p2Idx - troughIdx >= 6) {
-              const handleSlice = sub.slice(p2Idx);
-              if (handleSlice.length >= 2 && handleSlice.length <= 22) {
-                let hLowIdxRel = 0;
-                for (let k = 1; k < handleSlice.length; k++) {
-                  if (handleSlice[k].low < handleSlice[hLowIdxRel].low) hLowIdxRel = k;
-                }
-                const handleLow = handleSlice[hLowIdxRel].low;
-                const handlePullback = (p2 - handleLow) / (p1 - tLow);
-                if (handlePullback >= 0.05 && handlePullback <= 0.55) {
-                  const neckline = Math.round(Math.max(p1, p2) * 100) / 100;
-                  const dist = (neckline - latestClose) / neckline;
-                  const status = latestClose > neckline ? "Breakout" : (dist <= 0.04 ? "Near Breakout" : "Forming");
-                  bestCup = {
-                    name: "Cup & Handle",
-                    bias: "bullish",
-                    status,
-                    level: neckline,
-                    levelLabel: "@ ₹" + neckline,
-                    startTime: sub[p1Idx].time,
-                    minIdx: offset + p1Idx,
-                    shapes: [{
-                      type: "cupCurve",
-                      color: "#c084fc",
-                      rim1: { time: sub[p1Idx].time, idx: offset + p1Idx, price: p1 },
-                      trough: { time: sub[troughIdx].time, idx: offset + troughIdx, price: tLow },
-                      rim2: { time: sub[p2Idx].time, idx: offset + p2Idx, price: p2 },
-                      handlePts: [
-                        { time: sub[p2Idx].time, idx: offset + p2Idx, price: p2 },
-                        { time: handleSlice[hLowIdxRel].time, idx: offset + p2Idx + hLowIdxRel, price: handleLow },
-                        { time: latest.time, idx: offset + n - 1, price: latestClose }
-                      ]
-                    }],
-                    score: 95 - Math.abs(dist) * 100
-                  };
-                }
-              }
-            }
+          let p2Idx = troughIdx + 5;
+          if (p2Idx >= n - 3) continue;
+          for (let i = troughIdx + 4; i < n - 3; i++) {
+            if (sub[i].high > sub[p2Idx].high) p2Idx = i;
           }
+          const cupWidth = p2Idx - p1Idx;
+          const p2 = sub[p2Idx].high;
+          const rimMax = Math.max(p1, p2);
+          const rimDiff = Math.abs(p2 - p1) / p1;
+          const troughRatio = (troughIdx - p1Idx) / (cupWidth || 1);
+          if (cupWidth < 16 || rimDiff > 0.055 || p2Idx - troughIdx < 5 || troughRatio < 0.20 || troughRatio > 0.80) continue;
+
+          // Verify no higher middle spike breaks the cup interior & check U-shape body
+          let rimBroken = false, midSum = 0, midCnt = 0;
+          const midStart = p1Idx + Math.floor(cupWidth * 0.25);
+          const midEnd = p1Idx + Math.floor(cupWidth * 0.75);
+          for (let i = p1Idx + 2; i <= p2Idx - 2; i++) {
+            if (sub[i].high > rimMax * 1.015) { rimBroken = true; break; }
+            if (i >= midStart && i <= midEnd) { midSum += sub[i].close; midCnt++; }
+          }
+          if (rimBroken || midCnt === 0) continue;
+          const avgMidDepth = (rimMax - (midSum / midCnt)) / Math.max(1e-6, rimMax - tLow);
+          if (avgMidDepth < 0.32) continue;
+
+          const handleSlice = sub.slice(p2Idx);
+          if (handleSlice.length < 3 || handleSlice.length > 22) continue;
+          let hLowIdxRel = 0;
+          for (let k = 1; k < handleSlice.length; k++) {
+            if (handleSlice[k].low < handleSlice[hLowIdxRel].low) hLowIdxRel = k;
+          }
+          const handleLow = handleSlice[hLowIdxRel].low;
+          const handlePullback = (p2 - handleLow) / Math.max(1e-6, p1 - tLow);
+          if (handlePullback < 0.04 || handlePullback > 0.45) continue;
+
+          const neckline = Math.round(rimMax * 100) / 100;
+          if (latestClose < handleLow * 0.99 || latestClose > neckline * 1.07) continue;
+
+          const dist = (neckline - latestClose) / neckline;
+          const status = latestClose > neckline ? "Breakout" : (dist <= 0.04 ? "Near Breakout" : "Forming");
+          const cand = {
+            name: "Cup & Handle",
+            bias: "bullish",
+            status,
+            level: neckline,
+            levelLabel: "@ ₹" + neckline,
+            startTime: sub[p1Idx].time,
+            minIdx: offset + p1Idx,
+            shapes: [{
+              type: "cupCurve",
+              color: "#c084fc",
+              rim1: { time: sub[p1Idx].time, idx: offset + p1Idx, price: p1 },
+              trough: { time: sub[troughIdx].time, idx: offset + troughIdx, price: tLow },
+              rim2: { time: sub[p2Idx].time, idx: offset + p2Idx, price: p2 },
+              handlePts: [
+                { time: sub[p2Idx].time, idx: offset + p2Idx, price: p2 },
+                { time: handleSlice[hLowIdxRel].time, idx: offset + p2Idx + hLowIdxRel, price: handleLow },
+                { time: latest.time, idx: offset + n - 1, price: latestClose }
+              ]
+            }],
+            score: 88 - Math.abs(dist) * 80 + Math.min(5, cupWidth / 12)
+          };
+          if (!bestCup || cand.score > bestCup.score) bestCup = cand;
         }
         if (bestCup) found.push(bestCup);
       }
 
-      // 2. Double Bottom (W)
+      // 2. Double Bottom (W) — strict bottom integrity & active breakout window
       if (lows.length >= 2) {
         for (let a = lows.length - 2; a >= 0; a--) {
           const l1 = lows[a];
           const l2 = lows[lows.length - 1];
-          if (l2.idx - l1.idx < 8 || l2.idx < n - 38) continue;
+          if (l2.idx - l1.idx < 10 || l2.idx - l1.idx > 55 || l2.idx < n - 35) continue;
           const diff = Math.abs(l2.price - l1.price) / l1.price;
-          if (diff <= 0.032) {
-            let peak = -Infinity, peakIdx = l1.idx + 1;
+          if (diff <= 0.028) {
+            const minBottom = Math.min(l1.price, l2.price);
+            let peak = -Infinity, peakIdx = l1.idx + 1, midMinLow = Infinity;
             for (let k = l1.idx + 1; k < l2.idx; k++) {
               if (sub[k].high > peak) { peak = sub[k].high; peakIdx = k; }
+              if (sub[k].low < midMinLow) midMinLow = sub[k].low;
             }
-            const bounce = (peak - Math.min(l1.price, l2.price)) / Math.min(l1.price, l2.price);
-            if (bounce >= 0.04 && latestClose >= Math.min(l1.price, l2.price) * 0.98) {
-              // Entry high just before L1 so W has full left leg
+            let postMinLow = Infinity;
+            for (let k = l2.idx + 1; k < n; k++) {
+              if (sub[k].low < postMinLow) postMinLow = sub[k].low;
+            }
+            if (peakIdx - l1.idx < 3 || l2.idx - peakIdx < 3) continue;
+            if (midMinLow < minBottom * 0.992 || postMinLow < minBottom * 0.985) continue;
+
+            const bounce = (peak - minBottom) / minBottom;
+            const neckline = Math.round(peak * 100) / 100;
+            if (bounce >= 0.045 && latestClose >= minBottom * 0.985 && latestClose <= neckline * 1.08) {
               let preIdx = Math.max(0, l1.idx - 8);
               for (let k = Math.max(0, l1.idx - 12); k < l1.idx; k++) {
                 if (sub[k].high > sub[preIdx].high) preIdx = k;
               }
-              const neckline = Math.round(peak * 100) / 100;
+              if ((sub[preIdx].high - l1.price) / l1.price < 0.035) continue;
               const dist = (neckline - latestClose) / neckline;
               const status = latestClose > neckline ? "Breakout" : (dist <= 0.035 ? "Near Neckline" : "Support Hold");
               found.push({
@@ -4627,7 +4691,7 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
                     { time: latest.time, idx: offset + n - 1, price: Math.max(latestClose, l2.price) }
                   ]
                 }],
-                score: 90
+                score: 91 - diff * 100
               });
               break;
             }
@@ -4635,26 +4699,36 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         }
       }
 
-      // 3. Double Top (M)
+      // 3. Double Top (M) — strict top integrity & real rejection off H2
       if (highs.length >= 2) {
         for (let a = highs.length - 2; a >= 0; a--) {
           const h1 = highs[a];
           const h2 = highs[highs.length - 1];
-          if (h2.idx - h1.idx < 8 || h2.idx < n - 35) continue;
+          if (h2.idx - h1.idx < 10 || h2.idx - h1.idx > 50 || h2.idx < n - 32) continue;
           const diff = Math.abs(h2.price - h1.price) / h1.price;
-          if (diff <= 0.032) {
-            let valley = Infinity, valIdx = h1.idx + 1;
+          if (diff <= 0.028) {
+            const maxTop = Math.max(h1.price, h2.price);
+            let valley = Infinity, valIdx = h1.idx + 1, midMaxHigh = -Infinity;
             for (let k = h1.idx + 1; k < h2.idx; k++) {
               if (sub[k].low < valley) { valley = sub[k].low; valIdx = k; }
+              if (sub[k].high > midMaxHigh) midMaxHigh = sub[k].high;
             }
-            const maxTop = Math.max(h1.price, h2.price);
+            let postMaxHigh = -Infinity;
+            for (let k = h2.idx + 1; k < n; k++) {
+              if (sub[k].high > postMaxHigh) postMaxHigh = sub[k].high;
+            }
+            if (valIdx - h1.idx < 3 || h2.idx - valIdx < 3) continue;
+            if (midMaxHigh > maxTop * 1.008 || postMaxHigh > maxTop * 1.01) continue;
+
             const drop = (maxTop - valley) / maxTop;
-            if (drop >= 0.04 && latestClose < maxTop * 0.99) {
+            const retracement = (maxTop - latestClose) / Math.max(1e-6, maxTop - valley);
+            const neckline = Math.round(valley * 100) / 100;
+            if (drop >= 0.045 && retracement >= 0.35 && latestClose < maxTop * 0.985 && latestClose >= neckline * 0.92) {
               let preIdx = Math.max(0, h1.idx - 8);
               for (let k = Math.max(0, h1.idx - 12); k < h1.idx; k++) {
                 if (sub[k].low < sub[preIdx].low) preIdx = k;
               }
-              const neckline = Math.round(valley * 100) / 100;
+              if ((h1.price - sub[preIdx].low) / h1.price < 0.035) continue;
               const status = latestClose < neckline ? "Breakdown" : "Resistance Test";
               found.push({
                 name: "Double Top",
@@ -4685,14 +4759,30 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
         }
       }
 
-      // 4. Inverse Head & Shoulders / Head & Shoulders
+      // 4. Inverse Head & Shoulders / Head & Shoulders — strict shoulder & head integrity
       if (lows.length >= 3) {
-        const ls = lows[lows.length - 3], hd = lows[lows.length - 2], rs = lows[lows.length - 1];
-        if (hd.idx > ls.idx + 4 && rs.idx > hd.idx + 4 && hd.price < ls.price * 0.985 && hd.price < rs.price * 0.985 && Math.abs(ls.price - rs.price) / ls.price <= 0.05) {
+        for (let kStart = lows.length - 3; kStart >= Math.max(0, lows.length - 5); kStart--) {
+          const ls = lows[kStart], hd = lows[kStart + 1], rs = lows[kStart + 2];
+          if (rs.idx < n - 32 || rs.idx - ls.idx > 80) continue;
+          if (hd.idx - ls.idx < 5 || rs.idx - hd.idx < 5) continue;
+          if (hd.price >= ls.price * 0.97 || hd.price >= rs.price * 0.97) continue;
+          if (Math.abs(ls.price - rs.price) / ls.price > 0.05) continue;
+
+          let minInSpan = Infinity, minPostRs = Infinity;
+          for (let k = ls.idx; k < n; k++) {
+            if (sub[k].low < minInSpan) minInSpan = sub[k].low;
+            if (k > rs.idx && sub[k].low < minPostRs) minPostRs = sub[k].low;
+          }
+          if (minInSpan < hd.price * 0.995 || minPostRs < rs.price * 0.985) continue;
+
           let pA = -Infinity, pAIdx = ls.idx, pB = -Infinity, pBIdx = hd.idx;
           for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].high > pA) { pA = sub[k].high; pAIdx = k; }
           for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].high > pB) { pB = sub[k].high; pBIdx = k; }
+          if (Math.abs(pA - pB) / Math.max(pA, pB) > 0.07) continue;
+          if (pA < ls.price * 1.02 || pB < rs.price * 1.02) continue;
+
           const neck = Math.round(((pA + pB) / 2) * 100) / 100;
+          if (latestClose > neck * 1.08) continue;
           const preIdx = Math.max(0, ls.idx - 6);
           found.push({
             name: "Inv Head & Shoulders",
@@ -4717,17 +4807,34 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
                 { time: latest.time, idx: offset + n - 1, price: latestClose }
               ]
             }],
-            score: 88
+            score: 89
           });
+          break;
         }
       }
       if (highs.length >= 3) {
-        const ls = highs[highs.length - 3], hd = highs[highs.length - 2], rs = highs[highs.length - 1];
-        if (hd.idx > ls.idx + 4 && rs.idx > hd.idx + 4 && hd.price > ls.price * 1.015 && hd.price > rs.price * 1.015 && Math.abs(ls.price - rs.price) / ls.price <= 0.05) {
+        for (let kStart = highs.length - 3; kStart >= Math.max(0, highs.length - 5); kStart--) {
+          const ls = highs[kStart], hd = highs[kStart + 1], rs = highs[kStart + 2];
+          if (rs.idx < n - 32 || rs.idx - ls.idx > 80) continue;
+          if (hd.idx - ls.idx < 5 || rs.idx - hd.idx < 5) continue;
+          if (hd.price <= ls.price * 1.03 || hd.price <= rs.price * 1.03) continue;
+          if (Math.abs(ls.price - rs.price) / ls.price > 0.05) continue;
+
+          let maxInSpan = -Infinity, maxPostRs = -Infinity;
+          for (let k = ls.idx; k < n; k++) {
+            if (sub[k].high > maxInSpan) maxInSpan = sub[k].high;
+            if (k > rs.idx && sub[k].high > maxPostRs) maxPostRs = sub[k].high;
+          }
+          if (maxInSpan > hd.price * 1.005 || maxPostRs > rs.price * 1.015) continue;
+
           let vA = Infinity, vAIdx = ls.idx, vB = Infinity, vBIdx = hd.idx;
           for (let k = ls.idx; k <= hd.idx; k++) if (sub[k].low < vA) { vA = sub[k].low; vAIdx = k; }
           for (let k = hd.idx; k <= rs.idx; k++) if (sub[k].low < vB) { vB = sub[k].low; vBIdx = k; }
+          if (Math.abs(vA - vB) / Math.max(vA, vB) > 0.07) continue;
+          if (vA > ls.price * 0.98 || vB > rs.price * 0.98) continue;
+
           const neck = Math.round(((vA + vB) / 2) * 100) / 100;
+          if (latestClose < neck * 0.92 || latestClose >= hd.price * 0.98) continue;
           const preIdx = Math.max(0, ls.idx - 6);
           found.push({
             name: "Head & Shoulders",
@@ -4754,185 +4861,182 @@ function generateDashboardHtml(results, summary, candleMap = {}) {
             }],
             score: 85
           });
+          break;
         }
       }
 
-      // 5. Triangles & Wedges from recent Pivots (last ~70 bars)
-      const rHighs = highs.filter(p => p.idx >= n - 75);
-      const rLows = lows.filter(p => p.idx >= n - 75);
+      // 5. Triangles & Wedges (strict convergence, candle containment & active proximity)
+      const rHighs = highs.filter(p => p.idx >= n - 62);
+      const rLows = lows.filter(p => p.idx >= n - 62);
       if (rHighs.length >= 2 && rLows.length >= 2) {
         const hFirst = rHighs[0], hLast = rHighs[rHighs.length - 1];
         const lFirst = rLows[0], lLast = rLows[rLows.length - 1];
-        const hSlope = calcPivotSlopePct(rHighs.slice(-3));
-        const lSlope = calcPivotSlopePct(rLows.slice(-3));
-        const resLvl = Math.round((rHighs.slice(-2).reduce((a, b) => a + b.price, 0) / Math.min(2, rHighs.length)) * 100) / 100;
-        const supLvl = Math.round((rLows.slice(-2).reduce((a, b) => a + b.price, 0) / Math.min(2, rLows.length)) * 100) / 100;
         const triStartIdx = Math.min(hFirst.idx, lFirst.idx);
-        const triStart = sub[triStartIdx].time;
+        if ((n - 1) - triStartIdx >= 14 && hLast.idx - hFirst.idx >= 6 && lLast.idx - lFirst.idx >= 6) {
+          const hSlope = calcPivotSlopePct(rHighs.slice(-3));
+          const lSlope = calcPivotSlopePct(rLows.slice(-3));
+          const hPerBar = (hLast.price - hFirst.price) / (hLast.idx - hFirst.idx);
+          const lPerBar = (lLast.price - lFirst.price) / (lLast.idx - lFirst.idx);
+          const topAtTriStart = hFirst.price + hPerBar * (triStartIdx - hFirst.idx);
+          const botAtTriStart = lFirst.price + lPerBar * (triStartIdx - lFirst.idx);
+          const projTopEnd = hLast.price + hPerBar * ((n - 1) - hLast.idx);
+          const projBotEnd = lLast.price + lPerBar * ((n - 1) - lLast.idx);
+          const startW = topAtTriStart - botAtTriStart;
+          const endW = projTopEnd - projBotEnd;
 
-        // Project upper & lower lines to latest bar cleanly
-        const hPerBar = (hLast.idx > hFirst.idx) ? (hLast.price - hFirst.price) / (hLast.idx - hFirst.idx) : 0;
-        const lPerBar = (lLast.idx > lFirst.idx) ? (lLast.price - lFirst.price) / (lLast.idx - lFirst.idx) : 0;
-        const projTopEnd = hLast.price + hPerBar * ((n - 1) - hLast.idx);
-        const projBotEnd = lLast.price + lPerBar * ((n - 1) - lLast.idx);
-        const triShape = {
-          type: "channel",
-          color: "#c084fc",
-          fillColor: "rgba(168, 85, 247, 0.08)",
-          topStart: { time: hFirst.time, idx: offset + hFirst.idx, price: hFirst.price },
-          topEnd: { time: latest.time, idx: offset + n - 1, price: projTopEnd },
-          botStart: { time: lFirst.time, idx: offset + lFirst.idx, price: lFirst.price },
-          botEnd: { time: latest.time, idx: offset + n - 1, price: projBotEnd }
-        };
-
-        if (Math.abs(hSlope) <= 0.07 && lSlope > 0.07) {
-          found.push({ name: "Ascending Triangle", bias: "bullish", status: latestClose > resLvl ? "Breakout" : "Coiling", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 84 });
-        } else if (Math.abs(lSlope) <= 0.07 && hSlope < -0.07) {
-          found.push({ name: "Descending Triangle", bias: "bearish", status: latestClose < supLvl ? "Breakdown" : "Coiling", level: supLvl, levelLabel: "@ ₹" + supLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 82 });
-        } else if (hSlope < -0.05 && lSlope > 0.05) {
-          found.push({ name: "Symmetrical Triangle", bias: "neutral", status: latestClose > resLvl ? "Breakout" : "Squeeze", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 79 });
-        } else if (hSlope < -0.06 && lSlope < -0.02 && hSlope < lSlope * 1.15) {
-          found.push({ name: "Falling Wedge", bias: "bullish", status: latestClose > resLvl ? "Breakout" : "Reversal Watch", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 81 });
-        } else if (hSlope > 0.02 && lSlope > 0.06 && lSlope > hSlope * 1.15) {
-          found.push({ name: "Rising Wedge", bias: "bearish", status: latestClose < supLvl ? "Breakdown" : "Caution", level: supLvl, levelLabel: "@ ₹" + supLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 78 });
-        }
-      }
-
-      // 6. Bull Flag / Consolidation Box fallback
-      if (n >= 28) {
-        const flagStart = n - 14;
-        const poleStart = n - 28;
-        const flagBars = sub.slice(flagStart);
-        const poleBars = sub.slice(poleStart, flagStart);
-        let pLowIdxRel = 0, pHighIdxRel = 0;
-        for (let k = 1; k < poleBars.length; k++) {
-          if (poleBars[k].low < poleBars[pLowIdxRel].low) pLowIdxRel = k;
-          if (poleBars[k].high > poleBars[pHighIdxRel].high) pHighIdxRel = k;
-        }
-        const poleLow = poleBars[pLowIdxRel].low;
-        const poleHigh = poleBars[pHighIdxRel].high;
-        const poleMove = (poleHigh - poleLow) / poleLow;
-        const flagHigh = Math.max(...flagBars.map(c => c.high));
-        const flagLow = Math.min(...flagBars.map(c => c.low));
-        const flagRange = (flagHigh - flagLow) / flagHigh;
-
-        if (poleMove >= 0.08 && flagRange <= 0.085 && flagLow > poleLow + (poleHigh - poleLow) * 0.4) {
-          const brk = Math.round(flagHigh * 100) / 100;
-          found.push({
-            name: "Bull Flag",
-            bias: "bullish",
-            status: latestClose >= brk * 0.995 ? "Breakout" : "Flagging",
-            level: brk,
-            levelLabel: "@ ₹" + brk,
-            startTime: flagBars[0].time,
-            minIdx: offset + poleStart,
-            shapes: [
-              {
-                type: "polyline",
-                color: "#38bdf8",
-                lineWidth: 2,
-                dots: false,
-                points: [
-                  { time: poleBars[pLowIdxRel].time, idx: offset + poleStart + pLowIdxRel, price: poleLow },
-                  { time: poleBars[pHighIdxRel].time, idx: offset + poleStart + pHighIdxRel, price: poleHigh }
-                ]
-              },
-              {
+          if (startW > 0 && endW > 0 && endW < startW * 0.85 && latestClose >= projBotEnd * 0.96 && latestClose <= projTopEnd * 1.05) {
+            let insideCnt = 0, totalCnt = 0;
+            for (let k = triStartIdx; k < n - 1; k++) {
+              const tLine = hFirst.price + hPerBar * (k - hFirst.idx);
+              const bLine = lFirst.price + lPerBar * (k - lFirst.idx);
+              if (sub[k].close <= tLine * 1.018 && sub[k].close >= bLine * 0.982) insideCnt++;
+              totalCnt++;
+            }
+            if (totalCnt > 0 && insideCnt / totalCnt >= 0.78) {
+              const resLvl = Math.round(projTopEnd * 100) / 100;
+              const supLvl = Math.round(projBotEnd * 100) / 100;
+              const triStart = sub[triStartIdx].time;
+              const triShape = {
                 type: "channel",
                 color: "#c084fc",
-                fillColor: "rgba(168, 85, 247, 0.09)",
-                topStart: { time: flagBars[0].time, idx: offset + flagStart, price: flagHigh },
-                topEnd: { time: latest.time, idx: offset + n - 1, price: flagHigh * 0.995 },
-                botStart: { time: flagBars[0].time, idx: offset + flagStart, price: flagLow },
-                botEnd: { time: latest.time, idx: offset + n - 1, price: flagLow * 0.995 }
+                fillColor: "rgba(168, 85, 247, 0.08)",
+                topStart: { time: hFirst.time, idx: offset + hFirst.idx, price: hFirst.price },
+                topEnd: { time: latest.time, idx: offset + n - 1, price: projTopEnd },
+                botStart: { time: lFirst.time, idx: offset + lFirst.idx, price: lFirst.price },
+                botEnd: { time: latest.time, idx: offset + n - 1, price: projBotEnd }
+              };
+
+              if (Math.abs(hSlope) <= 0.07 && lSlope > 0.07) {
+                found.push({ name: "Ascending Triangle", bias: "bullish", status: latestClose > resLvl ? "Breakout" : "Coiling", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 85 });
+              } else if (Math.abs(lSlope) <= 0.07 && hSlope < -0.07) {
+                found.push({ name: "Descending Triangle", bias: "bearish", status: latestClose < supLvl ? "Breakdown" : "Coiling", level: supLvl, levelLabel: "@ ₹" + supLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 83 });
+              } else if (hSlope < -0.05 && lSlope > 0.05) {
+                found.push({ name: "Symmetrical Triangle", bias: "neutral", status: latestClose > resLvl ? "Breakout" : "Squeeze", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 80 });
+              } else if (hSlope < -0.06 && lSlope < -0.02 && hSlope < lSlope * 1.15) {
+                found.push({ name: "Falling Wedge", bias: "bullish", status: latestClose > resLvl ? "Breakout" : "Reversal Watch", level: resLvl, levelLabel: "@ ₹" + resLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 82 });
+              } else if (hSlope > 0.02 && lSlope > 0.06 && lSlope > hSlope * 1.15) {
+                found.push({ name: "Rising Wedge", bias: "bearish", status: latestClose < supLvl ? "Breakdown" : "Caution", level: supLvl, levelLabel: "@ ₹" + supLvl, startTime: triStart, minIdx: offset + triStartIdx, shapes: [triShape], score: 79 });
               }
-            ],
-            score: 80
-          });
-        } else if (flagRange <= 0.065) {
-          const boxRes = Math.round(flagHigh * 100) / 100;
-          found.push({
-            name: "Tight Box Range",
-            bias: "neutral",
-            status: latestClose >= boxRes * 0.995 ? "Near High" : "Consolidation",
-            level: boxRes,
-            levelLabel: "@ ₹" + boxRes,
-            startTime: flagBars[0].time,
-            minIdx: offset + flagStart,
-            shapes: [{
-              type: "box",
-              color: "#c084fc",
-              fillColor: "rgba(168, 85, 247, 0.08)",
-              startTime: flagBars[0].time,
-              startIdx: offset + flagStart,
-              endTime: latest.time,
-              endIdx: offset + n - 1,
-              high: flagHigh,
-              low: flagLow
-            }],
-            score: 70
-          });
+            }
+          }
         }
       }
 
-      // Final trend structure fallback with Parallel Linear Regression Channel (Uptrend / Downtrend Channel)
+      // 6. Dynamic Bull Flag (find real impulse peak + pullback flag channel)
+      if (n >= 24) {
+        let bestFlag = null;
+        for (let fStart = n - 18; fStart <= n - 4; fStart++) {
+          let pLowIdx = Math.max(0, fStart - 16);
+          for (let k = Math.max(0, fStart - 16); k < fStart - 3; k++) {
+            if (sub[k].low < sub[pLowIdx].low) pLowIdx = k;
+          }
+          const poleLow = sub[pLowIdx].low;
+          const poleHigh = sub[fStart].high;
+          if (fStart - pLowIdx < 3) continue;
+          const poleMove = (poleHigh - poleLow) / poleLow;
+          if (poleMove < 0.08) continue;
+
+          const flagBars = sub.slice(fStart);
+          const fCh = fitLinearChannel(flagBars);
+          const flagRange = (fCh.hi - fCh.lo) / fCh.hi;
+          if (flagRange <= 0.10 && fCh.lo >= poleLow + (poleHigh - poleLow) * 0.45 && fCh.hi <= poleHigh * 1.02 && fCh.slopePct <= 0.12) {
+            const brk = Math.round(fCh.hi * 100) / 100;
+            const cand = {
+              name: "Bull Flag",
+              bias: "bullish",
+              status: latestClose >= brk * 0.992 ? "Breakout" : "Flagging",
+              level: brk,
+              levelLabel: "@ ₹" + brk,
+              startTime: flagBars[0].time,
+              minIdx: offset + pLowIdx,
+              shapes: [
+                {
+                  type: "polyline",
+                  color: "#38bdf8",
+                  lineWidth: 2,
+                  dots: false,
+                  points: [
+                    { time: sub[pLowIdx].time, idx: offset + pLowIdx, price: poleLow },
+                    { time: sub[fStart].time, idx: offset + fStart, price: poleHigh }
+                  ]
+                },
+                {
+                  type: "channel",
+                  color: "#c084fc",
+                  fillColor: "rgba(168, 85, 247, 0.09)",
+                  topStart: { time: flagBars[0].time, idx: offset + fStart, price: fCh.topStartY },
+                  topEnd: { time: latest.time, idx: offset + n - 1, price: fCh.topEndY },
+                  botStart: { time: flagBars[0].time, idx: offset + fStart, price: fCh.botStartY },
+                  botEnd: { time: latest.time, idx: offset + n - 1, price: fCh.botEndY }
+                }
+              ],
+              score: 81 + Math.min(5, poleMove * 20)
+            };
+            if (!bestFlag || cand.score > bestFlag.score) bestFlag = cand;
+          }
+        }
+        if (bestFlag) found.push(bestFlag);
+      }
+
+      // 7. Tight Box Range or Parallel Regression Channel Fallback
       if (found.length === 0) {
         const chLen = Math.min(20, n);
         const chStart = n - chLen;
         const recent = sub.slice(chStart);
-        let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
-        for (let i = 0; i < chLen; i++) {
-          const mid = (recent[i].high + recent[i].low) / 2;
-          sumX += i; sumY += mid; sumXY += i * mid; sumXX += i * i;
+        const ch = fitLinearChannel(recent);
+        const rngPct = (ch.hi - ch.lo) / ch.hi;
+
+        if (rngPct <= 0.068 && Math.abs(ch.slopePct) <= 0.10) {
+          found.push({
+            name: "Tight Box Range",
+            bias: "neutral",
+            status: latestClose >= ch.hi * 0.992 ? "Near High" : "Consolidation",
+            level: ch.hi,
+            levelLabel: "@ ₹" + ch.hi,
+            startTime: recent[0].time,
+            minIdx: offset + chStart,
+            shapes: [{
+              type: "box",
+              color: "#c084fc",
+              fillColor: "rgba(168, 85, 247, 0.08)",
+              startTime: recent[0].time,
+              startIdx: offset + chStart,
+              endTime: latest.time,
+              endIdx: offset + n - 1,
+              high: ch.hi,
+              low: ch.lo
+            }],
+            score: 70
+          });
+        } else {
+          const pctFromLow = (latestClose - ch.lo) / (ch.hi - ch.lo || 1);
+          const isSideways = Math.abs(ch.slopePct) < 0.06;
+          const isUp = ch.slopePct >= 0.06;
+          const chColor = isUp ? "rgba(16, 185, 129, 0.85)" : (isSideways ? "rgba(192, 132, 252, 0.85)" : "rgba(248, 113, 113, 0.85)");
+          const chFill = isUp ? "rgba(16, 185, 129, 0.06)" : (isSideways ? "rgba(168, 85, 247, 0.06)" : "rgba(248, 113, 113, 0.06)");
+          const name = isSideways ? "Sideways Channel" : (isUp ? (pctFromLow < 0.72 ? "Pullback in Uptrend" : "Uptrend Channel") : "Downtrend Channel");
+          const lvl = isUp || isSideways ? ch.hi : ch.lo;
+
+          found.push({
+            name,
+            bias: isSideways ? "neutral" : (isUp ? "bullish" : "bearish"),
+            status: pctFromLow >= 0.88 ? "Near Resistance" : (pctFromLow <= 0.25 ? "At Support" : "Active"),
+            level: lvl,
+            levelLabel: "@ ₹" + lvl,
+            startTime: recent[0].time,
+            minIdx: offset + chStart,
+            shapes: [{
+              type: "channel",
+              color: chColor,
+              fillColor: chFill,
+              topStart: { time: recent[0].time, idx: offset + chStart, price: ch.topStartY },
+              topEnd: { time: latest.time, idx: offset + n - 1, price: ch.topEndY },
+              botStart: { time: recent[0].time, idx: offset + chStart, price: ch.botStartY },
+              botEnd: { time: latest.time, idx: offset + n - 1, price: ch.botEndY }
+            }],
+            score: 50
+          });
         }
-        const denom = chLen * sumXX - sumX * sumX;
-        const slope = Math.abs(denom) > 1e-6 ? (chLen * sumXY - sumX * sumY) / denom : 0;
-        const intercept = (sumY - slope * sumX) / chLen;
-
-        const upDevs = [], dnDevs = [];
-        for (let i = 0; i < chLen; i++) {
-          const reg = intercept + slope * i;
-          upDevs.push(recent[i].high - reg);
-          dnDevs.push(reg - recent[i].low);
-        }
-        upDevs.sort((a, b) => a - b);
-        dnDevs.sort((a, b) => a - b);
-        const upIdx = Math.min(upDevs.length - 1, Math.floor(upDevs.length * 0.9));
-        const dnIdx = Math.min(dnDevs.length - 1, Math.floor(dnDevs.length * 0.9));
-        const upDev = upDevs[upIdx];
-        const dnDev = dnDevs[dnIdx];
-
-        const topStartY = intercept + upDev;
-        const topEndY = intercept + slope * (chLen - 1) + upDev;
-        const botStartY = intercept - dnDev;
-        const botEndY = intercept + slope * (chLen - 1) - dnDev;
-
-        const hi20 = Math.round(Math.max(...recent.map(c => c.high)) * 100) / 100;
-        const lo20 = Math.round(Math.min(...recent.map(c => c.low)) * 100) / 100;
-        const pctFromLow = (latestClose - lo20) / (hi20 - lo20 || 1);
-        const isUp = slope >= 0;
-        const chColor = isUp ? "rgba(16, 185, 129, 0.85)" : "rgba(248, 113, 113, 0.85)";
-        const chFill = isUp ? "rgba(16, 185, 129, 0.06)" : "rgba(248, 113, 113, 0.06)";
-
-        found.push({
-          name: isUp ? (pctFromLow < 0.72 ? "Pullback in Uptrend" : "Uptrend Channel") : "Downtrend Channel",
-          bias: isUp ? "bullish" : "bearish",
-          status: pctFromLow >= 0.88 ? "Near Resistance" : (pctFromLow <= 0.25 ? "At Support" : "Active"),
-          level: isUp ? hi20 : lo20,
-          levelLabel: "@ ₹" + (isUp ? hi20 : lo20),
-          startTime: recent[0].time,
-          minIdx: offset + chStart,
-          shapes: [{
-            type: "channel",
-            color: chColor,
-            fillColor: chFill,
-            topStart: { time: recent[0].time, idx: offset + chStart, price: topStartY },
-            topEnd: { time: latest.time, idx: offset + n - 1, price: topEndY },
-            botStart: { time: recent[0].time, idx: offset + chStart, price: botStartY },
-            botEnd: { time: latest.time, idx: offset + n - 1, price: botEndY }
-          }],
-          score: 50
-        });
       }
 
       found.sort((a, b) => (b.score || 0) - (a.score || 0));
